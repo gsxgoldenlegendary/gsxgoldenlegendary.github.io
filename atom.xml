@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>SONGXIAO&#39;S TOPBLOG</title>
+  
+  <subtitle>VENI VIDI VICI</subtitle>
+  <link href="http://gsxgoldenlegendary.github.io/atom.xml" rel="self"/>
+  
+  <link href="http://gsxgoldenlegendary.github.io/"/>
+  <updated>2022-06-21T06:43:54.000Z</updated>
+  <id>http://gsxgoldenlegendary.github.io/</id>
+  
+  <author>
+    <name>GUO Songxiao</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Introduction to Information Security Crip</title>
+    <link href="http://gsxgoldenlegendary.github.io/2022/05/21/Introduction-to-Information-Security-Crip/"/>
+    <id>http://gsxgoldenlegendary.github.io/2022/05/21/Introduction-to-Information-Security-Crip/</id>
+    <published>2022-05-21T14:42:07.000Z</published>
+    <updated>2022-06-21T06:43:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>信息安全导论期末考试合法小抄：</p><p><span class="exturl" data-url="aHR0cHM6Ly9nc3hnb2xkZW5sZWdlbmRhcnkuZ2l0aHViLmlvL2ZpbGVzLzIwMjIwNTIxJUU4JTgwJTgzJUU4JUFGJTk1JUU4JUI1JTg0JUU2JTk2JTk5JUVGJUJDJTlBJUU0JUJGJUExJUU2JTgxJUFGJUU1JUFFJTg5JUU1JTg1JUE4JUU1JUFGJUJDJUU4JUFFJUJBJUU2JTlDJTlGJUU2JTlDJUFCJUU4JTgwJTgzJUU4JUFGJTk1JUU1JUIwJThGJUU2JThBJTg0LnBkZg==">移动端点击链接下载查看<i class="fa fa-external-link-alt"></i></span></p><span id="more"></span><div class="pdf-container" data-target="https://gsxgoldenlegendary.github.io/files/20220521考试资料：信息安全导论期末考试小抄.pdf" data-height="500px"></div>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;信息安全导论期末考试合法小抄：&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9nc3hnb2xkZW5sZWdlbmRhcnkuZ2l0aHViLmlvL2ZpbGVzLzIwMjIwNTIxJUU4JTgwJTgzJUU4JUFGJTk1JUU4JUI1JTg0JUU2JTk2JTk5JUVGJUJDJTlBJUU0JUJGJUExJUU2JTgxJUFGJUU1JUFFJTg5JUU1JTg1JUE4JUU1JUFGJUJDJUU4JUFFJUJBJUU2JTlDJTlGJUU2JTlDJUFCJUU4JTgwJTgzJUU4JUFGJTk1JUU1JUIwJThGJUU2JThBJTg0LnBkZg==&quot;&gt;移动端点击链接下载查看&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Computer Science" scheme="http://gsxgoldenlegendary.github.io/categories/Computer-Science/"/>
+    
+    
+    <category term="Information Security" scheme="http://gsxgoldenlegendary.github.io/tags/Information-Security/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Portable Executable Virus</title>
+    <link href="http://gsxgoldenlegendary.github.io/2022/05/19/Portable-Executable-Virus/"/>
+    <id>http://gsxgoldenlegendary.github.io/2022/05/19/Portable-Executable-Virus/</id>
+    <published>2022-05-18T16:59:48.000Z</published>
+    <updated>2022-06-19T04:53:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>信息安全导论实验报告《PE病毒》：</p><p><span class="exturl" data-url="aHR0cHM6Ly9nc3hnb2xkZW5sZWdlbmRhcnkuZ2l0aHViLmlvL2ZpbGVzLzIwMjIwNTE4JUU1JUFFJTlFJUU5JUFBJThDJUU2JThBJUE1JUU1JTkxJThBJUVGJUJDJTlBUEUlRTclOTclODUlRTYlQUYlOTIucGRm">移动端点击链接下载查看<i class="fa fa-external-link-alt"></i></span></p><span id="more"></span><div class="pdf-container" data-target="https://gsxgoldenlegendary.github.io/files/20220518实验报告：PE病毒.pdf" data-height="500px"></div>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;信息安全导论实验报告《PE病毒》：&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9nc3hnb2xkZW5sZWdlbmRhcnkuZ2l0aHViLmlvL2ZpbGVzLzIwMjIwNTE4JUU1JUFFJTlFJUU5JUFBJThDJUU2JThBJUE1JUU1JTkxJThBJUVGJUJDJTlBUEUlRTclOTclODUlRTYlQUYlOTIucGRm&quot;&gt;移动端点击链接下载查看&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Computer Science" scheme="http://gsxgoldenlegendary.github.io/categories/Computer-Science/"/>
+    
+    
+    <category term="Information Security" scheme="http://gsxgoldenlegendary.github.io/tags/Information-Security/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Implement Netgate-Netgate VPN with Windows 2003</title>
+    <link href="http://gsxgoldenlegendary.github.io/2022/05/07/Implement-Netgate-Netgate-VPN-with-Windows-2003/"/>
+    <id>http://gsxgoldenlegendary.github.io/2022/05/07/Implement-Netgate-Netgate-VPN-with-Windows-2003/</id>
+    <published>2022-05-06T21:33:56.000Z</published>
+    <updated>2022-06-06T13:39:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>信息安全导论实验报告《用Windows2003实现网关-网关VPN》：</p><p><span class="exturl" data-url="aHR0cHM6Ly9nc3hnb2xkZW5sZWdlbmRhcnkuZ2l0aHViLmlvL2ZpbGVzLzIwMjIwNTAzJUU1JUFFJTlFJUU5JUFBJThDJUU2JThBJUE1JUU1JTkxJThBJUVGJUJDJTlBJUU3JTk0JUE4V2luZG93czIwMDMlRTUlQUUlOUUlRTclOEUlQjAlRTclQkQlOTElRTUlODUlQjMtJUU3JUJEJTkxJUU1JTg1JUIzVlBOLnBkZg==">移动端点击链接下载查看<i class="fa fa-external-link-alt"></i></span></p><span id="more"></span><div class="pdf-container" data-target="https://gsxgoldenlegendary.github.io/files/20220503实验报告：用Windows2003实现网关-网关VPN.pdf" data-height="500px"></div>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;信息安全导论实验报告《用Windows2003实现网关-网关VPN》：&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9nc3hnb2xkZW5sZWdlbmRhcnkuZ2l0aHViLmlvL2ZpbGVzLzIwMjIwNTAzJUU1JUFFJTlFJUU5JUFBJThDJUU2JThBJUE1JUU1JTkxJThBJUVGJUJDJTlBJUU3JTk0JUE4V2luZG93czIwMDMlRTUlQUUlOUUlRTclOEUlQjAlRTclQkQlOTElRTUlODUlQjMtJUU3JUJEJTkxJUU1JTg1JUIzVlBOLnBkZg==&quot;&gt;移动端点击链接下载查看&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Computer Science" scheme="http://gsxgoldenlegendary.github.io/categories/Computer-Science/"/>
+    
+    
+    <category term="Information Security" scheme="http://gsxgoldenlegendary.github.io/tags/Information-Security/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Network Attack Technology</title>
+    <link href="http://gsxgoldenlegendary.github.io/2022/04/16/Network-Attack-Technology/"/>
+    <id>http://gsxgoldenlegendary.github.io/2022/04/16/Network-Attack-Technology/</id>
+    <published>2022-04-15T21:17:27.000Z</published>
+    <updated>2022-05-15T13:19:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>信息安全导论实验报告《网络攻击技术》：</p><p><span class="exturl" data-url="aHR0cHM6Ly9nc3hnb2xkZW5sZWdlbmRhcnkuZ2l0aHViLmlvL2ZpbGVzL2NvbXB1dGVyMTEucGRm">移动端点击链接下载查看<i class="fa fa-external-link-alt"></i></span></p><span id="more"></span><div class="pdf-container" data-target="https://gsxgoldenlegendary.github.io/files/computer11.pdf" data-height="500px"></div>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;信息安全导论实验报告《网络攻击技术》：&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9nc3hnb2xkZW5sZWdlbmRhcnkuZ2l0aHViLmlvL2ZpbGVzL2NvbXB1dGVyMTEucGRm&quot;&gt;移动端点击链接下载查看&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Computer Science" scheme="http://gsxgoldenlegendary.github.io/categories/Computer-Science/"/>
+    
+    
+    <category term="Information Security" scheme="http://gsxgoldenlegendary.github.io/tags/Information-Security/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Predicative Calculus</title>
+    <link href="http://gsxgoldenlegendary.github.io/2022/04/14/Predicative-Calculus/"/>
+    <id>http://gsxgoldenlegendary.github.io/2022/04/14/Predicative-Calculus/</id>
+    <published>2022-04-14T10:11:10.000Z</published>
+    <updated>2022-06-08T01:38:32.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>谓词演算对命题演算的改进在于：深入分析“原子命题”内部结构，同时引进量词运算。这是一种更细致、更复杂的数学模型，它能更深入、更广泛地表现实际的推理过程。</p><span id="more"></span><h1 id="谓词演算的建立"><a href="#谓词演算的建立" class="headerlink" title="谓词演算的建立"></a>谓词演算的建立</h1><h2 id="闭项"><a href="#闭项" class="headerlink" title="闭项"></a>闭项</h2><p>只含个体常元的项叫做闭项。</p><h2 id="原子公式集"><a href="#原子公式集" class="headerlink" title="原子公式集"></a>原子公式集</h2><p>原子公式集是指<br>$$<br>Y&#x3D;\mathop\cup_{i,n}({R_i^n}\times \underbrace {T\times\cdots\times T}_{n个T})<br>$$<br>即<br>$$<br>Y&#x3D;{(R_i^n,t_1,\cdots,t_n|R_i^n\in R,t_1,\cdots,t_n\in T}.<br>$$</p><h2 id="变元的自由出现与约束出现"><a href="#变元的自由出现与约束出现" class="headerlink" title="变元的自由出现与约束出现"></a>变元的自由出现与约束出现</h2><p>在一个公式里，个体变元$x$的出现如果不是在$\forall x$中或在$\forall x$的范围中，则叫做自由出现，否则叫做约束出现。</p><h2 id="闭式"><a href="#闭式" class="headerlink" title="闭式"></a>闭式</h2><p>公式若不含自由出现的变元，则叫做闭式。</p><h2 id="项-t-对公式-p-中变元-x-是自由的"><a href="#项-t-对公式-p-中变元-x-是自由的" class="headerlink" title="项$t$对公式$p$中变元$x$是自由的"></a>项$t$对公式$p$中变元$x$是自由的</h2><p>用项$t$去代换公式$p$中自由出现的个体变元$x$时，若在代换后的新公式里，$t$的变元都是自由的，则说$t$对$p$中$x$是可自由代换的，简称$t$对公式$p$中变元$x$是可代换的，或简称$t$对$p$中$x$是自由的。</p><h2 id="谓词演算K"><a href="#谓词演算K" class="headerlink" title="谓词演算K"></a>谓词演算K</h2><p>谓词演算$K$是指带有如下规定的“公理”和“证明”的公式集$K(Y)$。</p><ol><li><p>“公理”</p><p>取$K(Y)$中间以下形状的公式作为“公理”。</p><p>(K1)$p\to(q\to p)$；</p><p>(K2)$(p\to(q\to r))\to((p\to q)\to(p\to r))$；</p><p>(K3)$(\neg p\to\neg q)\to(q\to p)$；</p><p>(K4)$\forall xp(x)\to p(t)$，其中项$t$对怕$p(x)$中的$x$是自由的；</p><p>(K5)$\forall x(p\to q)\to(p\to\forall xq)$，其中$x$不在$p$中自由出现。</p><p>以上给出的五种公理模式，其中$p,q,r,p(x)$都是任意的公式。</p></li><li><p>“证明”</p><p>设$p$是某个公式，$\Gamma$是某个公式集。$p$从$\Gamma$可证，记作$\Gamma \vdash p$，是指存在着公式的有限序列$p_1,\cdots,p_n$，其中$p_n&#x3D;p$，且对每个$k&#x3D;1,\cdots,n$，有</p><p>(i)$p_k\in\Gamma$，或</p><p>(ii)$p_k$为公理，或</p><p>(iii)存在$i,j&lt;k$，使$p_j&#x3D;p_i\to p_k$（此时说由$p_i,p_i\to p_k$使用MP得到$p_k$），或</p><p>(iv)存在$j&lt;k$，使$p_k&#x3D;\forall xp_j$使用“Gen”这条推理规则得到$p_k$，$x$叫做Gen变元。</p></li></ol><h2 id="命题演算与谓词演算"><a href="#命题演算与谓词演算" class="headerlink" title="命题演算与谓词演算"></a>命题演算与谓词演算</h2><p>设$x_i,\cdots,x_n$是命题演算$L$的命题变元，$p(x_1,\cdots,x_n)\in L(X_n)$。我们有<br>$$<br>\vdash_L p(x_1,\cdots,x_n)\Rightarrow\vdash_K p(p_1,\cdots,p_n),<br>$$<br>其中$p_1,\cdots,p_n\in K(Y)$，$p(p_1,\cdots,p_n)$是用$p_1,\cdots,p_n$分别代换$p(x_1,\cdots,x_n)$中的$x_1,\cdots,x_n$所得结果。</p><h2 id="命题演算型永真式"><a href="#命题演算型永真式" class="headerlink" title="命题演算型永真式"></a>命题演算型永真式</h2><p>若$p(x_1,\cdots,x_n)\in L(X_n)$是命题演算$L$中的永真式，则对任意$p_1,\cdots,p_n\in K(Y)$，$p(p_1,\cdots,p_n)$叫做$K$的命题演算型永真式，简称永真式。</p><h2 id="演绎定理"><a href="#演绎定理" class="headerlink" title="演绎定理"></a>演绎定理</h2><ol><li>若$\Gamma \vdash p\to q$，则$\Gamma\cup{p}\vdash q$；</li><li>若$\Gamma\cup{p}\vdash q$，且证明中所用Gen变元不在$p$中自由出现，则不增加Gen变元就可得$\Gamma\vdash p\to q$。</li></ol><h2 id="反证律"><a href="#反证律" class="headerlink" title="反证律"></a>反证律</h2><p>若$\Gamma\cup{\neg p}\vdash q$及$\neg q$，且所用Gen变元不在$p$中自由出现，则不增加新的Gen变元便可得$\Gamma\vdash p$，</p><h2 id="归谬率"><a href="#归谬率" class="headerlink" title="归谬率"></a>归谬率</h2><p>若$\Gamma\cup{\neg p}\vdash q$及$\neg q$，且所用Gen变元不在$p$中自由出现，则不增加新的Gen变元便可得$\Gamma\vdash\neg p$，</p><h2 id="可证等价"><a href="#可证等价" class="headerlink" title="可证等价"></a>可证等价</h2><p>$p$与$q$可证等价（简称等价）指$\vdash p\leftrightarrow q$成立。</p><h2 id="子公式的等价可替换性"><a href="#子公式的等价可替换性" class="headerlink" title="子公式的等价可替换性"></a>子公式的等价可替换性</h2><p>设公式$q$是公式$p$的子公式：$p&#x3D;\cdots q\cdots$。用公式$q&#39;$替换$p$中的$q$（一次替换）所得结果记为$p&#39;&#x3D;\cdots q&#39;\cdots$。则有<br>$$<br>\Gamma\vdash q\leftrightarrow q&#39;\Rightarrow\Gamma\vdash p\leftrightarrow p&#39;.<br>$$</p><h2 id="对偶律"><a href="#对偶律" class="headerlink" title="对偶律"></a>对偶律</h2><p>设公式$p$已表示成含原子公式以及$\neg,\wedge,\vee,\forall,\exists$的公式。现把$p$中所有原子公式都改为它们的否定，$\vee$与$\wedge$互换，$\forall$与$\exists$互换，得公式$p^*$，则有<br>$$<br>\vdash p^*\leftrightarrow\neg p.<br>$$</p><h2 id="前束范式"><a href="#前束范式" class="headerlink" title="前束范式"></a>前束范式</h2><p>前束范式，指形如<br>$$<br>Q_1x\cdots Q_nyp<br>$$<br>的公式，其中$Q_1,\cdots Q_n$表示量词符号$\forall$或$\exists$，尾部$p$是不含量词的公式。</p><h2 id="Pi-n-型和-Sigma-n-型前束范式"><a href="#Pi-n-型和-Sigma-n-型前束范式" class="headerlink" title="$\Pi_n$型和$\Sigma_n$型前束范式"></a>$\Pi_n$型和$\Sigma_n$型前束范式</h2><p>设$n&gt;0$。若前束范式是由全称量词开始，从左至右改变$n-1$次词性，则叫做$\Pi_n$型前束范式；若是由特称量词开始，从左至右改变$n-1$次词性，则叫做$\Sigma_n$型前束范式。</p><h1 id="谓词演算的语义"><a href="#谓词演算的语义" class="headerlink" title="谓词演算的语义"></a>谓词演算的语义</h1><h2 id="K-的解释域"><a href="#K-的解释域" class="headerlink" title="$K$的解释域"></a>$K$的解释域</h2><p>设非空集$M$具有以下性质：</p><ol><li><p>对$K$的每个个体常元$c_i$，都有$M$的元素$\overline{c_i}$与之对应：<br>$$<br>c_i\mapsto\overline{c_i},\overline{c_i}\in M;<br>$$</p></li><li><p>对$K$的每个运算符$f_i^n$，都有$M$上的$n$元运算$\overline{f_i^n}$与之对应：<br>$$<br>f_i^n\mapsto\overline{f_i^n},\overline{f_i^n}是 M上的n元运算;<br>$$</p></li><li><p>对$K$的每个谓词$R_i^n$，都有$M$上的$n$元关系$\overline{R_i^n}$与之对应：<br>$$<br>R_i^n\mapsto\overline{R_i^n},\overline{R_i^n}是 M上的n元关系.<br>$$</p></li></ol><p>带有上述三个映射的非空集$M$叫做$K$的解释域。</p><h2 id="项解释的变元变通"><a href="#项解释的变元变通" class="headerlink" title="项解释的变元变通"></a>项解释的变元变通</h2><p>设$x$是某个给定的个体变元，$y$是任意的个体变元，且$\varphi,\varphi&#39;\in\Phi_M$满足条件<br>$$<br>y\neq x\Rightarrow\phi&#39;(y)&#x3D;\phi(y).<br>$$<br>则把$\varphi&#39;$叫做$\varphi$的$x$变通。（此时$\varphi$与$\varphi &#39;$互为对方的$x$变通。</p><h2 id="公式的赋值函数"><a href="#公式的赋值函数" class="headerlink" title="公式的赋值函数"></a>公式的赋值函数</h2><p>设$M$是给定的解释域，$p$是$K$中任一公式。由公式$p$按下面方式归纳定义  的函数$|p|:\Phi_M\to \mathbb Z_2$叫做公式$p$的赋值函数。</p><p>对任一项解释$\varphi\in\Phi_M$，</p><ol><li><p>当$p$为原子公式$R_i^n(t_1,\cdots,t_n)$时，令<br>$$<br>|p|(\varphi)&#x3D;<br>\begin{cases}<br>1,若(\overline{t_1},\cdots,\overline{t_n})\in\overline{R_i^n},\<br>0,若(\overline{t_1},\cdots,\overline{t_n})\notin\overline{R_i^n};<br>\end{cases}<br>$$</p></li><li><p>当$p$是$\neg q$或$q\to r$时，令<br>$$<br>|\neg q|(\varphi)&#x3D;\neq|q|(\varphi),<br>$$</p><p>$$<br>|q\to r|(\varphi)&#x3D;|q|(\varphi)\to|r|(\varphi);<br>$$</p></li><li><p>当$p$是$\forall xq$时，令<br>$$<br>\forall xq|(\varphi)&#x3D;<br>\begin{cases}<br>1,若\varphi的任一x变通\varphi&#39;都使|q|(\varphi&#39;)&#x3D;1,\<br>0,若存在\varphi的x变通\varphi&#39;使|q|(\varphi&#39;)&#x3D;0.<br>\end{cases}<br>$$</p></li></ol><h2 id="公式在解释域中恒真与恒假"><a href="#公式在解释域中恒真与恒假" class="headerlink" title="公式在解释域中恒真与恒假"></a>公式在解释域中恒真与恒假</h2><p>公式$p$在解释域$M$中恒真，记作$|p|_M&#x3D;1$，是指对任一$\varphi\in\Phi_M$，$|p|(\varphi)&#x3D;1$；公式$p$在解释域$M$中恒假，记作$|p|_M&#x3D;1$，是指对任一$\varphi\in\Phi_M$，$|p|(\varphi)&#x3D;0$。</p><h2 id="闭式的语义特征"><a href="#闭式的语义特征" class="headerlink" title="闭式的语义特征"></a>闭式的语义特征</h2><p>对给定的解释域$M$，任一闭式$p$在$M$中恒真与恒假二者必居其一：或$|p|_M&#x3D;1$，或$|p|_M&#x3D;0$。</p><h2 id="全称闭式"><a href="#全称闭式" class="headerlink" title="全称闭式"></a>全称闭式</h2><p>设$x_{i_1},\cdots,x_{i_n}$是在$p$中自由出现的全部变元，则<br>$$<br>\forall x_{i_1}\cdots\forall x_{i_n}p<br>$$<br>叫做$p$的全称闭式。</p><h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p>设$M$是$K$的一个解释域。$M$是公式集$\Gamma$的模型，指$\Gamma$的每个公式都在$M$中恒真：<br>$$<br>r\in \Gamma\Rightarrow|r|_M&#x3D;1.<br>$$<br>$\Gamma&#x3D;\emptyset$时任何解释域都是$\Gamma$的模型。</p><h2 id="语义推论"><a href="#语义推论" class="headerlink" title="语义推论"></a>语义推论</h2><p>公式$p$是公式集$\Gamma$的语义推论，记作$\Gamma\vDash p$，指$p$在$\Gamma$的所有模型中都恒真，即：在使$\Gamma$的每个成员都恒真的解释中，$p$也恒真；或者说，$\Gamma$的任何模型都是$\Gamma\cup{p}$的模型。</p><h2 id="有效式与满足公式"><a href="#有效式与满足公式" class="headerlink" title="有效式与满足公式"></a>有效式与满足公式</h2><p>$\emptyset\vDash p$时，$p$叫做$K$的有效式，记为$\vDash p$。</p><p>若$\neg p$不是有效式，则$p$叫做$K$的可满足公式。</p><h1 id="K的可靠性"><a href="#K的可靠性" class="headerlink" title="K的可靠性"></a>K的可靠性</h1><h2 id="K的可靠性-1"><a href="#K的可靠性-1" class="headerlink" title="K的可靠性"></a>K的可靠性</h2><p>$$<br>\Gamma\vdash p\Rightarrow\Gamma\vDash p.<br>$$</p><h1 id="K的完全性"><a href="#K的完全性" class="headerlink" title="K的完全性"></a>K的完全性</h1><h2 id="无矛盾公式集的模型"><a href="#无矛盾公式集的模型" class="headerlink" title="无矛盾公式集的模型"></a>无矛盾公式集的模型</h2><p>无矛盾公式集一定有可数集模型。</p><h2 id="K的完全性-1"><a href="#K的完全性-1" class="headerlink" title="K的完全性"></a>K的完全性</h2><p>$$<br>\Gamma\vDash p\Rightarrow\Gamma\vdash p.<br>$$</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;谓词演算对命题演算的改进在于：深入分析“原子命题”内部结构，同时引进量词运算。这是一种更细致、更复杂的数学模型，它能更深入、更广泛地表现实际的推理过程。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Mathematics" scheme="http://gsxgoldenlegendary.github.io/categories/Mathematics/"/>
+    
+    
+    <category term="Mathematical Logic" scheme="http://gsxgoldenlegendary.github.io/tags/Mathematical-Logic/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Propositional Calculus</title>
+    <link href="http://gsxgoldenlegendary.github.io/2022/04/14/Propositional-Calculus/"/>
+    <id>http://gsxgoldenlegendary.github.io/2022/04/14/Propositional-Calculus/</id>
+    <published>2022-04-14T10:10:36.000Z</published>
+    <updated>2022-05-15T02:40:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>命题演算是我们要建立的最简单、最基本的形式系统。这种系统是用来表现较为简单的逻辑推理的一种数学模型。命题演算的简单性表现在：当它把复合命题分解成最简单的命题后，就把简单命题视为最小的考察对象，不再继续对简单命题进行分解了。研究这种系统，除去为直接应用，还为研究谓词演算（用来表现更为复杂的推理的形式系统）打下基础。</p><span id="more"></span><h1 id="命题演算的建立"><a href="#命题演算的建立" class="headerlink" title="命题演算的建立"></a>命题演算的建立</h1><h2 id="命题演算L"><a href="#命题演算L" class="headerlink" title="命题演算L"></a>命题演算L</h2><p>命题变元集$X&#x3D;{x_1,x_2,\cdots}$上的命题演算L是指带有下面规定的“公理”和“证明”的命题代数$L(X)$：</p><p>（1）“公理”</p><p>取$L(X)$的具有以下形状的公式作为“公理”：</p><p>（L1，肯定后件律）$p\to(q\to p),$</p><p>（L2，蕴含词分配律）$(p\to (q\to r))\to((p\to q)\to(p\to r)),$</p><p>（L3，换位律）$(\neg p\to\neg q)\to(q\to p),$</p><p>其中$p,q,r\in L(X)$。</p><p>（2）“证明”</p><p>设$\Gamma\subseteq L(X),p\in L(X)$。当我们说“公式$p$是从公式集$\Gamma$可证的”，是指存在着$L(X)$的公式有限序列$p_1,\cdots,p_n$，其中尾项$p_n&#x3D;p$，且每个$p_k(k&#x3D;1,\cdots,n)$满足：</p><p>（i）$p_k\in\Gamma$，或</p><p>（ii）$p_k$是“公理”，或</p><p>（iii）存在$i,j&lt;k$使$p_j&#x3D;p_i\to p_k$。</p><p>具有上述性质的有限序列$p_1,\cdots,p_n$，叫做$p$从$\Gamma$的“证明”。</p><h2 id="语法推论"><a href="#语法推论" class="headerlink" title="语法推论"></a>语法推论</h2><p>建立了命题演算L之后，进一步规定：</p><p>（1）如果公式$p$从公式集$\Gamma$可证，那么我们写$\Gamma\vdash p$，必要时也可写成$\Gamma\vdash_L p$，这时$\Gamma$中的公式叫做“假定”，$p$叫做假定集$\Gamma$的语法推论。</p><p>（2）若$\emptyset\vdash p$，则称$p$是$L$的“定理”，记为$\vdash p$。$p$在$L$中从$\emptyset$的证明$p_1,\cdots,p_n$简称为$p$在$L$中的证明。</p><p>（3）在一个证明中，当$p_j&#x3D;p_i\to p_k(i,j&lt;k)$时，就说$p_k$由$p_i,p_p\to p_k$使用假言推理（Modus Ponens）这条推理规则而得，或简单地说“使用MP”而得。</p><h2 id="无矛盾公式集"><a href="#无矛盾公式集" class="headerlink" title="无矛盾公式集"></a>无矛盾公式集</h2><p>如果对任何公式$q$，$\Gamma\vdash q$和$\Gamma\vdash\neg q$二者都不同时成立，就称公式集$\Gamma$是无矛盾公式集，否则称公式集$\Gamma$是有矛盾公式集。</p><h2 id="演绎定理"><a href="#演绎定理" class="headerlink" title="演绎定理"></a>演绎定理</h2><p>$$<br>\Gamma\cup{p}\vdash q\Leftrightarrow\Gamma\vdash p\to q.<br>$$</p><h2 id="假设三段论（Hypothetical-Syllogism-HS）"><a href="#假设三段论（Hypothetical-Syllogism-HS）" class="headerlink" title="假设三段论（Hypothetical Syllogism,HS）"></a>假设三段论（Hypothetical Syllogism,HS）</h2><p>$$<br>{p\to q,q\to r}\vdash p\to r.<br>$$</p><h2 id="反证律"><a href="#反证律" class="headerlink" title="反证律"></a>反证律</h2><p>$$<br>\begin{array}\<br>\Gamma\cup{\neg p}\vdash q\<br>\Gamma\cup{\neg p}\vdash \neg q<br>\end{array}<br>\left}<br>\Rightarrow<br>\Gamma\vdash p.<br>\right.<br>$$</p><h2 id="归谬律"><a href="#归谬律" class="headerlink" title="归谬律"></a>归谬律</h2><p>$$<br>\begin{array}\<br>\Gamma\cup{p}\vdash q\<br>\Gamma\cup{p}\vdash \neg q<br>\end{array}<br>\left}<br>\Rightarrow<br>\Gamma\vdash\neg p.<br>\right.<br>$$</p><h1 id="命题演算的语义"><a href="#命题演算的语义" class="headerlink" title="命题演算的语义"></a>命题演算的语义</h1><h2 id="真值函数"><a href="#真值函数" class="headerlink" title="真值函数"></a>真值函数</h2><p>函数$f:\mathbb Z_2^n\to\mathbb Z_2$叫做$n$元真值函数。</p><h2 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h2><p>具有“保运算性”的映射$v:L(X)\to Z_2$叫做$L(X)$的赋值。映射具有保运算性，是指对任意$p,q\in L(X)$，$v$满足条件：</p><ol><li>$v(\neg p)&#x3D;\neg v(p),$</li><li>$v(p\to q)&#x3D;v(p)\to v(q).$</li></ol><p>对任意公式$p\in L(X)$，$v(p)$叫做$p$的真值。同样，具有保运算性的映射$v:L(X)\to \mathbb Z_2$叫做$L(X_n)$的赋值。（$$）</p><h2 id="真值指派"><a href="#真值指派" class="headerlink" title="真值指派"></a>真值指派</h2><p>映射$v_0\to\mathbb  Z_2$叫做命题变元的真值指派。若把其中$X$换成$X_n&#x3D;{x_1,\cdots,x_n}$，则$v_0$叫做$x_1,\cdots,x_n$的真值指派。</p><h2 id="唯一扩张"><a href="#唯一扩张" class="headerlink" title="唯一扩张"></a>唯一扩张</h2><p>命题变元的任一真值指派，必可唯一地扩张成$L(X)$的赋值；$x_1,\cdots,x_n$的任一真值指派，必可唯一地扩张成$L(X_n)$的赋值。</p><h2 id="永真式"><a href="#永真式" class="headerlink" title="永真式"></a>永真式</h2><p>若公式$p$的真值函数取常值$1$，则$p$叫做命题演算$L$的永真式或重言式（Tautology），记作$\vDash p$。</p><h2 id="代换定理"><a href="#代换定理" class="headerlink" title="代换定理"></a>代换定理</h2><p>$$<br>\vDash p(x_1,\cdots,x_n)\Rightarrow\vDash p(p_1,\cdots,p_n).<br>$$</p><p>其中$p(p_1,\cdots,p_n)\in L(X_n)$，而$p_1,\cdots,p_n\in L(X)$；$p(p_1,\cdots,p_n)$是用$p_1,\cdots,p_n$分别全部替换$p(x_1,\cdots,x_n)$中的$x_1,\cdots,x_n$所得结果。</p><h2 id="永假式与可满足公式"><a href="#永假式与可满足公式" class="headerlink" title="永假式与可满足公式"></a>永假式与可满足公式</h2><p>若$\neg p$是永真式，则$p$叫做永假式。非永假式叫做可满足公式。</p><h2 id="语义推论"><a href="#语义推论" class="headerlink" title="语义推论"></a>语义推论</h2><p>设$\Gamma\subseteq L(X),p\in L(X)$，如果$\Gamma$中所有公式的任何公共成真指派都一定是公式$p$的成真指派，则说$p$是公式集$\Gamma$的语义推论，记作$\Gamma\vDash p$。</p><h2 id="语义演绎定理"><a href="#语义演绎定理" class="headerlink" title="语义演绎定理"></a>语义演绎定理</h2><p>$$<br>\Gamma\cup{p}\vDash q\Leftrightarrow\Gamma\vDash p\to q.<br>$$</p><h1 id="命题演算L的可靠性与完全性"><a href="#命题演算L的可靠性与完全性" class="headerlink" title="命题演算L的可靠性与完全性"></a>命题演算L的可靠性与完全性</h1><h2 id="L的可靠性"><a href="#L的可靠性" class="headerlink" title="L的可靠性"></a>L的可靠性</h2><p>$$<br>\Gamma\vdash p\Rightarrow\Gamma\vDash p.<br>$$</p><h2 id="公式集的完备性"><a href="#公式集的完备性" class="headerlink" title="公式集的完备性"></a>公式集的完备性</h2><p>设$\Gamma\subseteq L(X)$。$\Gamma$是完备的，意指对任一公式$p$，$\Gamma\vdash p$与$\Gamma\vdash\neg p$必有一个成立。</p><h2 id="L的完全性"><a href="#L的完全性" class="headerlink" title="L的完全性"></a>L的完全性</h2><p>$$<br>\Gamma\vDash p\Rightarrow\Gamma\vdash p.<br>$$</p><h1 id="命题演算的其他课题"><a href="#命题演算的其他课题" class="headerlink" title="命题演算的其他课题"></a>命题演算的其他课题</h1><h2 id="等值公式"><a href="#等值公式" class="headerlink" title="等值公式"></a>等值公式</h2><p>$p$与$q$等值，是指$p\leftrightarrow q$为永真式。</p><h2 id="子公式等值可替换性"><a href="#子公式等值可替换性" class="headerlink" title="子公式等值可替换性"></a>子公式等值可替换性</h2><p>设$q$是$p$的子公式：$p&#x3D;\cdots q\cdots$，用公式$q&#39;$替换$p$中的子公式$q$（一处替换）所得结果记为$p&#39;&#x3D;\cdots q&#39;\cdots$，那么<br>$$<br>\vDash q\leftrightarrow q&#39;\Rightarrow\vDash p\leftrightarrow p&#39;.<br>$$</p><h2 id="公式的对偶"><a href="#公式的对偶" class="headerlink" title="公式的对偶"></a>公式的对偶</h2><p>设公式$p$已被写成只含有命题变元和运算$\neg,\vee,\wedge$的形式。把$p$中的命题变元全部改为各自的否定，把$\vee$全改为$\wedge$，把$\wedge$全改为$\vee$，这样得到的公式$p^*$叫做公式$p$的对偶。</p><h2 id="对偶律"><a href="#对偶律" class="headerlink" title="对偶律"></a>对偶律</h2><p>$$<br>\vDash p^*\leftrightarrow\neg p,<br>$$</p><p>其中$p^*$是$p$的对偶。</p><h2 id="基本析取式与基本合取式"><a href="#基本析取式与基本合取式" class="headerlink" title="基本析取式与基本合取式"></a>基本析取式与基本合取式</h2><p>形为$y_1\vee y_2\vee\cdots\vee y_n$和形为$y_1\wedge y_2\wedge\cdots\wedge y_n$的公式分别叫做基本析取式和基本合取式。其中每一个$y_i$是命题变元或命题变元的否定。</p><h2 id="析取范式与合取范式"><a href="#析取范式与合取范式" class="headerlink" title="析取范式与合取范式"></a>析取范式与合取范式</h2><p>形为$\vee_{i&#x3D;1}^m(\wedge_{j&#x3D;1}^{n_i}y_{ij})$的公式叫做析取范式，形为$\wedge_{i&#x3D;1}^m(\vee_{j&#x3D;1}^{n_i}y_{ij})$的公式叫做合取范式，其中每一个$y_{ij}$是某个命题变元$x_k$或它的否定$\neg x_k$。</p><h2 id="主析取范式与主合取范式"><a href="#主析取范式与主合取范式" class="headerlink" title="主析取范式与主合取范式"></a>主析取范式与主合取范式</h2><p>$L(X)$中的主析取范式是这样的析取范式，在它的每个析取支中，每个命题变元$x_1,\cdots,x_n$（带否定号或不带否定号）按下标由小到大的次序都出现且只出现一次。$L(X)$中的主合取范式是这样的合取范式，在它的每个合取支中，每个命题变元$x_1,\cdots,x_n$（带否定号或不带否定号）按下标由小到大的次序都出现且只出现一次。</p><h2 id="非永假式的范式"><a href="#非永假式的范式" class="headerlink" title="非永假式的范式"></a>非永假式的范式</h2><p>每个非永假式必有与它等值的主析取范式。</p><h2 id="非永真式的范式"><a href="#非永真式的范式" class="headerlink" title="非永真式的范式"></a>非永真式的范式</h2><p>每个非永真式必有与它等值的主合取范式。</p><h2 id="运算的完全组"><a href="#运算的完全组" class="headerlink" title="运算的完全组"></a>运算的完全组</h2><p>$\mathbb Z_2$上的一些运算构成完全组，是指任一真值函数都可用该运算组中的运算表示出来。</p><h2 id="“与非”运算和“或非”运算"><a href="#“与非”运算和“或非”运算" class="headerlink" title="“与非”运算和“或非”运算"></a>“与非”运算和“或非”运算</h2><p>与非运算用算符“$|$”表示，或非运算用算符“$\downarrow$”表示；它们的定义式分别是<br>$$<br>v_1|v_2&#x3D;\neg(v_1\wedge v_2),<br>$$</p><p>$$<br>v_1\downarrow v_2&#x3D;\neg(v_1\vee v_2).<br>$$</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;命题演算是我们要建立的最简单、最基本的形式系统。这种系统是用来表现较为简单的逻辑推理的一种数学模型。命题演算的简单性表现在：当它把复合命题分解成最简单的命题后，就把简单命题视为最小的考察对象，不再继续对简单命题进行分解了。研究这种系统，除去为直接应用，还为研究谓词演算（用来表现更为复杂的推理的形式系统）打下基础。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Mathematics" scheme="http://gsxgoldenlegendary.github.io/categories/Mathematics/"/>
+    
+    
+    <category term="Mathematical Logic" scheme="http://gsxgoldenlegendary.github.io/tags/Mathematical-Logic/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Pipeline CPU Design</title>
+    <link href="http://gsxgoldenlegendary.github.io/2022/04/12/Pipeline-CPU-Design/"/>
+    <id>http://gsxgoldenlegendary.github.io/2022/04/12/Pipeline-CPU-Design/</id>
+    <published>2022-04-11T19:48:14.000Z</published>
+    <updated>2022-05-11T11:50:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>计算机组成原理实验报告《流水线CPU设计》：</p><span id="more"></span><p><span class="exturl" data-url="aHR0cHM6Ly9nc3hnb2xkZW5sZWdlbmRhcnkuZ2l0aHViLmlvL2ZpbGVzL2NvbXB1dGVyMTAucGRm">移动端点击链接下载查看<i class="fa fa-external-link-alt"></i></span></p><div class="pdf-container" data-target="https://gsxgoldenlegendary.github.io/files/computer10.pdf" data-height="500px"></div>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;计算机组成原理实验报告《流水线CPU设计》：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Computer Science" scheme="http://gsxgoldenlegendary.github.io/categories/Computer-Science/"/>
+    
+    
+    <category term="Computer Organization" scheme="http://gsxgoldenlegendary.github.io/tags/Computer-Organization/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Solutions to Quantum Physics Homework</title>
+    <link href="http://gsxgoldenlegendary.github.io/2022/04/11/Solutions-to-Quantum-Physics-Homework/"/>
+    <id>http://gsxgoldenlegendary.github.io/2022/04/11/Solutions-to-Quantum-Physics-Homework/</id>
+    <published>2022-04-10T18:44:30.000Z</published>
+    <updated>2022-05-24T08:10:32.855Z</updated>
+    
+    <content type="html"><![CDATA[<p>为适应科大新培养方案的要求，替代原普通物理课程“光学与原子物理”，新设的课程 “量子物理”需要对教学内容作较大幅度的压缩和调整。按照课程组协商意见，删去光学和原子物理学中比较专业化的内容，改以讲授量子理论为主，并增加有关量子信息的介绍，同时取消了作业详细解答的下发。本人出于为考试前有材料复习的目的，整理了此习题解答。</p><span id="more"></span><h1 id="几何光学简介"><a href="#几何光学简介" class="headerlink" title="几何光学简介"></a>几何光学简介</h1><p>1、设在阳光暴晒下，马路上方空气折射率$n$随高度$y$的变化规律为<br>$$<br>n(y) &#x3D; n_0 (1 + Ay), A &#x3D; 0.8 × 10^{−6}m^{−1}.<br>$$</p><p> 一人站在马路上向前看，能看到多远？设此人眼睛离地面高度为 $1.6m$。</p><p>由费马原理，<br>$$<br>\int n\mathrm ds&#x3D;\int n_0(1+Ay)\sqrt{(1+y^2)}\mathrm dx&#x3D;\int F(x,y,y^{&#39;})\mathrm dx<br>$$<br>极值曲线满足Euler-Lagrange方程<br>$$<br>\frac{\partial F}{\partial y}-\frac{\mathrm d}{\mathrm dx}\frac{\partial F}{\partial y^{&#39;}}&#x3D;0,<br>$$<br>得到<br>$$<br>A&#x3D;(1+Ay)\frac{y^{&#39;&#39;}}{1+{y^{&#39;}}^2}<br>$$<br>令<br>$$<br>p&#x3D;\frac{\mathrm dy}{\mathrm dx},<br>$$<br>得到<br>$$<br>\frac{\mathrm dy}{a+Ay}&#x3D;\frac{p\mathrm dp}{A(1+p^2)}.<br>$$<br>积分得<br>$$<br>\ln(1+Ay)&#x3D;\frac12\ln(1+p^2)+C.<br>$$<br>根据“最远处”条件，当$y&#x3D;0$时，有$p&#x3D;0$，故$C&#x3D;0$。</p><p>于是<br>$$<br>1+Ay&#x3D;\sqrt{1+{y^{&#39;}}^2}.<br>$$<br>令<br>$$<br>\cosh t&#x3D;1+Ay,<br>$$<br>则<br>$$<br>Ax+C_1&#x3D;t&#x3D;\ln(Ay+1+\sqrt{(Ay+1)^2-1}).<br>$$<br>代入$(x,y)&#x3D;(0,0)$得$C_1&#x3D;0$，</p><p>代入$y&#x3D;1.6m$，得$x&#x3D;1999.9998m$。</p><p>2、有一个半径为$a$的透明小球，折射率是$n$。取光轴为沿水 平方向过球心的直线。一条光线从左侧平行于光轴入射，与 光轴的距离是$x$。经过两次折射后得到出射光线，求出射光线与入射光线的夹角。</p><p>记空气折射率为$n_0$，则<br>$$<br>\sin \theta_1&#x3D;\frac x a,<br>$$<br>第一次折射，有<br>$$<br>n_0\sin\theta_1&#x3D;n\sin\theta_2,<br>$$</p><p>第二次折射，有<br>$$<br>n\sin\theta_2&#x3D;n\sin\theta_3,<br>$$<br>光线偏折角度<br>$$<br>\Delta\theta&#x3D;(\theta_1-\theta_2)+(\theta_3-\theta_2)&#x3D;2(\arcsin\frac x a-\arcsin\frac{n_0x}{na}).<br>$$</p><h1 id="光的基本性质"><a href="#光的基本性质" class="headerlink" title="光的基本性质"></a>光的基本性质</h1><p>3、平面波在$y-z$平面内，沿着与$𝑦-$轴夹角为$30^\circ$方向传播，写出它的标量波函数、复波函数和复振幅。</p><p>波矢<br>$$<br>\vec k&#x3D;\frac{2\pi}\lambda(0,\frac {\sqrt 3} 2,\frac 1 2),<br>$$<br>标量波函数<br>$$<br>E&#x3D;E_0\cos(\omega t-\vec k\cdot\vec r+\varphi_0)&#x3D;E_0\cos(\omega t-\frac{\sqrt3\pi}\lambda y- \frac{\pi}\lambda z+\varphi_0);<br>$$<br>复波函数<br>$$<br>\tilde E(t,\vec r)&#x3D;E_0e^{-\mathrm i(\omega t-\vec k\cdot\vec r+\varphi_0)}&#x3D;E_0e^{-\mathrm i(\omega t-\frac{\sqrt3\pi}\lambda y- \frac{\pi}\lambda z+\varphi_0)}<br>$$<br>复振幅<br>$$<br>\tilde E_0(\vec r)&#x3D;E_0e^{-\mathrm i(-\vec k\cdot\vec r+\varphi_0)}&#x3D;E_0e^{-\mathrm i(-\frac{\sqrt3\pi}\lambda y- \frac{\pi}\lambda z+\varphi_0)}<br>$$</p><h1 id="光的干涉"><a href="#光的干涉" class="headerlink" title="光的干涉"></a>光的干涉</h1><p>4、用很薄的云母片覆盖在双缝实验的一条缝上，看到干涉条纹移动了 $9$个条纹间距，求云母片的厚度。已知云母片折射率$n&#x3D; 1.58$，光源波长 $550nm$。<br>$$<br>N\lambda&#x3D;\delta(\Delta L)&#x3D;\delta(L_1-L_2)&#x3D;nh-h,<br>$$</p><p>$$<br>h&#x3D;8.53\mu m<br>$$</p><p>5、三个扬声器排成直线，相距$d$，播放单频声音信号<br>$$<br>𝑠_𝑗 (𝑡) &#x3D; 𝐴 \cos(𝜔𝑡 + 𝜑_𝑗) ,𝑗 &#x3D; 1,2,3.<br>$$</p><p>远处一个麦克风在夹角为$\theta$的方向接收声音。欲使麦克风处消音，三个初相位$\varphi_1,\varphi_2,\varphi_3$应该满足什么关系？</p><p>消声相当于振幅为0<br>$$<br>A\cos(\omega\frac {l_1}{v_0}+\varphi_1)+A\cos(\omega\frac {l_2}{v_0}+\varphi_2)+A\cos(\omega\frac {l_3}{v_0}+\varphi_3)&#x3D;0.<br>$$<br>几何关系<br>$$<br>l_1^2&#x3D;d^2+l_2^2-2dl_2\sin\theta,<br>$$</p><p>$$<br>l_3^2&#x3D;d^2+l_2^2+2dl_2\sin\theta.<br>$$</p><p>远处近似<br>$$<br>l_1&#x3D;l_2-d\sin\theta,<br>$$</p><p>$$<br>l_3&#x3D;l_2+d\sin\theta.<br>$$</p><p>故<br>$$<br>\cos(\frac\omega{v_0}l_2-\frac\omega{v_0}d\sin\theta+\varphi_1)+\cos(\frac\omega{v_0}l_2+\varphi_2)+\cos(\frac\omega{v_0}l_2+\frac\omega{v_0}d\sin\theta+\varphi_1)&#x3D;0.<br>$$<br>对$\forall l_2$均成立，记其为$f(l_2)&#x3D;0$，则$\frac{\mathrm d}{\mathrm d l_2}f(l_2)&#x3D;0$，</p><p>即<br>$$<br>\sin(\frac\omega{v_0}l_2-\frac\omega{v_0}d\sin\theta+\varphi_1)+\sin(\frac\omega{v_0}l_2+\varphi_2)+\sin(\frac\omega{v_0}l_2+\frac\omega{v_0}d\sin\theta+\varphi_1)&#x3D;0.<br>$$<br>平方相消得<br>$$<br>-\frac12&#x3D;\cos(\frac{2\omega d}{v_0}\sin\theta+\phi_3-\phi_1).<br>$$</p><p>$$<br>\varphi_3-\varphi_1&#x3D;\frac43\pi或\frac53\pi+2k\pi-\frac{2\omega d\sin\theta}{v_0},k\in Z<br>$$</p><p>同理有<br>$$<br>\varphi_3-\varphi_2&#x3D;\frac43\pi或\frac53\pi+2k\pi-\frac{\omega d\sin\theta}{v_0},k\in Z<br>$$</p><p>$$<br>\varphi_2-\varphi_1&#x3D;\frac43\pi或\frac53\pi+2k\pi-\frac{\omega d\sin\theta}{v_0},k\in Z<br>$$</p><p>利用约束条件<br>$$<br>\varphi_2-\varphi_1+\varphi_3-\varphi_2&#x3D;\varphi_3+\varphi_1,<br>$$<br>只能取<br>$$<br>(\varphi_1,\varphi_2,\varphi_3)&#x3D;(\varphi,\varphi+\frac53\pi+2k\pi-\frac{\omega d\sin\theta}{v_0},\varphi+\frac{10}3\pi+(2k+1)\pi-\frac{\omega d\sin\theta}{v_0}),k\in Z.<br>$$<br>其中$v_0$是声速。</p><p>6、在折射率为 $1.5$ 的玻璃表面，镀上一层折射率为 $1.30$ 的透明薄膜。对于 $550nm$ 的黄绿光垂直入射的情形，为了增强透射光束强度，应使反射光干涉相消。求膜的厚度。</p><p>此两个界面反射波均有半波损，<br>$$<br>\Delta L&#x3D;2n_1 h&#x3D;(k+0.5)\lambda,k\in \mathbb R,<br>$$</p><p>$$<br>h&#x3D;211.5(k+0.5)nm,k\in \mathbb R.<br>$$</p><h1 id="光的衍射"><a href="#光的衍射" class="headerlink" title="光的衍射"></a>光的衍射</h1><p>7、用波长 $589.3nm$ 的钠黄光作为夫琅禾费单缝衍射的光源，测得第二极小到干涉图样中心的距离为 $0.30cm$。改用未知波长的单色光源，测得第三极小到中心的距离为 $0.42cm$。求未知波长。</p><p>由<br>$$<br>x&#x3D;\frac{m\lambda}az<br>$$<br>得<br>$$<br>\lambda&#x3D;\frac{0.42}3\frac{2\times589.3}{0.30}nm&#x3D;550.0nm.<br>$$<br>8、天空的两颗星相对于望远镜的角距离为$4.8 × 10^{−6} rad$，都发出 $550nm$ 的光。望远镜的口径至少多大，才能分辨这两颗星？<br>$$<br>\delta\theta&#x3D;1.22\frac\lambda D,<br>$$</p><p>$$<br>D&#x3D;0.14m.<br>$$<br>9、 用氦氖激光器发出的波长为 $632.8nm$ 的红光，垂直入射到平面透射光栅上，测得第一级极大出现在 $38^\circ$方向。</p><p>（1）求光栅常数。<br>$$<br>d&#x3D;\frac{\lambda_0}{\sin\theta}&#x3D;1.028\mu m.<br>$$<br>（2）能否看到第二级极大？<br>$$<br>m&#x3D;\frac{d\sin\theta}\lambda\leqslant\frac d\lambda&lt;2<br>$$<br>故看不到第二级极大。</p><p>10、 评估你的手机像素数目是否超过了镜头的光学衍射极限。估算所需的参数，如手机摄像头模组的光圈系数、像素、CMOS 图像传感器的尺寸等，请自行在网络上搜索。</p><p>取分辨率$10^8$像素，光圈系数$F_{2.2}$，CMOS图像传感器尺寸为1cm。</p><p>根据艾里斑可辨的瑞利条件，每一块艾里斑的最小大小为<br>$$<br>S&#x3D;\pi a^2f^2\tan^2\frac\theta2\approx\pi a^2f^2\sin^2\frac\theta2\approx\pi a^2\frac{1.22^2}4(\frac fd)^2\lambda^2.<br>$$<br>其中$a\in(1,2)$，$\lambda$为光波长，取红光760nm，则<br>$$<br>S_{max}&#x3D;\frac{4\pi\times1.22^2\times760^2}{4\times2\times2^2}&#x3D;5580.22nm^2.<br>$$</p><p>$$<br>10^8S_{max}&#x3D;55.8mm^2&lt;100mm^2&#x3D;S(CMOS),<br>$$</p><p>故还没有达到光学极限。</p><h1 id="光的偏振"><a href="#光的偏振" class="headerlink" title="光的偏振"></a>光的偏振</h1><p>11、 四个偏振片依次前后排列。每个偏振片的透振方向，均相对于前一偏振片沿顺时针方向转过$ 30^{\circ}$角。不考虑吸收、反射等光能损失，则透过此偏振片系统的光强是入射光强的多少倍？<br>$$<br>I&#x3D;\int_0^{2\pi}\frac{I_0}{2\pi}(\cos\theta\cos^3\frac\pi6)^2&#x3D;\frac{27I_0}{128}.<br>$$<br>12、入射光是沿$x-$轴偏振的线偏振光，二分之一波片的快轴与$x$轴夹角是$\theta$（逆时针为正）。写出入射光的琼斯矢量、二分之一波片的琼斯矩阵，计算出射光的琼斯矢量和偏振方向。</p><p>入射光的琼斯矢量</p>$$\begin{pmatrix}1\\0\end{pmatrix}.$$<p>$\frac12$波片的琼斯矩阵为</p>$$\begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix}\begin{pmatrix}1&0\\0&-1\end{pmatrix}\begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix}^{-1}=\begin{pmatrix}\cos2\theta&\sin2\theta\\\sin2\theta&-\cos2\theta\end{pmatrix}.$$<p>出射光的琼斯矢量</p>$$\begin{pmatrix}\cos2\theta&\sin2\theta\\\sin2\theta&-\cos2\theta\end{pmatrix}\begin{pmatrix}1\\0\end{pmatrix}=\begin{pmatrix}\cos2\theta\\\sin2\theta\end{pmatrix}.$$<p>出射光的偏振方向：$2\theta$。</p><h1 id="光的量子性"><a href="#光的量子性" class="headerlink" title="光的量子性"></a>光的量子性</h1><p>13、利用普朗克辐射公式，求斯特藩-玻尔兹曼定律常数$\sigma$。<br>$$<br>(\int_0^\infty\frac{x^3}{e^x-1}\mathrm d x&#x3D;\frac{\pi^4}{15})<br>$$<br>Stefan-Boltzman定律：<br>$$<br>R&#x3D;\sigma T^4.<br>$$<br> Planck公式：<br>$$<br>R&#x3D;\int_0^{+\infty}r_0(\lambda,T)\mathrm d\lambda&#x3D;\int_0^{+\infty}\frac{2\pi hc^2}{\lambda^5e^{\frac{hc}{\lambda k_BT}-1}}\mathrm d\lambda&#x3D;\frac{2\pi^5k_B^4}{15h^3c^2}T^4.<br>$$<br>故<br>$$<br>\sigma&#x3D;\frac{2\pi^5k_B^4}{15h^3c^2}.<br>$$<br>14、热核爆炸中火球的温度可达$10^7$K， </p><p>（1）求辐射最强的波长； </p><p>由Wien位移公式<br>$$<br>\lambda_m&#x3D;\frac bT&#x3D;\frac{0.2898}{10^7}cm&#x3D;2.898\times10^{-10}m.<br>$$<br>（2）这种波长的光子能量是多少？<br>$$<br>\varepsilon&#x3D;h\nu-\frac{hc}{\lambda_m}&#x3D;6.859\times10^{-16}J.<br>$$<br>15、 铝的脱出功是 $4.2eV$，用波长为$ 200nm$ 的光照射铝表面， </p><p>（1）求铝的截止波长。<br>$$<br>\lambda_0&#x3D;\frac c\nu&#x3D;\frac{hc}{A}&#x3D;295.8nm.<br>$$<br>（2）光电子的最大初动能。<br>$$<br>\varepsilon&#x3D;h\nu-A&#x3D;\frac {hc}\lambda-A&#x3D;2.01eV.<br>$$<br> （3）求截止电压。<br>$$<br>U&#x3D;\frac\varepsilon e&#x3D;2.01V.<br>$$<br>（4）如果入射光强是$2.0W&#x2F;m^2$ ，阴极面积是$1m^2$，光束垂直照射阴极，那么饱和电流最大是多少？<br>$$<br>I&#x3D;\frac{\mathrm dq}{\mathrm dt}&#x3D;e\frac{\mathrm dN}{\mathrm dt}&#x3D;e\frac{\mathrm d\frac W{\frac{hc}\lambda}}{\mathrm dt}&#x3D;\frac {eIS}\varepsilon&#x3D;0.32A.<br>$$<br>16、能量为$ 0.41MeV $的 X 射线光子与静止的自由电子碰撞，反冲电子的速度为$0.6c$，求散射光的波长和散射角。</p><p>由能量守恒<br>$$<br>m_ec^2+E&#x3D;+\frac{m_e}{\sqrt{1-(\frac vc)^2}}c^2+\frac{hc}{\lambda_1}.<br>$$<br>得<br>$$<br>\lambda_1&#x3D;4.397\times10^{-12}m.<br>$$<br>碰撞前X射线波长<br>$$<br>\lambda_0&#x3D;\frac{hc}E&#x3D;3.024\times10^{-12}m.<br>$$<br>利用康普顿散射公式<br>$$<br>\lambda_0-\lambda_1&#x3D;2\frac h{m_ec}\sin^2\frac\theta2,<br>$$<br>有<br>$$<br>\theta&#x3D;64.28^\circ.<br>$$<br>17、用 $1mW $的单色激光射向透明的球状小颗粒。设颗粒半径为$a$，折射率是 $n$。假如颗粒偏离激光的距离为$x$，那么颗粒所受到的垂直于入射激光方向的横向力有多大， 指向那个方向？</p><h1 id="玻尔原子模型"><a href="#玻尔原子模型" class="headerlink" title="玻尔原子模型"></a>玻尔原子模型</h1><p>18、已知氢原子的电离能为 $13.6eV$，求$B^{4+}$离子从$n&#x3D; 2$能级跃迁到基态的辐射能量、波长。<br>$$<br>E_n&#x3D;-\frac 1{2n^2}m_eZ^2\alpha^2c^2,<br>$$<br>$n&#x3D;1,Z&#x3D;1$时<br>$$<br>-13.6eV&#x3D;-\frac12m_e\alpha^2c^2;<br>$$<br>$n&#x3D;2,Z&#x3D;5$时<br>$$<br>E_2(B)&#x3D;-\frac1{2\times25}m_e25\alpha^2c^2;<br>$$<br>$n&#x3D;1,Z&#x3D;5$时<br>$$<br>E_1(B)&#x3D;-\frac1{2}m_e25\alpha^2c^2;<br>$$</p><p>$$<br>\Delta E&#x3D;E_2(B)-E_1(B)&#x3D; 255 eV.<br>$$</p><p>$$<br>\lambda&#x3D;\frac{hc}{\Delta E}&#x3D;4.86 nm.<br>$$</p><p>19、气体放电管用 $12.2eV$ 的电子轰击氢原子，确定此时氢所发出的谱线的波长。<br>$$<br>E_1&#x3D;-13.6eV,E_2&#x3D;-3.4eV,E_3&#x3D;-1.51eV,E_4&#x3D;-0.85eV.<br>$$<br>由$12.2eV&lt;E4-E1$知氢原子只能被激发到第1、2激发态。从第1激发态跃迁到基态及从第2激发态跃迁到第1激发态及基态分别发出谱线波长为<br>$$<br>\lambda_1&#x3D;\frac c{\nu_1}&#x3D;\frac{ch}{E2-E1}&#x3D;1.19\times10^{-7}m,<br>$$</p><p>$$<br>\lambda_2&#x3D;\frac c{\nu_2}&#x3D;\frac{ch}{E3-E1}&#x3D;1.02\times10^{-7}m,<br>$$</p><p>$$<br>\lambda_1&#x3D;\frac c{\nu_1}&#x3D;\frac{ch}{E3-E2}&#x3D;6.56\times10^{-7}m,<br>$$</p><p>20、设氢原子原来是静止的。当氢原子从$n &#x3D; 4$的态跃迁到基态时，给出原子的反冲速度、 发射光子的波长，并与不考虑反冲时的光子波长对比。</p><p>考虑反冲时</p>$$\left\{\begin{array}\\E_4-E_1=\frac12mv^2+\frac{hc}\lambda,\\\frac h\lambda=mv.\end{array}\right.\Rightarrow\left\{\begin{array}\\\lambda=97.24nm,\\v=4.07m/s.\end{array}\right.$$<p>不考虑反冲时<br>$$<br>\lambda_0&#x3D;\frac c{v_0}&#x3D;\frac{ch}{E_4-E_1}&#x3D;97.1nm.<br>$$<br>二者差别不大。</p><h1 id="物质波"><a href="#物质波" class="headerlink" title="物质波"></a>物质波</h1><p>21、显微镜可以分辨的最小尺寸，约为光波的波长。要观测尺寸$ 1nm$ 左右的分子，光子的最小能量是多少？如果改为使用电子显微镜，那么电子的最小能量是多少？<br>$$<br>E_1&#x3D;\frac{hc}\lambda&#x3D;1.988\times10^{-18}J.<br>$$</p><p>$$<br>E_2&#x3D;\frac{p^2}{2m_e}&#x3D;\frac{h^2}{2\lambda^2m_e}&#x3D;2.439\times10^{-19}J.<br>$$</p><p>22、 写出非相对论粒子物质波的色散关系，并求出物质波的相速度和群速度。</p><p>色散关系</p>$$\left\{\begin{array}\\E=\hbar\omega,\\p=\hbar k,\\E=\frac{p^2}{2m},\end{array}\Rightarrow\omega=\frac{\hbar k^2}{2m}.\right.$$<p>相速度<br>$$<br>v_p&#x3D;\frac\omega k&#x3D;\frac{\hbar k^2}{2m}&#x3D;\frac p{2m}&#x3D;v.<br>$$<br>群速度<br>$$<br>v_g&#x3D;\frac{\mathrm d\omega}{\mathrm dk}&#x3D;\frac{\hbar k}{m}&#x3D;\frac pm&#x3D;v.<br>$$</p><h1 id="波函数与薛定谔方程"><a href="#波函数与薛定谔方程" class="headerlink" title="波函数与薛定谔方程"></a>波函数与薛定谔方程</h1><p>23、非相对论粒子被封闭在长、宽、高为$a,b,c$的盒子中，利用驻波条件计算其能级。</p>$$\left\{\begin{array}\\k=\frac{2\pi}\lambda=\sqrt{k_x^2+k_y^2+k_z^2},\\2a=n_1\frac{2\pi}{k_x},\\2b=n_2\frac{2\pi}{k_y},\\2c=n_3\frac{2\pi}{k_z},\\E=\frac{p^2}{2m},\\p=\frac h\lambda,\end{array}\RightarrowE=\frac{h^2}{8m}(\frac1{a^2n_1^2}+\frac1{b^2n_2^2}+\frac1{c^2n_3^2}),n_1,n_2,n_3\in \mathbb {Z^*}\right.$$<p>24、下列非相对论粒子被限制在宽为𝐿的盒子中。利用海森堡不确定关系估算它们的动能最小值：</p><p> （1）电子关在𝐿 &#x3D; 1Å的盒子。<br>$$<br>\Delta x\Delta p_x\geqslant h\Rightarrow\Delta x\Delta vm\geqslant h\Rightarrow\Delta v\geqslant\frac h{\Delta xm}.<br>$$</p><p>$$<br>\Delta v_{min}&#x3D;\frac{6.626\times10^{-34}}{10^{-10}\times9.1\times10^{-31}}&#x3D;7.2\times10^6m&#x2F;s.<br>$$</p><p>电子的速度取值的差最小为$\Delta v$，也就是以$\frac12|\Delta v|$速率运动时候动能最小，为<br>$$<br>E_{min}&#x3D;\frac12m_e(\frac12|\Delta v|)^2&#x3D;5.897\times10^{-18}J.<br>$$<br>（2）中子（质量$940MeV ⋅ c^{−2}$）限制在𝐿 &#x3D; $10fm$（原子核尺寸）的盒子中。 </p><p>同（1）可知$E_{min}&#x3D;3.649\times10^{-8}J$。</p><p>（3）质量$10^{−6}g$的灰尘被关在𝐿 &#x3D; $1μm$的盒中。</p><p>同（1）可知$E_{min}&#x3D;5.488\times10^{-8}J$。</p><p>25、双原子分子在平衡距离附近沿连线方向作一维微振动，记两个原子的质量分别为$m_1$, $m_2$， 坐标为$x_1,x_2$，平衡距离为$a$。原子之间的相互作用可近似为谐振子势，<br>$$<br>𝑉 &#x3D; \frac1 2 𝑘(𝑥_2 − 𝑥_1 − 𝑎)^ 2<br>$$<br>写出系统的薛定谔方程。</p><p>取两原子连线上较远一点为原点，薛定谔方程为：<br>$$<br>\mathrm i\hbar\frac\partial{\partial t}\psi(x_1,x_2,t)&#x3D;(-\frac{\hbar^2}2(\frac{\mathrm d^2}{m_1\mathrm dx_1^2}+\frac{\mathrm d^2}{m_2\mathrm dx_2^2})+\frac12k(x_2-x_1-a)^2)\psi(x_1,x_2,t).<br>$$<br>26、设二维粒子在$t&#x3D; 0$时的波函数为<br>$$<br>\psi(x, y,t &#x3D; 0) &#x3D; (x + \mathrm i y) \exp{−(x ^2 + y^2 )}, x, y ∈ \mathbb R<br>$$<br>（1）求几率密度和几率流。 </p><p>几率密度</p>$$\rho=\psi^*\psi=(x^2+y^2)e^{-2(x^2+y^2)}.$$<p>几率流</p>$$\vec j=\mathrm i\frac\hbar{2m}(\psi\nabla\psi^*-\psi^*\nabla\psi)=\frac{2\pi e^{-2(x^2+y^2)}(x\vec{e_y}-y\vec{e_x})}{2m}.$$<p>（2）如果这是一个定态，求势场$V(x, y)$的表达式。<br>$$<br>V(x,y)&#x3D;E+\frac{\hbar^2}{2m\psi(x,y,t&#x3D;0)}\nabla^2\psi(x,y,t&#x3D;0)&#x3D;E+\frac{2\hbar^2}m(x^2+y^2-2).<br>$$</p><p>27、已知一维粒子的两个空间波函数 </p><p>$$<br>u_1(x) &#x3D; \exp(−\frac12x^2) , u_2(x)&#x3D;2x\exp(−\frac12𝑥^2).<br>$$<br>（1）归一化这两个波函数。<br>$$<br>\int_{-\infty}^\infty(u_1(x))^2\mathrm dx&#x3D;\Gamma(\frac12)&#x3D;\sqrt\pi.<br>$$<br>归一化的$u_1(x)$：<br>$$<br>v_1(x)&#x3D;\frac{e^{-\frac{x^2}2}}{\sqrt\pi}.<br>$$</p><p>$$<br>\int_{-\infty}^\infty(u_2(x))^2\mathrm dx&#x3D;\int_{-\infty}^\infty 4x^2e^{-x^2}\mathrm dx&#x3D;2\sqrt\pi.<br>$$</p><p>归一化的$u_1(x)$：<br>$$<br>v_2(x)&#x3D;\frac{xe^{-\frac{x^2}2}}{\sqrt\pi}.<br>$$<br>（2）两个波函数是否正交？<br>$$<br>\int_{-\infty}^\infty u_1(x)u_2(x)\mathrm dx&#x3D;\int_{-\infty}^\infty2xe^{-x^2}\mathrm dx&#x3D;0<br>$$<br>故此二波函数正交。</p><h1 id="量子系统的演化"><a href="#量子系统的演化" class="headerlink" title="量子系统的演化"></a>量子系统的演化</h1><p>28、质量为$m$的粒子处于宽度为$a$的一维无限深势阱之中，势函数为<br>$$<br>V(x)&#x3D;<br>\begin{cases}<br>0,0 &lt; x &lt; a; \<br>+\infty, x &lt; 0 or x &gt; a.<br>\end{cases}<br>$$<br>（1）写出能级和归一化的定态波函数。<br>$$<br>E_n&#x3D;\frac{\hbar^2\pi^2n^2}{2ma^2}.<br>$$</p><p>$$<br>u(x)&#x3D;<br>\begin{cases}<br>0,&amp;x&lt;0orx&gt;a;\<br>\sqrt{\frac2a}\sin(\frac{n\pi}a(x-\frac a2)+\frac{1-(-1)^n}2\frac\pi2),&amp;0&lt;x&lt;a.<br>\end{cases}<br>$$</p><p>$$<br>\psi(x,t)&#x3D;<br>\begin{cases}<br>0,&amp;x&lt;0orx&gt;a;\<br>\sqrt{\frac2a}\sin(\frac{n\pi}a(x-\frac a2)+\frac{1-(-1)^n}2\frac\pi2)e^{-\frac{\mathrm i\hbar\pi^2n^2t}{2ma^2} }, &amp;0&lt;x&lt;a.<br>\end{cases}<br>$$</p><p>（2）现在假设在$t &#x3D; 0$时，粒子处于基态。这时在$x &#x3D; −a$处 设立一个无限高势垒，并突然把$x &#x3D; 0$处的隔板撤除，即势函数突变为<br>$$<br>𝑉&#39;(𝑥)&#x3D;<br>\begin{cases}<br>0,&amp;-a &lt; 𝑥 &lt; 𝑎; \<br>+\infty, &amp;𝑥 &lt; -a or 𝑥 &gt; 𝑎.<br>\end{cases}<br>$$<br>求粒子处于新的基态的概率。 </p><p>撤去隔板后，<br>$$<br>u_n&#39;(x)&#x3D;<br>\begin{cases}<br>0,&amp;x&lt;-aorx&gt;a;\<br>\sqrt{\frac1a}\sin(\frac{n\pi x}{2a}+\frac{1-(-1)^n}2\frac\pi2),&amp;-a&lt;x&lt;a.<br>\end{cases}<br>$$<br>在$t&#x3D;0$时基态粒子的波函数<br>$$<br>\psi(x,0)&#x3D;<br>\begin{cases}<br>0,&amp;x&lt;0orx&gt;a;\<br>\sqrt{\frac2a}\sin(\frac{\pi}a(x-\frac a2)+\frac\pi2),&amp;0&lt;x&lt;a.<br>\end{cases}<br>$$</p><p>$$<br>c_1&#x3D;\int_{-\infty}^\infty u_1&#39;^*\psi(x,0)\mathrm dx&#x3D;\int_0^a\sqrt{\frac1a}\sin(\frac{\pi x}{2a}+\frac\pi 2)\sqrt{\frac2a}\sin\frac{\pi x}a\mathrm dx&#x3D;-\frac{4\sqrt2}{3\pi.}<br>$$</p><p>故粒子处于新的基态的概率是<br>$$<br>|c_1|^2&#x3D;\frac{32}{9\pi^2}.<br>$$<br>（3）撤除隔板后，粒子处于哪个能级的概率最大？<br>$$<br>c_n&#x3D;\int_{-\infty}^\infty u_n&#39;^*\psi(x,0)\mathrm dx&#x3D;\int_{-\infty}^\infty \sqrt{\frac1a}\sin(\frac{n\pi x}{2a}+\frac{1-(-1)^n}2\frac\pi2)\sqrt{\frac2a}\sin(\frac{\pi}a(x-\frac a2)+\frac\pi2)\mathrm dx<br>$$</p><p>$$<br>c_n&#x3D;<br>\begin{cases}<br>\frac{\sqrt2}2,&amp;n&#x3D;2;\<br>0,<br>&amp;n&#x3D;4,6,8,\cdots;\<br>\frac{4\sqrt2}{\pi(n^2-4)},&amp;n&#x3D;1,3,5,\cdots.<br>\end{cases}<br>$$</p><p>第2能级。</p><p>（4）在势阱右半边（$0 &lt; x &lt; a$）找到粒子的概率是<br>$$<br>\int_0^a(\sum_{n&#x3D;0}^\infty \frac{4\sqrt2}{\pi((2n+1)^2-4)}e^{-\frac{\mathrm i\tau\hbar\pi^2(2n+1)^2}{8ma^2}}\sqrt{\frac1a}\sin(\frac{(2n+1)\pi x}{2a}+\frac\pi2)+\frac1{\sqrt{2a}}\sin\frac{\pi x}ae^{-\frac{\mathrm i\tau\hbar\pi^2}{2ma^2}})\mathrm dx.<br>$$</p><p> （5）求刚撤离隔板时，势阱内各点的几率流。在此后几率流是否不变？</p><p>刚撤去隔板时$\psi(x,0)&#x3D;\psi^*(x,0)&#x3D;0,$<br>$$<br>\vec j&#x3D;\mathrm i\frac\hbar{2m}(\psi\nabla\psi^*-\psi^*\nabla\psi)&#x3D;0.<br>$$<br>否。</p><p>29、无限深势阱中，粒子演化的特征时间为<br>$$<br>\tau&#x3D;\frac{ma^2}{\hbar}<br>$$</p><p>在此时间尺度上，会观察到明显的波包扩散。 </p><p>（1）考虑一个宽 $2$ 米的走廊，一个人待在走廊中。按量子力学，描述人的波包会发生扩散， 估算所需时间。计算时，你可以自行选取人的合理质量。 </p><p>人取$60kg$。<br>$$<br>\tau&#x3D;\frac{60\times2^2}{6.626\times10^{-34}}&#x3D;3.622\times10^{35}s.<br>$$<br>（2）同样是这个走廊，如果把电子关在其中，估算波包扩散所需的时间。<br>$$<br>\tau&#x3D;\frac{9.1\times10^{-31}\times2^2}{6.626\times10^{-34}}&#x3D;5.494\times10^3s.<br>$$<br>（3）一个原子核被关在原子中，求波包扩散时间。原子核的质量与原子尺寸，请自行选取合理值。</p><p>原子核质量取$1.66\times10^{-27}kg$，原子尺寸取$0.079nm$。<br>$$<br>\tau&#x3D;\frac{1.66\times10^{-27}\times(0.079\times10^{-10})^2}{6.626\times10^{-34}}&#x3D;1.564\times10^{-14}s.<br>$$<br>30、金属中的电子，在靠近表面处所受的作用势可近似为阶跃势。已知铜的功函数为$4eV$， 估算铜中电子的透入距离。</p><p>金属导体中自由电子热运动速率取$v&#x3D;1\times 10^5 m&#x2F;s$，则透入距离<br>$$<br>\frac1{k_2}&#x3D;\frac{\hbar}{\sqrt{2m_e(v_0-\frac12m_ev^2)}}&#x3D;9.86\times10^{-11}m.<br>$$<br>31、假定粒子的势场$V(x)$为无限深势阱中有一𝛿-函数的势垒，即<br>$$<br>V(x)&#x3D;<br>\begin{cases}<br>\gamma\delta(x),|x|&lt;a;\<br>+\infty,|x|&gt;a.<br>\end{cases}<br>$$</p><p>试求解系统的定态薛定谔方程：对偶函数和奇函数分开处理，找出系统的能级公式，并解释为什么奇函数不受𝛿-函数势垒的影响。</p><p>系统的薛定谔方程<br>$$<br>(-\frac{\hbar^2}{2m}\frac{\mathrm d^2}{\mathrm dx^2}+V(x))u(x)&#x3D;Eu(x).<br>$$<br>$|x|&gt;a$时，动能项分部积分后知恒正，总能量$E&#x3D;\langle\hat H\rangle&lt;+\infty$知$u(x)&#x3D;0$。</p><p>$|x|&lt;\frac a2$且$x\neq 0$时，<br>$$<br>\frac{\mathrm d^2}{\mathrm dx^2} u(x)&#x3D;-k^2u(x),k\mathop&#x3D;^{def}\frac{\sqrt{2mE}}\hbar\Rightarrow u(x)&#x3D;A\sin(kx+\delta).<br>$$</p><p>$$<br>u(x)&#x3D;<br>\begin{cases}<br>0,|x|&gt;a;\<br>A_1\sin(kx+\delta_1),-a&lt;x\leqslant0;\<br>A_2\sin(kx+\delta_2),0&lt;x&lt;a.\<br>\end{cases}<br>$$</p><p>$$<br>\begin{cases}<br>u(a)&#x3D;u(-a)&#x3D;0;\<br>u(0+)&#x3D;u(0-);\<br>u&#39;(0+)-u&#39;(0-)&#x3D;\frac{2m\gamma}{\hbar^2}u(0).<br>\end{cases}<br>\Rightarrow<br>\begin{cases}<br>A_2\sin(ka+\delta_2)&#x3D;A_1\sin(-ka+\delta_1)&#x3D;0;\<br>A_2\sin\delta_2&#x3D;A_1\sin\delta_1;\<br>kA_2\cos\delta_2-kA_1\cos\delta_1&#x3D;\frac{2m\gamma}{\hbar}A_1\sin\delta_1.<br>\end{cases}<br>$$</p><p>由$A_1,A_2\neq0$，有<br>$$<br>ka+\delta_2&#x3D;n_1\pi,-ka+\delta_1&#x3D;n_2\pi\Rightarrow\delta_1&#x3D;-\delta_2+n\pi,n,n_1,n_2\in Z.<br>$$<br>进一步有<br>$$<br>\begin{cases}<br>A_1&#x3D;A_2;\<br>\delta_2&#x3D;\arctan\frac{\hbar k}{m\gamma}.<br>\end{cases}<br>或<br>\begin{cases}<br>A_1&#x3D;-A_2;\<br>\delta_2&#x3D;0.<br>\end{cases}<br>$$<br>归一化后得到两种情况的$A_1&#x3D;\sqrt{\frac2a}$。</p><p>这样<br>$$<br>u(x)&#x3D;<br>\begin{cases}<br>0,|x|\geqslant a;\<br>\sqrt{\frac2a}\sin(\frac{n_1\pi}a|x|+(1+\frac1a)\arctan\frac{\hbar k}{m\gamma})或\sqrt{\frac2a}\sin(\frac{n_2\pi}ax),|x|&lt;a,n_1,n_2\in Z*.<br>\end{cases}<br>$$<br>由<br>$$<br>\frac{\sqrt{2mE}}\hbar&#x3D;\frac{n_1\pi-\delta_2}a或\frac{n_2\pi}a,<br>$$<br>得能级<br>$$<br>E&#x3D;(\frac\hbar{2ma}(n_1\pi+\arctan\frac{\hbar k}{m\gamma}))^2或(\frac{\hbar n_2}{2ma})^2,n_1,n_2\in Z^*<br>$$<br>解释：在没有考虑$\delta-$势阱对波函数的影响时，奇函数在$\delta-$势阱处的取值为$0$，由量子力学假设之二，表明物质波在$\delta-$势阱处出现的概率为0，自然没有影响。</p><p>32、一个谐振子处于基态，计算振子在经典禁止区的概率。<br>$$<br>P&#x3D;1-\int_{-x_\max}^{x_\max}|u(x)|^2\mathrm dx&#x3D;1-\int_{-\sqrt{\frac\hbar k}}^{\sqrt\frac\hbar k}\sqrt{\frac k{\hbar\pi}}e^{\frac{kx^2}{2\hbar}}\mathrm dx.<br>$$</p><h1 id="量子力学中的物理量"><a href="#量子力学中的物理量" class="headerlink" title="量子力学中的物理量"></a>量子力学中的物理量</h1><p>33、归一化高斯型波包 $\psi(x) &#x3D; e^{\frac{x^2}{\sigma^2}}$并求坐标算符$\hat x$、动量算符$\hat p$和动能算符$\hat T &#x3D;\frac 1 {2𝑚}\hat p^ 2$的期望值。<br>$$<br>\int_{-\infty}^{\infty}|\psi(x)|^2\mathrm dx&#x3D;2\int_0^\infty e^{-\frac{2x^2}{\sigma^2}}\mathrm dx&#x3D;\sqrt{2\pi}\sigma.<br>$$</p><p>$$<br>\psi(x)&#x3D;\frac1{\sqrt{2\pi}\sigma}e^{-\frac{x^2}{\sigma^2}}.<br>$$</p><p>$$<br>\langle\hat x\rangle&#x3D;\int_{-\infty}^{\infty}\psi^*(x)x\psi(x)\mathrm dx&#x3D;\int_{-\infty}^{\infty}\frac{x}{2\pi\sigma^2}e^{-\frac{2x^2}{\sigma^2}}\mathrm dx&#x3D;0.<br>$$</p><p>$$<br>\langle\hat p\rangle&#x3D;\int_{-\infty}^{\infty}\psi^*(x)(-\mathrm i\hbar\frac\partial{\partial x})\psi(x)\mathrm dx&#x3D;\int_{-\infty}^{\infty}\frac{2\mathrm i\hbar x}{2\pi\sigma^4}e^{-\frac{2x^2}{\sigma^2}}\mathrm dx&#x3D;0.<br>$$</p><p>$$<br>\langle\hat x\rangle&#x3D;\int_{-\infty}^{\infty}\psi^*(x)(-\frac\hbar{2m}\frac{\partial^2}{\partial x^2})\psi(x)\mathrm dx&#x3D;\int_{-\infty}^{\infty}\frac{x}{2\pi\sigma^2}e^{-\frac{2x^2}{\sigma^2}}\mathrm dx&#x3D;\frac{13\sqrt2\hbar}{32\sqrt\pi m\sigma^3}.<br>$$</p><p>34、写出一维谐振子在动量表象的哈密顿量算符。<br>$$<br>\hat H&#x3D;\frac{\vec p^2}{2m}+\hat V&#x3D;\frac{p^2}{2m}+\frac12k\hat x^2&#x3D;\frac{p^2}{2m}+\frac12k(\mathrm i\hbar\frac\partial{\partial p_x})^2&#x3D;\frac{p^2}{2m}+\frac{k\hbar}{2}(\frac\partial{\partial p})^2.<br>$$<br>35、对单粒子的物理量，验证以下对易关系<br>$$<br>[\hat L_j,\hat r_k]&#x3D;\mathrm i\hbar\varepsilon_{jkl}\hat r_l,<br>$$</p><p>$$<br>[\hat L_j,\hat p_k]&#x3D;\mathrm i\hbar\varepsilon_{jkl}\hat p_l,<br>$$</p><p>$$<br>[\hat L_j,\hat T]&#x3D;0.<br>$$</p><p>$$<br>[\hat L_j,\hat r_k]&#x3D;[\varepsilon_{jmn}\hat r_m\hat p_n,\hat r_k]&#x3D;\varepsilon_{jmn}(\hat r_m[\hat p_n,\hat r_k]+[\hat r_m,\hat r_k]\hat p_n)&#x3D;\varepsilon_{jmn}\delta_{nk}(-\mathrm i\hbar)\hat r_m&#x3D;\varepsilon_{jlk}(-\mathrm i\hbar)\hat r_l&#x3D;\mathrm i\hbar\varepsilon_{jkl}\hat r_l.<br>$$</p><p>$$<br>[\hat L_j,\hat p_k]&#x3D;[\varepsilon_{jmn}\hat r_m\hat p_n,\hat p_k]&#x3D;\varepsilon_{jmn}(\hat r_m[\hat p_n,\hat p_k]+[\hat r_m,\hat p_k]\hat p_n)&#x3D;\varepsilon_{jmn}\delta_{mk}\mathrm i\hbar\hat p_n&#x3D;\mathrm i\hbar\varepsilon_{jkl}\hat p_l.<br>$$</p><p>$$<br>[\hat L_j,\hat T]&#x3D;\hat{\vec r}\times\hat{\vec p}\hat T-\hat T\hat{\vec r}\times\hat{\vec p}&#x3D;\mathrm i\hbar\nabla_{\vec p}\times\vec p\frac{\vec p^2}{2m}-\frac{\vec p^2}{2m}\mathrm i\hbar\nabla_{\vec p}\times\vec p&#x3D;0-0&#x3D;0.<br>$$</p><p>36、考虑一维的弹簧振子，作用势为$V(x)&#x3D;\frac12kx^2$。</p><p>求弹簧振子的坐标期望值$\bar x(t)$和动量期望值$\bar p(t)$随时间的变化规律$\frac{\mathrm d\bar x}{\mathrm dt}$和$\frac{\mathrm d\bar p}{\mathrm dt}$。这个关系式与牛顿力学一致吗？<br>$$<br>\frac{\partial\hat x}{\partial t}\psi(x)&#x3D;0.<br>$$</p><p>$$<br>[\hat x,\hat H]f&#x3D;x(-\frac{\hbar^2}{2m}\frac{\mathrm d^2}{\mathrm dx^2}+\frac12kx^2)f-((-\frac{\hbar^2}{2m}\frac{\mathrm d^2}{\mathrm dx^2}+\frac12kx^2)(xf))&#x3D;\frac\hbar mf&#39;&#x3D;\frac{\mathrm i}m\hat pf.<br>$$</p><p>由海森堡运动方程：<br>$$<br>\frac{\mathrm d\bar x}{\mathrm dt}&#x3D;\frac {\mathrm d}{\mathrm dt}\langle\psi|\hat x|\psi\rangle&#x3D;\langle\psi|\frac{\partial\hat x}{\partial t}+\frac1{\mathrm i\hbar}[\hat x,\hat H]|\psi\rangle&#x3D;\frac1{m\hbar}\langle\psi|\hat p|\psi\rangle&#x3D;\frac{\bar p}{m\hbar}.<br>$$</p><p>同理<br>$$<br>\frac{\mathrm d\bar p}{\mathrm dt}&#x3D;-k\bar x.<br>$$<br>得到了微分方程组<br>$$<br>\begin{cases}<br>\frac{\mathrm d\bar x}{\mathrm dt}&#x3D;\frac{\bar p}{m\hbar},\<br>\frac{\mathrm d\bar p}{\mathrm dt}&#x3D;-k\bar x.<br>\end{cases}<br>\Rightarrow<br>\begin{cases}<br>m\hbar\frac{\mathrm d^2\bar x}{\mathrm dt^2}&#x3D;-k\bar x,\<br>m\hbar\frac{\mathrm d^2\bar p}{\mathrm dt^2}&#x3D;-k\bar p.<br>\end{cases}<br>$$<br>解得<br>$$<br>\begin{cases}<br>\bar p&#x3D;Ae^{\mathrm i\sqrt{\frac{k}{m\hbar}}t}+Be^{-\mathrm i\sqrt{\frac{k}{m\hbar}}t},\<br>\bar x&#x3D;-\frac{\mathrm i}{\sqrt{km\hbar}}(Ae^{\mathrm i\sqrt{\frac{k}{m\hbar}}t}-Be^{-\mathrm i\sqrt{\frac{k}{m\hbar}}t}).<br>\end{cases}<br>$$<br>带入$(t,\bar x)&#x3D;(0,0)$得$A&#x3D;B$，此时$p\neq0$，故$A&#x3D;B\neq 0$这样<br>$$<br>\begin{cases}<br>\bar p&#x3D;2A\cos\sqrt{\frac k{m\hbar}}t,\<br>\bar x&#x3D;\frac{2A}{\sqrt{km\hbar}}\sin\sqrt{\frac k{m\hbar}}t.<br>\end{cases}<br>\Rightarrow<br>\begin{cases}<br>\frac{\mathrm d\bar x}{\mathrm dt}&#x3D;\frac{2A}{m\hbar}\cos\sqrt{\frac k{m\hbar}}t,\<br>\frac{\mathrm d\bar p}{\mathrm dt}&#x3D;-\frac{2A\sqrt k}{\sqrt{m\hbar}}\sin\sqrt{\frac k{m\hbar}}t.<br>\end{cases}<br>$$<br>在牛顿力学中，由牛顿第二定律有<br>$$<br>\begin{cases}<br>m\frac{\mathrm d^2 x}{\mathrm dt^2}&#x3D;-kx,\<br>m\frac{\mathrm d^2 p}{\mathrm dt^2}&#x3D;-kp.<br>\end{cases}<br>$$<br>与量子力学中的关系式一致。</p><p>37、</p><p>（1）分别给出$\hat x&#x3D;x$和$\hat p&#x3D;-\mathrm i\hbar \frac \partial{\partial x}$的厄密共轭算符。<br>$$<br>\int_{-\infty}^{\infty}\psi^*<em>1(x)(x\psi_2(x))\mathrm dx&#x3D;\int</em>{-\infty}^\infty(x\psi^*<em>1(x))\psi_2(x)\mathrm dx,<br>$$<br>所以$(\hat x)^\dagger&#x3D;x$。<br>$$<br>\int</em>{-\infty}^\infty\psi^*<em>1(x)(-\mathrm i\hbar\frac\partial{\partial x}\psi_2(x))\mathrm dx&#x3D;-\mathrm i\hbar((\psi^*<em>1(x)\psi_2(x))|</em>{-\infty}^\infty-\int</em>{-\infty}^\infty\frac\partial{\partial x}\psi^*<em>1(x)\psi_2(x)\mathrm dx)&#x3D;\int</em>{-\infty}^\infty(\mathrm i\hbar\frac\partial{\partial x}\psi^*_1(x))\psi_2(x)\mathrm dx).<br>$$<br>所以$(\hat p)^\dagger&#x3D;\mathrm i\hbar\frac\partial{\partial x}$。</p><p>（2）证明哈密顿量$\hat H &#x3D;-\frac{h^2}{2m}\frac{\partial^2}{\partial x^2}+V(x)$是厄密算符。<br>$$<br>\int_{-\infty}^\infty\psi^*<em>1(x)(\frac{\partial^2}{\partial x^2}\psi_2(x))\mathrm dx&#x3D;(\psi^*<em>1(x)\frac\partial{\partial x}\psi_2(x))|</em>{-\infty}^\infty-\int</em>{-\infty}^\infty(\frac\partial{\partial x}\psi^*<em>1(x))(\frac\partial{\partial x}\psi_2(x))\mathrm dx&#x3D;-(\frac\partial{\partial x}\psi^*<em>1(x)\psi_2(x))|</em>{-\infty}^\infty+\int</em>{-\infty}^\infty(\frac{\partial^2}{\partial x^2}\psi^*<em>1(x))\psi_2(x)\mathrm dx&#x3D;\int</em>{-\infty}^\infty(\frac{\partial^2}{\partial x^2}\psi^*_1(x))\psi_2(x)\mathrm dx.<br>$$<br>这样$(\frac{\partial^2}{\partial x^2})^\dagger&#x3D;\frac{\partial^2}{\partial x^2}$，所以<br>$$<br>(\hat H)^\dagger&#x3D;-\frac{h^2}{2m}(\frac{\partial^2}{\partial x^2})^\dagger+V(x)&#x3D;-\frac{h^2}{2m}\frac{\partial^2}{\partial x^2}+V(x)&#x3D;\hat H.<br>$$<br>即哈密顿量是厄密算符。</p><p>38、求动能算符<br>$$<br>\hat T&#x3D;-\frac{h^2}{2m}\frac{\mathrm d^2}{\mathrm dx^2}<br>$$<br>的本征值和本征态。<br>$$<br>-\frac{h^2}{2m}\frac{\mathrm d^2}{\mathrm dx^2}u(x)&#x3D;Tu(x),<br>$$<br>解得<br>$$<br>u(x)&#x3D;Ce^{\mathrm ikx},C\in \mathbb R,k&#x3D;\pm\frac{\mathrm i}\hbar\sqrt{2mT},k\in \mathbb R.<br>$$<br>这样本征态为$e^{\mathrm ikx}$，本征值为$T&#x3D;\frac{\hbar^2k^2}{2m}$，其中$k\in\mathbb R$。</p><h1 id="氢原子解"><a href="#氢原子解" class="headerlink" title="氢原子解"></a>氢原子解</h1><p>39、氢原子处于$n &#x3D; 2$的能级，列出所有可能状态的量子数$(n, l, m)$。</p><p>40、设初始时刻氢原子处在状态$\psi(t &#x3D; 0) &#x3D; \frac1{\sqrt2}(\psi_{200} − \psi_{100})$上,计算氢原子半径$r$期望值<br>的时间演化$\bar r(t)$。</p><p>41、已知氢原子的状态波函数为<br>$$<br>u_{nlm}&#x3D;\frac1{81\sqrt{6\pi}a_0^\frac32}(\frac r{a_0})^2e^{-\frac r{3a_0}}(3\cos^2\theta-1),<br>$$<br>试确定量子数$(n,l,m)$。</p><h1 id="转动与平移"><a href="#转动与平移" class="headerlink" title="转动与平移"></a>转动与平移</h1><p>42、证明在$L_z$的本征态下，<br>$$<br>\langle L_x\rangle&#x3D;\langle L_y\rangle&#x3D;0.<br>$$</p><p>43、求单粒子的不确定关系<br>$$<br>\Delta L_x\Delta L_y\geqslant?<br>$$<br>设此粒子的量子态满足<br>$$<br>\langle L_x\rangle&#x3D;\langle L_y\rangle&#x3D;0,\langle L_z\rangle&#x3D;2\hbar.<br>$$<br>44、粒子的波函数为<br>$$<br>\psi(x,y,z)&#x3D;(\frac{128}{\pi^3})^{\frac14}\alpha^{\frac52}x\exp(-\alpha^2(x^2+y^2+z^2)),<br>$$<br>测量角动量$\vec{L}^2,L_z$会得到什么数值？概率是多少?</p><h1 id="电子的磁矩和自旋"><a href="#电子的磁矩和自旋" class="headerlink" title="电子的磁矩和自旋"></a>电子的磁矩和自旋</h1><p>44、氢原子处于定态$u_{3,1,1}$，受到扰动后向低能级跃迁，会有几条谱线？增加沿 $z$ 轴方向的磁场，各谱线分别分裂成几条（不考虑电子自旋）？</p><p>45、设电子是均匀球体。已知电子的角动量是$\frac\hbar2$，估算电子的角速度以及赤道上的线速度。</p><p>46、验证<br>$$<br>\frac1{2m_e}(\vec\sigma\cdot(\hat{\vec p}+e\vec A))^2&#x3D;\frac1{2m_e}(\hat{\vec p}+e\vec A)^2+\frac{e\hbar}{2m_e}\vec\sigma\cdot\vec B.<br>$$<br>47、设电子的自旋波函数是</p>$$\begin{pmatrix}1+2\mathrm i\\3+4\mathrm i\end{pmatrix}$$<p>测量自旋$s_y$，可能的取值有哪些？概率是分别是多少？</p><p>48、电子的总角动量$\vec J$为轨道角动量$\vec L$与自旋角动量$\vec s$之和。由于轨道角动量算符与自旋角动量算符作用在不同的空间，所以互相对易，即有<br>$$<br>[\hat{L_j},\hat {s_k}]&#x3D;0,j.k&#x3D;1,2,3.<br>$$<br>（1）求总角动量的对易关系$[\vec{J_j},\vec {J_k}]$。</p><p>（2)证明四个物理量${\hat{\vec J^2},\hat{\vec L^2},\hat{\vec s^2},\hat{J_z}}$两两对易，因而有完备的共同本征态。</p><h1 id="相对论量子力学"><a href="#相对论量子力学" class="headerlink" title="相对论量子力学"></a>相对论量子力学</h1>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;为适应科大新培养方案的要求，替代原普通物理课程“光学与原子物理”，新设的课程 “量子物理”需要对教学内容作较大幅度的压缩和调整。按照课程组协商意见，删去光学和原子物理学中比较专业化的内容，改以讲授量子理论为主，并增加有关量子信息的介绍，同时取消了作业详细解答的下发。本人出于为考试前有材料复习的目的，整理了此习题解答。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Physics" scheme="http://gsxgoldenlegendary.github.io/categories/Physics/"/>
+    
+    
+    <category term="Quantum Physics" scheme="http://gsxgoldenlegendary.github.io/tags/Quantum-Physics/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Monocyclic CPU Design</title>
+    <link href="http://gsxgoldenlegendary.github.io/2022/03/23/Monocyclic-CPU-Design/"/>
+    <id>http://gsxgoldenlegendary.github.io/2022/03/23/Monocyclic-CPU-Design/</id>
+    <published>2022-03-22T21:37:08.000Z</published>
+    <updated>2022-04-22T13:40:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>计算机组成原理实验报告《单周期CPU设计》：</p><p><span class="exturl" data-url="aHR0cHM6Ly9nc3hnb2xkZW5sZWdlbmRhcnkuZ2l0aHViLmlvL2ZpbGVzL2NvbXB1dGVyMGYucGRm">移动端点击链接下载查看<i class="fa fa-external-link-alt"></i></span></p><span id="more"></span><div class="pdf-container" data-target="https://gsxgoldenlegendary.github.io/files/computer0f.pdf" data-height="500px"></div>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;计算机组成原理实验报告《单周期CPU设计》：&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;exturl&quot; data-url=&quot;aHR0cHM6Ly9nc3hnb2xkZW5sZWdlbmRhcnkuZ2l0aHViLmlvL2ZpbGVzL2NvbXB1dGVyMGYucGRm&quot;&gt;移动端点击链接下载查看&lt;i class=&quot;fa fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Computer Organization" scheme="http://gsxgoldenlegendary.github.io/tags/Computer-Organization/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>H3Z, Start of Dream</title>
+    <link href="http://gsxgoldenlegendary.github.io/2022/03/16/H3Z-Start-of-Dream/"/>
+    <id>http://gsxgoldenlegendary.github.io/2022/03/16/H3Z-Start-of-Dream/</id>
+    <published>2022-03-15T18:09:16.000Z</published>
+    <updated>2022-04-15T10:16:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>毛泽东思想与中国特色社会主义理论体系概论课程论文《哈三中，梦开始的地方》：</p><span id="more"></span><p><span class="exturl" data-url="aHR0cHM6Ly9nc3hnb2xkZW5sZWdlbmRhcnkuZ2l0aHViLmlvL2ZpbGVzL3NvY2lldHkwMi5wZGY=">移动端点击链接下载查看<i class="fa fa-external-link-alt"></i></span></p><div class="pdf-container" data-target="https://gsxgoldenlegendary.github.io/files/society02.pdf" data-height="500px"></div>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;毛泽东思想与中国特色社会主义理论体系概论课程论文《哈三中，梦开始的地方》：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Society" scheme="http://gsxgoldenlegendary.github.io/categories/Society/"/>
+    
+    
+    <category term="H3Z" scheme="http://gsxgoldenlegendary.github.io/tags/H3Z/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Booting Process of a Computer</title>
+    <link href="http://gsxgoldenlegendary.github.io/2022/03/13/Booting-Process-of-a-Computer/"/>
+    <id>http://gsxgoldenlegendary.github.io/2022/03/13/Booting-Process-of-a-Computer/</id>
+    <published>2022-03-13T09:58:16.000Z</published>
+    <updated>2022-04-13T01:59:32.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>计算机组成原理调研报告《计算机的开机过程》：</p><span id="more"></span><p><span class="exturl" data-url="aHR0cHM6Ly9nc3hnb2xkZW5sZWdlbmRhcnkuZ2l0aHViLmlvL2ZpbGVzL2NvbXB1dGVyMGUucGRm">移动端点击链接下载查看<i class="fa fa-external-link-alt"></i></span></p><div class="pdf-container" data-target="https://gsxgoldenlegendary.github.io/files/computer0e.pdf" data-height="500px"></div>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;计算机组成原理调研报告《计算机的开机过程》：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Computer Science" scheme="http://gsxgoldenlegendary.github.io/categories/Computer-Science/"/>
+    
+    
+    <category term="Computer Organization" scheme="http://gsxgoldenlegendary.github.io/tags/Computer-Organization/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Assemble Programming</title>
+    <link href="http://gsxgoldenlegendary.github.io/2022/03/12/Assemble-Programming/"/>
+    <id>http://gsxgoldenlegendary.github.io/2022/03/12/Assemble-Programming/</id>
+    <published>2022-03-11T21:42:28.000Z</published>
+    <updated>2022-04-11T13:44:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>计算机组成原理实验报告《汇编程序设计》：</p><span id="more"></span><p><span class="exturl" data-url="aHR0cHM6Ly9nc3hnb2xkZW5sZWdlbmRhcnkuZ2l0aHViLmlvL2ZpbGVzL2NvbXB1dGVyMGQucGRm">移动端点击链接下载查看<i class="fa fa-external-link-alt"></i></span></p><div class="pdf-container" data-target="https://gsxgoldenlegendary.github.io/files/computer0d.pdf" data-height="500px"></div>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;计算机组成原理实验报告《汇编程序设计》：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Computer Science" scheme="http://gsxgoldenlegendary.github.io/categories/Computer-Science/"/>
+    
+    
+    <category term="Computer Organization" scheme="http://gsxgoldenlegendary.github.io/tags/Computer-Organization/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cryptography and Its Applications</title>
+    <link href="http://gsxgoldenlegendary.github.io/2022/03/08/Cryptography-and-Its-Applications/"/>
+    <id>http://gsxgoldenlegendary.github.io/2022/03/08/Cryptography-and-Its-Applications/</id>
+    <published>2022-03-07T20:47:10.000Z</published>
+    <updated>2022-04-07T13:41:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>信息安全导论实验报告《密码学及其应用》：</p><span id="more"></span><p><span class="exturl" data-url="aHR0cHM6Ly9nc3hnb2xkZW5sZWdlbmRhcnkuZ2l0aHViLmlvL2ZpbGVzL2NvbXB1dGVyMGMucGRm">移动端点击链接下载查看<i class="fa fa-external-link-alt"></i></span></p><div class="pdf-container" data-target="https://gsxgoldenlegendary.github.io/files/computer0c.pdf" data-height="500px"></div>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;信息安全导论实验报告《密码学及其应用》：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Computer Science" scheme="http://gsxgoldenlegendary.github.io/categories/Computer-Science/"/>
+    
+    
+    <category term="Information Security" scheme="http://gsxgoldenlegendary.github.io/tags/Information-Security/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Establish Network Security Experiment Environment</title>
+    <link href="http://gsxgoldenlegendary.github.io/2022/03/02/Establish-Network-Security-Experiment-Environment/"/>
+    <id>http://gsxgoldenlegendary.github.io/2022/03/02/Establish-Network-Security-Experiment-Environment/</id>
+    <published>2022-03-02T08:09:16.000Z</published>
+    <updated>2022-04-02T00:13:46.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>信息安全导论实验报告《建立网络安全实验环境》：</p><span id="more"></span><p><span class="exturl" data-url="aHR0cHM6Ly9nc3hnb2xkZW5sZWdlbmRhcnkuZ2l0aHViLmlvL2ZpbGVzL2NvbXB1dGVyMGIucGRm">移动端点击链接下载查看<i class="fa fa-external-link-alt"></i></span></p><div class="pdf-container" data-target="https://gsxgoldenlegendary.github.io/files/computer0b.pdf" data-height="500px"></div>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;信息安全导论实验报告《建立网络安全实验环境》：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Computer Science" scheme="http://gsxgoldenlegendary.github.io/categories/Computer-Science/"/>
+    
+    
+    <category term="Information Security" scheme="http://gsxgoldenlegendary.github.io/tags/Information-Security/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Setting Sail</title>
+    <link href="http://gsxgoldenlegendary.github.io/2022/02/09/Setting-Sail/"/>
+    <id>http://gsxgoldenlegendary.github.io/2022/02/09/Setting-Sail/</id>
+    <published>2022-02-09T13:35:26.000Z</published>
+    <updated>2022-03-09T05:50:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>高中班刊征文之二——《启航》（2019.11.05）：</p><span id="more"></span><p>都说哈三中是个梦开始的地方。</p><p>她自己也这么说。古朴庄重的石狮红柱门对映的廊墙上，“梦想”二字为首，其下才为“年华”与“使命”呀。</p><p>柏老师第一个月的三件事中，第一件也是梦想哈。</p><p>多少望子成龙、望女成凤的家长劝勉小孩子：“去哈三中念书吧，在那里能更好地实现你的梦想。”</p><p>于是，一级又一级的同学实现了可以实现梦想的梦想，走进了群英荟萃、人杰地灵的415号，怀揣独一无二的梦想，等待为之扬帆起航。</p><p>梦想总被认为是美好的。梦想着拿年级第1名的人，如果一次不能成功，还能对自己说还有第2次、第3次。三年里大考试就有10余次，故像这样想着，还能鼓足干劲。可梦想拿国家金牌的人，一共只2~3次机会，错过某次便难弥补；梦想得到美好感情的人，失败恐怕就没有从头再来的机会。这些多是空想的人的经历，梦开始的地方，可不是上课睡觉的地方。</p><p>渐渐地，甚至很快地，我们纷纷认识到了现实的骨感：没有行动的梦想终将泛白，只有敢行动，梦想才生动。于是便开始激昂斗志，挥洒青春的汗水。</p><p>严肃又活跃的课堂里，有我们追求真理的青春；不小也不大的操场上，有我们争抢拼搏的青春。无论是夙兴夜寐，还是晨读晚写；无论是教学楼长走廊里的答疑，还是综合楼空教室中的自习，都展现着莘莘学子为无悔的青春奋战、为不灭的梦想启航的信念。</p><p>有人讲，梦想能否实现不要紧，三年拼搏的青春才是最美丽的，可这句不过也是个梦想罢了。当你看到勤勤恳恳焚膏继晷的自己比不得嘻嘻哈哈上课游戏的别人时，当你看到游历多地刷书无数的自己比不得闲坐在家冥想提升的别人时，甚至当你看到有人不择手段与你竞争，如</p><p>诗云：</p><p>学车八人欢乐返，</p><p>自发板书车始翻。</p><p>多少实学真才者，</p><p>怎比原题做考前？</p><p>时，你还会不在意结果吗？</p><p>无论在意与否，现实就在这里，冷得让人连说都不会话，残酷地展现出来，在我们许多人的青春道路上，添上浓墨重彩的一笔，甚至若干笔。不谙世事的我们难以理解社会残酷的一面——大家并非站在同一起跑线上起步，这是因为我们还在学校这个遮风挡雨、风平浪静的港湾里尚未启航、</p><p>可是，无论我们是愿意与否、难舍也罢，都要带着三年内习得的一切扬帆起航，驶向深远蔚蓝、波涛汹涌的大海，去继续追求高远的梦想，恣意精彩的青春。</p><p>今日写此文，沉重又轻松。距高考仅215日，不由令人心头一紧；但回头看看，以往2年时光精彩纷呈，也一阵欣慰。不光本人回头看，连学校也回头看。</p><p>又诗云：</p><p>五分之一回头看，</p><p>原题重做不简单。</p><p>右顾左盼均不敢，</p><p>只得转身回头看。</p><p>一笑罢了。但实际确应回头看看走过的路，吸取经验，为更好地前行。</p><p>不管怎样，努力不会白费，三分天注定，七分靠打拼。</p><p>我们拥有着美好的梦想；</p><p>我们挥洒过无悔的青春；</p><p>我们直面这深远的启航。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;高中班刊征文之二——《启航》（2019.11.05）：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Society" scheme="http://gsxgoldenlegendary.github.io/categories/Society/"/>
+    
+    
+    <category term="H3Z" scheme="http://gsxgoldenlegendary.github.io/tags/H3Z/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Looking up</title>
+    <link href="http://gsxgoldenlegendary.github.io/2022/02/09/Looking-up/"/>
+    <id>http://gsxgoldenlegendary.github.io/2022/02/09/Looking-up/</id>
+    <published>2022-02-09T13:34:56.000Z</published>
+    <updated>2022-03-09T05:49:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>高中班刊征文之一——《仰望》(2018.05.25)：</p><span id="more"></span><p>这里是一个仰望的地方。</p><p>多少人走过那古朴的红柱石狮门口，停下过脚步，透过枝桠的掩映，抬头仰望着红底金字的匾。他们之中，有中小学的莘莘学子，或慕名而来，满怀憧憬与希望；或经常路过，坚守信念与目标。当然也有游客，他们所仰望的，外表多于内涵，而仅仅是楼宇的外表，就足够仰望许久了。碧瓦黄墙之间，承载着无数的梦。</p><p>九十余年的风雨中，一代又一代三中人经营与守护这个地方，助其屹立至今。“三中人”，这个朴实却响亮的名字恰当不过。带上“人”字，就像有了灵气，将八方而来的过客集聚在了一起。</p><p>园子里的人渐渐变更，但三中精神却不会消灭。就像忒修斯之船即便换下了最后一块零件，也应被称为忒修斯之船一样，精神的永恒，是真正永垂不朽的标志。</p><p>来到三中之前，我曾仰望这里；来到三中之后，我发现可以仰望之处更多了。</p><p>紧随录取喜悦之后的，便是更大的挑战。随着学习的深入，周围总有些同学开始被其他同学仰望了。能力较弱的同学看到能力较强的同学，就有了更确切的前进的目标；而那些能力较强的同学，便会看到更多曾经看不到的同水平的同学，也就把目标提升到与其争锋。在激烈的比拼中，每个人仰望别人与被别人仰望交替着，看到差距与后来居上轮回着，经过一系列调整、巩固、充实、提高，一步步地、不知不觉地踏上了更高的台阶。</p><p>在三中，不仅是同学间的仰望，还可以站在三中高台之上，仰望着知名高校与未来。三中，让我们站得更高，见得更广；识得更深，走得更远。</p><p>此时，我们班级还在幽深静谧的半地下室中存在。走到窗子近前，看外面只能抬头仰望，并且只有局限的视野。下半年，就要搬到一楼去，看到外面只需平视，但还有遮挡。明年到了二楼，视野会大为开阔，即使望向操场，也是俯视了。这是多么巧合，或是有意如此设计：我们一步一步地走，学识进了三级，而眼界扩展了千万倍。从仰望到平视，再到俯视，便是进步的过程。</p><p>我站在教室窗口，阳光从窗户上方铺散下来；我走在傍晚的操场上，看到天上星辉稀疏而缥缈。天行健，君子以自强不息，无论是看到日光的照射，抑或是满天星辰的闪烁，都会使人鼓舞。自然但且运转不止，我们如何能止步不前？</p><p>梦想，总是需要仰望；奋斗，却是近在咫尺。每次些许的努力，不都是一次助力吗？教室前方的“敦品励学，严谨求是”八个白底红字的校训在激励我们，匆匆不停的钟表在提醒我们，算下日子，距离高考还有七百四十二天。如今去看高考，不早也不迟。让我们为无悔的青春而战，为不灭的梦想启航。仰望星空，脚踏实地，定能拾级而上，终至高位，载誉而归。</p><p>此时，我回想着曾经对三中的仰望，憧憬着渴求的未来，遂写下这篇《仰望》，助你我前行。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;高中班刊征文之一——《仰望》(2018.05.25)：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Society" scheme="http://gsxgoldenlegendary.github.io/categories/Society/"/>
+    
+    
+    <category term="H3Z" scheme="http://gsxgoldenlegendary.github.io/tags/H3Z/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Basic Laws of Electromagnetism and Electromagnetic Waves</title>
+    <link href="http://gsxgoldenlegendary.github.io/2022/01/19/Basic-Laws-of-Electromagnetism-and-Electromagnetic-Waves/"/>
+    <id>http://gsxgoldenlegendary.github.io/2022/01/19/Basic-Laws-of-Electromagnetism-and-Electromagnetic-Waves/</id>
+    <published>2022-01-19T15:47:09.000Z</published>
+    <updated>2022-02-19T07:47:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>电磁现象的基本规律与电磁波笔记：</p><span id="more"></span><p><span class="exturl" data-url="aHR0cHM6Ly9nc3hnb2xkZW5sZWdlbmRhcnkuZ2l0aHViLmlvL2ZpbGVzL3BoeXNpY3MxOS5wZGY=">移动端点击链接下载查看<i class="fa fa-external-link-alt"></i></span></p><div class="pdf-container" data-target="https://gsxgoldenlegendary.github.io/files/physics19.pdf" data-height="500px"></div>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;电磁现象的基本规律与电磁波笔记：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Physics" scheme="http://gsxgoldenlegendary.github.io/categories/Physics/"/>
+    
+    
+    <category term="Electromagnetism" scheme="http://gsxgoldenlegendary.github.io/tags/Electromagnetism/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Electromagnetic Induction and Magnetic Field Energy</title>
+    <link href="http://gsxgoldenlegendary.github.io/2022/01/19/Electromagnetic-Induction-and-Magnetic-Field-Energy/"/>
+    <id>http://gsxgoldenlegendary.github.io/2022/01/19/Electromagnetic-Induction-and-Magnetic-Field-Energy/</id>
+    <published>2022-01-19T15:38:31.000Z</published>
+    <updated>2022-02-19T07:46:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>电磁感应与磁场能量笔记：</p><span id="more"></span><p><span class="exturl" data-url="aHR0cHM6Ly9nc3hnb2xkZW5sZWdlbmRhcnkuZ2l0aHViLmlvL2ZpbGVzL3BoeXNpY3MxOC5wZGY=">移动端点击链接下载查看<i class="fa fa-external-link-alt"></i></span></p><div class="pdf-container" data-target="https://gsxgoldenlegendary.github.io/files/physics18.pdf" data-height="500px"></div>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;电磁感应与磁场能量笔记：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Physics" scheme="http://gsxgoldenlegendary.github.io/categories/Physics/"/>
+    
+    
+    <category term="Electromagnetism" scheme="http://gsxgoldenlegendary.github.io/tags/Electromagnetism/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Magnetism in the Material and Magnetic Materials</title>
+    <link href="http://gsxgoldenlegendary.github.io/2022/01/19/Magnetism-in-the-Material-and-Magnetic-Materials/"/>
+    <id>http://gsxgoldenlegendary.github.io/2022/01/19/Magnetism-in-the-Material-and-Magnetic-Materials/</id>
+    <published>2022-01-19T15:37:42.000Z</published>
+    <updated>2022-02-19T07:44:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>物质中的磁场与磁性材料笔记：</p><span id="more"></span><p><span class="exturl" data-url="aHR0cHM6Ly9nc3hnb2xkZW5sZWdlbmRhcnkuZ2l0aHViLmlvL2ZpbGVzL3BoeXNpY3MxNy5wZGY=">移动端点击链接下载查看<i class="fa fa-external-link-alt"></i></span></p><div class="pdf-container" data-target="https://gsxgoldenlegendary.github.io/files/physics17.pdf" data-height="500px"></div>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;物质中的磁场与磁性材料笔记：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Physics" scheme="http://gsxgoldenlegendary.github.io/categories/Physics/"/>
+    
+    
+    <category term="Electromagnetism" scheme="http://gsxgoldenlegendary.github.io/tags/Electromagnetism/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Magnetic Forces and Magnetic Fields</title>
+    <link href="http://gsxgoldenlegendary.github.io/2022/01/19/Magnetic-Forces-and-Magnetic-Fields/"/>
+    <id>http://gsxgoldenlegendary.github.io/2022/01/19/Magnetic-Forces-and-Magnetic-Fields/</id>
+    <published>2022-01-19T15:36:20.000Z</published>
+    <updated>2022-02-19T07:43:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>磁力与磁场笔记：</p><span id="more"></span><p><span class="exturl" data-url="aHR0cHM6Ly9nc3hnb2xkZW5sZWdlbmRhcnkuZ2l0aHViLmlvL2ZpbGVzL3BoeXNpY3MxNi5wZGY=">移动端点击链接下载查看<i class="fa fa-external-link-alt"></i></span></p><div class="pdf-container" data-target="https://gsxgoldenlegendary.github.io/files/physics16.pdf" data-height="500px"></div>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;磁力与磁场笔记：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Physics" scheme="http://gsxgoldenlegendary.github.io/categories/Physics/"/>
+    
+    
+    <category term="Electromagnetism" scheme="http://gsxgoldenlegendary.github.io/tags/Electromagnetism/"/>
+    
+  </entry>
+  
+</feed>

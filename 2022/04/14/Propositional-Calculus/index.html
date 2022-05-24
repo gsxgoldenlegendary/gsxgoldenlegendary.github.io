@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="5AUIVYTbHIAuz-eQtxSfZbWW5eg9_EVZMSQycIuXrG0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gsxgoldenlegendary.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.1","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/config.min.js"></script>
+
+    <meta name="description" content="命题演算是我们要建立的最简单、最基本的形式系统。这种系统是用来表现较为简单的逻辑推理的一种数学模型。命题演算的简单性表现在：当它把复合命题分解成最简单的命题后，就把简单命题视为最小的考察对象，不再继续对简单命题进行分解了。研究这种系统，除去为直接应用，还为研究谓词演算（用来表现更为复杂的推理的形式系统）打下基础。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Propositional Calculus">
+<meta property="og:url" content="http://gsxgoldenlegendary.github.io/2022/04/14/Propositional-Calculus/index.html">
+<meta property="og:site_name" content="SONGXIAO&#39;S TOPBLOG">
+<meta property="og:description" content="命题演算是我们要建立的最简单、最基本的形式系统。这种系统是用来表现较为简单的逻辑推理的一种数学模型。命题演算的简单性表现在：当它把复合命题分解成最简单的命题后，就把简单命题视为最小的考察对象，不再继续对简单命题进行分解了。研究这种系统，除去为直接应用，还为研究谓词演算（用来表现更为复杂的推理的形式系统）打下基础。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-04-14T10:10:36.000Z">
+<meta property="article:modified_time" content="2022-05-15T02:40:38.000Z">
+<meta property="article:author" content="GUO Songxiao">
+<meta property="article:tag" content="Mathematical Logic">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://gsxgoldenlegendary.github.io/2022/04/14/Propositional-Calculus/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://gsxgoldenlegendary.github.io/2022/04/14/Propositional-Calculus/","path":"2022/04/14/Propositional-Calculus/","title":"Propositional Calculus"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Propositional Calculus | SONGXIAO'S TOPBLOG</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108155018-3"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-108155018-3","only_pageview":false}</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/analytics/google-analytics.min.js"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="SONGXIAO'S TOPBLOG" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SONGXIAO'S TOPBLOG</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Theme for Hexo</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-bell fa-fw"></i>Home</a></li><li class="menu-item menu-item-docs"><a href="/docs/" rel="section"><i class="fa fa-book fa-fw"></i>Docs</a></li><li class="menu-item menu-item-plugins"><a href="/plugins/" rel="section"><i class="fa fa-flask fa-fw"></i>Plugins</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">108</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%91%BD%E9%A2%98%E6%BC%94%E7%AE%97%E7%9A%84%E5%BB%BA%E7%AB%8B"><span class="nav-number">1.</span> <span class="nav-text">命题演算的建立</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E9%A2%98%E6%BC%94%E7%AE%97L"><span class="nav-number">1.1.</span> <span class="nav-text">命题演算L</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E6%8E%A8%E8%AE%BA"><span class="nav-number">1.2.</span> <span class="nav-text">语法推论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0%E7%9F%9B%E7%9B%BE%E5%85%AC%E5%BC%8F%E9%9B%86"><span class="nav-number">1.3.</span> <span class="nav-text">无矛盾公式集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BC%94%E7%BB%8E%E5%AE%9A%E7%90%86"><span class="nav-number">1.4.</span> <span class="nav-text">演绎定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%81%87%E8%AE%BE%E4%B8%89%E6%AE%B5%E8%AE%BA%EF%BC%88Hypothetical-Syllogism-HS%EF%BC%89"><span class="nav-number">1.5.</span> <span class="nav-text">假设三段论（Hypothetical Syllogism,HS）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8D%E8%AF%81%E5%BE%8B"><span class="nav-number">1.6.</span> <span class="nav-text">反证律</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%92%E8%B0%AC%E5%BE%8B"><span class="nav-number">1.7.</span> <span class="nav-text">归谬律</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%91%BD%E9%A2%98%E6%BC%94%E7%AE%97%E7%9A%84%E8%AF%AD%E4%B9%89"><span class="nav-number">2.</span> <span class="nav-text">命题演算的语义</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9C%9F%E5%80%BC%E5%87%BD%E6%95%B0"><span class="nav-number">2.1.</span> <span class="nav-text">真值函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%8B%E5%80%BC"><span class="nav-number">2.2.</span> <span class="nav-text">赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9C%9F%E5%80%BC%E6%8C%87%E6%B4%BE"><span class="nav-number">2.3.</span> <span class="nav-text">真值指派</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%94%AF%E4%B8%80%E6%89%A9%E5%BC%A0"><span class="nav-number">2.4.</span> <span class="nav-text">唯一扩张</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B0%B8%E7%9C%9F%E5%BC%8F"><span class="nav-number">2.5.</span> <span class="nav-text">永真式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E6%8D%A2%E5%AE%9A%E7%90%86"><span class="nav-number">2.6.</span> <span class="nav-text">代换定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B0%B8%E5%81%87%E5%BC%8F%E4%B8%8E%E5%8F%AF%E6%BB%A1%E8%B6%B3%E5%85%AC%E5%BC%8F"><span class="nav-number">2.7.</span> <span class="nav-text">永假式与可满足公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E4%B9%89%E6%8E%A8%E8%AE%BA"><span class="nav-number">2.8.</span> <span class="nav-text">语义推论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E4%B9%89%E6%BC%94%E7%BB%8E%E5%AE%9A%E7%90%86"><span class="nav-number">2.9.</span> <span class="nav-text">语义演绎定理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%91%BD%E9%A2%98%E6%BC%94%E7%AE%97L%E7%9A%84%E5%8F%AF%E9%9D%A0%E6%80%A7%E4%B8%8E%E5%AE%8C%E5%85%A8%E6%80%A7"><span class="nav-number">3.</span> <span class="nav-text">命题演算L的可靠性与完全性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#L%E7%9A%84%E5%8F%AF%E9%9D%A0%E6%80%A7"><span class="nav-number">3.1.</span> <span class="nav-text">L的可靠性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F%E9%9B%86%E7%9A%84%E5%AE%8C%E5%A4%87%E6%80%A7"><span class="nav-number">3.2.</span> <span class="nav-text">公式集的完备性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#L%E7%9A%84%E5%AE%8C%E5%85%A8%E6%80%A7"><span class="nav-number">3.3.</span> <span class="nav-text">L的完全性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%91%BD%E9%A2%98%E6%BC%94%E7%AE%97%E7%9A%84%E5%85%B6%E4%BB%96%E8%AF%BE%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">命题演算的其他课题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AD%89%E5%80%BC%E5%85%AC%E5%BC%8F"><span class="nav-number">4.1.</span> <span class="nav-text">等值公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%90%E5%85%AC%E5%BC%8F%E7%AD%89%E5%80%BC%E5%8F%AF%E6%9B%BF%E6%8D%A2%E6%80%A7"><span class="nav-number">4.2.</span> <span class="nav-text">子公式等值可替换性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F%E7%9A%84%E5%AF%B9%E5%81%B6"><span class="nav-number">4.3.</span> <span class="nav-text">公式的对偶</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E5%81%B6%E5%BE%8B"><span class="nav-number">4.4.</span> <span class="nav-text">对偶律</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%9E%90%E5%8F%96%E5%BC%8F%E4%B8%8E%E5%9F%BA%E6%9C%AC%E5%90%88%E5%8F%96%E5%BC%8F"><span class="nav-number">4.5.</span> <span class="nav-text">基本析取式与基本合取式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%90%E5%8F%96%E8%8C%83%E5%BC%8F%E4%B8%8E%E5%90%88%E5%8F%96%E8%8C%83%E5%BC%8F"><span class="nav-number">4.6.</span> <span class="nav-text">析取范式与合取范式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E6%9E%90%E5%8F%96%E8%8C%83%E5%BC%8F%E4%B8%8E%E4%B8%BB%E5%90%88%E5%8F%96%E8%8C%83%E5%BC%8F"><span class="nav-number">4.7.</span> <span class="nav-text">主析取范式与主合取范式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E6%B0%B8%E5%81%87%E5%BC%8F%E7%9A%84%E8%8C%83%E5%BC%8F"><span class="nav-number">4.8.</span> <span class="nav-text">非永假式的范式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E6%B0%B8%E7%9C%9F%E5%BC%8F%E7%9A%84%E8%8C%83%E5%BC%8F"><span class="nav-number">4.9.</span> <span class="nav-text">非永真式的范式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%9A%84%E5%AE%8C%E5%85%A8%E7%BB%84"><span class="nav-number">4.10.</span> <span class="nav-text">运算的完全组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%80%9C%E4%B8%8E%E9%9D%9E%E2%80%9D%E8%BF%90%E7%AE%97%E5%92%8C%E2%80%9C%E6%88%96%E9%9D%9E%E2%80%9D%E8%BF%90%E7%AE%97"><span class="nav-number">4.11.</span> <span class="nav-text">“与非”运算和“或非”运算</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Theme NexT"
+      src="/images/logo.svg">
+  <p class="site-author-name" itemprop="name">Theme NexT</p>
+  <div class="site-description" itemprop="description">Stay Simple. Stay NexT.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">108</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;next-theme"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9jcm93ZGluLmNvbS9wcm9qZWN0L2hleG8tdGhlbWUtbmV4dA==" title="Crowdin → https:&#x2F;&#x2F;crowdin.com&#x2F;project&#x2F;hexo-theme-next"><i class="fa fa-globe-asia fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+<div class="cc-license animated" itemprop="sponsor">
+  <span class="exturl cc-opacity" title="Deploy with Netlify → https://www.netlify.com" data-url="aHR0cHM6Ly93d3cubmV0bGlmeS5jb20="><img width="80" src="https://www.netlify.com/img/global/badges/netlify-dark.svg" alt="Netlify"></span>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0" title="Fork NexT on GitHub" aria-label="Fork NexT on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://gsxgoldenlegendary.github.io/2022/04/14/Propositional-Calculus/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="Theme NexT">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SONGXIAO'S TOPBLOG">
+      <meta itemprop="description" content="Stay Simple. Stay NexT.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Propositional Calculus | SONGXIAO'S TOPBLOG">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Propositional Calculus<span class="exturl post-edit-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvdGhlbWUtbmV4dC1kb2NzL2VkaXQvbWFzdGVyL3NvdXJjZS9fcG9zdHMvUHJvcG9zaXRpb25hbC1DYWxjdWx1cy5tZA==" title="Edit this post"><i class="fa fa-pen-nib"></i></span>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-04-14 10:10:36" itemprop="dateCreated datePublished" datetime="2022-04-14T10:10:36Z">2022-04-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Mathematics/" itemprop="url" rel="index"><span itemprop="name">Mathematics</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2022/04/14/Propositional-Calculus/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2022/04/14/Propositional-Calculus/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>命题演算是我们要建立的最简单、最基本的形式系统。这种系统是用来表现较为简单的逻辑推理的一种数学模型。命题演算的简单性表现在：当它把复合命题分解成最简单的命题后，就把简单命题视为最小的考察对象，不再继续对简单命题进行分解了。研究这种系统，除去为直接应用，还为研究谓词演算（用来表现更为复杂的推理的形式系统）打下基础。</p>
+<span id="more"></span>
+
+<h1 id="命题演算的建立"><a href="#命题演算的建立" class="headerlink" title="命题演算的建立"></a>命题演算的建立</h1><h2 id="命题演算L"><a href="#命题演算L" class="headerlink" title="命题演算L"></a>命题演算L</h2><p>命题变元集$X&#x3D;{x_1,x_2,\cdots}$上的命题演算L是指带有下面规定的“公理”和“证明”的命题代数$L(X)$：</p>
+<p>（1）“公理”</p>
+<p>取$L(X)$的具有以下形状的公式作为“公理”：</p>
+<p>（L1，肯定后件律）$p\to(q\to p),$</p>
+<p>（L2，蕴含词分配律）$(p\to (q\to r))\to((p\to q)\to(p\to r)),$</p>
+<p>（L3，换位律）$(\neg p\to\neg q)\to(q\to p),$</p>
+<p>其中$p,q,r\in L(X)$。</p>
+<p>（2）“证明”</p>
+<p>设$\Gamma\subseteq L(X),p\in L(X)$。当我们说“公式$p$是从公式集$\Gamma$可证的”，是指存在着$L(X)$的公式有限序列$p_1,\cdots,p_n$，其中尾项$p_n&#x3D;p$，且每个$p_k(k&#x3D;1,\cdots,n)$满足：</p>
+<p>（i）$p_k\in\Gamma$，或</p>
+<p>（ii）$p_k$是“公理”，或</p>
+<p>（iii）存在$i,j&lt;k$使$p_j&#x3D;p_i\to p_k$。</p>
+<p>具有上述性质的有限序列$p_1,\cdots,p_n$，叫做$p$从$\Gamma$的“证明”。</p>
+<h2 id="语法推论"><a href="#语法推论" class="headerlink" title="语法推论"></a>语法推论</h2><p>建立了命题演算L之后，进一步规定：</p>
+<p>（1）如果公式$p$从公式集$\Gamma$可证，那么我们写$\Gamma\vdash p$，必要时也可写成$\Gamma\vdash_L p$，这时$\Gamma$中的公式叫做“假定”，$p$叫做假定集$\Gamma$的语法推论。</p>
+<p>（2）若$\emptyset\vdash p$，则称$p$是$L$的“定理”，记为$\vdash p$。$p$在$L$中从$\emptyset$的证明$p_1,\cdots,p_n$简称为$p$在$L$中的证明。</p>
+<p>（3）在一个证明中，当$p_j&#x3D;p_i\to p_k(i,j&lt;k)$时，就说$p_k$由$p_i,p_p\to p_k$使用假言推理（Modus Ponens）这条推理规则而得，或简单地说“使用MP”而得。</p>
+<h2 id="无矛盾公式集"><a href="#无矛盾公式集" class="headerlink" title="无矛盾公式集"></a>无矛盾公式集</h2><p>如果对任何公式$q$，$\Gamma\vdash q$和$\Gamma\vdash\neg q$二者都不同时成立，就称公式集$\Gamma$是无矛盾公式集，否则称公式集$\Gamma$是有矛盾公式集。</p>
+<h2 id="演绎定理"><a href="#演绎定理" class="headerlink" title="演绎定理"></a>演绎定理</h2><p>$$<br>\Gamma\cup{p}\vdash q\Leftrightarrow\Gamma\vdash p\to q.<br>$$</p>
+<h2 id="假设三段论（Hypothetical-Syllogism-HS）"><a href="#假设三段论（Hypothetical-Syllogism-HS）" class="headerlink" title="假设三段论（Hypothetical Syllogism,HS）"></a>假设三段论（Hypothetical Syllogism,HS）</h2><p>$$<br>{p\to q,q\to r}\vdash p\to r.<br>$$</p>
+<h2 id="反证律"><a href="#反证律" class="headerlink" title="反证律"></a>反证律</h2><p>$$<br>\begin{array}\<br>\Gamma\cup{\neg p}\vdash q\<br>\Gamma\cup{\neg p}\vdash \neg q<br>\end{array}<br>\left}<br>\Rightarrow<br>\Gamma\vdash p.<br>\right.<br>$$</p>
+<h2 id="归谬律"><a href="#归谬律" class="headerlink" title="归谬律"></a>归谬律</h2><p>$$<br>\begin{array}\<br>\Gamma\cup{p}\vdash q\<br>\Gamma\cup{p}\vdash \neg q<br>\end{array}<br>\left}<br>\Rightarrow<br>\Gamma\vdash\neg p.<br>\right.<br>$$</p>
+<h1 id="命题演算的语义"><a href="#命题演算的语义" class="headerlink" title="命题演算的语义"></a>命题演算的语义</h1><h2 id="真值函数"><a href="#真值函数" class="headerlink" title="真值函数"></a>真值函数</h2><p>函数$f:\mathbb Z_2^n\to\mathbb Z_2$叫做$n$元真值函数。</p>
+<h2 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h2><p>具有“保运算性”的映射$v:L(X)\to Z_2$叫做$L(X)$的赋值。映射具有保运算性，是指对任意$p,q\in L(X)$，$v$满足条件：</p>
+<ol>
+<li>$v(\neg p)&#x3D;\neg v(p),$</li>
+<li>$v(p\to q)&#x3D;v(p)\to v(q).$</li>
+</ol>
+<p>对任意公式$p\in L(X)$，$v(p)$叫做$p$的真值。同样，具有保运算性的映射$v:L(X)\to \mathbb Z_2$叫做$L(X_n)$的赋值。（$$）</p>
+<h2 id="真值指派"><a href="#真值指派" class="headerlink" title="真值指派"></a>真值指派</h2><p>映射$v_0\to\mathbb  Z_2$叫做命题变元的真值指派。若把其中$X$换成$X_n&#x3D;{x_1,\cdots,x_n}$，则$v_0$叫做$x_1,\cdots,x_n$的真值指派。</p>
+<h2 id="唯一扩张"><a href="#唯一扩张" class="headerlink" title="唯一扩张"></a>唯一扩张</h2><p>命题变元的任一真值指派，必可唯一地扩张成$L(X)$的赋值；$x_1,\cdots,x_n$的任一真值指派，必可唯一地扩张成$L(X_n)$的赋值。</p>
+<h2 id="永真式"><a href="#永真式" class="headerlink" title="永真式"></a>永真式</h2><p>若公式$p$的真值函数取常值$1$，则$p$叫做命题演算$L$的永真式或重言式（Tautology），记作$\vDash p$。</p>
+<h2 id="代换定理"><a href="#代换定理" class="headerlink" title="代换定理"></a>代换定理</h2><p>$$<br>\vDash p(x_1,\cdots,x_n)\Rightarrow\vDash p(p_1,\cdots,p_n).<br>$$</p>
+<p>其中$p(p_1,\cdots,p_n)\in L(X_n)$，而$p_1,\cdots,p_n\in L(X)$；$p(p_1,\cdots,p_n)$是用$p_1,\cdots,p_n$分别全部替换$p(x_1,\cdots,x_n)$中的$x_1,\cdots,x_n$所得结果。</p>
+<h2 id="永假式与可满足公式"><a href="#永假式与可满足公式" class="headerlink" title="永假式与可满足公式"></a>永假式与可满足公式</h2><p>若$\neg p$是永真式，则$p$叫做永假式。非永假式叫做可满足公式。</p>
+<h2 id="语义推论"><a href="#语义推论" class="headerlink" title="语义推论"></a>语义推论</h2><p>设$\Gamma\subseteq L(X),p\in L(X)$，如果$\Gamma$中所有公式的任何公共成真指派都一定是公式$p$的成真指派，则说$p$是公式集$\Gamma$的语义推论，记作$\Gamma\vDash p$。</p>
+<h2 id="语义演绎定理"><a href="#语义演绎定理" class="headerlink" title="语义演绎定理"></a>语义演绎定理</h2><p>$$<br>\Gamma\cup{p}\vDash q\Leftrightarrow\Gamma\vDash p\to q.<br>$$</p>
+<h1 id="命题演算L的可靠性与完全性"><a href="#命题演算L的可靠性与完全性" class="headerlink" title="命题演算L的可靠性与完全性"></a>命题演算L的可靠性与完全性</h1><h2 id="L的可靠性"><a href="#L的可靠性" class="headerlink" title="L的可靠性"></a>L的可靠性</h2><p>$$<br>\Gamma\vdash p\Rightarrow\Gamma\vDash p.<br>$$</p>
+<h2 id="公式集的完备性"><a href="#公式集的完备性" class="headerlink" title="公式集的完备性"></a>公式集的完备性</h2><p>设$\Gamma\subseteq L(X)$。$\Gamma$是完备的，意指对任一公式$p$，$\Gamma\vdash p$与$\Gamma\vdash\neg p$必有一个成立。</p>
+<h2 id="L的完全性"><a href="#L的完全性" class="headerlink" title="L的完全性"></a>L的完全性</h2><p>$$<br>\Gamma\vDash p\Rightarrow\Gamma\vdash p.<br>$$</p>
+<h1 id="命题演算的其他课题"><a href="#命题演算的其他课题" class="headerlink" title="命题演算的其他课题"></a>命题演算的其他课题</h1><h2 id="等值公式"><a href="#等值公式" class="headerlink" title="等值公式"></a>等值公式</h2><p>$p$与$q$等值，是指$p\leftrightarrow q$为永真式。</p>
+<h2 id="子公式等值可替换性"><a href="#子公式等值可替换性" class="headerlink" title="子公式等值可替换性"></a>子公式等值可替换性</h2><p>设$q$是$p$的子公式：$p&#x3D;\cdots q\cdots$，用公式$q&#39;$替换$p$中的子公式$q$（一处替换）所得结果记为$p&#39;&#x3D;\cdots q&#39;\cdots$，那么<br>$$<br>\vDash q\leftrightarrow q&#39;\Rightarrow\vDash p\leftrightarrow p&#39;.<br>$$</p>
+<h2 id="公式的对偶"><a href="#公式的对偶" class="headerlink" title="公式的对偶"></a>公式的对偶</h2><p>设公式$p$已被写成只含有命题变元和运算$\neg,\vee,\wedge$的形式。把$p$中的命题变元全部改为各自的否定，把$\vee$全改为$\wedge$，把$\wedge$全改为$\vee$，这样得到的公式$p^*$叫做公式$p$的对偶。</p>
+<h2 id="对偶律"><a href="#对偶律" class="headerlink" title="对偶律"></a>对偶律</h2><p>$$<br>\vDash p^*\leftrightarrow\neg p,<br>$$</p>
+<p>其中$p^*$是$p$的对偶。</p>
+<h2 id="基本析取式与基本合取式"><a href="#基本析取式与基本合取式" class="headerlink" title="基本析取式与基本合取式"></a>基本析取式与基本合取式</h2><p>形为$y_1\vee y_2\vee\cdots\vee y_n$和形为$y_1\wedge y_2\wedge\cdots\wedge y_n$的公式分别叫做基本析取式和基本合取式。其中每一个$y_i$是命题变元或命题变元的否定。</p>
+<h2 id="析取范式与合取范式"><a href="#析取范式与合取范式" class="headerlink" title="析取范式与合取范式"></a>析取范式与合取范式</h2><p>形为$\vee_{i&#x3D;1}^m(\wedge_{j&#x3D;1}^{n_i}y_{ij})$的公式叫做析取范式，形为$\wedge_{i&#x3D;1}^m(\vee_{j&#x3D;1}^{n_i}y_{ij})$的公式叫做合取范式，其中每一个$y_{ij}$是某个命题变元$x_k$或它的否定$\neg x_k$。</p>
+<h2 id="主析取范式与主合取范式"><a href="#主析取范式与主合取范式" class="headerlink" title="主析取范式与主合取范式"></a>主析取范式与主合取范式</h2><p>$L(X)$中的主析取范式是这样的析取范式，在它的每个析取支中，每个命题变元$x_1,\cdots,x_n$（带否定号或不带否定号）按下标由小到大的次序都出现且只出现一次。$L(X)$中的主合取范式是这样的合取范式，在它的每个合取支中，每个命题变元$x_1,\cdots,x_n$（带否定号或不带否定号）按下标由小到大的次序都出现且只出现一次。</p>
+<h2 id="非永假式的范式"><a href="#非永假式的范式" class="headerlink" title="非永假式的范式"></a>非永假式的范式</h2><p>每个非永假式必有与它等值的主析取范式。</p>
+<h2 id="非永真式的范式"><a href="#非永真式的范式" class="headerlink" title="非永真式的范式"></a>非永真式的范式</h2><p>每个非永真式必有与它等值的主合取范式。</p>
+<h2 id="运算的完全组"><a href="#运算的完全组" class="headerlink" title="运算的完全组"></a>运算的完全组</h2><p>$\mathbb Z_2$上的一些运算构成完全组，是指任一真值函数都可用该运算组中的运算表示出来。</p>
+<h2 id="“与非”运算和“或非”运算"><a href="#“与非”运算和“或非”运算" class="headerlink" title="“与非”运算和“或非”运算"></a>“与非”运算和“或非”运算</h2><p>与非运算用算符“$|$”表示，或非运算用算符“$\downarrow$”表示；它们的定义式分别是<br>$$<br>v_1|v_2&#x3D;\neg(v_1\wedge v_2),<br>$$</p>
+<p>$$<br>v_1\downarrow v_2&#x3D;\neg(v_1\vee v_2).<br>$$</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Mathematical-Logic/" rel="tag"># Mathematical Logic</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/04/12/Pipeline-CPU-Design/" rel="prev" title="Pipeline CPU Design">
+                  <i class="fa fa-chevron-left"></i> Pipeline CPU Design
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/04/14/Predicative-Calculus/" rel="next" title="Predicative Calculus">
+                  Predicative Calculus <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">NexT</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span>
+  </div><div class="footer-custom">
+Website source code <span class="exturl theme-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG8tbmV4dC9oZXhvLW5leHQuZ2l0aHViLmlv">here</span>
+</div>
+
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.0.6/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/comments.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/utils.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/motion.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/next-boot.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/pjax.min.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/search/local-search.min.js"></script>
+<script class="next-config" data-name="gitter" type="application/json">{"enable":true,"room":"hexo-next/community"}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/chat/gitter.min.js"></script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.0.1/mermaid.min.js","integrity":"sha256-CemUs9ITT7liCZpVMktcEw0BpAOZ1+mujlMB3UyuImU="}}</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/tags/mermaid.min.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/math/mathjax.min.js"></script>
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"next-theme","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/comments/disqus.min.js"></script>
+
+</body>
+</html>

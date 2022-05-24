@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="5AUIVYTbHIAuz-eQtxSfZbWW5eg9_EVZMSQycIuXrG0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gsxgoldenlegendary.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.1","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/config.min.js"></script>
+
+    <meta name="description" content="Poisson 过程Poisson过程是一系列离散事件的模型，事件之间的平均时间是确定的，但事件发生的确切时间是随机的，一个事件的到来与之前的事件无关。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Poisson Process">
+<meta property="og:url" content="http://gsxgoldenlegendary.github.io/2021/10/26/Poisson-Process/index.html">
+<meta property="og:site_name" content="SONGXIAO&#39;S TOPBLOG">
+<meta property="og:description" content="Poisson 过程Poisson过程是一系列离散事件的模型，事件之间的平均时间是确定的，但事件发生的确切时间是随机的，一个事件的到来与之前的事件无关。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-10-26T14:02:09.000Z">
+<meta property="article:modified_time" content="2021-12-02T11:15:24.000Z">
+<meta property="article:author" content="GUO Songxiao">
+<meta property="article:tag" content="Stochastic Process">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://gsxgoldenlegendary.github.io/2021/10/26/Poisson-Process/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://gsxgoldenlegendary.github.io/2021/10/26/Poisson-Process/","path":"2021/10/26/Poisson-Process/","title":"Poisson Process"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Poisson Process | SONGXIAO'S TOPBLOG</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108155018-3"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-108155018-3","only_pageview":false}</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/analytics/google-analytics.min.js"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="SONGXIAO'S TOPBLOG" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SONGXIAO'S TOPBLOG</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Theme for Hexo</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-bell fa-fw"></i>Home</a></li><li class="menu-item menu-item-docs"><a href="/docs/" rel="section"><i class="fa fa-book fa-fw"></i>Docs</a></li><li class="menu-item menu-item-plugins"><a href="/plugins/" rel="section"><i class="fa fa-flask fa-fw"></i>Plugins</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">108</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Poisson-%E8%BF%87%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">Poisson 过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Poisson%E8%BF%87%E7%A8%8B"><span class="nav-number">1.1.</span> <span class="nav-text">Poisson过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Poisson%E8%BF%87%E7%A8%8B-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">Poisson过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8EPoisson%E8%BF%87%E7%A8%8B%E7%9B%B8%E8%81%94%E7%B3%BB%E7%9A%84%E8%8B%A5%E5%B9%B2%E5%88%86%E5%B8%83"><span class="nav-number">1.2.</span> <span class="nav-text">与Poisson过程相联系的若干分布</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%B4%E9%9A%94%E6%97%B6%E9%97%B4%E5%92%8C%E7%AD%89%E5%BE%85%E6%97%B6%E9%97%B4%E7%9A%84%E5%88%86%E5%B8%83"><span class="nav-number">1.2.1.</span> <span class="nav-text">间隔时间和等待时间的分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%89%E5%BE%85%E6%97%B6%E9%97%B4%E7%9A%84%E8%81%94%E5%90%88%E5%88%86%E5%B8%83"><span class="nav-number">1.2.2.</span> <span class="nav-text">等待时间的联合分布</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Poisson%E8%BF%87%E7%A8%8B%E7%9A%84%E6%8E%A8%E5%B9%BF"><span class="nav-number">1.3.</span> <span class="nav-text">Poisson过程的推广</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E8%BF%87%E7%A8%8B"><span class="nav-number">1.3.1.</span> <span class="nav-text">更新过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E8%BF%87%E7%A8%8B%E7%9A%84%E5%88%86%E5%B8%83"><span class="nav-number">1.3.2.</span> <span class="nav-text">更新过程的分布</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9A%BE%E9%A2%98%E9%9B%86%E8%90%83"><span class="nav-number">1.4.</span> <span class="nav-text">难题集萃</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E4%B8%AA%E7%8B%AC%E7%AB%8BPoisson%E8%BF%87%E7%A8%8B"><span class="nav-number">1.4.1.</span> <span class="nav-text">多个独立Poisson过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%B2%E5%87%BB%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.4.2.</span> <span class="nav-text">冲击模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E9%BD%90%E6%AC%A1Poisson%E8%BF%87%E7%A8%8B%E7%9A%84%E4%BA%8B%E4%BB%B6%E6%97%B6%E9%97%B4%E9%97%B4%E9%9A%94"><span class="nav-number">1.4.3.</span> <span class="nav-text">非齐次Poisson过程的事件时间间隔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E8%BF%87%E7%A8%8B%E7%9A%84%E7%AD%89%E5%BE%85%E6%97%B6%E9%97%B4"><span class="nav-number">1.4.4.</span> <span class="nav-text">更新过程的等待时间</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Theme NexT"
+      src="/images/logo.svg">
+  <p class="site-author-name" itemprop="name">Theme NexT</p>
+  <div class="site-description" itemprop="description">Stay Simple. Stay NexT.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">108</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;next-theme"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9jcm93ZGluLmNvbS9wcm9qZWN0L2hleG8tdGhlbWUtbmV4dA==" title="Crowdin → https:&#x2F;&#x2F;crowdin.com&#x2F;project&#x2F;hexo-theme-next"><i class="fa fa-globe-asia fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+<div class="cc-license animated" itemprop="sponsor">
+  <span class="exturl cc-opacity" title="Deploy with Netlify → https://www.netlify.com" data-url="aHR0cHM6Ly93d3cubmV0bGlmeS5jb20="><img width="80" src="https://www.netlify.com/img/global/badges/netlify-dark.svg" alt="Netlify"></span>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0" title="Fork NexT on GitHub" aria-label="Fork NexT on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://gsxgoldenlegendary.github.io/2021/10/26/Poisson-Process/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="Theme NexT">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SONGXIAO'S TOPBLOG">
+      <meta itemprop="description" content="Stay Simple. Stay NexT.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Poisson Process | SONGXIAO'S TOPBLOG">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Poisson Process<span class="exturl post-edit-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvdGhlbWUtbmV4dC1kb2NzL2VkaXQvbWFzdGVyL3NvdXJjZS9fcG9zdHMvUG9pc3Nvbi1Qcm9jZXNzLm1k" title="Edit this post"><i class="fa fa-pen-nib"></i></span>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-10-26 14:02:09" itemprop="dateCreated datePublished" datetime="2021-10-26T14:02:09Z">2021-10-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Mathematics/" itemprop="url" rel="index"><span itemprop="name">Mathematics</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/10/26/Poisson-Process/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/10/26/Poisson-Process/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Poisson-过程"><a href="#Poisson-过程" class="headerlink" title="Poisson 过程"></a>Poisson 过程</h1><p>Poisson过程是一系列离散事件的模型，事件之间的平均时间是确定的，但事件发生的确切时间是随机的，一个事件的到来与之前的事件无关。</p>
+<span id="more"></span>
+
+<h2 id="Poisson过程"><a href="#Poisson过程" class="headerlink" title="Poisson过程"></a>Poisson过程</h2><h3 id="Poisson过程-1"><a href="#Poisson过程-1" class="headerlink" title="Poisson过程"></a>Poisson过程</h3><p>一个整数值随机过程${N(t),t\geqslant0}$满足下述三个条件就称作强度为$\lambda&gt;0$的Poisson过程：</p>
+<ol>
+<li>$N(0)&#x3D;0$；</li>
+<li>$N(t)$是独立增量过程；</li>
+<li>对任何$t&gt;0$，$s\geqslant0$增量$N(s+t)-N(t)$服从参数为$\lambda t$的Poisson分布，即$$P{N(s+t)-N(t)&#x3D;k}&#x3D;\frac{(\lambda t)^ke^{-\lambda t}}{k!},k&#x3D;0,1,\cdots$$。</li>
+</ol>
+<p>满足假定1~4的随机过程$N(t)$为Poisson过程。</p>
+<ol>
+<li>在不相交区间中事件发生的数目相互独立，也即对任何整数$n&#x3D;1,2,\cdots$，设时刻$t_0&#x3D;0&lt;t_1&lt;t_2&lt;\cdots&lt;t_n$，增量$$N(t_1)-N(t_0),N(t_2)-N(t_1),\cdots,N(t_n)-N(t_{n-1})$$相互独立；</li>
+<li>对任何时刻$t$和正数$h$，随机变量（增量）$N(t+h)-N(t)$的分布只依赖于区间长度$h$而不依赖时刻$t$；</li>
+<li>存在正整数$\lambda$当$h\downarrow 0$时，使在长度为的小区间中事件至少发生一次的概率$$P{N(t+h)-N(t)\geqslant1}&#x3D;\lambda h+\omicron(h)$$；</li>
+<li>在小区间$(t,t+h]$发生两个或两个以上事件的概率为$\omicron(h)$（可以忽略不计），即当$h\downarrow 0$，$P{N(t+h)-N(t)\geqslant2}&#x3D;\omicron (h)$。</li>
+</ol>
+<h2 id="与Poisson过程相联系的若干分布"><a href="#与Poisson过程相联系的若干分布" class="headerlink" title="与Poisson过程相联系的若干分布"></a>与Poisson过程相联系的若干分布</h2><h3 id="间隔时间和等待时间的分布"><a href="#间隔时间和等待时间的分布" class="headerlink" title="间隔时间和等待时间的分布"></a>间隔时间和等待时间的分布</h3><p>第$n-1$次与第$n$次事件间的间隔时间记作$X_n$，而$W_n&#x3D;\sum\limits_{i-1}\limits^nX_i$为第$n$次事件的到达或等待时间，则$X_n,n&#x3D;1,2,\cdots$是均值为$\frac{1}{\lambda}$的独立同分布的指数随机变量，$W_n$服从参数为$n$，和$\lambda$的$\Gamma$分布。</p>
+<h3 id="等待时间的联合分布"><a href="#等待时间的联合分布" class="headerlink" title="等待时间的联合分布"></a>等待时间的联合分布</h3><p>若$N(t),t\geqslant 0$为Poisson过程，则给定$N(t)&#x3D;n$下等待时间$W_1,\cdots,W_n$的联合密度为$$f_{W_1,\cdots,W_n|N(t)&#x3D;n}(\omega_1.\cdots,\omega_n|n)&#x3D;\frac{n!}{t^n},0&lt;\omega_1&lt;\cdots&lt;\omega_n\leqslant t$$。</p>
+<h2 id="Poisson过程的推广"><a href="#Poisson过程的推广" class="headerlink" title="Poisson过程的推广"></a>Poisson过程的推广</h2><h3 id="更新过程"><a href="#更新过程" class="headerlink" title="更新过程"></a>更新过程</h3><p>如果$X_i,i&#x3D;1,2,\cdots$为一非负的随机变量，它们独立同分布，分布函数为$F(x)$。记$W_0&#x3D;0,W_n&#x3D;\sum\limits_{i&#x3D;1}\limits^nX_i$，$W_i$表示第$n$次事件发生的时刻，则称$N(t)&#x3D;max{n:W_n\leqslant t}$为更新过程。</p>
+<h3 id="更新过程的分布"><a href="#更新过程的分布" class="headerlink" title="更新过程的分布"></a>更新过程的分布</h3><p>更新过程$N(t)$的分布$P{N(t)&#x3D;n}&#x3D;F^{(n)}(t)-F^{(n+1)}(t)$，而更新函数$m(t)&#x3D;\sum\limits_{n&#x3D;1}\limits^\infty F^{(n)}(t)$，其中$F^{(n)}(t)$为$F(t)$的$n$重卷积，$F(t)$即为$X_i$的分布函数。</p>
+<h2 id="难题集萃"><a href="#难题集萃" class="headerlink" title="难题集萃"></a>难题集萃</h2><h3 id="多个独立Poisson过程"><a href="#多个独立Poisson过程" class="headerlink" title="多个独立Poisson过程"></a>多个独立Poisson过程</h3><p>设某路口蓝车，白车和黄车的到达次数分别为强度$\lambda_1,\lambda_2,\lambda_3$的Poisson过程，且相互独立。试求在相继到达的两辆蓝车之间，恰有$k$辆车到达的概率。</p>
+<p>易知蓝车首先到达的概率为$p&#x3D;\frac{\lambda_1}{\lambda_1+\lambda_2+\lambda_3}$，不是蓝车的概率为$1&#x3D;p$，认为蓝车到达为“成功”，否则为“失败”，则两次蓝车之间到达车辆分布服从几何分布，即$$P(N&#x3D;k)&#x3D;(1-p)^kp&#x3D;\frac{\lambda_1(\lambda_2+\lambda_3)^k}{(\lambda_1+\lambda_2+\lambda_3)^{k+1}}$$。</p>
+<h3 id="冲击模型"><a href="#冲击模型" class="headerlink" title="冲击模型"></a>冲击模型</h3><p>记$N(t)$为某系统到某时刻$t$受到的冲击次数，它是参数为$\lambda$ 的Poisson过程。设第$k$次冲击对系统的损害大小$Y_k$服从参数为$\mu$的指数分布，$Y_k,𝑘&#x3D;1,2,· · ·$，独立同分布。记$X(t)$为系统所受到的总损害。当损害超过一定的极限$\alpha$时系统不能运行，寿命终止，记$T$为系统寿命。试求该系统的平均寿命$ET$。</p>
+<p>解：<br>$$<br>ET&#x3D;\int_0^\infty tf(t)\mathrm{d}t&#x3D;\int_0^\infty(\int_0^tf(t)\mathrm{d}s)\mathrm{d}t<br>$$</p>
+<p>$$<br>&#x3D;\int_0^\infty(\int_t^\infty f(t)\mathrm{d}t)\mathrm{d}s&#x3D;\int_0^\infty P(T&gt;t)\mathrm{d}t<br>$$</p>
+<p>$$<br>P(T&gt;t)&#x3D;P(X(t)\leqslant\alpha)&#x3D;P(\sum\limits_{i&#x3D;1}\limits^{N(t)}Y_i\leqslant\alpha)<br>$$</p>
+<p>$$<br>&#x3D;\sum\limits_{n&#x3D;0}\limits^\infty P(\sum\limits_{i&#x3D;1}\limits^{N(t)}Y_i\leqslant\alpha|N(t)&#x3D;n)P(N(t)&#x3D;n)<br>$$</p>
+<p>$$<br>\therefore ET&#x3D;\int_0^\infty 1\cdot P(N(t)&#x3D;0)+\int_0^\infty\sum\limits_{n&#x3D;0}\limits^\infty P(\sum\limits_{i&#x3D;1}\limits^{n}Y_i\leqslant\alpha)P(N(t)&#x3D;n)<br>$$</p>
+<p>$$<br>&#x3D;\frac{1}{\lambda}+\int_0^\infty\sum\limits_{n&#x3D;1}\limits^\infty(\int_0^\alpha\frac{\mu(\mu y)^{n-1}}{(n-1)!}e^{-\mu y}\mathrm{d}y)\frac{(\lambda t)^n e^{-\lambda t}}{n!}\mathrm{d}t<br>$$</p>
+<p>$$<br>&#x3D;\frac{1}{\lambda}+\int_0^\alpha\sum\limits_{n&#x3D;1}\limits^\infty(\int_0^\infty \frac{(\lambda t)^n e^{-\lambda t}}{n!}\mathrm{d}t)\frac{\mu(\mu y)^{n-1}}{(n-1)!}e^{-\mu y}\mathrm{d}y<br>$$</p>
+<p>$$<br>&#x3D;\frac{1}{\lambda}+\int_0^\alpha\sum\limits_{n&#x3D;1}^\limits\infty\frac{\Gamma(n)}{\lambda n!}\frac{\mu(\mu y)^{n-1}}{(n-1)!}e^{-\mu y}\mathrm{d}y<br>$$</p>
+<p>$$<br>&#x3D;\frac{1}{\lambda}+\frac{1}{\lambda}\int_0^\alpha\sum\limits_{n&#x3D;1}^\limits\infty\frac{\mu(\mu y)^{n-1}}{(n-1)!}e^{-\mu y}\mathrm{d}y<br>$$</p>
+<p>$$<br>&#x3D;\frac{1}{\lambda}+\frac{1}{\lambda}\int_0^\alpha\mu\mathrm{d}y&#x3D;\frac{\mu\alpha+1}{\lambda}<br>$$</p>
+<p>注意：$n$个同分布的参数为$\lambda$的指数随机变量的和服从参数为$n,\lambda$的$\Gamma$分布。</p>
+<h3 id="非齐次Poisson过程的事件时间间隔"><a href="#非齐次Poisson过程的事件时间间隔" class="headerlink" title="非齐次Poisson过程的事件时间间隔"></a>非齐次Poisson过程的事件时间间隔</h3><p>令$N(t)$是强度为$\lambda(t)$的非齐次Poisson过程，$X_1,X_2,\cdots$为事件间的时间间隔，则$X_i$不独立。</p>
+<p>解：<br>$$<br>𝑃 (𝑋_2 &gt; 𝑡|𝑋_1 &#x3D; 𝑠) &#x3D; 𝑃 (𝑁(𝑡 + 𝑠) − 𝑁(𝑠) &#x3D; 0|𝑁(𝑠) &#x3D; 1) &#x3D;𝑃(𝑁(𝑡 + 𝑠) − 𝑁(𝑠) &#x3D; 0) &#x3D; 𝑒^{-\int_s^{t+s}\lambda(s)\mathrm{d}s}<br>$$<br>由于$𝑃(X_2&gt;t|X_1&#x3D;s)$与$s$有关，故$X_1$与$X_2$不独立，故$X_i$不独立。</p>
+<p>注意：非齐次Poisson过程的$N(t)$也是独立增量过程。</p>
+<h3 id="更新过程的等待时间"><a href="#更新过程的等待时间" class="headerlink" title="更新过程的等待时间"></a>更新过程的等待时间</h3><p>设$N(t)$为更新过程，则${N(t)\leqslant k}\nLeftrightarrow{W_k\geqslant t}$。</p>
+<p>解：第$k$次更新发生在$t$时刻之前，第$k+1$次更新发生在$t$时刻之后，此时$W_k&lt;k$，且$N(t)\leqslant k$。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Stochastic-Process/" rel="tag"># Stochastic Process</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/10/26/Markov-Process/" rel="prev" title="Markov Process">
+                  <i class="fa fa-chevron-left"></i> Markov Process
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/10/27/Introduction-of-Stochastic-Process/" rel="next" title="Introduction of Stochastic Process">
+                  Introduction of Stochastic Process <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">NexT</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span>
+  </div><div class="footer-custom">
+Website source code <span class="exturl theme-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG8tbmV4dC9oZXhvLW5leHQuZ2l0aHViLmlv">here</span>
+</div>
+
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.0.6/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/comments.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/utils.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/motion.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/next-boot.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/pjax.min.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/search/local-search.min.js"></script>
+<script class="next-config" data-name="gitter" type="application/json">{"enable":true,"room":"hexo-next/community"}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/chat/gitter.min.js"></script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.0.1/mermaid.min.js","integrity":"sha256-CemUs9ITT7liCZpVMktcEw0BpAOZ1+mujlMB3UyuImU="}}</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/tags/mermaid.min.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/math/mathjax.min.js"></script>
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"next-theme","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/comments/disqus.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="5AUIVYTbHIAuz-eQtxSfZbWW5eg9_EVZMSQycIuXrG0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gsxgoldenlegendary.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.1","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/config.min.js"></script>
+
+    <meta name="description" content="线性表ADT的逻辑结构、存储结构及基本操作：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linear List">
+<meta property="og:url" content="http://gsxgoldenlegendary.github.io/2021/12/29/Linear-List/index.html">
+<meta property="og:site_name" content="SONGXIAO&#39;S TOPBLOG">
+<meta property="og:description" content="线性表ADT的逻辑结构、存储结构及基本操作：">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-12-28T16:00:18.000Z">
+<meta property="article:modified_time" content="2022-01-29T14:19:14.000Z">
+<meta property="article:author" content="GUO Songxiao">
+<meta property="article:tag" content="Data Structure">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://gsxgoldenlegendary.github.io/2021/12/29/Linear-List/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://gsxgoldenlegendary.github.io/2021/12/29/Linear-List/","path":"2021/12/29/Linear-List/","title":"Linear List"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Linear List | SONGXIAO'S TOPBLOG</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108155018-3"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-108155018-3","only_pageview":false}</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/analytics/google-analytics.min.js"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="SONGXIAO'S TOPBLOG" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SONGXIAO'S TOPBLOG</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Theme for Hexo</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-bell fa-fw"></i>Home</a></li><li class="menu-item menu-item-docs"><a href="/docs/" rel="section"><i class="fa fa-book fa-fw"></i>Docs</a></li><li class="menu-item menu-item-plugins"><a href="/plugins/" rel="section"><i class="fa fa-flask fa-fw"></i>Plugins</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">108</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">逻辑结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">存储结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E5%8A%A8%E6%80%81%E5%88%86%E9%85%8D%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="nav-number">2.1.</span> <span class="nav-text">线性表的动态分配顺序存储结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E5%8D%95%E9%93%BE%E8%A1%A8%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="nav-number">2.2.</span> <span class="nav-text">线性表的单链表存储结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E9%9D%99%E6%80%81%E5%8D%95%E9%93%BE%E8%A1%A8%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="nav-number">2.3.</span> <span class="nav-text">线性表的静态单链表存储结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="nav-number">2.4.</span> <span class="nav-text">线性表的双向链表存储结构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-number">3.</span> <span class="nav-text">基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8"><span class="nav-number">3.1.</span> <span class="nav-text">顺序表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%AF%B9%E8%B1%A1%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%85%B3%E7%B3%BB%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.1.1.</span> <span class="nav-text">数据对象与数据关系的实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E7%BA%BF%E6%80%A7%E8%A1%A8"><span class="nav-number">3.1.2.</span> <span class="nav-text">初始化线性表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%89%E5%80%BC%E6%9F%A5%E6%89%BE"><span class="nav-number">3.1.3.</span> <span class="nav-text">按值查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B1%82%E8%A1%A8%E7%9A%84%E9%95%BF%E5%BA%A6"><span class="nav-number">3.1.4.</span> <span class="nav-text">求表的长度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E5%8F%96%E5%87%BD%E6%95%B0"><span class="nav-number">3.1.5.</span> <span class="nav-text">提取函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E5%85%83%E7%B4%A0"><span class="nav-number">3.1.6.</span> <span class="nav-text">插入元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0"><span class="nav-number">3.1.7.</span> <span class="nav-text">删除元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9A%84%E5%B9%B6"><span class="nav-number">3.1.8.</span> <span class="nav-text">集合的并</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E5%90%88%E7%9B%B8%E5%87%8F"><span class="nav-number">3.1.9.</span> <span class="nav-text">集合相减</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E5%BA%8F%E8%A1%A8%E7%9A%84%E5%BD%92%E5%B9%B6"><span class="nav-number">3.1.10.</span> <span class="nav-text">有序表的归并</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E9%93%BE%E8%A1%A8"><span class="nav-number">3.2.</span> <span class="nav-text">单链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%95%B0%E6%8D%AE%E5%85%B3%E7%B3%BB%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.2.1.</span> <span class="nav-text">单链表的数据对象和数据关系的实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%96%E7%AC%ACi%E4%B8%AA%E5%85%83%E7%B4%A0"><span class="nav-number">3.2.2.</span> <span class="nav-text">取第i个元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E6%93%8D%E4%BD%9C"><span class="nav-number">3.2.3.</span> <span class="nav-text">插入操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E9%93%BE%E8%A1%A8"><span class="nav-number">3.3.</span> <span class="nav-text">循环链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8C%E5%90%91%E5%BE%AA%E7%8E%AF%E9%93%BE%E8%A1%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E5%AF%B9%E8%B1%A1%E5%92%8C%E6%95%B0%E6%8D%AE%E5%85%B3%E7%B3%BB%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.3.1.</span> <span class="nav-text">双向循环链表的数据对象和数据关系的实现</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Theme NexT"
+      src="/images/logo.svg">
+  <p class="site-author-name" itemprop="name">Theme NexT</p>
+  <div class="site-description" itemprop="description">Stay Simple. Stay NexT.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">108</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;next-theme"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9jcm93ZGluLmNvbS9wcm9qZWN0L2hleG8tdGhlbWUtbmV4dA==" title="Crowdin → https:&#x2F;&#x2F;crowdin.com&#x2F;project&#x2F;hexo-theme-next"><i class="fa fa-globe-asia fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+<div class="cc-license animated" itemprop="sponsor">
+  <span class="exturl cc-opacity" title="Deploy with Netlify → https://www.netlify.com" data-url="aHR0cHM6Ly93d3cubmV0bGlmeS5jb20="><img width="80" src="https://www.netlify.com/img/global/badges/netlify-dark.svg" alt="Netlify"></span>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0" title="Fork NexT on GitHub" aria-label="Fork NexT on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://gsxgoldenlegendary.github.io/2021/12/29/Linear-List/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="Theme NexT">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SONGXIAO'S TOPBLOG">
+      <meta itemprop="description" content="Stay Simple. Stay NexT.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Linear List | SONGXIAO'S TOPBLOG">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Linear List<span class="exturl post-edit-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvdGhlbWUtbmV4dC1kb2NzL2VkaXQvbWFzdGVyL3NvdXJjZS9fcG9zdHMvTGluZWFyLUxpc3QubWQ=" title="Edit this post"><i class="fa fa-pen-nib"></i></span>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-12-28 16:00:18" itemprop="dateCreated datePublished" datetime="2021-12-28T16:00:18Z">2021-12-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Computer-Science/" itemprop="url" rel="index"><span itemprop="name">Computer Science</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/12/29/Linear-List/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/12/29/Linear-List/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>线性表ADT的逻辑结构、存储结构及基本操作：</p>
+<span id="more"></span>
+
+<h1 id="逻辑结构"><a href="#逻辑结构" class="headerlink" title="逻辑结构"></a>逻辑结构</h1><p>ADT List{</p>
+<p>数据对象：<br>$$<br>D&#x3D;{a_i|a_i\in ElemSet,i&#x3D;1,2,\cdots,n,n\geqslant0}<br>$$<br>数据关系：<br>$$<br>R1&#x3D;{&lt;a_{i-1},a_i&gt;|a_{i-1},a_i\in D,i&#x3D;1,2,\cdots,n}<br>$$<br>基本操作：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">InitList(&amp;L);</span><br><span class="line">DestroyList(&amp;L);</span><br><span class="line">ClearList(&amp;L);</span><br><span class="line">ListEmpty(L);</span><br><span class="line">ListLength(L);</span><br><span class="line">GetElem(L,i,&amp;e);</span><br><span class="line">LocateElem(L,e,compare());</span><br><span class="line">PriorElem(L,cur_e,&amp;pre_e);</span><br><span class="line">NextElem(L,cur_e,&amp;next_e);</span><br><span class="line">ListInsert(&amp;L,i,e);</span><br><span class="line">ListDelete(&amp;L,i,&amp;e);</span><br><span class="line">ListTraverse(L,visit());</span><br></pre></td></tr></table></figure>
+
+<p>}ADT List</p>
+<h1 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构"></a>存储结构</h1><h2 id="线性表的动态分配顺序存储结构"><a href="#线性表的动态分配顺序存储结构" class="headerlink" title="线性表的动态分配顺序存储结构"></a>线性表的动态分配顺序存储结构</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> LIST_INIT_SIZE 100</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> LISTINCREMENT 10</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    ElemType* elem;</span><br><span class="line">    <span class="type">int</span> length;</span><br><span class="line">    <span class="type">int</span> listsize;</span><br><span class="line">&#125;SqList;</span><br></pre></td></tr></table></figure>
+
+<h2 id="线性表的单链表存储结构"><a href="#线性表的单链表存储结构" class="headerlink" title="线性表的单链表存储结构"></a>线性表的单链表存储结构</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span>&#123;</span></span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span>* <span class="title">next</span>;</span></span><br><span class="line">&#125;LNode,*LinkList;</span><br></pre></td></tr></table></figure>
+
+<h2 id="线性表的静态单链表存储结构"><a href="#线性表的静态单链表存储结构" class="headerlink" title="线性表的静态单链表存储结构"></a>线性表的静态单链表存储结构</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MAXSIZE 1000</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="type">int</span> cur;</span><br><span class="line">&#125;component,SLinkList[MAXSIZE];</span><br></pre></td></tr></table></figure>
+
+<h2 id="线性表的双向链表存储结构"><a href="#线性表的双向链表存储结构" class="headerlink" title="线性表的双向链表存储结构"></a>线性表的双向链表存储结构</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">DuLNode</span>&#123;</span></span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">DuLNode</span>* <span class="title">prior</span>;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">DuLNode</span>* <span class="title">next</span>;</span></span><br><span class="line">&#125;DuLNode,*DuLinkList;</span><br></pre></td></tr></table></figure>
+
+<h1 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h1><h2 id="顺序表"><a href="#顺序表" class="headerlink" title="顺序表"></a>顺序表</h2><h3 id="数据对象与数据关系的实现"><a href="#数据对象与数据关系的实现" class="headerlink" title="数据对象与数据关系的实现"></a>数据对象与数据关系的实现</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> LIST_INIT_SIZE 100	<span class="comment">//线性表存储空间的初始分配量</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> LISTINCREMENT 10	<span class="comment">//存储空间分配增量</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">    ElemType *elem;			<span class="comment">//存储空间基址</span></span><br><span class="line">    <span class="type">int</span> length;			    <span class="comment">//当前元素个数（表长）</span></span><br><span class="line">    <span class="type">int</span> listsize;			<span class="comment">//当前分配存储容量</span></span><br><span class="line">    					   <span class="comment">//以sizeof(ElemType)为单位</span></span><br><span class="line">&#125; SqList;</span><br></pre></td></tr></table></figure>
+
+<h3 id="初始化线性表"><a href="#初始化线性表" class="headerlink" title="初始化线性表"></a>初始化线性表</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">InitSqList</span><span class="params">(SqList&amp;L)</span>&#123;</span><br><span class="line">    <span class="comment">//从无到有，在内存中创造出一个线性表</span></span><br><span class="line">    L=(ElemType*)<span class="built_in">malloc</span>(LIST_INIT_SIZE*<span class="keyword">sizeof</span>(ElemType));</span><br><span class="line">    <span class="keyword">if</span>(!L)</span><br><span class="line">        <span class="built_in">exit</span>(OVERFLOW);</span><br><span class="line">    L.length=<span class="number">0</span>;</span><br><span class="line">    L.listsize=LIST_INIT_SIZE;</span><br><span class="line">&#125;<span class="comment">//InitSqList</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="按值查找"><a href="#按值查找" class="headerlink" title="按值查找"></a>按值查找</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">LocateElem</span><span class="params">(SqList L,ElemType x,equal)</span>&#123;</span><br><span class="line">    <span class="comment">//在顺序表中从头查找结点值等于给定值x的结点</span></span><br><span class="line">    <span class="comment">//返回结点的位置</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;L.length&amp;&amp;*(L.elem+i<span class="number">-1</span>)!=x;++i)&#123;&#125;</span><br><span class="line">    <span class="keyword">return</span> i&lt;L.length?i+<span class="number">1</span>:<span class="number">0</span>;</span><br><span class="line">&#125;<span class="comment">//LocateElem</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="求表的长度"><a href="#求表的长度" class="headerlink" title="求表的长度"></a>求表的长度</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">ListLength</span><span class="params">(SqList L)</span>&#123;</span><br><span class="line">    <span class="comment">//返回表的长度</span></span><br><span class="line">    <span class="keyword">return</span> L.length;</span><br><span class="line">&#125;<span class="comment">//ListLength</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="提取函数"><a href="#提取函数" class="headerlink" title="提取函数"></a>提取函数</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Status <span class="title function_">GetElem</span><span class="params">(SqList L,<span class="type">int</span> i,ElemType &amp;e)</span>&#123;</span><br><span class="line">    <span class="comment">//在表中提取第i个元素的值</span></span><br><span class="line">    <span class="keyword">if</span>(i&lt;=<span class="number">0</span>||i&gt;L.length)</span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    e=L.elem[i<span class="number">-1</span>];</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;<span class="comment">//GetElem</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="插入元素"><a href="#插入元素" class="headerlink" title="插入元素"></a>插入元素</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Status <span class="title function_">ListInsert_Sq</span><span class="params">(SqList L,<span class="type">int</span> i,ElemType e)</span>&#123;</span><br><span class="line">    <span class="comment">//在表L中第i个位置前插入新元素e</span></span><br><span class="line">    <span class="comment">//时间复杂度O(n)</span></span><br><span class="line">    <span class="keyword">if</span>(i&lt;<span class="number">1</span>||i&gt;L.length)</span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    <span class="keyword">if</span>(L.length&gt;=L.listsize)&#123;</span><br><span class="line">        newbase=(ElemType*)<span class="built_in">realloc</span>((L.listsize+LISTINCREMENT)*<span class="keyword">sizeof</span>(ElemType));</span><br><span class="line">        <span class="keyword">if</span>(!newbase)</span><br><span class="line">            <span class="keyword">return</span> OVERFLOW;</span><br><span class="line">        L.elem=newbase;</span><br><span class="line">        L.listsize+=LISTINCREMENT;</span><br><span class="line">    &#125;<span class="comment">//if</span></span><br><span class="line">    q=L.elem+i<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(p=L.elem+L.length<span class="number">-1</span>;p&gt;=q;--p)</span><br><span class="line">        *(p+<span class="number">1</span>)=*p;</span><br><span class="line">    *q=e;</span><br><span class="line">    ++L.length;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;<span class="comment">//ListInsert_Sq</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="删除元素"><a href="#删除元素" class="headerlink" title="删除元素"></a>删除元素</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Status <span class="title function_">ListDelete_Sq</span><span class="params">(SqList &amp;L,<span class="type">int</span> i,ElemType &amp;e)</span>&#123;</span><br><span class="line">    <span class="comment">//在表L中删除第i个元素，并用e返回其值</span></span><br><span class="line">    <span class="comment">//时间复杂度O(n)</span></span><br><span class="line">    <span class="keyword">if</span>(i&lt;<span class="number">1</span>||i&gt;L.length)<span class="keyword">return</span> ERROR;</span><br><span class="line">    p=L.elem+i<span class="number">-1</span>;</span><br><span class="line">    e=*p;</span><br><span class="line">    <span class="keyword">for</span>(q=L.elem+L.length<span class="number">-1</span>;p&lt;=q;++p)</span><br><span class="line">        *p=*(p+<span class="number">1</span>);</span><br><span class="line">    --L.length;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;<span class="comment">//ListDelete_Sq</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="集合的并"><a href="#集合的并" class="headerlink" title="集合的并"></a>集合的并</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Union</span><span class="params">(SqList &amp;La,SqList Lb)</span>&#123;</span><br><span class="line">    <span class="comment">//时间复杂度O(La.Length+Lb.length)</span></span><br><span class="line">    <span class="comment">//空间复杂度O(1)</span></span><br><span class="line">    n=ListLength(La);</span><br><span class="line">    m=ListLength(Lb);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">        GetElem(Lb,i,e);</span><br><span class="line">        <span class="keyword">if</span>(LocateElem(La,e,equal))</span><br><span class="line">            ListInsert_Sq(La,++n,e);</span><br><span class="line">    &#125;<span class="comment">//for</span></span><br><span class="line">&#125;<span class="comment">//Union</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="集合相减"><a href="#集合相减" class="headerlink" title="集合相减"></a>集合相减</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Intersection</span><span class="params">(SqList &amp;La,SqList Lb)</span>&#123;</span><br><span class="line">    <span class="comment">//时间复杂度O(La.Length+Lb.length)</span></span><br><span class="line">    <span class="comment">//空间复杂度O(1)</span></span><br><span class="line">    n=ListLength(La);</span><br><span class="line">    m=ListLength(Lb);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;m;++i)&#123;</span><br><span class="line">        GetElem(Lb,i,e);</span><br><span class="line">        <span class="keyword">if</span>(x=LocateElem(La,e,equal))</span><br><span class="line">            ListDelete_Sq(La,x,e);</span><br><span class="line">    &#125;<span class="comment">//for</span></span><br><span class="line">&#125;<span class="comment">//Intersection</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="有序表的归并"><a href="#有序表的归并" class="headerlink" title="有序表的归并"></a>有序表的归并</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">MergeList_Sq</span><span class="params">(SqList La,SqList,Lb,SqLIst &amp;Lc)</span>&#123;</span><br><span class="line">    <span class="comment">//两个有序表拼成更大的有序表</span></span><br><span class="line">    <span class="comment">//时间复杂度O(La.length+Lb.length)</span></span><br><span class="line">    <span class="comment">//空间复杂度O(La.length+Lb.length)</span></span><br><span class="line">    pa=La.elem;</span><br><span class="line">    pb=Lb.elem;</span><br><span class="line">    pc=(ElemType*)<span class="built_in">malloc</span>((La.length+Lb.length)*<span class="keyword">sizeof</span>(ElemType));</span><br><span class="line">    <span class="keyword">if</span>(!pc)</span><br><span class="line">        <span class="built_in">exit</span>(OVERFLOW);</span><br><span class="line">    Lc.elem=pc;</span><br><span class="line">    Lc.listsize=La.length+Lb.length;</span><br><span class="line">    Lc.length=Lc.listsize;</span><br><span class="line">    pa_last=La.elem+La.length;</span><br><span class="line">    pb_last=Lb.elem+Lb.length;</span><br><span class="line">    <span class="keyword">for</span>(;pa&lt;pa_last&amp;&amp;pb&lt;pb_last;)</span><br><span class="line">        <span class="keyword">if</span>(*pa&lt;*pb)</span><br><span class="line">            *pc++=*pa++;</span><br><span class="line">    	<span class="keyword">else</span></span><br><span class="line">        	*pc++=*pb++;</span><br><span class="line">    <span class="keyword">for</span>(;pa&lt;pa_last;)</span><br><span class="line">        *pc++=*pa++;</span><br><span class="line">    <span class="keyword">for</span>(;pb&lt;pb_last;)</span><br><span class="line">        *pc++=*pb++;</span><br><span class="line">&#125;<span class="comment">//MergeList_Sq</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h2><h3 id="单链表的数据对象和数据关系的实现"><a href="#单链表的数据对象和数据关系的实现" class="headerlink" title="单链表的数据对象和数据关系的实现"></a>单链表的数据对象和数据关系的实现</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Lnode</span> &#123;</span>	<span class="comment">//链表结点</span></span><br><span class="line">    ElemType data;	    <span class="comment">//结点数据域</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Lnode</span> *<span class="title">next</span>;</span>	<span class="comment">//结点链域</span></span><br><span class="line">&#125; ListNode, *LinkList;</span><br></pre></td></tr></table></figure>
+
+<h3 id="取第i个元素"><a href="#取第i个元素" class="headerlink" title="取第i个元素"></a>取第i个元素</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Status <span class="title function_">GetElem_L</span><span class="params">(LinkList L,<span class="type">int</span> i, ElemType &amp;e)</span>&#123;</span><br><span class="line">    <span class="comment">//参数：链表L、位置i、取得的第i个元素e</span></span><br><span class="line">    <span class="comment">//算法：带头结点的单链表中取第i个元素</span></span><br><span class="line">    p=L;</span><br><span class="line">    <span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;i&amp;&amp;p;++j)</span><br><span class="line">        p=p-&gt;next;</span><br><span class="line">    <span class="keyword">if</span>(!p)</span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    e=p-&gt;data;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;<span class="comment">//GetElem_L</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="插入操作"><a href="#插入操作" class="headerlink" title="插入操作"></a>插入操作</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Status <span class="title function_">ListInsert</span><span class="params">(LinkList &amp;L,<span class="type">int</span> i,ElemType e)</span>&#123;</span><br><span class="line">    p=L;</span><br><span class="line">    <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;i<span class="number">-1</span>&amp;&amp;p;++j)</span><br><span class="line">        p=p-&gt;next;</span><br><span class="line">    <span class="keyword">if</span>(!p)</span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    s=(ElemType*)<span class="built_in">malloc</span>()</span><br><span class="line">&#125;<span class="comment">//ListInsert</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="循环链表"><a href="#循环链表" class="headerlink" title="循环链表"></a>循环链表</h2><h3 id="双向循环链表的数据对象和数据关系的实现"><a href="#双向循环链表的数据对象和数据关系的实现" class="headerlink" title="双向循环链表的数据对象和数据关系的实现"></a>双向循环链表的数据对象和数据关系的实现</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="type">int</span> ListData;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">dnode</span> &#123;</span></span><br><span class="line">    ListData data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">dnode</span> *<span class="title">prior</span>, *<span class="title">next</span>;</span></span><br><span class="line">&#125;DblNode,*DblList;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Data-Structure/" rel="tag"># Data Structure</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/12/16/Better-Angels/" rel="prev" title="Better Angels">
+                  <i class="fa fa-chevron-left"></i> Better Angels
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/12/29/Stack-and-Queue/" rel="next" title="Stack and Queue">
+                  Stack and Queue <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">NexT</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span>
+  </div><div class="footer-custom">
+Website source code <span class="exturl theme-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG8tbmV4dC9oZXhvLW5leHQuZ2l0aHViLmlv">here</span>
+</div>
+
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.0.6/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/comments.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/utils.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/motion.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/next-boot.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/pjax.min.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/search/local-search.min.js"></script>
+<script class="next-config" data-name="gitter" type="application/json">{"enable":true,"room":"hexo-next/community"}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/chat/gitter.min.js"></script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.0.1/mermaid.min.js","integrity":"sha256-CemUs9ITT7liCZpVMktcEw0BpAOZ1+mujlMB3UyuImU="}}</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/tags/mermaid.min.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/math/mathjax.min.js"></script>
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"next-theme","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/comments/disqus.min.js"></script>
+
+</body>
+</html>

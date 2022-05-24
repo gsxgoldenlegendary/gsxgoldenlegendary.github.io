@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="5AUIVYTbHIAuz-eQtxSfZbWW5eg9_EVZMSQycIuXrG0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gsxgoldenlegendary.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.1","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/config.min.js"></script>
+
+    <meta name="description" content="复变数函数本章引入复变数函数、极限、连续和导数的概念，然后讨论复变函数论的主要研究对象——解析函数，这类函数在理论和实际问题中都有着广泛的应用，接着介绍一些常见的复初等函数及它们的基本性质。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Complex Function">
+<meta property="og:url" content="http://gsxgoldenlegendary.github.io/2021/12/06/Complex-Function/index.html">
+<meta property="og:site_name" content="SONGXIAO&#39;S TOPBLOG">
+<meta property="og:description" content="复变数函数本章引入复变数函数、极限、连续和导数的概念，然后讨论复变函数论的主要研究对象——解析函数，这类函数在理论和实际问题中都有着广泛的应用，接着介绍一些常见的复初等函数及它们的基本性质。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-12-06T13:02:46.000Z">
+<meta property="article:modified_time" content="2022-01-07T13:05:50.000Z">
+<meta property="article:author" content="GUO Songxiao">
+<meta property="article:tag" content="Complex Function">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://gsxgoldenlegendary.github.io/2021/12/06/Complex-Function/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://gsxgoldenlegendary.github.io/2021/12/06/Complex-Function/","path":"2021/12/06/Complex-Function/","title":"Complex Function"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Complex Function | SONGXIAO'S TOPBLOG</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108155018-3"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-108155018-3","only_pageview":false}</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/analytics/google-analytics.min.js"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="SONGXIAO'S TOPBLOG" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SONGXIAO'S TOPBLOG</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Theme for Hexo</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-bell fa-fw"></i>Home</a></li><li class="menu-item menu-item-docs"><a href="/docs/" rel="section"><i class="fa fa-book fa-fw"></i>Docs</a></li><li class="menu-item menu-item-plugins"><a href="/plugins/" rel="section"><i class="fa fa-flask fa-fw"></i>Plugins</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">108</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%8D%E5%8F%98%E6%95%B0%E5%87%BD%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">复变数函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%8D%E5%8F%98%E6%95%B0%E5%87%BD%E6%95%B0-1"><span class="nav-number">1.1.</span> <span class="nav-text">复变数函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E5%8F%98%E6%95%B0%E5%87%BD%E6%95%B0-2"><span class="nav-number">1.1.1.</span> <span class="nav-text">复变数函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0%E4%B8%8E%E5%8F%98%E6%8D%A2"><span class="nav-number">1.1.2.</span> <span class="nav-text">复变函数与变换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E6%9E%81%E9%99%90%E5%92%8C%E8%BF%9E%E7%BB%AD%E6%80%A7"><span class="nav-number">1.2.</span> <span class="nav-text">函数的极限和连续性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E6%95%B0%E5%88%97%E7%9A%84%E6%9E%81%E9%99%90"><span class="nav-number">1.2.1.</span> <span class="nav-text">复数列的极限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E5%87%BD%E6%95%B0%E7%9A%84%E8%BF%9E%E7%BB%AD"><span class="nav-number">1.2.2.</span> <span class="nav-text">复函数的连续</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E5%87%BD%E6%95%B0%E7%9A%84%E8%BF%9E%E7%BB%AD%E7%9A%84%E5%85%85%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="nav-number">1.2.3.</span> <span class="nav-text">复函数的连续的充要条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E5%87%BD%E6%95%B0%E7%9A%84%E6%9E%81%E9%99%90"><span class="nav-number">1.2.4.</span> <span class="nav-text">复函数的极限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E6%9E%90%E4%B8%8E%E5%A5%87%E7%82%B9"><span class="nav-number">1.2.5.</span> <span class="nav-text">解析与奇点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%AF%E8%A5%BF%E2%80%94%E2%80%94%E9%BB%8E%E6%9B%BC%E6%96%B9%E7%A8%8B"><span class="nav-number">1.3.</span> <span class="nav-text">柯西——黎曼方程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E5%87%BD%E6%95%B0%E5%9C%A8%E6%9F%90%E7%82%B9%E5%8F%AF%E5%BE%AE%E7%9A%84%E5%85%85%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="nav-number">1.3.1.</span> <span class="nav-text">复函数在某点可微的充要条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E5%87%BD%E6%95%B0%E5%9C%A8%E5%8C%BA%E9%97%B4%E4%B8%8A%E5%8F%AF%E5%BE%AE%E7%9A%84%E5%85%85%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="nav-number">1.3.2.</span> <span class="nav-text">复函数在区间上可微的充要条件</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Theme NexT"
+      src="/images/logo.svg">
+  <p class="site-author-name" itemprop="name">Theme NexT</p>
+  <div class="site-description" itemprop="description">Stay Simple. Stay NexT.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">108</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;next-theme"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9jcm93ZGluLmNvbS9wcm9qZWN0L2hleG8tdGhlbWUtbmV4dA==" title="Crowdin → https:&#x2F;&#x2F;crowdin.com&#x2F;project&#x2F;hexo-theme-next"><i class="fa fa-globe-asia fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+<div class="cc-license animated" itemprop="sponsor">
+  <span class="exturl cc-opacity" title="Deploy with Netlify → https://www.netlify.com" data-url="aHR0cHM6Ly93d3cubmV0bGlmeS5jb20="><img width="80" src="https://www.netlify.com/img/global/badges/netlify-dark.svg" alt="Netlify"></span>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0" title="Fork NexT on GitHub" aria-label="Fork NexT on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://gsxgoldenlegendary.github.io/2021/12/06/Complex-Function/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="Theme NexT">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SONGXIAO'S TOPBLOG">
+      <meta itemprop="description" content="Stay Simple. Stay NexT.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Complex Function | SONGXIAO'S TOPBLOG">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Complex Function<span class="exturl post-edit-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvdGhlbWUtbmV4dC1kb2NzL2VkaXQvbWFzdGVyL3NvdXJjZS9fcG9zdHMvQ29tcGxleC1GdW5jdGlvbi5tZA==" title="Edit this post"><i class="fa fa-pen-nib"></i></span>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-12-06 13:02:46" itemprop="dateCreated datePublished" datetime="2021-12-06T13:02:46Z">2021-12-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Mathematics/" itemprop="url" rel="index"><span itemprop="name">Mathematics</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/12/06/Complex-Function/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/12/06/Complex-Function/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="复变数函数"><a href="#复变数函数" class="headerlink" title="复变数函数"></a>复变数函数</h1><p>本章引入复变数函数、极限、连续和导数的概念，然后讨论复变函数论的主要研究对象——解析函数，这类函数在理论和实际问题中都有着广泛的应用，接着介绍一些常见的复初等函数及它们的基本性质。</p>
+<span id="more"></span>
+
+<h2 id="复变数函数-1"><a href="#复变数函数-1" class="headerlink" title="复变数函数"></a>复变数函数</h2><h3 id="复变数函数-2"><a href="#复变数函数-2" class="headerlink" title="复变数函数"></a>复变数函数</h3><p>设$E$是复平面上的一个点集，若对于$E$中的每一个点$z$，按一定规律有一个复数$w$与之相对应，则称在$E$上定义了一个复单值函数，记作$w&#x3D;f(z)(z\in E)$；如果对于自变量$z$的一个值，按规律与之对应的$w$不止一个，则称$w&#x3D;f(z)$是多值函数。</p>
+<h3 id="复变函数与变换"><a href="#复变函数与变换" class="headerlink" title="复变函数与变换"></a>复变函数与变换</h3><p>设$w&#x3D;f(z)$是集合$E$上的单值函数，如果对于$E$中任意两个不同点$z_1$及$z_2$，它们在（函数值）集合$e&#39;$中对应的点$w_1&#x3D;f(z_1)及$$w_2&#x3D;f(z_2)$也不同，则称$w&#x3D;f(z)$是集$E$中的一个一一映照（或双方单值映照）。或者说，$w&#x3D;f(z)$双方单值地把集$E$映成集$E&#39;$。</p>
+<h2 id="函数的极限和连续性"><a href="#函数的极限和连续性" class="headerlink" title="函数的极限和连续性"></a>函数的极限和连续性</h2><h3 id="复数列的极限"><a href="#复数列的极限" class="headerlink" title="复数列的极限"></a>复数列的极限</h3><p>设函数$w&#x3D;f(z)$在点$z_0$的某个去心邻域$0&lt;|z-z_0|&lt;\rho$内有定义，而且实极限<br>$$<br>\lim\limits_{z\to z_0}|f(z)-w_0|&#x3D;0,<br>$$<br>就称当$z$趋于$z_0$时$f(z)$的极限为$w_0$，记作<br>$$<br>\lim\limits_{z\to z_0}f(z)&#x3D;w_0<br>$$</p>
+<h3 id="复函数的连续"><a href="#复函数的连续" class="headerlink" title="复函数的连续"></a>复函数的连续</h3><p>如果等式<br>$$<br>\lim\limits_{z\to z_0}f(z)&#x3D;f(z_0)<br>$$<br>成立，就称函数$f(z)$在点$z_0$连续，如果$f(z)$在区域$D$中的每点都连续，就称$f(z)$在区域$D$中连续。</p>
+<h3 id="复函数的连续的充要条件"><a href="#复函数的连续的充要条件" class="headerlink" title="复函数的连续的充要条件"></a>复函数的连续的充要条件</h3><p>函数$f(z)&#x3D;u(x,y)+\mathrm iv(x,y)$在点$z_0&#x3D;x_0+iy_0$处连续的充要条件是$u(x,y)$和$v(x,y)$作为二元函数在$(x_0,y_0)$处连续。</p>
+<h3 id="复函数的极限"><a href="#复函数的极限" class="headerlink" title="复函数的极限"></a>复函数的极限</h3><p>设$w&#x3D;f(z)$在点$z$的某个邻域$U$内有定义，$z+\Delta z\in U$，如果极限<br>$$<br>\lim\limits_{\Delta z\to 0}\frac{f(z+\Delta z)-f(z)}{\Delta z}<br>$$<br>存在，就称函数$f(z)$在点$z$可微，而且这个极限称为$f(z)$在点$z$的导数或微商，记为$f&#39;(z),\frac{\mathrm df}{\mathrm dz}$或$\frac{\mathrm d w}{\mathrm dz}$。即<br>$$<br>f&#39;(z)&#x3D;\lim\limits_{\Delta z\to 0}\frac{f(z+\Delta z)-f(z)}{\Delta z}.<br>$$</p>
+<h3 id="解析与奇点"><a href="#解析与奇点" class="headerlink" title="解析与奇点"></a>解析与奇点</h3><p>如果$f(z)$在区域$D$内的每一点可微，则称$f(z)$在$D$内解析，或者说$f(z)$是$D$内的解析函数；如果$f(z)$在点$z_0$的某个邻域内可微，则称$f(z)$在点$z_0$解析；如果$f(z)$在点$z_0$不解析，则$z_0$称为$f(z)$的奇点。</p>
+<h2 id="柯西——黎曼方程"><a href="#柯西——黎曼方程" class="headerlink" title="柯西——黎曼方程"></a>柯西——黎曼方程</h2><h3 id="复函数在某点可微的充要条件"><a href="#复函数在某点可微的充要条件" class="headerlink" title="复函数在某点可微的充要条件"></a>复函数在某点可微的充要条件</h3><p>函数$f(z)&#x3D;u(x,y)+\mathrm iv(x,y)$在点$z&#x3D;x+\mathrm iy$可微的充分必要条件是：</p>
+<ol>
+<li>二元函数$u(x,y),v(x,y)$在点$(x,y)$可微；</li>
+<li>$u(x,y)$及$v(x,y)$在点$(x,y)$满足柯西——黎曼方程（简称C-R方程）</li>
+</ol>
+<p>$$<br>\frac{\partial u}{\partial x}&#x3D;\frac{\partial v}{\partial y},\newline \frac{\partial u}{\partial y}&#x3D;-\frac{\partial v}{\partial x}.<br>$$</p>
+<h3 id="复函数在区间上可微的充要条件"><a href="#复函数在区间上可微的充要条件" class="headerlink" title="复函数在区间上可微的充要条件"></a>复函数在区间上可微的充要条件</h3><p>函数$f(z)&#x3D;u(x,y)+\mathrm iv(x,y)$在区间$D$内可微（即在D内解析）的充分必要条件是：</p>
+<ol>
+<li>二元函数$u(x,y),v(x,y)$在$D$内可微；</li>
+<li>$u(x,y)$及$v(x,y)$在$D$内处处满足C-R方程。</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Complex-Function/" rel="tag"># Complex Function</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/12/06/Complex-and-Planar-Point-Set/" rel="prev" title="Complex and Planar Point Set">
+                  <i class="fa fa-chevron-left"></i> Complex and Planar Point Set
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/12/07/Integral-Representation-of-Analytic-Functions/" rel="next" title="Integral Representation of Analytic Functions">
+                  Integral Representation of Analytic Functions <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">NexT</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span>
+  </div><div class="footer-custom">
+Website source code <span class="exturl theme-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG8tbmV4dC9oZXhvLW5leHQuZ2l0aHViLmlv">here</span>
+</div>
+
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.0.6/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/comments.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/utils.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/motion.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/next-boot.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/pjax.min.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/search/local-search.min.js"></script>
+<script class="next-config" data-name="gitter" type="application/json">{"enable":true,"room":"hexo-next/community"}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/chat/gitter.min.js"></script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.0.1/mermaid.min.js","integrity":"sha256-CemUs9ITT7liCZpVMktcEw0BpAOZ1+mujlMB3UyuImU="}}</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/tags/mermaid.min.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/math/mathjax.min.js"></script>
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"next-theme","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/comments/disqus.min.js"></script>
+
+</body>
+</html>

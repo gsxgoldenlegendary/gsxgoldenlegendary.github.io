@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="5AUIVYTbHIAuz-eQtxSfZbWW5eg9_EVZMSQycIuXrG0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gsxgoldenlegendary.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.1","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/config.min.js"></script>
+
+    <meta name="description" content="图论是应用数学的一个分支，它是反映一些元素之间关系的数学模型。图论的概念于成果以及它的应用非常广泛，既有来自生产实践的许多应用问题，也有许多来自其他学科的理论问题。这里介绍图论的基本定理。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Graph Theory Theorem">
+<meta property="og:url" content="http://gsxgoldenlegendary.github.io/2022/01/03/Graph-Theory-Theorem/index.html">
+<meta property="og:site_name" content="SONGXIAO&#39;S TOPBLOG">
+<meta property="og:description" content="图论是应用数学的一个分支，它是反映一些元素之间关系的数学模型。图论的概念于成果以及它的应用非常广泛，既有来自生产实践的许多应用问题，也有许多来自其他学科的理论问题。这里介绍图论的基本定理。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-01-03T10:27:07.000Z">
+<meta property="article:modified_time" content="2022-05-24T07:19:09.770Z">
+<meta property="article:author" content="GUO Songxiao">
+<meta property="article:tag" content="Graph Theory">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://gsxgoldenlegendary.github.io/2022/01/03/Graph-Theory-Theorem/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://gsxgoldenlegendary.github.io/2022/01/03/Graph-Theory-Theorem/","path":"2022/01/03/Graph-Theory-Theorem/","title":"Graph Theory Theorem"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Graph Theory Theorem | SONGXIAO'S TOPBLOG</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108155018-3"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-108155018-3","only_pageview":false}</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/analytics/google-analytics.min.js"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="SONGXIAO'S TOPBLOG" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SONGXIAO'S TOPBLOG</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Theme for Hexo</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-bell fa-fw"></i>Home</a></li><li class="menu-item menu-item-docs"><a href="/docs/" rel="section"><i class="fa fa-book fa-fw"></i>Docs</a></li><li class="menu-item menu-item-plugins"><a href="/plugins/" rel="section"><i class="fa fa-flask fa-fw"></i>Plugins</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">108</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">图的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Euler%E5%AE%9A%E7%90%86"><span class="nav-number">1.1.</span> <span class="nav-text">Euler定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%88%86%E5%9B%BE%E7%9A%84%E5%85%85%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="nav-number">1.2.</span> <span class="nav-text">二分图的充要条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E5%90%91%E5%9B%BE%E7%9A%84Euler%E5%AE%9A%E7%90%86"><span class="nav-number">1.3.</span> <span class="nav-text">有向图的Euler定理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%91"><span class="nav-number">2.</span> <span class="nav-text">树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%91%E7%9A%84%E5%85%85%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="nav-number">2.1.</span> <span class="nav-text">树的充要条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%91%E5%8F%B6%E7%9A%84%E4%B8%AA%E6%95%B0"><span class="nav-number">2.2.</span> <span class="nav-text">树叶的个数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%91%E4%B8%8E%E8%BF%9E%E9%80%9A%E5%9B%BE"><span class="nav-number">2.3.</span> <span class="nav-text">树与连通图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cayley%E5%AE%9A%E7%90%86"><span class="nav-number">2.4.</span> <span class="nav-text">Cayley定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8C%E5%85%A8%E5%9B%BE%E7%9A%84%E7%94%9F%E6%88%90%E6%A0%91"><span class="nav-number">2.5.</span> <span class="nav-text">完全图的生成树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="nav-number">2.6.</span> <span class="nav-text">二叉树的性质</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E7%9A%84%E8%BF%9E%E9%80%9A%E6%80%A7"><span class="nav-number">3.</span> <span class="nav-text">图的连通性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Menger%E5%AE%9A%E7%90%86%E9%A1%B6%E7%82%B9%E7%89%88%E6%9C%AC"><span class="nav-number">3.1.</span> <span class="nav-text">Menger定理顶点版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Whitney%E5%AE%9A%E7%90%86"><span class="nav-number">3.2.</span> <span class="nav-text">Whitney定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%87%E5%BD%A2%E5%BC%95%E7%90%86"><span class="nav-number">3.3.</span> <span class="nav-text">扇形引理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dirac%E5%AE%9A%E7%90%86"><span class="nav-number">3.4.</span> <span class="nav-text">Dirac定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Menger%E5%AE%9A%E7%90%86%E8%BE%B9%E7%89%88%E6%9C%AC"><span class="nav-number">3.5.</span> <span class="nav-text">Menger定理边版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%A4%E7%A7%8D%E8%BF%9E%E9%80%9A%E5%BA%A6%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">3.6.</span> <span class="nav-text">两种连通度的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%B2%E9%A1%B6%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="nav-number">3.7.</span> <span class="nav-text">割顶的性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A1%A5%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="nav-number">3.8.</span> <span class="nav-text">桥的性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9D%97%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="nav-number">3.9.</span> <span class="nav-text">块的性质</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B9%B3%E9%9D%A2%E5%9B%BE"><span class="nav-number">4.</span> <span class="nav-text">平面图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E5%B5%8C%E5%85%A5%E5%B9%B3%E9%9D%A2%E4%B8%8E%E5%8F%AF%E5%B5%8C%E5%85%A5%E7%90%83%E9%9D%A2"><span class="nav-number">4.1.</span> <span class="nav-text">可嵌入平面与可嵌入球面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B3%E9%9D%A2%E5%B5%8C%E5%85%A5%E7%9A%84%E5%A4%96%E9%83%A8%E9%9D%A2"><span class="nav-number">4.2.</span> <span class="nav-text">平面嵌入的外部面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%A2%E7%9A%84%E5%BA%A6%E6%95%B0%E4%B8%8E%E8%BE%B9%E6%95%B0%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">4.3.</span> <span class="nav-text">面的度数与边数的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Euler%E5%85%AC%E5%BC%8F"><span class="nav-number">4.4.</span> <span class="nav-text">Euler公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B3%E9%9D%A2%E5%9B%BE%E8%BE%B9%E6%95%B0%E4%B8%8A%E7%95%8C"><span class="nav-number">4.5.</span> <span class="nav-text">平面图边数上界</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E9%80%9A%E7%AE%80%E5%8D%95%E5%B9%B3%E9%9D%A2%E5%9B%BE%E9%A1%B6%E7%82%B9%E6%9C%80%E5%B0%8F%E5%BA%A6%E7%9A%84%E4%B8%8A%E7%95%8C"><span class="nav-number">4.6.</span> <span class="nav-text">连通简单平面图顶点最小度的上界</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%81%E5%A4%A7%E5%B9%B3%E9%9D%A2%E5%9B%BE%E7%9A%84%E5%85%85%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="nav-number">4.7.</span> <span class="nav-text">极大平面图的充要条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%81%E5%A4%A7%E5%B9%B3%E9%9D%A2%E5%9B%BE%E9%A1%B6%E7%82%B9%E6%9C%80%E5%B0%8F%E5%BA%A6%E7%9A%84%E4%B8%8B%E7%95%8C"><span class="nav-number">4.8.</span> <span class="nav-text">极大平面图顶点最小度的下界</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kuratowsky%E5%AE%9A%E7%90%86"><span class="nav-number">4.9.</span> <span class="nav-text">Kuratowsky定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E5%9B%BE%E5%8E%9A%E5%BA%A6%E4%BC%B0%E8%AE%A1"><span class="nav-number">4.10.</span> <span class="nav-text">简单图厚度估计</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8C%B9%E9%85%8D%E7%90%86%E8%AE%BA"><span class="nav-number">5.</span> <span class="nav-text">匹配理论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D%E4%B8%8E%E5%8F%AF%E5%A2%9E%E5%B9%BF%E8%BD%A8%E9%81%93"><span class="nav-number">5.1.</span> <span class="nav-text">最大匹配与可增广轨道</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hall%E5%AE%9A%E7%90%86"><span class="nav-number">5.2.</span> <span class="nav-text">Hall定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A6%86%E7%9B%96%E6%95%B0%E4%B8%8E%E5%8C%B9%E9%85%8D%E6%95%B0"><span class="nav-number">5.3.</span> <span class="nav-text">覆盖数与匹配数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%B0%8F%E8%A6%86%E7%9B%96%E4%B8%8E%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D"><span class="nav-number">5.4.</span> <span class="nav-text">最小覆盖与最大匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Konig-Egervary%E5%AE%9A%E7%90%86"><span class="nav-number">5.5.</span> <span class="nav-text">König-Egerváry定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tutte%E5%AE%9A%E7%90%86"><span class="nav-number">5.6.</span> <span class="nav-text">Tutte定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Peterson%E5%AE%9A%E7%90%86"><span class="nav-number">5.7.</span> <span class="nav-text">Peterson定理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Euler%E5%9B%BE%E4%B8%8EHamilton%E5%9B%BE"><span class="nav-number">6.</span> <span class="nav-text">Euler图与Hamilton图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0%E5%90%91Euler%E5%9B%BE%E7%9A%84%E7%AD%89%E4%BB%B7%E6%9D%A1%E4%BB%B6"><span class="nav-number">6.1.</span> <span class="nav-text">无向Euler图的等价条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E5%90%91Euler%E5%9B%BE%E7%9A%84%E7%AD%89%E4%BB%B7%E6%9D%A1%E4%BB%B6"><span class="nav-number">6.2.</span> <span class="nav-text">有向Euler图的等价条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hamilton%E5%9B%BE%E7%9A%84%E5%BF%85%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="nav-number">6.3.</span> <span class="nav-text">Hamilton图的必要条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dirac%E5%AE%9A%E7%90%86-1"><span class="nav-number">6.4.</span> <span class="nav-text">Dirac定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AD%E5%8C%85%E7%9A%84%E7%A1%AE%E5%AE%9A%E6%80%A7"><span class="nav-number">6.5.</span> <span class="nav-text">闭包的确定性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hamilton%E5%9B%BE%E4%B8%8E%E9%97%AD%E5%8C%85"><span class="nav-number">6.6.</span> <span class="nav-text">Hamilton图与闭包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ore%E5%AE%9A%E7%90%86"><span class="nav-number">6.7.</span> <span class="nav-text">Ore定理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E7%9A%84%E7%9D%80%E8%89%B2"><span class="nav-number">7.</span> <span class="nav-text">图的着色</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B6%E8%89%B2%E6%95%B0%E7%9A%84%E4%B8%8A%E7%95%8C"><span class="nav-number">7.1.</span> <span class="nav-text">顶色数的上界</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Brooks%E5%AE%9A%E7%90%86"><span class="nav-number">7.2.</span> <span class="nav-text">Brooks定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%88%86%E5%9B%BE%E7%9A%84%E8%BE%B9%E8%89%B2%E6%95%B0"><span class="nav-number">7.3.</span> <span class="nav-text">二分图的边色数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vizing%E5%AE%9A%E7%90%86"><span class="nav-number">7.4.</span> <span class="nav-text">Vizing定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%88%86%E5%9B%BE%E7%9A%84%E5%8C%B9%E9%85%8D%E5%88%92%E5%88%86"><span class="nav-number">7.5.</span> <span class="nav-text">二分图的匹配划分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E9%80%9A%E5%B9%B3%E9%9D%A2%E5%9B%BE%E7%9A%84%E5%AF%B9%E5%81%B6%E5%9B%BE%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="nav-number">7.6.</span> <span class="nav-text">连通平面图的对偶图的性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E8%89%B2%E5%AE%9A%E7%90%86"><span class="nav-number">7.7.</span> <span class="nav-text">六色定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E8%89%B2%E5%AE%9A%E7%90%86"><span class="nav-number">7.8.</span> <span class="nav-text">五色定理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E5%90%91%E5%9B%BE"><span class="nav-number">8.</span> <span class="nav-text">有向图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%BA%E8%BF%9E%E9%80%9A%E7%9A%84%E5%85%85%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="nav-number">8.1.</span> <span class="nav-text">强连通的充要条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E9%80%9A%E6%97%A0%E5%90%91%E5%9B%BE%E7%9A%84%E5%AE%9A%E5%90%91"><span class="nav-number">8.2.</span> <span class="nav-text">连通无向图的定向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E8%BF%9E%E9%80%9A%E7%9A%84%E5%B1%80%E9%83%A8%E5%8F%AF%E8%BE%BE"><span class="nav-number">8.3.</span> <span class="nav-text">单连通的局部可达</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E8%BF%9E%E9%80%9A%E7%9A%84%E5%85%85%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="nav-number">8.4.</span> <span class="nav-text">单连通的充要条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Roy-Gallai%E5%AE%9A%E7%90%86"><span class="nav-number">8.5.</span> <span class="nav-text">Roy-Gallai定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%8B%E7%9A%84%E5%BE%97%E5%88%86"><span class="nav-number">8.6.</span> <span class="nav-text">王的得分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%8B%E5%94%AF%E4%B8%80%E7%9A%84%E5%85%85%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="nav-number">8.7.</span> <span class="nav-text">王唯一的充要条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%BA%E8%BF%9E%E9%80%9A%E7%AB%9E%E8%B5%9B%E5%9B%BE%E7%9A%84%E6%9C%89%E5%90%91%E5%9C%88"><span class="nav-number">8.8.</span> <span class="nav-text">强连通竞赛图的有向圈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%A5%E6%A0%BC%E6%9C%89%E5%90%91%E5%9B%BE%E6%9C%80%E9%95%BF%E8%BD%A8%E9%81%93%E7%9A%84%E4%B8%8B%E7%95%8C"><span class="nav-number">8.9.</span> <span class="nav-text">严格有向图最长轨道的下界</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E5%90%91Hamilton%E5%9B%BE%E7%9A%84%E5%85%85%E5%88%86%E6%9D%A1%E4%BB%B6"><span class="nav-number">8.10.</span> <span class="nav-text">有向Hamilton图的充分条件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E6%B5%81%E7%90%86%E8%AE%BA"><span class="nav-number">9.</span> <span class="nav-text">网络流理论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%81%E9%87%8F%E4%B8%8E%E6%88%AA"><span class="nav-number">9.1.</span> <span class="nav-text">流量与截</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%A4%A7%E6%B5%81%E4%B8%8E%E6%9C%80%E5%B0%8F%E6%88%AA"><span class="nav-number">9.2.</span> <span class="nav-text">最大流与最小截</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%B9%E9%87%8F%E6%9C%89%E4%B8%8A%E4%B8%8B%E7%95%8C%E7%9A%84%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8F%AF%E8%A1%8C%E6%B5%81"><span class="nav-number">9.3.</span> <span class="nav-text">容量有上下界的网络的可行流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E4%BE%9B%E9%9C%80%E9%9C%80%E6%B1%82%E7%9A%84%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8F%AF%E8%A1%8C%E6%B5%81"><span class="nav-number">9.4.</span> <span class="nav-text">有供需需求的网络的可行流</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E7%9F%A9%E9%98%B5%E4%B8%8E%E5%9B%BE%E7%A9%BA%E9%97%B4"><span class="nav-number">10.</span> <span class="nav-text">图矩阵与图空间</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E5%AD%90%E7%A9%BA%E9%97%B4%E7%9A%84%E5%88%A4%E5%AE%9A"><span class="nav-number">10.1.</span> <span class="nav-text">线性子空间的判定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%88%E7%A9%BA%E9%97%B4%E4%B8%8E%E8%BE%B9%E7%A9%BA%E9%97%B4"><span class="nav-number">10.2.</span> <span class="nav-text">圈空间与边空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%88%E7%A9%BA%E9%97%B4%E4%B8%8E%E5%9F%BA%E6%9C%AC%E5%9C%88%E7%BB%84"><span class="nav-number">10.3.</span> <span class="nav-text">圈空间与基本圈组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%AD%E9%9B%86%E7%A9%BA%E9%97%B4%E4%B8%8E%E8%BE%B9%E7%A9%BA%E9%97%B4"><span class="nav-number">10.4.</span> <span class="nav-text">断集空间与边空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%88%E5%90%91%E9%87%8F%E5%92%8C%E6%96%AD%E9%9B%86%E5%90%91%E9%87%8F%E7%9A%84%E6%AD%A3%E4%BA%A4%E6%80%A7"><span class="nav-number">10.5.</span> <span class="nav-text">圈向量和断集向量的正交性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%9C%88%E7%9F%A9%E9%98%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E5%89%B2%E9%9B%86%E7%9F%A9%E9%98%B5"><span class="nav-number">10.6.</span> <span class="nav-text">基本圈矩阵与基本割集矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E4%B8%8E%E8%B7%AF%E5%BE%84%E6%95%B0"><span class="nav-number">10.7.</span> <span class="nav-text">邻接矩阵与路径数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E8%81%94%E7%9F%A9%E9%98%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E5%85%B3%E8%81%94%E7%9F%A9%E9%98%B5%E7%9A%84%E7%A7%A9"><span class="nav-number">10.8.</span> <span class="nav-text">关联矩阵与基本关联矩阵的秩</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E6%A0%91%E4%B8%8E%E6%97%A0%E5%90%91%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%85%B3%E8%81%94%E7%9F%A9%E9%98%B5"><span class="nav-number">10.9.</span> <span class="nav-text">生成树与无向图的基本关联矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E5%90%91%E5%9B%BE%E7%9A%84%E5%85%B3%E8%81%94%E7%9F%A9%E9%98%B5%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F%E7%9A%84%E5%AD%90%E5%BC%8F"><span class="nav-number">10.10.</span> <span class="nav-text">有向图的关联矩阵的行列式的子式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Binet-Cauchy%E5%AE%9A%E7%90%86"><span class="nav-number">10.11.</span> <span class="nav-text">Binet-Cauchy定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E6%A0%91%E4%B8%8E%E6%9C%89%E5%90%91%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%85%B3%E8%81%94%E7%9F%A9%E9%98%B5"><span class="nav-number">10.12.</span> <span class="nav-text">生成树与有向图的基本关联矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E6%A0%91%E4%B8%AA%E6%95%B0%E4%B8%8E%E5%9F%BA%E6%9C%AC%E5%85%B3%E8%81%94%E7%9F%A9%E9%98%B5"><span class="nav-number">10.13.</span> <span class="nav-text">生成树个数与基本关联矩阵</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Theme NexT"
+      src="/images/logo.svg">
+  <p class="site-author-name" itemprop="name">Theme NexT</p>
+  <div class="site-description" itemprop="description">Stay Simple. Stay NexT.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">108</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;next-theme"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9jcm93ZGluLmNvbS9wcm9qZWN0L2hleG8tdGhlbWUtbmV4dA==" title="Crowdin → https:&#x2F;&#x2F;crowdin.com&#x2F;project&#x2F;hexo-theme-next"><i class="fa fa-globe-asia fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+<div class="cc-license animated" itemprop="sponsor">
+  <span class="exturl cc-opacity" title="Deploy with Netlify → https://www.netlify.com" data-url="aHR0cHM6Ly93d3cubmV0bGlmeS5jb20="><img width="80" src="https://www.netlify.com/img/global/badges/netlify-dark.svg" alt="Netlify"></span>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0" title="Fork NexT on GitHub" aria-label="Fork NexT on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://gsxgoldenlegendary.github.io/2022/01/03/Graph-Theory-Theorem/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="Theme NexT">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SONGXIAO'S TOPBLOG">
+      <meta itemprop="description" content="Stay Simple. Stay NexT.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Graph Theory Theorem | SONGXIAO'S TOPBLOG">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Graph Theory Theorem<span class="exturl post-edit-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvdGhlbWUtbmV4dC1kb2NzL2VkaXQvbWFzdGVyL3NvdXJjZS9fcG9zdHMvR3JhcGgtVGhlb3J5LVRoZW9yZW0ubWQ=" title="Edit this post"><i class="fa fa-pen-nib"></i></span>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-01-03 10:27:07" itemprop="dateCreated datePublished" datetime="2022-01-03T10:27:07Z">2022-01-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Mathematics/" itemprop="url" rel="index"><span itemprop="name">Mathematics</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2022/01/03/Graph-Theory-Theorem/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2022/01/03/Graph-Theory-Theorem/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>图论是应用数学的一个分支，它是反映一些元素之间关系的数学模型。图论的概念于成果以及它的应用非常广泛，既有来自生产实践的许多应用问题，也有许多来自其他学科的理论问题。这里介绍图论的基本定理。</p>
+<span id="more"></span>
+
+<h1 id="图的基本概念"><a href="#图的基本概念" class="headerlink" title="图的基本概念"></a>图的基本概念</h1><h2 id="Euler定理"><a href="#Euler定理" class="headerlink" title="Euler定理"></a>Euler定理</h2><p>任给无向图$G$，<br>$$<br>\sum\limits_{v\in V(G)}\deg(v)&#x3D;2\varepsilon(G).<br>$$</p>
+<h2 id="二分图的充要条件"><a href="#二分图的充要条件" class="headerlink" title="二分图的充要条件"></a>二分图的充要条件</h2><p>图$G$是二分图，当且仅当$G$中无奇圈。</p>
+<h2 id="有向图的Euler定理"><a href="#有向图的Euler定理" class="headerlink" title="有向图的Euler定理"></a>有向图的Euler定理</h2><p>$$<br>\sum\limits_{v\in V(D)}\deg^+(v)&#x3D;\sum\limits_{v\in V(G)}\deg^-(v)&#x3D;\varepsilon(G).<br>$$</p>
+<h1 id="树"><a href="#树" class="headerlink" title="树"></a>树</h1><h2 id="树的充要条件"><a href="#树的充要条件" class="headerlink" title="树的充要条件"></a>树的充要条件</h2><p>设$G&#x3D;(V(G),E(G))$是简单无向图，则一下命题等价：</p>
+<ol>
+<li>$G$是树。</li>
+<li>$G$的任意两个顶点之间有且仅有一条轨道。</li>
+<li>$G$不含圈，且$\varepsilon(G)&#x3D;\nu(G)-1$。</li>
+<li>$G$是连通图，且$\varepsilon(G)&#x3D;\nu(G)-1$。</li>
+<li>$G$是连通图，且删去任意一条边都不连通。</li>
+<li>$G$不含圈，且添加一条边后恰好含一个圈。</li>
+</ol>
+<h2 id="树叶的个数"><a href="#树叶的个数" class="headerlink" title="树叶的个数"></a>树叶的个数</h2><p>任一非平凡树$T$至少有两片树叶。</p>
+<h2 id="树与连通图"><a href="#树与连通图" class="headerlink" title="树与连通图"></a>树与连通图</h2><p>每个连通图都有生成树。</p>
+<h2 id="Cayley定理"><a href="#Cayley定理" class="headerlink" title="Cayley定理"></a>Cayley定理</h2><p>设$G$是连通图，$e&#x3D;uv\in E(G)$且不是环，则<br>$$<br>\tau(G)&#x3D;\tau(G-e)+\tau(G\cdot e).<br>$$</p>
+<h2 id="完全图的生成树"><a href="#完全图的生成树" class="headerlink" title="完全图的生成树"></a>完全图的生成树</h2><p>$$<br>\tau(K_n)&#x3D;n^{n-2}.<br>$$</p>
+<h2 id="二叉树的性质"><a href="#二叉树的性质" class="headerlink" title="二叉树的性质"></a>二叉树的性质</h2><p>二叉树有以下性质：</p>
+<ol>
+<li>第$i$层的顶点数最多是$2^i$；</li>
+<li>深度为$h$的二叉树最多有$2^{h+1}-1$个顶点；</li>
+<li>设二叉树出度为$2$的顶点数为$n_2$，树叶数为$n_0$，则有$n_0&#x3D;n_2+1$；</li>
+<li>包含$n$个顶点的二叉树的高度至少为$\log(n+1)-1$。</li>
+</ol>
+<h1 id="图的连通性"><a href="#图的连通性" class="headerlink" title="图的连通性"></a>图的连通性</h1><h2 id="Menger定理顶点版本"><a href="#Menger定理顶点版本" class="headerlink" title="Menger定理顶点版本"></a>Menger定理顶点版本</h2><p>给定简单图$G$中两个不相邻的顶点$u,v$，$G$中两两无公共内顶的$uv$-轨道的最大数量等于最小$uv$-割集中的顶点数，即：<br>$$<br>p(u,v)&#x3D;c(u,v).<br>$$</p>
+<h2 id="Whitney定理"><a href="#Whitney定理" class="headerlink" title="Whitney定理"></a>Whitney定理</h2><p>任给简单图$G$，都有：<br>$$<br>\kappa(G)&#x3D;\min{p(u,v)|u,v\in V(G),u\neq v}.<br>$$</p>
+<h2 id="扇形引理"><a href="#扇形引理" class="headerlink" title="扇形引理"></a>扇形引理</h2><p>假设简单图$G$是$k$-连通图，在$G$中增加一个新的顶点$y$，并且在$G$中任意选取至少$k$个顶点，将$y$与这些选取的顶点各连一条边，得到的图记为$H$，则$H$也是$k$-连通图。</p>
+<h2 id="Dirac定理"><a href="#Dirac定理" class="headerlink" title="Dirac定理"></a>Dirac定理</h2><p>设$S$是$k$-连通图$G$中的$k$元顶点子集，$k\geqslant 2$，则$G$中存在一个圈$C$，使得$S$中所有顶点都在$C$上。</p>
+<h2 id="Menger定理边版本"><a href="#Menger定理边版本" class="headerlink" title="Menger定理边版本"></a>Menger定理边版本</h2><p>给定简单图$G$中两个不相邻的顶点$u,v$，$G$中两两无公共边的$uv$-轨道的最大数量等于最小$uv$-边割集中的顶点数，即：<br>$$<br>p&#39;(u,v)&#x3D;c&#39;(u,v).<br>$$</p>
+<h2 id="两种连通度的关系"><a href="#两种连通度的关系" class="headerlink" title="两种连通度的关系"></a>两种连通度的关系</h2><p>假定$G$是简单连通图，则有：<br>$$<br>\kappa(G)\leqslant\kappa&#39;(G)\leqslant\delta(G).<br>$$</p>
+<h2 id="割顶的性质"><a href="#割顶的性质" class="headerlink" title="割顶的性质"></a>割顶的性质</h2><p>设$G$是连通图，$v\in V(G)$，则下述命题等价：</p>
+<ol>
+<li><p>$v$是$G$的割顶；</p>
+</li>
+<li><p>存在与$v$不同的两个顶点$u,w\in V(G)-{v}$，使得$v$在每一条从$u$到$w$的轨道上；</p>
+</li>
+<li><p>存在$V(G)-{v}$的一个划分<br>$$<br>V(G)-{v}&#x3D;U\cup W,U\cap W&#x3D;\emptyset,u\neq\emptyset,W\neq\emptyset,<br>$$<br>使得任给$u\in U,w\in  W$，$v$在每一条从$u$到$w$的轨道上。</p>
+</li>
+</ol>
+<h2 id="桥的性质"><a href="#桥的性质" class="headerlink" title="桥的性质"></a>桥的性质</h2><p>设$G$是连通图，$e\in E(G)$，则下述命题等价：</p>
+<ol>
+<li><p>$e$是$G$的桥；</p>
+</li>
+<li><p>$e$不在$G$的任一圈上；</p>
+</li>
+<li><p>存在$u,w\in V(G)$，使得$e$在每一条从$u$到$w$的轨道上；</p>
+</li>
+<li><p>存在$V(G)$的一个划分<br>$$<br>V(G)&#x3D;U\cup W,U\cap W&#x3D;\emptyset,u\neq\emptyset,W\neq\emptyset,<br>$$<br>使得任给$u\in U,w\in  W$，$e$在每一条从$u$到$w$的轨道上。</p>
+</li>
+</ol>
+<h2 id="块的性质"><a href="#块的性质" class="headerlink" title="块的性质"></a>块的性质</h2><p>设$G$是连通图，$\nu(G)\geqslant3$，则下述命题等价：</p>
+<ol>
+<li>$G$是块。</li>
+<li>任给$u,v\in V(G)，u\neq v$，$u$与$v$在$G$的同一个圈上。</li>
+<li>任给$u\in V(G)$，$e\in E(G)$，$u$与$e$在$G$的同一个圈上。</li>
+<li>任给$e_1,e_2\in E(G)，e_1\neq e_2$，$e_1$与$e_2$在$G$的同一个圈上。</li>
+<li>任给$u,v\in V(G)，u\neq v,e\in E(G)$，存在连接$u$与$v$的轨道$P(u,v)$，使得$e$在$P(u,v)$上，即$e\in E(P(u,v))$。</li>
+<li>任给三个不同的顶点$u,v,w\in V(G)$，存在连接$u$与$v$的轨道$P(u,v)$，使得$w$在轨道$P(u,v)$上。</li>
+<li>任给三个不同的顶点$u,v,w\in V(G)$，存在连接$u$与$v$的轨道$P(u,v)$，使得$w$不在轨道$P(u,v)$上。</li>
+</ol>
+<h1 id="平面图"><a href="#平面图" class="headerlink" title="平面图"></a>平面图</h1><h2 id="可嵌入平面与可嵌入球面"><a href="#可嵌入平面与可嵌入球面" class="headerlink" title="可嵌入平面与可嵌入球面"></a>可嵌入平面与可嵌入球面</h2><p>图$G$可嵌入平面，当且仅当$G$可嵌入球面。</p>
+<h2 id="平面嵌入的外部面"><a href="#平面嵌入的外部面" class="headerlink" title="平面嵌入的外部面"></a>平面嵌入的外部面</h2><p>设$v$是平面图$G$的顶点，则存在$G$的一个平面嵌入，使得$v$在这个嵌入的外部面上。</p>
+<h2 id="面的度数与边数的关系"><a href="#面的度数与边数的关系" class="headerlink" title="面的度数与边数的关系"></a>面的度数与边数的关系</h2><p>任给平面图$G$，<br>$$<br>\sum\limits_{f\in F(G)}\deg(f)&#x3D;2|E(G)|.<br>$$</p>
+<h2 id="Euler公式"><a href="#Euler公式" class="headerlink" title="Euler公式"></a>Euler公式</h2><p>设$G$是联通平图，有$\nu$个顶点，$\varepsilon$条边，$\phi$个面，则<br>$$<br>\nu-\varepsilon+\phi&#x3D;2.<br>$$</p>
+<h2 id="平面图边数上界"><a href="#平面图边数上界" class="headerlink" title="平面图边数上界"></a>平面图边数上界</h2><p>若$G$是$\nu\geqslant3$的连通平面图，则$\varepsilon\leqslant3\nu-6$</p>
+<h2 id="连通简单平面图顶点最小度的上界"><a href="#连通简单平面图顶点最小度的上界" class="headerlink" title="连通简单平面图顶点最小度的上界"></a>连通简单平面图顶点最小度的上界</h2><p>若$G$是连通简单平面图，则$\delta\leqslant5$。</p>
+<h2 id="极大平面图的充要条件"><a href="#极大平面图的充要条件" class="headerlink" title="极大平面图的充要条件"></a>极大平面图的充要条件</h2><p>$\nu\geqslant3$的平面图$G$是极大平面图，当且仅当$G$的平面嵌入的每个面都是三角形。</p>
+<h2 id="极大平面图顶点最小度的下界"><a href="#极大平面图顶点最小度的下界" class="headerlink" title="极大平面图顶点最小度的下界"></a>极大平面图顶点最小度的下界</h2><p>若$G$是$\nu\geqslant3$的平面图，则$\delta \geqslant 3$。</p>
+<h2 id="Kuratowsky定理"><a href="#Kuratowsky定理" class="headerlink" title="Kuratowsky定理"></a>Kuratowsky定理</h2><p>图$G$是平面图，当且仅当$G$中不含与$K_5$或$K_{3,3}$同胚的子图。</p>
+<h2 id="简单图厚度估计"><a href="#简单图厚度估计" class="headerlink" title="简单图厚度估计"></a>简单图厚度估计</h2><p>对$\nu\geqslant3$阶简单图$G$的厚度$\theta(G)$，有以下估计式：</p>
+<ol>
+<li><p>$$<br>\theta(G)\geqslant\lceil\frac\varepsilon{3\nu-6}\rceil.<br>$$</p>
+</li>
+<li><p>若连通图$G$中没有$3$阶圈，则<br>$$<br>\theta(G)\geqslant\lceil\frac\varepsilon{2\nu-4}\rceil.<br>$$</p>
+</li>
+<li><p>$$<br>\theta(K_\nu)\geqslant\lceil\frac{\nu+7}6\rceil.<br>$$</p>
+</li>
+</ol>
+<h1 id="匹配理论"><a href="#匹配理论" class="headerlink" title="匹配理论"></a>匹配理论</h1><h2 id="最大匹配与可增广轨道"><a href="#最大匹配与可增广轨道" class="headerlink" title="最大匹配与可增广轨道"></a>最大匹配与可增广轨道</h2><p>$M$是$G$的最大匹配，当且仅当$G$中没有关于$M$的可增广轨道。</p>
+<h2 id="Hall定理"><a href="#Hall定理" class="headerlink" title="Hall定理"></a>Hall定理</h2><p>设$G$是二分图，其顶点集合划分为$V(G)&#x3D;X\cup Y,X\cap Y&#x3D;\emptyset$，则$G$中存在将$X$中顶点都许配的匹配，当且仅当任给$S\subset X$，都有$|N(S)|\geqslant |S|$，其中，$N(S)$是与$S$中顶点相邻的顶点构成的集合，简称为$S$的邻顶集合。</p>
+<h2 id="覆盖数与匹配数"><a href="#覆盖数与匹配数" class="headerlink" title="覆盖数与匹配数"></a>覆盖数与匹配数</h2><p>假设$C$是图$G$的覆盖，$M$是图$G$的匹配，则$|C|\geqslant|M|$。</p>
+<h2 id="最小覆盖与最大匹配"><a href="#最小覆盖与最大匹配" class="headerlink" title="最小覆盖与最大匹配"></a>最小覆盖与最大匹配</h2><p>若图$G$存在覆盖$C$与匹配$M$，使得$|C|&#x3D;|M|$，则$C$是最小覆盖，$M$是最大匹配。</p>
+<h2 id="Konig-Egervary定理"><a href="#Konig-Egervary定理" class="headerlink" title="König-Egerváry定理"></a>König-Egerváry定理</h2><p>设$G$是二分图，则$G$的匹配数等于其覆盖数，即$\alpha(G)&#x3D;\beta(G)$。</p>
+<h2 id="Tutte定理"><a href="#Tutte定理" class="headerlink" title="Tutte定理"></a>Tutte定理</h2><p>$G$有完备匹配，当且仅当任给$S\subset V(G)$，都有$\omicron(G-S)\leqslant|S|$。</p>
+<h2 id="Peterson定理"><a href="#Peterson定理" class="headerlink" title="Peterson定理"></a>Peterson定理</h2><p>无桥的三次正则图有完备匹配。</p>
+<h1 id="Euler图与Hamilton图"><a href="#Euler图与Hamilton图" class="headerlink" title="Euler图与Hamilton图"></a>Euler图与Hamilton图</h1><h2 id="无向Euler图的等价条件"><a href="#无向Euler图的等价条件" class="headerlink" title="无向Euler图的等价条件"></a>无向Euler图的等价条件</h2><p>设$G$是连通图，则下面三个命题等价：</p>
+<ol>
+<li>$G$是Euler图；</li>
+<li>$G$的每个顶点的度数都是偶数；</li>
+<li>$G$可以表示成无公共边的圈之并。</li>
+</ol>
+<h2 id="有向Euler图的等价条件"><a href="#有向Euler图的等价条件" class="headerlink" title="有向Euler图的等价条件"></a>有向Euler图的等价条件</h2><p>设$D$是有向图，则下面三个命题等价：</p>
+<ol>
+<li>$D$是Euler图；</li>
+<li>$\forall v\in V(D),\deg^+(v)&#x3D;\deg^-(v)$；</li>
+<li>$D$可以表示成无公共边的有向圈之并。</li>
+</ol>
+<h2 id="Hamilton图的必要条件"><a href="#Hamilton图的必要条件" class="headerlink" title="Hamilton图的必要条件"></a>Hamilton图的必要条件</h2><p>设$G$是Hamilton图，则对$V(G)$的每个非空真子集$S$，均有$\omega(G-S)\leqslant|S|$，其中$\omega(\cdot)$是连通片的个数。</p>
+<h2 id="Dirac定理-1"><a href="#Dirac定理-1" class="headerlink" title="Dirac定理"></a>Dirac定理</h2><p>设$G$是简单图，且$\nu(G)\geqslant3,\delta(G)\geqslant\frac{\nu(G)}2$，则$G$是Hamilton图。</p>
+<h2 id="闭包的确定性"><a href="#闭包的确定性" class="headerlink" title="闭包的确定性"></a>闭包的确定性</h2><p>$c(G)$是唯一确定的。</p>
+<h2 id="Hamilton图与闭包"><a href="#Hamilton图与闭包" class="headerlink" title="Hamilton图与闭包"></a>Hamilton图与闭包</h2><p>简单图$G$是Hamilton图，当且仅当它的闭包$c(G)$是Hamilton图。</p>
+<h2 id="Ore定理"><a href="#Ore定理" class="headerlink" title="Ore定理"></a>Ore定理</h2><p>设$\nu(G)\geqslant3$，对$G$的任意一对顶点$u,v$，若$\deg(u)+\deg(v)\geqslant\nu(G)-1$，则$G$有Hamilton轨道；若$\deg(u)+\deg(v)\geqslant\nu(G)$，则$G$有Hamilton圈。</p>
+<h1 id="图的着色"><a href="#图的着色" class="headerlink" title="图的着色"></a>图的着色</h1><h2 id="顶色数的上界"><a href="#顶色数的上界" class="headerlink" title="顶色数的上界"></a>顶色数的上界</h2><p>对任何图$G$，$\chi(G)\leqslant\Delta(G)+1$。</p>
+<h2 id="Brooks定理"><a href="#Brooks定理" class="headerlink" title="Brooks定理"></a>Brooks定理</h2><p>设$\nu\geqslant3$阶连通图$G$不是完全图也不是奇圈，则 $\chi(G)\leqslant\Delta(G)$。</p>
+<h2 id="二分图的边色数"><a href="#二分图的边色数" class="headerlink" title="二分图的边色数"></a>二分图的边色数</h2><p>若$G$是二分图，则$\chi&#39;(G)&#x3D;\Delta(G)$。</p>
+<h2 id="Vizing定理"><a href="#Vizing定理" class="headerlink" title="Vizing定理"></a>Vizing定理</h2><p>若$G$是简单图，则$\chi&#39;(G)&#x3D;\Delta(G)$或$\Delta(G)+1$。</p>
+<h2 id="二分图的匹配划分"><a href="#二分图的匹配划分" class="headerlink" title="二分图的匹配划分"></a>二分图的匹配划分</h2><p>设$G$是二分图，$\varepsilon&#x3D;|E(G)|,\Delta\leqslant p$，则存在$G$的$p$个不相交的匹配$M_1,M_2,\cdots,M_p$，使得<br>$$<br>E(G)&#x3D;\mathop\cup\limits_{i&#x3D;1}^p M_i,<br>$$</p>
+<p>且对$i\leqslant i\leqslant p$，<br>$$<br>\lfloor\frac\varepsilon p\rfloor\leqslant|M_i|\leqslant\lceil\frac\varepsilon p\rceil.<br>$$</p>
+<h2 id="连通平面图的对偶图的性质"><a href="#连通平面图的对偶图的性质" class="headerlink" title="连通平面图的对偶图的性质"></a>连通平面图的对偶图的性质</h2><p>设$G*$是连通平面图$G$的对偶图，$n^*,m^*,\phi^*$和$n,m,\phi$分别是$G*$和$G$的顶点数、边数和面数，则</p>
+<ol>
+<li><p>$$<br>n^*&#x3D;\phi,m^*&#x3D;m,\phi^*&#x3D;n<br>$$</p>
+</li>
+<li><p>设$G$的顶点$f^*$与$G&#39;$的面$f$对应，则$\deg_{G^*}(F^*)&#x3D;\deg_G(f)$。</p>
+</li>
+</ol>
+<h2 id="六色定理"><a href="#六色定理" class="headerlink" title="六色定理"></a>六色定理</h2><p>任何平面图都是可$6$-顶点着色的。</p>
+<h2 id="五色定理"><a href="#五色定理" class="headerlink" title="五色定理"></a>五色定理</h2><p>任何平面图都是可$5$-顶点着色的。</p>
+<h1 id="有向图"><a href="#有向图" class="headerlink" title="有向图"></a>有向图</h1><h2 id="强连通的充要条件"><a href="#强连通的充要条件" class="headerlink" title="强连通的充要条件"></a>强连通的充要条件</h2><p>$D$是强连通有向图当且仅当$D$中存在有向生成回路，即存在含有$D$中所有顶点的有向回路。</p>
+<h2 id="连通无向图的定向"><a href="#连通无向图的定向" class="headerlink" title="连通无向图的定向"></a>连通无向图的定向</h2><p>连通无向图$G$可以定向成强连通有向图，当且仅当$G$中没有桥。</p>
+<h2 id="单连通的局部可达"><a href="#单连通的局部可达" class="headerlink" title="单连通的局部可达"></a>单连通的局部可达</h2><p>若$D$单连通，则$\forall S\subset V(D),S\neq \emptyset$，都存在顶点$v\in S$，$v$可达$S$中所有的顶点。</p>
+<h2 id="单连通的充要条件"><a href="#单连通的充要条件" class="headerlink" title="单连通的充要条件"></a>单连通的充要条件</h2><p>$D$是单连通有向图，当且仅当$D$中存在有向生成路径。</p>
+<h2 id="Roy-Gallai定理"><a href="#Roy-Gallai定理" class="headerlink" title="Roy-Gallai定理"></a>Roy-Gallai定理</h2><p>有向图$D$中含有长度为$\chi(G)-1$的有向轨道，其中$G$是$D$的底图。</p>
+<h2 id="王的得分"><a href="#王的得分" class="headerlink" title="王的得分"></a>王的得分</h2><p>竞赛图中得分最多的顶点是王。</p>
+<h2 id="王唯一的充要条件"><a href="#王唯一的充要条件" class="headerlink" title="王唯一的充要条件"></a>王唯一的充要条件</h2><p>竞赛图$D$中$v$是唯一的王，当且仅当$v$的得分是$\nu-1$，其中$\nu&#x3D;|V(D)|$。</p>
+<h2 id="强连通竞赛图的有向圈"><a href="#强连通竞赛图的有向圈" class="headerlink" title="强连通竞赛图的有向圈"></a>强连通竞赛图的有向圈</h2><p>假定$\nu\geqslant3$阶竞赛图是强连通的，则任给$3\leqslant k\leqslant\nu$，$D$中每个顶点都在某个$k$阶有向圈中。</p>
+<h2 id="严格有向图最长轨道的下界"><a href="#严格有向图最长轨道的下界" class="headerlink" title="严格有向图最长轨道的下界"></a>严格有向图最长轨道的下界</h2><p>设$P(u_0,v_0)$是严格有向图$D$中的最长有向轨道，则其长度<br>$$<br>|E(P(u_0,v_0))|\geqslant\max{\delta^-,\delta^+}.<br>$$<br>其中，$\delta^-,\delta^+$分别为$D$的最小入度与最小出度。</p>
+<h2 id="有向Hamilton图的充分条件"><a href="#有向Hamilton图的充分条件" class="headerlink" title="有向Hamilton图的充分条件"></a>有向Hamilton图的充分条件</h2><p>设$D$是$\nu$阶严格有向图，若<br>$$<br>\min{\delta^-,\delta^+}\geqslant\frac\nu 2\geqslant1,<br>$$<br>则$D$是有向Hamilton图。</p>
+<h1 id="网络流理论"><a href="#网络流理论" class="headerlink" title="网络流理论"></a>网络流理论</h1><h2 id="流量与截"><a href="#流量与截" class="headerlink" title="流量与截"></a>流量与截</h2><p>设$f$是网络$N&#x3D;(D,s,t,c)$的流函数，$(S,\overline S)$是其一个截，则有<br>$$<br>\mathrm {Val}(f)&#x3D;\sum_{e\in(S,\overline S)}f(e)-\sum_{e\in(\overline S,S)}f(e).<br>$$</p>
+<h2 id="最大流与最小截"><a href="#最大流与最小截" class="headerlink" title="最大流与最小截"></a>最大流与最小截</h2><p>设$f$是网络$N&#x3D;(D,s,t,c)$的流函数，$(S,\overline S)$是其一个截，若$\mathrm{Val}(f)&#x3D;C(S,\overline S)$，则$f$是最大流，$(S,\overline S)$是最小截。</p>
+<h2 id="容量有上下界的网络的可行流"><a href="#容量有上下界的网络的可行流" class="headerlink" title="容量有上下界的网络的可行流"></a>容量有上下界的网络的可行流</h2><p>给定网络$N(D,s,t,b,c)$，其伴随网络为$N&#39;&#x3D;(D&#39;,s&#39;,t&#39;,c&#39;)$，则$N$中存在可行流，当且仅当$N&#39;$中最大流使得任给$v\in V(D)$，边$(s&#39;v)$都满载，即若$N&#39;$的最大流为$f’$有$f&#39;((s&#39;,v))&#x3D;c&#39;((s&#39;,v))$。</p>
+<h2 id="有供需需求的网络的可行流"><a href="#有供需需求的网络的可行流" class="headerlink" title="有供需需求的网络的可行流"></a>有供需需求的网络的可行流</h2><p>给定有供需约束的网络$N+(D,X,Y,\sigma,\rho,c)$。$N$有可行流的充要条件是：任给$S\subset V(D)$，都满足<br>$$<br>C((S,\overline S))\geqslant \rho(Y\cap\overline S)-\sigma(X\cap \overline S).<br>$$</p>
+<h1 id="图矩阵与图空间"><a href="#图矩阵与图空间" class="headerlink" title="图矩阵与图空间"></a>图矩阵与图空间</h1><h2 id="线性子空间的判定"><a href="#线性子空间的判定" class="headerlink" title="线性子空间的判定"></a>线性子空间的判定</h2><p>设$V$是数域$F$上的线性空间，$V&#39;\subset V$且$V&#39;\neq\emptyset$。若$V&#39;$中任意两个向量的线性组合仍属于$V’$则$V&#39;$是$V$的线性子空间。</p>
+<h2 id="圈空间与边空间"><a href="#圈空间与边空间" class="headerlink" title="圈空间与边空间"></a>圈空间与边空间</h2><p>$\mathcal C(G)$是$\mathcal E(G)$的线性子空间。</p>
+<h2 id="圈空间与基本圈组"><a href="#圈空间与基本圈组" class="headerlink" title="圈空间与基本圈组"></a>圈空间与基本圈组</h2><p>给定连通图$G$的一棵生成树，其对应的基本圈组<br>$$<br>C_1,C_2,\cdots,C_{\varepsilon-\nu+1}<br>$$<br>为$\mathcal C(G)$的一组基，$\mathcal C(G)$的维数为$\varepsilon-\nu+1$。</p>
+<h2 id="断集空间与边空间"><a href="#断集空间与边空间" class="headerlink" title="断集空间与边空间"></a>断集空间与边空间</h2><p>$\mathcal S(G)$是$\mathcal E(G)$的线性子空间。</p>
+<h2 id="圈向量和断集向量的正交性"><a href="#圈向量和断集向量的正交性" class="headerlink" title="圈向量和断集向量的正交性"></a>圈向量和断集向量的正交性</h2><p>任给连通图$G$的圈向量$C\in\mathcal C(G)$和断集向量$S\in\mathcal S(G)$，$C$与$S$的内积$(C,S)&#x3D;0$。其中的运算是在$F_2$中进行的。</p>
+<h2 id="基本圈矩阵与基本割集矩阵"><a href="#基本圈矩阵与基本割集矩阵" class="headerlink" title="基本圈矩阵与基本割集矩阵"></a>基本圈矩阵与基本割集矩阵</h2><p>给定连通图$G$的生成树$T$，$G$关于$T$的基本圈矩阵与基本割集矩阵分别为<br>$$<br>C_f(G)&#x3D;(I_{\varepsilon-\nu+1}:C_{12}),Sf(G)&#x3D;(S_{11}:I_{\nu-1}).<br>$$<br>其中，$C_{12}$的列对应树$T$的边，$S_{11}$的列对应余树的边，则有<br>$$<br>S_{11}&#x3D;C_{12}^T.<br>$$</p>
+<h2 id="邻接矩阵与路径数"><a href="#邻接矩阵与路径数" class="headerlink" title="邻接矩阵与路径数"></a>邻接矩阵与路径数</h2><p>设$G&#x3D;(V,E)$是无向图，$V&#x3D;{v_1,v_2,\cdots,v_\nu}$，其邻接矩阵为$A(G)&#x3D;(a_{ij})<em>{\nu\times\nu}$。记$A^n(G)&#x3D;(a^n</em>{ij})<em>{\nu\times\nu}$，则$a^n</em>{ij}$为图$G$中从$v_i$到$v_j$长为$n$的路径数。</p>
+<h2 id="关联矩阵与基本关联矩阵的秩"><a href="#关联矩阵与基本关联矩阵的秩" class="headerlink" title="关联矩阵与基本关联矩阵的秩"></a>关联矩阵与基本关联矩阵的秩</h2><p>设$G$是连通图，则有<br>$$<br>\mathrm{rank}(B(G))&#x3D;\mathrm{rank}(B_f(G))&#x3D;\nu-1.<br>$$</p>
+<h2 id="生成树与无向图的基本关联矩阵"><a href="#生成树与无向图的基本关联矩阵" class="headerlink" title="生成树与无向图的基本关联矩阵"></a>生成树与无向图的基本关联矩阵</h2><p>设$G$是连通图，<br>$$<br>e_{i_1}，e_{i_2},\cdots,e_{i_{\nu(G)-1}}\in E(G),<br>$$<br>则<br>$$<br>G[{e_{i_1}，e_{i_2},\cdots,e_{i_{\nu(G)-1}}}]<br>$$<br>是$G$的生成树，等价于$B_f(G)$中由第$i_1,i_2,\cdots,i_{\nu(G)-1}$列构成的子矩阵为满秩矩阵。</p>
+<h2 id="有向图的关联矩阵的行列式的子式"><a href="#有向图的关联矩阵的行列式的子式" class="headerlink" title="有向图的关联矩阵的行列式的子式"></a>有向图的关联矩阵的行列式的子式</h2><p>设$B(D)$是有向图$D$的关联矩阵，$B&#39;$是$B(D)$的任意一个子方阵，则有<br>$$<br>\det(B&#39;)&#x3D;0或\pm1.<br>$$</p>
+<h2 id="Binet-Cauchy定理"><a href="#Binet-Cauchy定理" class="headerlink" title="Binet-Cauchy定理"></a>Binet-Cauchy定理</h2><p>设$A,B$分别为一个$m\times n$阶与$n\times m$阶矩阵，其中$m\leqslant n$，则$A$与$B$的积的行列式值满足下列公式：<br>$$<br>\det(A\times B)&#x3D;\sum_{1\leqslant k_1&lt;k_2&lt;\cdots&lt;k_m\leqslant n}\det(A(12\cdots m;k_1,k_2,\cdots k_m))\times \det(B(k_1,k_2,\cdots k_m;12\cdots m)).<br>$$</p>
+<h2 id="生成树与有向图的基本关联矩阵"><a href="#生成树与有向图的基本关联矩阵" class="headerlink" title="生成树与有向图的基本关联矩阵"></a>生成树与有向图的基本关联矩阵</h2><p>设$D$是弱连通有向图，$G$是$D$的底图，<br>$$<br>e_{i_1}，e_{i_2},\cdots,e_{i_{\nu(G)-1}}\in E(D),<br>$$<br>在略去边<br>$$<br>e_{i_1}，e_{i_2},\cdots,e_{i_{\nu(G)-1}}<br>$$<br>d 方向后，在底图中则<br>$$<br>G[{e_{i_1}，e_{i_2},\cdots,e_{i_{\nu(G)-1}}}]<br>$$<br>是$G$的生成树，等价于$B_f(D)$中由第$i_1,i_2,\cdots,i_{\nu(G)-1}$列构成的子矩阵为满秩矩阵。</p>
+<h2 id="生成树个数与基本关联矩阵"><a href="#生成树个数与基本关联矩阵" class="headerlink" title="生成树个数与基本关联矩阵"></a>生成树个数与基本关联矩阵</h2><p>设$G$是无环连通无向图，将$G$的每条边任意定向，得到一个有向图$D$。则$G$的生成树个数为<br>$$<br>\tau(G)&#x3D;\det(B_f(D)\times B_f^T(D)).<br>$$</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Graph-Theory/" rel="tag"># Graph Theory</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/12/29/Searching-List/" rel="prev" title="Searching List">
+                  <i class="fa fa-chevron-left"></i> Searching List
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/01/07/Hypothesis-Testing/" rel="next" title="Hypothesis Testing">
+                  Hypothesis Testing <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">NexT</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span>
+  </div><div class="footer-custom">
+Website source code <span class="exturl theme-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG8tbmV4dC9oZXhvLW5leHQuZ2l0aHViLmlv">here</span>
+</div>
+
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.0.6/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/comments.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/utils.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/motion.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/next-boot.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/pjax.min.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/search/local-search.min.js"></script>
+<script class="next-config" data-name="gitter" type="application/json">{"enable":true,"room":"hexo-next/community"}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/chat/gitter.min.js"></script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.0.1/mermaid.min.js","integrity":"sha256-CemUs9ITT7liCZpVMktcEw0BpAOZ1+mujlMB3UyuImU="}}</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/tags/mermaid.min.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/math/mathjax.min.js"></script>
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"next-theme","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/comments/disqus.min.js"></script>
+
+</body>
+</html>

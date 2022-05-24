@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="5AUIVYTbHIAuz-eQtxSfZbWW5eg9_EVZMSQycIuXrG0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gsxgoldenlegendary.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.1","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/config.min.js"></script>
+
+    <meta name="description" content="图论算法在计算机科学中扮演着很重要的角色，它提供了对很多问题都有效的一种简单而系统的建模方式。本文简要介绍Dijkstra、Kruskal、Prim、Huffman、交错树、匈牙利、Kuhn-Munkreas、Fleury、逐步插入回路、Edmonds-Johnson、最近邻、最小生成树、最小权匹配、可增载轨道、Ford-Fulkerson最大流、容量有上下界网路的最大流及Warshall算法的操">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Graph Theoretic Computer Algorithm">
+<meta property="og:url" content="http://gsxgoldenlegendary.github.io/2021/10/26/Graph-Theoretic-Computer-Algorithm/index.html">
+<meta property="og:site_name" content="SONGXIAO&#39;S TOPBLOG">
+<meta property="og:description" content="图论算法在计算机科学中扮演着很重要的角色，它提供了对很多问题都有效的一种简单而系统的建模方式。本文简要介绍Dijkstra、Kruskal、Prim、Huffman、交错树、匈牙利、Kuhn-Munkreas、Fleury、逐步插入回路、Edmonds-Johnson、最近邻、最小生成树、最小权匹配、可增载轨道、Ford-Fulkerson最大流、容量有上下界网路的最大流及Warshall算法的操">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-10-25T19:34:01.000Z">
+<meta property="article:modified_time" content="2022-02-19T00:51:52.000Z">
+<meta property="article:author" content="GUO Songxiao">
+<meta property="article:tag" content="Graph Theory">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://gsxgoldenlegendary.github.io/2021/10/26/Graph-Theoretic-Computer-Algorithm/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://gsxgoldenlegendary.github.io/2021/10/26/Graph-Theoretic-Computer-Algorithm/","path":"2021/10/26/Graph-Theoretic-Computer-Algorithm/","title":"Graph Theoretic Computer Algorithm"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Graph Theoretic Computer Algorithm | SONGXIAO'S TOPBLOG</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108155018-3"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-108155018-3","only_pageview":false}</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/analytics/google-analytics.min.js"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="SONGXIAO'S TOPBLOG" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SONGXIAO'S TOPBLOG</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Theme for Hexo</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-bell fa-fw"></i>Home</a></li><li class="menu-item menu-item-docs"><a href="/docs/" rel="section"><i class="fa fa-book fa-fw"></i>Docs</a></li><li class="menu-item menu-item-plugins"><a href="/plugins/" rel="section"><i class="fa fa-flask fa-fw"></i>Plugins</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">108</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Dijkstra%E7%AE%97%E6%B3%95%E2%80%94%E2%80%94%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">Dijkstra算法——最短路径问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Kruskal%E7%AE%97%E6%B3%95%E2%80%94%E2%80%94%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">Kruskal算法——最小生成树问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Prim%E7%AE%97%E6%B3%95%E2%80%94%E2%80%94%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E9%97%AE%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">Prim算法——最小生成树问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Huffman%E7%AE%97%E6%B3%95%E2%80%94%E2%80%94%E6%9C%80%E4%BC%98%E4%BA%8C%E5%8F%89%E6%A0%91%E9%97%AE%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">Huffman算法——最优二叉树问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%A4%E9%94%99%E6%A0%91%E7%AE%97%E6%B3%95%E2%80%94%E2%80%94%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D%E9%97%AE%E9%A2%98"><span class="nav-number">5.</span> <span class="nav-text">交错树算法——最大匹配问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95%E2%80%94%E2%80%94%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D%E9%97%AE%E9%A2%98"><span class="nav-number">6.</span> <span class="nav-text">匈牙利算法——最大匹配问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Kuhn-Munkreas%E7%AE%97%E6%B3%95%E2%80%94%E2%80%94%E6%9C%80%E4%BD%B3%E5%8C%B9%E9%85%8D%E9%97%AE%E9%A2%98"><span class="nav-number">7.</span> <span class="nav-text">Kuhn-Munkreas算法——最佳匹配问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fleury%E7%AE%97%E6%B3%95%E2%80%94%E2%80%94Euler%E5%9B%9E%E8%B7%AF%E9%97%AE%E9%A2%98"><span class="nav-number">8.</span> <span class="nav-text">Fleury算法——Euler回路问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%90%E6%AD%A5%E6%8F%92%E5%85%A5%E5%9B%9E%E8%B7%AF%E7%AE%97%E6%B3%95%E2%80%94%E2%80%94Euler%E5%9B%9E%E8%B7%AF%E9%97%AE%E9%A2%98"><span class="nav-number">9.</span> <span class="nav-text">逐步插入回路算法——Euler回路问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Edmonds-Johnson%E7%AE%97%E6%B3%95%E2%80%94%E2%80%94%E4%B8%AD%E5%9B%BD%E9%82%AE%E9%80%92%E5%91%98%E9%97%AE%E9%A2%98"><span class="nav-number">10.</span> <span class="nav-text">Edmonds-Johnson算法——中国邮递员问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E8%BF%91%E9%82%BB%E6%B3%95%E2%80%94%E2%80%94%E6%97%85%E8%A1%8C%E5%95%86%E9%97%AE%E9%A2%98"><span class="nav-number">11.</span> <span class="nav-text">最近邻法——旅行商问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E6%B3%95%E2%80%94%E2%80%94%E6%97%85%E8%A1%8C%E5%95%86%E9%97%AE%E9%A2%98"><span class="nav-number">12.</span> <span class="nav-text">最小生成树法——旅行商问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E5%B0%8F%E6%9D%83%E5%8C%B9%E9%85%8D%E6%B3%95%E2%80%94%E2%80%94%E6%97%85%E8%A1%8C%E5%95%86%E9%97%AE%E9%A2%98"><span class="nav-number">13.</span> <span class="nav-text">最小权匹配法——旅行商问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%AF%E5%A2%9E%E8%BD%BD%E8%BD%A8%E9%81%93%E7%AE%97%E6%B3%95%E2%80%94%E2%80%94%E6%9C%80%E5%A4%A7%E6%B5%81%E9%97%AE%E9%A2%98"><span class="nav-number">14.</span> <span class="nav-text">可增载轨道算法——最大流问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ford-Fulkerson%E6%9C%80%E5%A4%A7%E6%B5%81%E7%AE%97%E6%B3%95%E2%80%94%E2%80%94%E6%9C%80%E5%A4%A7%E6%B5%81%E9%97%AE%E9%A2%98"><span class="nav-number">15.</span> <span class="nav-text">Ford-Fulkerson最大流算法——最大流问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%B9%E9%87%8F%E6%9C%89%E4%B8%8A%E4%B8%8B%E7%95%8C%E7%BD%91%E8%B7%AF%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B5%81%E7%AE%97%E6%B3%95%E2%80%94%E2%80%94%E6%9C%80%E5%A4%A7%E6%B5%81%E9%97%AE%E9%A2%98"><span class="nav-number">16.</span> <span class="nav-text">容量有上下界网路的最大流算法——最大流问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Warshall%E7%AE%97%E6%B3%95%E2%80%94%E2%80%94%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E9%97%AE%E9%A2%98"><span class="nav-number">17.</span> <span class="nav-text">Warshall算法——邻接矩阵问题</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Theme NexT"
+      src="/images/logo.svg">
+  <p class="site-author-name" itemprop="name">Theme NexT</p>
+  <div class="site-description" itemprop="description">Stay Simple. Stay NexT.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">108</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWU=" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;next-theme"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9jcm93ZGluLmNvbS9wcm9qZWN0L2hleG8tdGhlbWUtbmV4dA==" title="Crowdin → https:&#x2F;&#x2F;crowdin.com&#x2F;project&#x2F;hexo-theme-next"><i class="fa fa-globe-asia fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+<div class="cc-license animated" itemprop="sponsor">
+  <span class="exturl cc-opacity" title="Deploy with Netlify → https://www.netlify.com" data-url="aHR0cHM6Ly93d3cubmV0bGlmeS5jb20="><img width="80" src="https://www.netlify.com/img/global/badges/netlify-dark.svg" alt="Netlify"></span>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0" title="Fork NexT on GitHub" aria-label="Fork NexT on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://gsxgoldenlegendary.github.io/2021/10/26/Graph-Theoretic-Computer-Algorithm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.svg">
+      <meta itemprop="name" content="Theme NexT">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SONGXIAO'S TOPBLOG">
+      <meta itemprop="description" content="Stay Simple. Stay NexT.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Graph Theoretic Computer Algorithm | SONGXIAO'S TOPBLOG">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Graph Theoretic Computer Algorithm<span class="exturl post-edit-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvdGhlbWUtbmV4dC1kb2NzL2VkaXQvbWFzdGVyL3NvdXJjZS9fcG9zdHMvR3JhcGgtVGhlb3JldGljLUNvbXB1dGVyLUFsZ29yaXRobS5tZA==" title="Edit this post"><i class="fa fa-pen-nib"></i></span>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-10-25 19:34:01" itemprop="dateCreated datePublished" datetime="2021-10-25T19:34:01Z">2021-10-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Mathematics/" itemprop="url" rel="index"><span itemprop="name">Mathematics</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/10/26/Graph-Theoretic-Computer-Algorithm/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/10/26/Graph-Theoretic-Computer-Algorithm/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>图论算法在计算机科学中扮演着很重要的角色，它提供了对很多问题都有效的一种简单而系统的建模方式。本文简要介绍Dijkstra、Kruskal、Prim、Huffman、交错树、匈牙利、Kuhn-Munkreas、Fleury、逐步插入回路、Edmonds-Johnson、最近邻、最小生成树、最小权匹配、可增载轨道、Ford-Fulkerson最大流、容量有上下界网路的最大流及Warshall算法的操作步骤。</p>
+<span id="more"></span>
+
+<h1 id="Dijkstra算法——最短路径问题"><a href="#Dijkstra算法——最短路径问题" class="headerlink" title="Dijkstra算法——最短路径问题"></a>Dijkstra算法——最短路径问题</h1><ul>
+<li>输入：加权图$G&#x3D;(V(G),E(G)),\omega:E(G)\to R^+$，顶点$u_0\in V(G)$。</li>
+<li>输出：$u_0$到其余所有顶点的距离和最短路径。</li>
+</ul>
+<ol>
+<li>任给$u,v\in V(G)$，若$u,v\notin E(G)$，令$\omega(uv)&#x3D;\infty$；</li>
+<li>令$d(u_0)&#x3D;0,l(u_0)&#x3D;$$；任给$u\in V(G)$，$u\in V(G)$，$u\notin u_0$，$d(u)&#x3D;\infty$，$l(u)&#x3D;*$；$S_0&#x3D;{u_0}$；$i&#x3D;0$；</li>
+<li>对任给$u\in V(G)-S_i$，若$d(u_i)+\omega(u_iu)\lt d(u)$，则令$d(u)\leftarrow d(u_i)+\omega(u_iu)$，且令$l(u)&#x3D;u_i$；</li>
+<li>选出$u_{i+1}\in V(G)-S_i$，使得$d(u_{i+1})&#x3D;\min\limits_{u\in V(G)-S_i}d(u)$，令$S_{i+1}&#x3D;S_i\cup {u_{i+1}}$；</li>
+<li>若$i&#x3D;\nu(G)-1$，算法停止；否则，令$i\leftarrow i+1$，转步骤3。</li>
+</ol>
+<h1 id="Kruskal算法——最小生成树问题"><a href="#Kruskal算法——最小生成树问题" class="headerlink" title="Kruskal算法——最小生成树问题"></a>Kruskal算法——最小生成树问题</h1><ul>
+<li>输入：加权图$G&#x3D;(V(G),E(G),\omega)$，$\nu&#x3D;|V(G)|$。</li>
+<li>输出：$G$的一颗生成树的边子集${e_1,e_2,\cdots,e_{\nu-1}}$。</li>
+</ul>
+<ol>
+<li>从$E(G)$中选权最小的边$e_1$；</li>
+<li>若已经选定边$e_1,e_2,\cdots,e_i$，则从$E(G)-{e_1,e_2,\cdots,e_i}$中选出边$e_{i+1}$使得<br>(i)边导出子图$G[{e_1,e_2,\cdots,e_i,e_{i+1}}]$不含圈；<br>(ii)在满足(i)的条件下，$\omega(e_{i+1})$的权最小，即$\omega(e_{i+1})&#x3D;\min\limits_{e\in E(G)-{e_1,e_2,\cdots,e_i}}\omega(e)$。</li>
+<li>反复执行第2步，直到选出$e_{\nu-1}$为止。</li>
+</ol>
+<h1 id="Prim算法——最小生成树问题"><a href="#Prim算法——最小生成树问题" class="headerlink" title="Prim算法——最小生成树问题"></a>Prim算法——最小生成树问题</h1><ul>
+<li>输入：边权图$G&#x3D;(V(G),E(G),\omega)$，$\nu&#x3D;|V(G)|$。</li>
+<li>输出：$G$的一颗生成树的边子集$E$。</li>
+</ul>
+<ol>
+<li>从$V(G)$中任意选取一个顶点$s$，令$V&#39;&#x3D;{s}$，$E&#39;&#x3D;\emptyset$；</li>
+<li>在$(V&#39;,\overline{V&#39;})$中选择一条权最小的边$uv$，其中$u\in V&#39;$，$v\in \overline{V&#39;}$令$V&#39;&#x3D;V&#39;\cup{u}$，$E&#39;&#x3D;E&#39;\cup{uv}$；</li>
+<li>反复执行第2步，直到$|V&#39;|&#x3D;\nu$或$|E&#39;|&#x3D;\nu-1$为止。</li>
+</ol>
+<h1 id="Huffman算法——最优二叉树问题"><a href="#Huffman算法——最优二叉树问题" class="headerlink" title="Huffman算法——最优二叉树问题"></a>Huffman算法——最优二叉树问题</h1><ul>
+<li>输入：给定实数$w_1\leqslant w_2\leqslant \cdots \leqslant w_t$。</li>
+<li>输出：带有权值$w_1\leqslant w_2\leqslant \cdots \leqslant w_t$的最优二叉树。</li>
+</ul>
+<ol>
+<li>连接以$w_1,w_2$为权的两片树叶，得到带权为$w_1+w_2$的分支点；</li>
+<li>在$w_1+w_2,w_3,\cdots.w_t$中再取两个最小的权，连接它们对应的顶点，又得到新的分支点及所带的权。</li>
+<li>重复第2步，直到形成一棵树为止。</li>
+</ol>
+<h1 id="交错树算法——最大匹配问题"><a href="#交错树算法——最大匹配问题" class="headerlink" title="交错树算法——最大匹配问题"></a>交错树算法——最大匹配问题</h1><ul>
+<li>输入：二分图$G(X,E,Y)$，$G$的匹配$M$，$G$中没有被$M$许配的顶点$u$，不妨设$u\in X$。</li>
+<li>输出：$G$中关于$M$的$u-$交错树$T_u&#x3D;(U,E&#39;,V&#39;)$。</li>
+</ul>
+<ol>
+<li><p>$U&#x3D;{u},E&#39;&#x3D;\emptyset,V&#x3D;\emptyset$；令$l_{pre}(u)&#x3D;*$；对$G$中所有的顶点$v\neq u$，令$l_{pre}(v)&#x3D;NULL$；对$G$中所有的顶点$v$（包括$v$），令$l_{visited}(v)&#x3D;0$。</p>
+</li>
+<li><p>若上一步中没有新的顶点加入$U$，算法停止；否则转第3步。</p>
+</li>
+<li><p>若存在<br>$$<br>x\in X,l_{pre}(x)\neq NULL,l_{xisited}(x)&#x3D;0,<br>$$<br>则对$Y$中所有满足$xy\in E-M$且$l_{pre}(y)&#x3D;NULL$的顶点$y$，令$$l_{pre}(y)&#x3D;x;E&#39;\leftarrow E&#39;\cup{xy};U\leftarrow U\cup{x}$$；最后令$l_{visited}(x)&#x3D;1$。</p>
+</li>
+<li><p>若在第3步，在$V$中加入一个新的顶点$y$（同时也将$l_{pre}(y)$从$NULL$修改为$x$），且$y$没有被$M$许配，则已经找到可增广轨道，算法停止；若在第3步没有新的顶点加入$V$，算法停止；否则转到第5步。</p>
+</li>
+<li><p>若存在<br>$$<br>y\in Y,l_{pre}(y)\neq NULL,l_{xisited}(y)&#x3D;0,<br>$$<br>则对$Y$中所有满足$xy\in M$且$l_{pre}(x)&#x3D;NULL$的顶点$x$，令$$l_{pre}(x)&#x3D;y;E&#39;\leftarrow E&#39;\cup{xy};U\leftarrow U\cup{x}$$；最后令$l_{visited}(y)&#x3D;1$。转第2步。</p>
+</li>
+</ol>
+<h1 id="匈牙利算法——最大匹配问题"><a href="#匈牙利算法——最大匹配问题" class="headerlink" title="匈牙利算法——最大匹配问题"></a>匈牙利算法——最大匹配问题</h1><ul>
+<li>输入：二分图$G&#x3D;(X,E,Y)$.</li>
+<li>输出：$G$的最大匹配$M$。</li>
+</ul>
+<ol>
+<li>取$G$的一个初始匹配$M$，比如说$M&#x3D;\emptyset$。$G&#39; \leftarrow G$。</li>
+<li>若$G$为空，或者$G&#39;$中的顶点都被$M$许配，算法停止；否则转第3步。</li>
+<li>取$G$中没有被$M$许配的顶点$u$，搜索$u-$交错树$T_u$，若找到可增广轨道，设为$P$，令$M\leftarrow M\oplus E(P)$，转第2步；否则，令$G&#39;\leftarrow G;-V(T)$，转第2步。</li>
+</ol>
+<h1 id="Kuhn-Munkreas算法——最佳匹配问题"><a href="#Kuhn-Munkreas算法——最佳匹配问题" class="headerlink" title="Kuhn-Munkreas算法——最佳匹配问题"></a>Kuhn-Munkreas算法——最佳匹配问题</h1><ul>
+<li>输入：二分图$G&#x3D;(X,\Delta,Y),|X|&#x3D;|Y|$，边权函数$\omega:\Delta\to R$。</li>
+<li>输出：$G$的最佳匹配$M$。</li>
+</ul>
+<ol>
+<li><p>选取$G$的一个可行顶标$l$，构造相等子图$G_l$。</p>
+</li>
+<li><p>用匈牙利算法求$G_l$的最大匹配，设为$M$。若$M$是$G_l$的完备匹配，则$M$是$G$的最佳匹配，算法停止；否则，转第3步。</p>
+</li>
+<li><p>设$u$是$G_l$中未被$M$许配的顶点，不妨设$u\in X$。令<br>$$<br>Z&#x3D;{v|v\in V(G_l),且u,v之间存在交错轨道},S&#x3D;X\cap Z,T&#x3D;Y \cap Z.<br>$$<br>计算<br>$$<br>\alpha_l&#x3D;\min\limits_{x_i\in S,y_i\notin T}{l(x_i)+l(y_j)-\omega((x_i,y_j))}.<br>$$<br>按如下公式修改可行顶标：<br>$$<br>\hat{l}(v)&#x3D;l(v)-\alpha_l,v\in S;l(v)+\alpha_l,v\in T;l(v),其它.<br>$$<br>令$l\leftarrow \hat{l}$，转第1步。</p>
+</li>
+</ol>
+<h1 id="Fleury算法——Euler回路问题"><a href="#Fleury算法——Euler回路问题" class="headerlink" title="Fleury算法——Euler回路问题"></a>Fleury算法——Euler回路问题</h1><ul>
+<li>输入：图$G&#x3D;(V(G),E(G))$。</li>
+<li>输出：图$G$的一条行迹。</li>
+</ul>
+<ol>
+<li><p>任取$v_0\in V(G)$，令$P_0&#x3D;v_0$；</p>
+</li>
+<li><p>假设沿$P_i&#x3D;v_0e_1v_1e_2\cdots e_iv_i$走到顶点$v_i$，按下面的方法从$E(G)-{e_1,e_2,\cdots,e_i}$中选$e_{i+1}$：</p>
+<ol>
+<li><p>$e_{i+1}$与$v_i$关联；</p>
+</li>
+<li><p>除非无边可选，否则$e_{i+1}$不选$G_i-{e_1,e_2,\cdots,e_i}$的桥。</p>
+</li>
+</ol>
+<p>若选不到这样的$e_i$，则算法停止。</p>
+</li>
+<li><p>设$v_{i+1}$是$e_{i+1}$关联的另一个顶点，令$$P_{i+1}&#x3D;v_0e_1v_1e_2\cdots e_iv_ie_{i+1}v_{i+1},i\leftarrow i+1$$​，转2.</p>
+</li>
+</ol>
+<h1 id="逐步插入回路算法——Euler回路问题"><a href="#逐步插入回路算法——Euler回路问题" class="headerlink" title="逐步插入回路算法——Euler回路问题"></a>逐步插入回路算法——Euler回路问题</h1><ul>
+<li>输入：Euler图$G&#x3D;(V(G),E(G))$。</li>
+<li>输出：图$G$的一条Euler回路。</li>
+</ul>
+<ol>
+<li><p>$$<br>i\leftarrow 0,v^*&#x3D;v_1,v&#x3D;v_1,P_0&#x3D;v_1,G_0&#x3D;G;<br>$$</p>
+</li>
+<li><p>在$G_i$中取与$v$关联的任意一条边$e&#x3D;vv&#39;$，将$e$及$v&#39;$加入$P_i$中得到$P_{i+1}&#x3D;P_iev&#39;$；</p>
+</li>
+<li><p>若$v&#39;&#x3D;v^*$，转4，否则$i\leftarrow i+1,v\leftarrow v&#39;$，转2；</p>
+</li>
+<li><p>若$E(P_{i+1})&#x3D;E(G)$，停止；否则，令$G_{i+1}&#x3D;G-E(P_{i+1})$，在$G_{i+1}$中任取一条与$P_{o+1}$中某顶点$v_k$关联的边$e$，先将$P_{i+1}$改写成起点（终点）为$v_k$的简单回路，再置$v^*&#x3D;v_k,v&#x3D;v_k,i\leftarrow i+1$，转2。</p>
+</li>
+</ol>
+<h1 id="Edmonds-Johnson算法——中国邮递员问题"><a href="#Edmonds-Johnson算法——中国邮递员问题" class="headerlink" title="Edmonds-Johnson算法——中国邮递员问题"></a>Edmonds-Johnson算法——中国邮递员问题</h1><ul>
+<li>输入：加权图$G&#x3D;(V(G),E(G),W(G))$。</li>
+<li>输出：图$G$的一条最优投递线路。</li>
+</ul>
+<ol>
+<li>若$G$中没有奇度顶点，令$G^*&#x3D;G$，转2，否则求出$G$中度数为奇数的顶点集合$$V_O&#x3D;{v|v\in V(G),deg(v)\equiv 1(\mod2) }$$，转3。</li>
+<li>求$G^*$中的Euler回路，停止。</li>
+<li>对$V_O$中的每对顶点$u$和$v$，用Dijkstra算法求出其在$G$中的最短距离$dist_G(u,v)$以及最短路径；</li>
+<li>以$V_O$为顶点集合构造带权完全图$K_{|V_O|}$，每条边$uv$的权为$dist_G(u,v)$；</li>
+<li>求带权完全图$K_{|V_O|}$的总权最小的完备匹配$M$；</li>
+<li>针对第5步求得的最小完备匹配中的每条边，给出其两个端点，将该两个端点在$G$中的最短路径上每一条边重复一遍，得到Euler图$G^*$，转2。</li>
+</ol>
+<h1 id="最近邻法——旅行商问题"><a href="#最近邻法——旅行商问题" class="headerlink" title="最近邻法——旅行商问题"></a>最近邻法——旅行商问题</h1><ul>
+<li>输入：加权图$G&#x3D;(V(G),E(G),W(G))$，顶点$v_1$。</li>
+<li>输出：图$G$的一条Hamilton圈。</li>
+</ul>
+<ol>
+<li>从访问$v_1$开始，形成初始轨道$P_1&#x3D;v_1$；</li>
+<li>若已经访问了第$k(k\leqslant \nu-1)$个顶点，形成轨道$P_k&#x3D;v_1v_2\cdots v_k$，从$V-{v_1,v_2,\cdots,v_k}$中选取与$v_k$最近的顶点作为下一步访问的顶点$v_{k+1}$；</li>
+<li>当访问完$G$中所有顶点后，形成轨道$P_\nu&#x3D;v_1v_2\cdots v_\nu$，再回到起点$v_1$得到图$H&#x3D;v_1v_2\cdots v_\nu v_1$，此即为$G$中的一条Hamilton圈，把它作为旅行商问题的近似解。</li>
+</ol>
+<h1 id="最小生成树法——旅行商问题"><a href="#最小生成树法——旅行商问题" class="headerlink" title="最小生成树法——旅行商问题"></a>最小生成树法——旅行商问题</h1><ul>
+<li>输入：加权图$G&#x3D;(V(G),E(G),W(G))$。</li>
+<li>输出：图$G$的一条Hamilton圈。</li>
+</ul>
+<ol>
+<li>求$G$的一棵最小生成树$T$；</li>
+<li>将$T$中各边都添加一条平行边，平行边的权与其对应边的权相同。设所得图为$G^*$，则$G^*$为Euler图；</li>
+<li>从某顶点$v$出发，求$G$中一条Euler回路$C_v$；</li>
+<li>在$G$中按下面的方法求从顶点$v$出发的Hamilton圈。从点$v$出发沿$C_v$“抄近路”访问$G$的各顶点，即：假定当前访问过的顶点为$x$，$C_v$上$x$的后续两个顶点分别为$v$与$w$，若$y$在此之前已经被访问，则直接从$x$经过边$xw$访问$w$，直到访问完所有顶点为止。最后走出一条$G$的一条Hamilton圈$H_\nu$，就是$G$的最优解的近似解。</li>
+</ol>
+<h1 id="最小权匹配法——旅行商问题"><a href="#最小权匹配法——旅行商问题" class="headerlink" title="最小权匹配法——旅行商问题"></a>最小权匹配法——旅行商问题</h1><ul>
+<li>输入：加权图$G&#x3D;(V(G),E(G),W(G))$，顶点$v_1$。</li>
+<li>输出：图$G$的一条Hamilton圈。</li>
+</ul>
+<ol>
+<li>求$G$的一棵最小生成树$T$；</li>
+<li>设$T$中度为奇数的顶点集合为$V_O&#x3D;{v_1,v_2,\cdots,v_{2k}}$，求$V_O$的导出子图$G[V_O]&#x3D;K_{2k}$中总权最小的完备匹配$M$，将$M$中的$k$条边加到$T$上，得到Euler图$G^*$;</li>
+<li>在$G^*$中求从某顶点$v$出发的一条Euler回路$C_v$；</li>
+<li>在$G$中，从$v$出发，沿$C_v$中的边按“抄近路法”走出Hamilton圈$H_\nu$。</li>
+</ol>
+<h1 id="可增载轨道算法——最大流问题"><a href="#可增载轨道算法——最大流问题" class="headerlink" title="可增载轨道算法——最大流问题"></a>可增载轨道算法——最大流问题</h1><ul>
+<li>输入：网络$N&#x3D;(D,s,t,c)$，流函数$f$。</li>
+<li>输出：一条可增载轨道，或指出当前流函数是最大流。</li>
+</ul>
+<ol>
+<li>$S&#x3D;{s}$，令$prev(s)&#x3D;*$。</li>
+<li>若$t\in S$，则已经找到可增载轨道，通过$prev(t)$回溯输出可增载轨道，算法停止；否则，转第3步。</li>
+<li>若存在$u\in S$，$v\in\overline S$，使得$(u,v)\in E(D)$且边$(u,v)$未满载，即$f((u,v))&lt;c((u,v))$（$(u,v)$是正向边），则令$S\leftarrow S\cup{v},prev(v)&#x3D;u$，转第2步；否则，转第4步。</li>
+<li>若存在$u\in S，v\in\overline S$，使得$(u,v)\in E(D)$且边$(u,v)$正载，即$f((u,v))》c((u,v))$（$(u,v)$是反向边），则令$S\leftarrow S\cup{v},prev(v)&#x3D;u$，转第2步；否则，输出无可增载轨道，算法停止。</li>
+</ol>
+<h1 id="Ford-Fulkerson最大流算法——最大流问题"><a href="#Ford-Fulkerson最大流算法——最大流问题" class="headerlink" title="Ford-Fulkerson最大流算法——最大流问题"></a>Ford-Fulkerson最大流算法——最大流问题</h1><ul>
+<li>输入：网络$N&#x3D;(D,s,t,c)$。</li>
+<li>输出：最大流函数$f$。</li>
+</ul>
+<ol>
+<li><p>取初始流函数$f$。</p>
+</li>
+<li><p>调用可增载轨道算法。若找到可增载轨道$P(s,t)$，则构造新的流函数$\overline f$如下：<br>$$<br>\overline f(e)&#x3D;f(e)+l(P),e是正向边;f(e)-l(P),e是反向边;f(e)，其它.<br>$$<br>令$f\leftarrow\overline f$，转第2步。否则，没有找到可增载轨道，输出$f$是最大流。停止。</p>
+</li>
+</ol>
+<h1 id="容量有上下界网路的最大流算法——最大流问题"><a href="#容量有上下界网路的最大流算法——最大流问题" class="headerlink" title="容量有上下界网路的最大流算法——最大流问题"></a>容量有上下界网路的最大流算法——最大流问题</h1><ul>
+<li>输入：容量有上下界网络$N&#x3D;(D,s,t,b,c)$。</li>
+<li>输出：最大流函数$f$，或断定$N$没有可行流。</li>
+</ul>
+<ol>
+<li>构造$N$的伴随网络$N&#39;&#x3D;(D&#39;,s&#39;,t&#39;,c&#39;)$。</li>
+<li>用2F算法求出$N&#39;$的最大流函数$f&#39;$。</li>
+<li>若$f&#39;$满足，任给$v\in V(D)$，$f&#39;$使得边$(s&#39;,v)$满载，即$f&#39;((s&#39;,v))&#x3D;c&#39;((s&#39;,v))$，则转第4步；否则，输出结论“$N$没有可行流”，算法停止。</li>
+<li>根据$f&#39;$，构造$N$的一个可行流$f$：任给$e\in E(D)$，$f(e)&#x3D;f&#39;(e)+b(e)$；</li>
+<li>以$f$作为初始流函数，用2F算法求出$N$的最大流，算法停止。</li>
+</ol>
+<h1 id="Warshall算法——邻接矩阵问题"><a href="#Warshall算法——邻接矩阵问题" class="headerlink" title="Warshall算法——邻接矩阵问题"></a>Warshall算法——邻接矩阵问题</h1><ul>
+<li>输入：有向图$D$的邻接矩阵$A(D)&#x3D;(a_{ij})_{\nu\times\nu}$。</li>
+<li>输出：可达性矩阵$R(D)&#x3D;(r_{ij})<em>{\nu\times\nu}$。若$v_i$在$G$中可达$v_j$，则$r</em>{ij}&#x3D;1$；否则$r_{ij}&#x3D;0$。</li>
+</ul>
+<ol>
+<li><p>对所有$1\leqslant i,j\leqslant\nu$，若$a_{ij}&gt;0$，令$r_{ij}^0&#x3D;1$；否则$a_{ij}&#x3D;0$，令$r_{ij}^0&#x3D;0$；令$l&#x3D;0$；</p>
+</li>
+<li><p>若$l&#x3D;\nu$，输出<br>$$<br>R(D)&#x3D;(r_{ij})<em>{\nu\times\nu}&#x3D;(r</em>{ij}^\nu)_{\nu\times\nu,}<br>$$<br>算法停止；否则转第3步。</p>
+</li>
+<li><p>对所有的$1\leqslant i\leqslant\nu$，若$r_{i(l+1)}^l&#x3D;1$，则对所有的$1\leqslant j\leqslant\nu$，令$r_{ij}^{l+1}&#x3D;r_{ij}^l\vee r_{(l+1)j}^l$；否则令$r_{ij}^{l+1}&#x3D;r_{ij}^l$。转第4步。</p>
+</li>
+<li><p>令$l\leftarrow l+1$，转第2步。</p>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Graph-Theory/" rel="tag"># Graph Theory</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/10/24/Logisim-Getting-Started/" rel="prev" title="Logisim Getting Started">
+                  <i class="fa fa-chevron-left"></i> Logisim Getting Started
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/10/26/Markov-Process/" rel="next" title="Markov Process">
+                  Markov Process <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">NexT</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span>
+  </div><div class="footer-custom">
+Website source code <span class="exturl theme-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG8tbmV4dC9oZXhvLW5leHQuZ2l0aHViLmlv">here</span>
+</div>
+
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.0.6/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/comments.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/utils.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/motion.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/next-boot.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/pjax.min.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/search/local-search.min.js"></script>
+<script class="next-config" data-name="gitter" type="application/json">{"enable":true,"room":"hexo-next/community"}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/chat/gitter.min.js"></script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.0.1/mermaid.min.js","integrity":"sha256-CemUs9ITT7liCZpVMktcEw0BpAOZ1+mujlMB3UyuImU="}}</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/tags/mermaid.min.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/math/mathjax.min.js"></script>
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"next-theme","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-next/8.11.1/third-party/comments/disqus.min.js"></script>
+
+</body>
+</html>
