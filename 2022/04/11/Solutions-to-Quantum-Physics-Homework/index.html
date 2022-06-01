@@ -29,7 +29,7 @@
 <meta property="og:description" content="为适应科大新培养方案的要求，替代原普通物理课程“光学与原子物理”，新设的课程 “量子物理”需要对教学内容作较大幅度的压缩和调整。按照课程组协商意见，删去光学和原子物理学中比较专业化的内容，改以讲授量子理论为主，并增加有关量子信息的介绍，同时取消了作业详细解答的下发。本人出于为考试前有材料复习的目的，整理了此习题解答。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-04-10T18:44:30.000Z">
-<meta property="article:modified_time" content="2022-05-31T13:23:45.760Z">
+<meta property="article:modified_time" content="2022-06-01T05:48:54.926Z">
 <meta property="article:author" content="GUO Songxiao">
 <meta property="article:tag" content="Quantum Physics">
 <meta name="twitter:card" content="summary">
@@ -282,7 +282,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-05-31 13:23:45" itemprop="dateModified" datetime="2022-05-31T13:23:45Z">2022-05-31</time>
+      <time title="Modified: 2022-06-01 05:48:54" itemprop="dateModified" datetime="2022-06-01T05:48:54Z">2022-06-01</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -962,11 +962,20 @@ u_{nlm}=\frac1{81\sqrt{6\pi}a_0^\frac32}(\frac r{a_0})^2e^{-\frac r{3a_0}}(3\cos
 \]</span> <span class="math inline">\(P(L_z=\hbar)=\frac12\)</span>，<span class="math inline">\(P(L_z=-\hbar)=\frac12\)</span>，<span class="math inline">\(P(\vec L^2=2\hbar)=1\)</span>。</p>
 <h1 id="电子的磁矩和自旋">电子的磁矩和自旋</h1>
 <p>44、氢原子处于定态<span class="math inline">\(u_{3,1,1}\)</span>，受到扰动后向低能级跃迁，会有几条谱线？增加沿 <span class="math inline">\(z\)</span> 轴方向的磁场，各谱线分别分裂成几条（不考虑电子自旋）？</p>
-<p>//TODO</p>
-<p>45、设电子是均匀球体。已知电子的角动量是<span class="math inline">\(\frac\hbar2\)</span>，估算电子的角速度以及赤道上的线速度。</p>
+<p>由<span class="math inline">\(\Delta l=\pm 1\)</span>，<span class="math inline">\(\Delta m=0.\pm1\)</span>，知<span class="math inline">\(u_{3,1,1}\)</span>可以向<span class="math inline">\(u_{2,0,0}\)</span>及<span class="math inline">\(u_1,0,0\)</span>跃迁，共两条谱线，加磁场也不会发生能级分裂。</p>
+<p>45、设电子是均匀球体。已知电子的角动量是<span class="math inline">\(\frac\hbar2\)</span>，估算电子的角速度以及赤道上的线速度。 <span class="math display">\[
+L=I\frac v{r_e} \Rightarrow v=\frac LIr_e=\frac{5\hbar}{4m_er_e}3.28\times10^{11}m/s
+\]</span></p>
 <p>46、验证 <span class="math display">\[
 \frac1{2m_e}(\vec\sigma\cdot(\hat{\vec p}+e\vec A))^2=\frac1{2m_e}(\hat{\vec p}+e\vec A)^2+\frac{e\hbar}{2m_e}\vec\sigma\cdot\vec B.
-\]</span> 47、设电子的自旋波函数是</p>
+\]</span> 由磁矢势与磁感应强度关系有 <span class="math display">\[
+(\hat{\vec p}+e\vec A)\times(\hat{\vec p}+e\vec A)=e\vec A\times\hat{\vec p}+\hat{\vec p}\times e\vec A=e\vec A\times\hat{\vec p}-\mathrm i\hbar\nabla\times\vec A=e\vec A\times\hat{\vec p}-\mathrm ie\hbar\vec B.
+\]</span> 由库伦规范有 <span class="math display">\[
+\vec\sigma\cdot(\vec A\times \hat{\vec p})=-\mathrm i\hbar(\nabla\cdot \vec A\times \hat{\vec p})=-\mathrm i\hbar((\nabla\times\vec\sigma)\cdot\vec A-(\nabla\times\vec A)\cdot\vec\sigma)=0.
+\]</span> 故由泡利矩阵性质有 <span class="math display">\[
+\frac1{2m_e}(\vec\sigma\cdot(\hat{\vec p}+e\vec A))^2=\frac1{2m_e}(\hat{\vec p}+e\vec A)^2+\frac1{2m_e}\mathrm i\vec\sigma\cdot((\hat{\vec p}+e\vec A)\times(\hat{\vec p}+e\vec A))=\frac1{2m_e}(\hat{\vec p}+e\vec A)^2+\frac{e\hbar}{2m_e}\vec\sigma\cdot\vec B.
+\]</span></p>
+<p>47、设电子的自旋波函数是</p>
 
 $$
 \begin{pmatrix}
@@ -997,7 +1006,7 @@ $$
 <p>55、 氦原子的两个电子，在基态时空间波函数都占据 1s 轨道。</p>
 <p>（1）只考虑电子与原子核的库仑作用，计算氦原子的基态能量。</p>
 <p>（2）在此基础上，考虑电子间的库仑排斥力，那么对基态能量的修正是多少？</p>
-<p>56、根据泡利不相容原理，判断氦原子的两个激发态 <span class="math inline">\(2^1S_0\)</span>和 <span class="math inline">\(2^3S_1\)</span>，哪个能级高？这里的激发态指氦原子的一个电子被激发，另一个电子仍处于 1s 轨道的状态；原子态符号前的“2”表示<span class="math inline">\(𝑛 = 2\)</span>。</p>
+<p>56、根据泡利不相容原理，判断氦原子的两个激发态 <span class="math inline">\(2^1S_0\)</span>和 <span class="math inline">\(2^3S_1\)</span>，哪个能级高？这里的激发态指氦原子的一个电子被激发，另一个电子仍处于 1s 轨道的状态。</p>
 
     </div>
 
