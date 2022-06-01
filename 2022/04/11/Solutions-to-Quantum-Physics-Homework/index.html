@@ -29,7 +29,7 @@
 <meta property="og:description" content="为适应科大新培养方案的要求，替代原普通物理课程“光学与原子物理”，新设的课程 “量子物理”需要对教学内容作较大幅度的压缩和调整。按照课程组协商意见，删去光学和原子物理学中比较专业化的内容，改以讲授量子理论为主，并增加有关量子信息的介绍，同时取消了作业详细解答的下发。本人出于为考试前有材料复习的目的，整理了此习题解答。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-04-10T18:44:30.000Z">
-<meta property="article:modified_time" content="2022-06-01T05:48:54.926Z">
+<meta property="article:modified_time" content="2022-06-01T12:03:37.295Z">
 <meta property="article:author" content="GUO Songxiao">
 <meta property="article:tag" content="Quantum Physics">
 <meta name="twitter:card" content="summary">
@@ -282,7 +282,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-01 05:48:54" itemprop="dateModified" datetime="2022-06-01T05:48:54Z">2022-06-01</time>
+      <time title="Modified: 2022-06-01 12:03:37" itemprop="dateModified" datetime="2022-06-01T12:03:37Z">2022-06-01</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -959,7 +959,9 @@ u_{nlm}=\frac1{81\sqrt{6\pi}a_0^\frac32}(\frac r{a_0})^2e^{-\frac r{3a_0}}(3\cos
 \]</span> 测量角动量<span class="math inline">\(\vec{L}^2,L_z\)</span>会得到什么数值？概率是多少?</p>
 <p><span class="math display">\[
 \psi(x,y,z)=(\frac{128}{\pi^3})^{\frac14}\alpha^{\frac52}r\sin\theta\cos\varphi e^{-\alpha^2 r^2}=f(r)\sin\theta\frac{e^{\mathrm i\phi}+e^{-\mathrm i\phi}}2\propto Y_{1,1}+Y_{1,-1}.
-\]</span> <span class="math inline">\(P(L_z=\hbar)=\frac12\)</span>，<span class="math inline">\(P(L_z=-\hbar)=\frac12\)</span>，<span class="math inline">\(P(\vec L^2=2\hbar)=1\)</span>。</p>
+\]</span> <span class="math display">\[
+P(L_z=\hbar)=\frac12,P(L_z=-\hbar)=\frac12,P(\vec L^2=2\hbar)=1.
+\]</span></p>
 <h1 id="电子的磁矩和自旋">电子的磁矩和自旋</h1>
 <p>44、氢原子处于定态<span class="math inline">\(u_{3,1,1}\)</span>，受到扰动后向低能级跃迁，会有几条谱线？增加沿 <span class="math inline">\(z\)</span> 轴方向的磁场，各谱线分别分裂成几条（不考虑电子自旋）？</p>
 <p>由<span class="math inline">\(\Delta l=\pm 1\)</span>，<span class="math inline">\(\Delta m=0.\pm1\)</span>，知<span class="math inline">\(u_{3,1,1}\)</span>可以向<span class="math inline">\(u_{2,0,0}\)</span>及<span class="math inline">\(u_1,0,0\)</span>跃迁，共两条谱线，加磁场也不会发生能级分裂。</p>
@@ -968,11 +970,10 @@ L=I\frac v{r_e} \Rightarrow v=\frac LIr_e=\frac{5\hbar}{4m_er_e}3.28\times10^{11
 \]</span></p>
 <p>46、验证 <span class="math display">\[
 \frac1{2m_e}(\vec\sigma\cdot(\hat{\vec p}+e\vec A))^2=\frac1{2m_e}(\hat{\vec p}+e\vec A)^2+\frac{e\hbar}{2m_e}\vec\sigma\cdot\vec B.
-\]</span> 由磁矢势与磁感应强度关系有 <span class="math display">\[
+\]</span> <span class="math display">\[
 (\hat{\vec p}+e\vec A)\times(\hat{\vec p}+e\vec A)=e\vec A\times\hat{\vec p}+\hat{\vec p}\times e\vec A=e\vec A\times\hat{\vec p}-\mathrm i\hbar\nabla\times\vec A=e\vec A\times\hat{\vec p}-\mathrm ie\hbar\vec B.
-\]</span> 由库伦规范有 <span class="math display">\[
-\vec\sigma\cdot(\vec A\times \hat{\vec p})=-\mathrm i\hbar(\nabla\cdot \vec A\times \hat{\vec p})=-\mathrm i\hbar((\nabla\times\vec\sigma)\cdot\vec A-(\nabla\times\vec A)\cdot\vec\sigma)=0.
-\]</span> 故由泡利矩阵性质有 <span class="math display">\[
+\]</span> //TODO</p>
+<p>故由泡利矩阵性质有 <span class="math display">\[
 \frac1{2m_e}(\vec\sigma\cdot(\hat{\vec p}+e\vec A))^2=\frac1{2m_e}(\hat{\vec p}+e\vec A)^2+\frac1{2m_e}\mathrm i\vec\sigma\cdot((\hat{\vec p}+e\vec A)\times(\hat{\vec p}+e\vec A))=\frac1{2m_e}(\hat{\vec p}+e\vec A)^2+\frac{e\hbar}{2m_e}\vec\sigma\cdot\vec B.
 \]</span></p>
 <p>47、设电子的自旋波函数是</p>
@@ -985,10 +986,41 @@ $$
 $$
 
 <p>测量自旋<span class="math inline">\(s_y\)</span>，可能的取值有哪些？概率是分别是多少？</p>
+<p>由<span class="math inline">\(\det(\sigma_y-\lambda I)=0\)</span>，得<span class="math inline">\(s_y\)</span>的本征值<span class="math inline">\(\pm1\)</span>，本征矢 <span class="math display">\[
+|\uparrow\rangle=\frac1{\sqrt 2}(1,\mathrm i)^T,|\downarrow\rangle=\frac1{\sqrt 2}(1,-\mathrm i)^T.
+\]</span></p>
+<p><span class="math display">\[
+|\chi\rangle=\frac1{\sqrt{30}}(1+2\mathrm i,3+4\mathrm i)^T.
+\]</span></p>
+<p><span class="math display">\[
+A_1=\langle\uparrow(y)|\chi\rangle=\frac1{\sqrt{60}}(1,-\mathrm i)(1+2\mathrm i,3+4\mathrm i)=\frac{\sqrt{15}}{30}(5-\mathrm i).
+\]</span></p>
+<p><span class="math display">\[
+A_2=\langle\downarrow(y)|\chi\rangle=\frac1{\sqrt{60}}(1,\mathrm i)(1+2\mathrm i,3+4\mathrm i)=\frac{\sqrt{15}}{30}(-3+5\mathrm i).
+\]</span></p>
+<p>故取值有<span class="math inline">\((1,\mathrm i)^T\)</span>和<span class="math inline">\((1,-\mathrm i)^T\)</span>两种，概率分别为<span class="math inline">\(|A_1|^2=\frac{13}{30}\)</span>和<span class="math inline">\(|A_2|^2=\frac{17}{30}\)</span>。</p>
 <p>48、电子的总角动量<span class="math inline">\(\vec J\)</span>为轨道角动量<span class="math inline">\(\vec L\)</span>与自旋角动量<span class="math inline">\(\vec s\)</span>之和。由于轨道角动量算符与自旋角动量算符作用在不同的空间，所以互相对易，即有 <span class="math display">\[
 [\hat{L_j},\hat {s_k}]=0,j.k=1,2,3.
-\]</span> （1）求总角动量的对易关系<span class="math inline">\([\vec{J_j},\vec {J_k}]\)</span>。</p>
-<p>（2）证明四个物理量<span class="math inline">\(\{\hat{\vec J^2},\hat{\vec L^2},\hat{\vec s^2},\hat{J_z}\}\)</span>两两对易，因而有完备的共同本征态。</p>
+\]</span> （1）求总角动量的对易关系<span class="math inline">\([\vec{J_j},\vec {J_k}]\)</span>。 <span class="math display">\[
+[\vec{J_j},\vec {J_k}]=[\vec{L_j}+\vec {s_j},\vec{L_k}+\vec {s_k}]=[\vec{L_j},\vec {L_k}]+[\vec{s_j},\vec {s_k}]=\mathrm i\hbar\varepsilon_{jkl}\hat{\vec L_l}+\mathrm i\hbar\varepsilon_{jkl}\hat{\vec s_l}=\mathrm i\hbar\epsilon_{jkl}\hat{J_l}.
+\]</span> （2）证明四个物理量<span class="math inline">\(\{\hat{\vec J^2},\hat{\vec L^2},\hat{\vec s^2},\hat{J_z}\}\)</span>两两对易，因而有完备的共同本征态。 <span class="math display">\[
+[\hat{\vec L}^2,\hat{\vec s}^2]=(\hat{\vec L}+\hat{\vec s})[\hat{\vec L},\hat{\vec s}]+[\hat{\vec L},\hat{\vec s}](\hat{\vec L}+\hat{\vec s})=0.
+\]</span></p>
+<p><span class="math display">\[
+[\hat{\vec J}^2,\hat{\vec L}^2]=[\hat{\vec L}^2,\hat{\vec L}^2]+[\hat{\vec s}^2,\hat{\vec L}^2]=0.
+\]</span></p>
+<p><span class="math display">\[
+[\hat{\vec J}^2,\hat{\vec s}^2]=[\hat{\vec L}^2,\hat{\vec s}^2]+[\hat{\vec s}^2,\hat{\vec s}^2]=0.
+\]</span></p>
+<p><span class="math display">\[
+[\hat{J_z},\hat{\vec L}^2]=[\hat{L_z}+\hat{s_z},\hat{\vec L}^2]=[\hat{s_z},\hat{\vec L}^2]=[\hat{s_z},\hat L_x^2]+[\hat{s_z},\hat L_y^2]+[\hat{s_z},\hat L_z^2]=[\hat{s_z},\hat L_x]\hat{L_x}+\hat{L_x}[\hat{s_z},\hat L_x^2]+[\hat{s_z},\hat L_x^2]\hat{L_y}+\hat{L_y}[\hat{s_z},\hat L_x^2]\hat{L_z}+\hat{L_z}[\hat{s_z},\hat L_x^2]=0.
+\]</span></p>
+<p><span class="math display">\[
+[\hat{J_z},\hat{\vec s}^2]=[\hat{L_z}+\hat{s_z},\hat{\vec s}^2]=[\hat{L_z},\hat{\vec s}^2]=[\hat{L_z},\hat s_x^2]+[\hat{L_z},\hat s_y^2]+[\hat{L_z},\hat s_z^2]=[\hat{L_z},\hat s_x]\hat{s_x}+\hat{s_x}[\hat{L_z},\hat s_x^2]+[\hat{L_z},\hat s_x^2]\hat{s_y}+\hat{s_y}[\hat{L_z},\hat s_x^2]\hat{s_z}+\hat{s_z}[\hat{L_z},\hat s_x^2]=0.
+\]</span></p>
+<p><span class="math display">\[
+[\hat {J_z},\hat{\vec J}^2]=[\hat J_z,\hat{\vec L}^2]+[\hat J_z,\hat{\vec s}^2]=0.
+\]</span></p>
 <p>49、在 Stern-Gerlach 实验中，窄银原子束从左侧向右通过梯度磁场，然后沉积在冷凝屏上。已知磁场区长度<span class="math inline">\(a = 10cm\)</span>，磁场区右边缘与屏的距离<span class="math inline">\(b = 20cm\)</span>，银原子速度$v = 300 m / s $。磁场强度的梯度值取多大时，原子束在屏上的裂距为<span class="math inline">\(2mm\)</span>？</p>
 <p>50、计算可知 <span class="math display">\[
 \exp(-\mathrm i\frac{\sigma_z}2\theta)(n_1\sigma_x+n_2\sigma_y)\exp(\mathrm i\frac{\sigma_z}2\theta)\equiv n_1&#39;\sigma_x+n_2&#39;\sigma_y
