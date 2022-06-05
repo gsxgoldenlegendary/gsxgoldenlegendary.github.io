@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-128x128.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico">
+  <link rel="mask-icon" href="/images/favicon.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gsxgoldenlegendary.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="USTC-CODH课堂联系、课后作业及思考题总结。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Solutions to Computer Orgnization and Design Homework">
+<meta property="og:url" content="http://gsxgoldenlegendary.github.io/2022/06/06/Solution-to-Computer-Orgnazation-and-Design-Homework/index.html">
+<meta property="og:site_name" content="SONGXIAO&#39;S TOPBLOG">
+<meta property="og:description" content="USTC-CODH课堂联系、课后作业及思考题总结。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-06-05T19:58:15.000Z">
+<meta property="article:modified_time" content="2022-06-05T14:02:36.486Z">
+<meta property="article:author" content="GUO Songxiao">
+<meta property="article:tag" content="Computer Organization">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://gsxgoldenlegendary.github.io/2022/06/06/Solution-to-Computer-Orgnazation-and-Design-Homework/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://gsxgoldenlegendary.github.io/2022/06/06/Solution-to-Computer-Orgnazation-and-Design-Homework/","path":"2022/06/06/Solution-to-Computer-Orgnazation-and-Design-Homework/","title":"Solutions to Computer Orgnization and Design Homework"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Solutions to Computer Orgnization and Design Homework | SONGXIAO'S TOPBLOG</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SONGXIAO'S TOPBLOG</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">VENI VIDI VICI</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-friends"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>friends</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%BE%E7%A8%8B%E4%BB%8B%E7%BB%8D%E5%8F%8A%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86"><span class="nav-number">1.</span> <span class="nav-text">课程介绍及背景知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA"><span class="nav-number">2.</span> <span class="nav-text">计算机系统概论</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F"><span class="nav-number">3.</span> <span class="nav-text">指令系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B"><span class="nav-number">4.</span> <span class="nav-text">程序的编译过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cpu%E8%AE%BE%E8%AE%A1-%E5%8D%95%E5%91%A8%E6%9C%9F%E5%A4%9A%E5%91%A8%E6%9C%9F"><span class="nav-number">5.</span> <span class="nav-text">CPU设计-单周期、多周期</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E5%99%A8%E8%AE%BE%E8%AE%A1-%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="nav-number">6.</span> <span class="nav-text">处理器设计-流水线</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B7%B1%E5%BA%A6%E4%B8%8E%E6%B5%AE%E7%82%B9%E6%B5%81%E6%B0%B4%E7%BA%BF%E4%B8%BE%E4%BE%8B-mipsr4000"><span class="nav-number">7.</span> <span class="nav-text">深度与浮点流水线举例-MIPSR4000</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%AD%E6%96%AD%E4%B8%8E%E5%BC%82%E5%B8%B8"><span class="nav-number">8.</span> <span class="nav-text">中断与异常</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F"><span class="nav-number">9.</span> <span class="nav-text">存储系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BA%BF%E7%B3%BB%E7%BB%9F"><span class="nav-number">10.</span> <span class="nav-text">总线系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#io%E7%B3%BB%E7%BB%9F"><span class="nav-number">11.</span> <span class="nav-text">IO系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E7%9A%84%E8%B0%83%E5%BA%A6%E4%B8%8E%E4%BC%98%E5%8C%96"><span class="nav-number">12.</span> <span class="nav-text">指令的调度与优化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%99%BA%E8%83%BD%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F"><span class="nav-number">13.</span> <span class="nav-text">智能计算系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%A4%84%E7%90%86%E5%99%A8%E5%8E%9F%E7%90%86"><span class="nav-number">14.</span> <span class="nav-text">深度学习处理器原理</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="GUO Songxiao"
+      src="/images/header.jpg">
+  <p class="site-author-name" itemprop="name">GUO Songxiao</p>
+  <div class="site-description" itemprop="description">I must search. Even if the endless powdering of stars in the Galaxy makes the quest seem hopeless, and even if I must do it alone.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">110</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/gsxgoldenlegendary" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;gsxgoldenlegendary" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:gsxgoldenlegendary@gmail.com" title="E-Mail → mailto:gsxgoldenlegendary@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/GSongxiao" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;GSongxiao" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/songxiao.guo" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;songxiao.guo" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/weixin_52075219" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_52075219" rel="noopener" target="_blank"><i class="fab fa-cuttlefish fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/jin-se-chuan-shuo-58-72" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;jin-se-chuan-shuo-58-72" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://home.ustc.edu.cn/~logname" title="http:&#x2F;&#x2F;home.ustc.edu.cn&#x2F;~logname" rel="noopener" target="_blank">Homepage</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://gsxgoldenlegendary.github.io/2022/06/06/Solution-to-Computer-Orgnazation-and-Design-Homework/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="GUO Songxiao">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SONGXIAO'S TOPBLOG">
+      <meta itemprop="description" content="I must search. Even if the endless powdering of stars in the Galaxy makes the quest seem hopeless, and even if I must do it alone.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Solutions to Computer Orgnization and Design Homework | SONGXIAO'S TOPBLOG">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Solutions to Computer Orgnization and Design Homework
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-06-05 19:58:15 / Modified: 14:02:36" itemprop="dateCreated datePublished" datetime="2022-06-05T19:58:15Z">2022-06-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Computer-Science/" itemprop="url" rel="index"><span itemprop="name">Computer Science</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>USTC-CODH课堂联系、课后作业及思考题总结。</p>
+<span id="more"></span>
+<h1 id="课程介绍及背景知识">课程介绍及背景知识</h1>
+<ol type="1">
+<li>复习二进制、八进制、十进制、十六进制之间的互相转换。</li>
+<li>复习逻辑门和移位等操作的物理结构与操作原理。</li>
+<li>了解CPU制作过程（AMD视频）。</li>
+<li>图灵奖报告（视频）。</li>
+<li>思考不同的编码格式之间的区别和联系（信息的存储与计算、二进制与多进制）。</li>
+</ol>
+<h1 id="计算机系统概论">计算机系统概论</h1>
+<ol start="6" type="1">
+<li><p>一微处理器，主频为20MHz ，请计算其时钟周期。若一个机器周期由2个时钟周期组成，平均每条指令用3个机器周期的时间(即“指令执行时间”)，请计算该处理器的平均运行速度MIPS。</p></li>
+<li><p>某台计算机只有Load/Store 指令能对存储器进行读/写操作，其它指令只对寄存器进行操作。根据对某程序跟踪实验结果，已知每种指令所占的比例及CPI数如下：</p>
+<table>
+<thead>
+<tr class="header">
+<th>指令类型</th>
+<th>指令所占比例</th>
+<th>CPI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>算术逻辑指令</td>
+<td>43%</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Load指令</td>
+<td>21%</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>Store指令</td>
+<td>12%</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>转移指令</td>
+<td>24%</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>求上述情况下的平均CPI。 假设该程序由M条指令组成。算逻运算中25%的指令两个操作数中的一个已在寄存器中，另一个必须在算逻指令执行前用Load指令从存储器取到寄存器。因此有人建议增加另一种算逻指令，其特点是一个操作数取自寄存器，另一个操作数取自存储器，即寄存器存储器类型，假设这种指令的CPI等于2。同时，转移指令的CPI变为3。求新指令系统的平均CPI。</p></li>
+<li><p>假设在某程序的执行过程中，浮点操作时间占整个执行时间的10%，现希望对浮点操作加速。设对浮点操作的加速比 <span class="math inline">\(S_f\)</span> 。请画出程序总的加速比<span class="math inline">\(S\)</span>和<span class="math inline">\(S_f\)</span>之间的关系曲线；请问程序的最大加速比可达多少？</p></li>
+<li><p>求平方根和浮点乘是图形应用中两种常用的转换。假设浮点操作在某机器的一个基准程序中占总执行时间的50%，求平方根操作在总执行时间的20%，现通过两种方法加速操作： ①增加专门的软件加速库处理求平方根，使其执行速度为原来的10倍； ②通过调整流水线把浮点速度提高为原来的1.6倍。 问：分别采用两种方法增强后此基准程序加速比各是多少？</p></li>
+<li><p>求平方根和浮点乘是图形应用中两种常用的转换，假设求平方根操作在某机器的一个基准程序中占总执行时间的20%，浮点乘操作在该程序中占总执行时间50%，现通过两种方法加速两操作： ①增加专门的软件函数加速库求平方根，使其执行速度为原来的10倍； ②通过调整流水线把浮点乘速度提高 为原来的1.6倍。 问：同时采用两种方法增强后此基准程序加速比是多少？</p></li>
+<li><p>求平方根、浮点乘和定点乘是图形应用中三种常用的转换。假设浮点操作在某机器的一个基准程序中占总执行时间的30%，求平方根操作在总执行时间的20%，定点乘15%。现通过三种方法加速操作： ①增加专门的硬件处理求平方根，使其执行速度为原来的10倍； ②通过调整流水线把浮点速度提高为原来的1.6倍。 ③通过调整流水线把定点速度提高为原来的3倍。 问：分别采用三种方法增强后此基准程序加速比各是多少？同时采用三种方法增强后此基准程序加速比各是多少？</p></li>
+<li><p>假设晶圆的成品率为100%，晶片为长为1.5cm的正方形。（1）直径为30cm的晶圆上有多少晶片？（2）假设单位面积的疵点密度为<span class="math inline">\(0.4/cm^2\)</span> ，且<span class="math inline">\(\alpha=4.0\)</span>，求晶片的成品率？</p></li>
+<li><p>COD RISC-V 1.12 Section 1.10 cites as a pitfall the utilization of a subset of the performance equation as a performance metric. To llustrate this, consider the following two processors. P1 has a clock rate of 4 GHz, average CPI of 0.9, and requires the execution of 5.0E9 instructions. P2 has a clock rate of 3 GHz, an average CPI of 0.75, and requires the execution of 1.0E9 instructions. 1.12.1 One usual fallacy is to consider the computer with the largest clock rate as having the highest performance. Check if this is true for P1 and P2. 1.12.2 Another fallacy is to consider that the processor executing the largest number of instructions will need a larger CPU time. Considering that processor P1 is executing a sequence of 1.0E9 instructions and that the CPI of processors P1 and P2 do not change, determine the number of instructions that P2 can execute in the same time that P1 needs to execute 1.0E9 instructions.</p></li>
+<li><p>冯机架构中指令和数据都存储于存储器中，系统执行时如何区分？</p></li>
+<li><p>“计算机组成”与“计算机系统结构”的关系？</p></li>
+<li><p>比较Amdahl’s Law和古斯塔夫森定律 。</p></li>
+</ol>
+<h1 id="指令系统">指令系统</h1>
+<ol start="17" type="1">
+<li><p>写出下面函数的汇编代码</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cswap(<span class="type">int</span> v[], <span class="type">int</span> k, <span class="type">int</span> l)</span><br><span class="line">&#123;</span><br><span class="line"><span class="type">int</span> temp;</span><br><span class="line">v[<span class="number">0</span>]-&gt;$s4</span><br><span class="line"><span class="title function_">if</span><span class="params">(v[k]!=v[l])</span></span><br><span class="line">&#123;</span><br><span class="line">temp=v[k];</span><br><span class="line">v[k]=v[l];</span><br><span class="line">v[l]=temp;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>COD RISC-V 2.9 For each RISC-V instruction in Exercise 2.8, show the value of the opcode (op), source register (rs1), and destination register (rd) fields. For the I-type instructions, show the value of the immediate field, and for the R-type instructions, show the value of the second source register (rs2). For non U- and UJ-type instructions, show the funct3 field, and for R-type and S-type instructions, also show the funct7 field.</p></li>
+<li><p>COD RISC-V 2.24 Consider the following RISC-V loop:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LOOP:</span><br><span class="line">beq x6, x0, DONE</span><br><span class="line">addi x6, x6, -1</span><br><span class="line">addi x5, x5, 2</span><br><span class="line">jal x0, LOOP</span><br><span class="line">DONE:</span><br></pre></td></tr></table></figure>
+<p>2.24.1 Assume that the register <code>x6</code> is initialized to the value 10. What is the final value in register <code>x5</code> assuming the <code>x5</code> is initially zero? 2.24.2 For the loop above, write the equivalent C code. Assume that the registers <code>x5</code> and <code>x6</code> are integers acc and i , respectively. 2.24.3 For the loop written in RISC-V assembly above, assume that the register <code>x6</code> is initialized to the value N. How many RISC-V instructions are executed? 2.24.4 For the loop written in RISC-V assembly above, replace the instruction “ <code>beq x6, x0, DONE</code> ” with the instruction “ <code>blt x6, x0, DONE</code> ” and write the equivalent C code.</p></li>
+<li><p>COD RISC-V 2.35 Consider the following code:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lb x6, 0(x7)</span><br><span class="line">sd x6, 8(x7)</span><br></pre></td></tr></table></figure>
+<p>Assume that the register <code>x7</code> contains the address <code>0×10000000</code> and the data at address is <code>0×1122334455667788</code> . 2.35.1 What value is stored in <code>0×1000000</code>8 on a big-endian machine? 2.35.2 What value is stored in <code>0×1000000</code>8 on a little-endian machine?</p></li>
+<li><p>COD RISC-V 2.40 Assume that for a given program 70% of the executed instructions are arithmetic, 10% are load/store, and 20% are branch. 2.40.1 Given this instruction mix and the assumption that an arithmetic instruction requires two cycles, a load/store instruction takes six cycles, and a branch instruction takes three cycles, find the average CPI. 2.40.2 For a 25% improvement in performance, how many cycles, on average, may an arithmetic instruction take if load/store and branch instructions are not improved at all? 2.40.3 For a 50% improvement in performance, how many cycles, on average, may an arithmetic instruction take if load/store and branch instructions are not improved at all?</p></li>
+<li><p>CPU的ISA要定义哪些内容？</p></li>
+<li><p>8086为什么要采用段式内存管理模式？</p></li>
+<li><p>Windows系统中可执行程序的格式？</p></li>
+<li><p>调研现在常用的处理器是大尾端还是小尾端，如x86、ARM、MIPS、PowerPC等？</p></li>
+<li><p>分析MIPS、x86、RISC-V指令集架构、比较相同不同点。</p></li>
+<li><p>调研国内外典型的RISC-V处理器核、比较相同不同点。</p></li>
+<li><p>扩展阅读Rocket及BOOM的资料。</p></li>
+</ol>
+<h1 id="程序的编译过程">程序的编译过程</h1>
+<ol start="29" type="1">
+<li>以GCC为例，代码是如何转换为指令的。</li>
+<li>GCC的不同优化之间的区别在哪些方面？</li>
+</ol>
+<h1 id="cpu设计-单周期多周期">CPU设计-单周期、多周期</h1>
+<ol start="31" type="1">
+<li><p>有一段程序共有100条指令，其中Load指令为20%，Store指令为20%，R类的ALU指令为40%，Beq指令为10%，JUMP指令为10%。这段程序分别在单周期和多周期的CPU上实现（多周期参考RISC-V的CPI），其中单周期CPU时钟为200MHz，多周期CPU时钟为800MHz（考虑到存储器、ALU实现复杂），问在何种CPU上运行时快，快多少？</p></li>
+<li><p>COD RISC-V 4.1 Consider the following instruction: Instruction: and rd, rs1, rs2 Interpretation: Reg[rd] = Reg[rs1] AND Reg[rs2] 4.1.1 What are the values of control signals generated by the control in Figure 4.10 for this instruction? 4.1.2 Which resources (blocks) perform a useful function for this instruction? 4.1.3 Which resources (blocks) produce no output for this instruction? Which resources produce output that is not used?</p></li>
+<li><p>COD RISC-V 4.7 Problems in this exercise assume that the logic blocks used to implement a processor’s datapath have the following latencies:</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 13%" />
+<col style="width: 4%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 11%" />
+<col style="width: 13%" />
+<col style="width: 14%" />
+<col style="width: 11%" />
+<col style="width: 7%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>I-Mem/D-Mem</th>
+<th>Register File</th>
+<th>Mux</th>
+<th>ALU</th>
+<th>Adder</th>
+<th>Single gate</th>
+<th>Register Read</th>
+<th>Register Setup</th>
+<th>Sign extend</th>
+<th>Control</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>250ps</td>
+<td>150ps</td>
+<td>25ps</td>
+<td>200ps</td>
+<td>150ps</td>
+<td>5ps</td>
+<td>30ps</td>
+<td>20ps</td>
+<td>50ps</td>
+<td>50ps</td>
+</tr>
+</tbody>
+</table>
+<p>“Register read” is the time needed after the rising clock edge for the new register value to appear on the output. This value applies to the PC only. “Register setup” is the amount of time a register’s data input must be stable before the rising edge of the clock. This value applies to both the PC and Register File. 4.7.1 What is the latency of an R-type instruction (i.e., how long must the clock period be to ensure that this instruction works correctly)? 4.7.2 What is the latency of <code>ld</code>? (Check your answer carefully. Many students place extra muxes on the critical path.) 4.7.3 What is the latency of <code>sd</code>? (Check your answer carefully. Many students place extra muxes on the critical path.) 4.7.4 What is the latency of <code>beq</code>? 4.7.5 What is the latency of an I-type instruction? 4.7.6 What is the minimum clock period for this CPU?</p></li>
+<li><p>单周期处理器在一个周期内完成指令所有的微操作，思考： 寻址方式如何实现？ 周期宽度如何确定？ 能否“在一个clk内完成? 能否将两个adder合二为一? 能否将两个memory合二为一?</p></li>
+<li><p>根据图4-22 ，画出主控制器的PLA实现图 先写布尔表达式。 请参考英文版教材附录C第2节。 由于PLA规模不小，可以手绘，也可以用软件画完后打印出来。</p></li>
+<li><p>每一类指令的指令周期各含多少个时钟周期？</p></li>
+<li><p>分别分析R/I/S/B-type指令的多周期设计方案中每个周期所用到的功能部件。</p></li>
+<li><p>调研不同FSM控制器实现方式的特点。</p></li>
+<li><p>调研水平微指令和垂直微指令的特点。（参考唐书第10章内容）</p></li>
+</ol>
+<h1 id="处理器设计-流水线">处理器设计-流水线</h1>
+<ol start="40" type="1">
+<li><p>画出下边指令序列中的定向路径:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SUB x1,x5, x4 </span><br><span class="line">ADD x1, x1, x4 </span><br><span class="line">BEQ x1, x4, Offset</span><br><span class="line">LW x1, 45(x3)</span><br><span class="line">ADD x1, x1, x4</span><br><span class="line">SW x1, 5(x3)</span><br></pre></td></tr></table></figure></li>
+<li><p>假设部件延迟MEM=2ns， R-Type ALU=2ns，Reg=1ns，其他部件没有延时。某程序编译生成100条指令，其中LW 20%，SW20%，R-Type ALU 40%，BEQ 20%。采用MIPS/RISC-V的5级流水线，并假设LW互锁和分支延迟如下，其他无开销。有一半的LW执行后为R-Type ALU，因此需要互锁1个周期；分支延迟为1个周期，采用等待策略；求这段代码在单周期、多周期、流水线三种方式的性能对比。</p></li>
+<li><p>COD RISC-V 4.16 In this exercise, we examine how pipelining affects the clock cycle time of the processor. Problems in this exercise assume that individual stages of the datapath have the following latencies:</p>
+<table>
+<thead>
+<tr class="header">
+<th>IF</th>
+<th>ID</th>
+<th>EX</th>
+<th>MEM</th>
+<th>WB</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>250ps</td>
+<td>350ps</td>
+<td>150ps</td>
+<td>300ps</td>
+<td>200ps</td>
+</tr>
+</tbody>
+</table>
+<p>Also, assume that instructions executed by the processor are broken down as follows:</p>
+<table>
+<thead>
+<tr class="header">
+<th>ALU/Logic</th>
+<th>Jump/Branch</th>
+<th>Load</th>
+<th>Store</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>45%</td>
+<td>20%</td>
+<td>20%</td>
+<td>15%</td>
+</tr>
+</tbody>
+</table>
+<p>4.16.1 What is the clock cycle time in a pipelined and non-pipelined processor? 4.16.2 What is the total latency of an ld instruction in a pipelined and non-pipelined processor? 4.16.3 If we can split one stage of the pipelined datapath into two new stages, each with half the latency of the original stage, which stage would you split and what is the new clock cycle time of the processor? 4.16.4 Assuming there are no stalls or hazards, what is the utilization of the data memory? 4.16.5 Assuming there are no stalls or hazards, what is the utilization of the write-register port of the “Registers” unit?</p></li>
+<li><p>COD RISC-V 4.23 If we change load/store instructions to use a register (without an offset) as the address, these instructions no longer need to use the ALU. (See Exercise 4.15.) As a result, the MEM and EX stages can be overlapped and the pipeline has only four stages. 4.23.1 How will the reduction in pipeline depth affect the cycle time? 4.23.2 How might this change improve the performance of the pipeline? 4.23.3 How might this change degrade the performance of the pipeline?</p></li>
+<li><p>理想流水线加速比=？IPC=？</p></li>
+<li><p>为何单周期、多周期的控制信号不需要buffer，而流水线的控制信号需要buffer？</p></li>
+<li><p>哪些情形可能造成流水线stall，有哪些解决方案？</p></li>
+<li><p>影响流水线性能发挥的因素有哪些，可以采用哪些手段减小这些因素的影响？</p></li>
+<li><p>指令流水线中在哪个阶段会产生什么相关？</p></li>
+<li><p>为何MIPS只有I-type指令访存/RISC-V的I类S类？</p></li>
+<li><p>典型的流水线的多发射技术有哪些？</p></li>
+<li><p>影响流水线性能发挥的因素有哪些?</p></li>
+<li><p>为何RV只有Load/store指令访存？</p></li>
+<li><p>单周期、多周期的控制信号无须buffer，而流水线的控制信号需要buffer的原因？</p></li>
+<li><p>流水线控制器的实现方式。</p></li>
+</ol>
+<h1 id="深度与浮点流水线举例-mipsr4000">深度与浮点流水线举例-MIPSR4000</h1>
+<h1 id="中断与异常">中断与异常</h1>
+<ol start="47" type="1">
+<li><p>COD RISC-V 4.22 [5] &lt;§4.5&gt; Consider the fragment of RISC-V assembly below:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sd x29, 12(x16)</span><br><span class="line">ld x29, 8(x16)</span><br><span class="line">sub x17, x15, x14</span><br><span class="line">beqz x17, label</span><br><span class="line">add x15, x11, x14</span><br><span class="line">sub x15, x30, x14</span><br></pre></td></tr></table></figure>
+<p>Suppose we modify the pipeline so that it has only one memory (that handles both instructions and data). In this case, there will be a structural hazard every time a program needs to fetch an instruction during the same cycle in which another instruction accesses data. 4.22.1 Draw a pipeline diagram to show where the code above will stall. 4.22.2 In general, is it possible to reduce the number of stalls/ NOP s resulting from this structural hazard by reordering code? 4.22.3 Must this structural hazard be handled in hardware? We have seen that data hazards can be eliminated by adding NOP s to the code. Can you do the same with this structural hazard? If so, explain how. If not, explain why not. 4.22.4 Approximately how many stalls would you expect this structural hazard to generate in a typical program? (Use the instruction mix from Exercise 4.8.)</p></li>
+<li><p>COD RISC-V 4.25 Consider the following loop.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">LOOP: ldx10, 0(x13)</span><br><span class="line">ld x11, 8(x13)</span><br><span class="line">add x12, x10, x11</span><br><span class="line">subi x13, x13, 16</span><br><span class="line">bnez x12, LOOP</span><br></pre></td></tr></table></figure>
+<p>Assume that perfect branch prediction is used (no stalls due to control hazards), that there are no delay slots, that the pipeline has full forwarding support, and that branches are resolved in the EX (as opposed to the ID) stage. 4.25.1 Show a pipeline execution diagram for the first two iterations of this loop. 4.25.2 Mark pipeline stages that do not perform useful work. How often while the pipeline is full do we have a cycle in which all five pipeline stages are doing useful work? (Begin with the cycle during which the subi is in the IF stage. End with the cycle during which the bnez is in the IF stage.)</p></li>
+<li><p>唐朔飞 8.23 在中断处理过程中，“保护现场”需要完成哪些任务？如何实现？</p></li>
+<li><p>唐朔飞 8.24 现有 A、B、C、D 4个中断源，其优先级由高到底按<span class="math inline">\(A\to B\to C\to D\)</span>顺序排列。若中断服务程序的执行时间为<span class="math inline">\(20\mu s\)</span>，根据下图所示的中断源请求中断的时刻，画出CPU执行程序的轨迹。</p></li>
+<li><p>中断周期要完成哪些微操作？</p></li>
+<li><p>多周期状态机中，出现溢出的指令是否将错误结果写回？</p></li>
+<li><p>多周期中状态机中，如何响应中断？</p></li>
+<li><p>指令顺序执行，中断“精确”；指令流水执行，中断“精确”或“非精确”可选 精确中断，为何提交点是M段？</p></li>
+<li><p>EPC和cause应该在哪个段？异常检测电路？</p></li>
+<li><p>mips异常返回指令eret如何实现？</p></li>
+<li><p>异常与中断同时发生，优先级？</p></li>
+<li><p>（分支）延迟槽中的指令发生异常，EPC = ？</p></li>
+<li><p>比较中断、异常、过程调用 ✓ 请求时间、响应时间，断点与现场，返回点，同步异步，中断周期、系 统状态？</p></li>
+<li><p>假设如下指令序列 ✓ 采用多周期执行方式和流水线非精确方式，在第几个周期检 测出异常？（LW互锁=1）80000184 SW $27, 1004指令何 时取指？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">LOOP: LW $1, 40($10) ；取$1</span><br><span class="line">ADD $2,$3,$1 ；加法</span><br><span class="line">SW $2, 40($10) ；存</span><br><span class="line">SUB $9,$9,$11</span><br><span class="line">；迭代器</span><br><span class="line">XXX $5,$7</span><br><span class="line">；异常-未定义指令（ID段检测）</span><br><span class="line">BNE LOOP,$9,$0</span><br><span class="line">；分支指令</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="存储系统">存储系统</h1>
+<ol start="61" type="1">
+<li>在一个具有4个存储体的低位多体交叉存储器中，如果处理器的访存地址为以下十进制值。求该存储器比单体存储器的平均访问速率提高多少（忽略初启时的延迟）？
+<ol type="1">
+<li>0001、0002、0003、…、0100</li>
+<li>0002、0004、0006、…、0200</li>
+<li>0003、0006、0009、…、0300</li>
+</ol></li>
+<li><p>设存储器容量为32字，字长64位，模块数m=4，分别用多体高位交叉即顺序方式和多体低位交叉方式进行组织。存储周期T=200ns，数据总线宽度为64位，总线传送周期t=50ns。若连续读出4个字，问顺序存储器和交叉存储器的带宽各是多少?</p></li>
+<li><p>具有1位纠错能力的编码系统最小码距是多少？</p></li>
+<li><p>单纠错海明码码距是多少？</p></li>
+<li><p>（n+k, n）CRC码码距是多少？</p></li>
+<li><p>比较海明码与CRC码的容错能力.</p></li>
+<li><p>有效信息为1010,生成多项式G(x)=1011,将 其编成CRC码。</p></li>
+<li><p>假设CPU执行某段程序时，共访问Cache命中2000次，访问主存50次。已知Cache存取周期为50ns，主存存取周期为200ns。求Cache-主存系统的命中率、效率和平均访问时间。</p></li>
+<li><p>假设主存只允许存放a、b、c三个页面，逻辑上构成a进c出的FIFO队列。某次操作中进程访存的序列是<code>0,1,2,4,2,3,0,2,1,3,2</code>（虚页号）。若分别采用FIFO算法、FIFO+LRU算法，请用列表法分别求两种替换策略情况下主存的命中率。</p></li>
+<li><p>COD RISC-V 5.5 For a direct-mapped cache design with a 64-bit address, the following bits of the address are used to access the cache.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Tag</th>
+<th>Index</th>
+<th>Offset</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>63-10</td>
+<td>9-5</td>
+<td>4-0</td>
+</tr>
+</tbody>
+</table>
+<p>5.5.1 [5] &lt;§5.3&gt; What is the cache block size (in words)? 5.5.2 [5] &lt;§5.3&gt; How many blocks does the cache have? 5.5.3 [5] &lt;§5.3&gt; What is the ratio between total bits required for such a cache implementation over the data storage bits? Beginning from power on, the following byte-addressed cache references are recorded. Address:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Hex</th>
+<th>00</th>
+<th>04</th>
+<th>10</th>
+<th>84</th>
+<th>E8</th>
+<th>A0</th>
+<th>400</th>
+<th>1E</th>
+<th>8C</th>
+<th>C1C</th>
+<th>B4</th>
+<th>884</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Dec</td>
+<td>0</td>
+<td>4</td>
+<td>16</td>
+<td>132</td>
+<td>232</td>
+<td>160</td>
+<td>1024</td>
+<td>30</td>
+<td>140</td>
+<td>3100</td>
+<td>180</td>
+<td>2180</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>COD RISC-V 5.11 This exercise examines the effect of different cache designs, specifically comparing associative caches to the direct-mapped caches from Section 5.4. For these exercises, refer to the sequence of word address shown below. <span class="math display">\[
+0x03, 0xb4, 0x2b, 0x02, 0xbe, 0x58, 0xbf, 0x0e, 0x1f, 0xb5,
+0xbf, 0xba, 0x2e, 0xce
+\]</span> 5.11.1 Sketch the organization of a three-way set associative cache with two-word blocks and a total size of 48 words. Your sketch should have a style similar to Figure 5.18, but clearly show the width of the tag and data fields. 5.11.2 Trace the behavior of the cache from Exercise 5.11.1. Assume a true LRU replacement policy. For each reference, identify the binary word address, the tag, the index, the offset, whether the reference is a hit or a miss, and which tags are in each way of the cache after the reference has been handled. 5.11.3 Sketch the organization of a fully associative cache with one-word blocks and a total size of eight words. Your sketch should have a style similar to Figure 5.18, but clearly show the width of the tag and data fields. 5.11.4 Trace the behavior of the cache from Exercise 5.11.3. Assume a true LRU replacement policy. For each reference, identify the binary word address, the tag, the index, the offset, whether the reference is a hit or a miss, and the contents of the cache after each reference has been handled. 5.11.5 Sketch the organization of a fully associative cache with two-word blocks and a total size of eight words. Your sketch should have a style similar to Figure 5.18, but clearly show the width of the tag and data fields. 5.11.6 Trace the behavior of the cache from Exercise 5.11.5. Assume an LRU replacement policy. For each reference, identify the binary word address, the tag, the index, the offset, whether the reference is a hit or a miss, and the contents of the cache after each reference has been handled. 5.11.7 Repeat Exercise 5.11.6 using MRU (most recently used) replacement. 5.11.8 Repeat Exercise 5.11.6 using the optimal replacement policy (i.e., the one that gives the lowest miss rate).</p></li>
+</ol>
+<h1 id="总线系统">总线系统</h1>
+<ol start="72" type="1">
+<li>唐朔飞 3.4 为什么要设置总线判优控制？常见的集中式总线控制有几种，各有何特点，哪种方式响应时间最快，哪种方式对电路故障最敏感？</li>
+<li>唐朔飞 3.8 为什么说半同步通信同时保留了同步通信和异步通信的特点？</li>
+<li>设数据总线上接有 A、B、C、D 4个寄存器，要求选用合适的74系列芯片，完成下列逻辑设计： （1）设计一个电路，在同一时间实现<span class="math inline">\(D\to A\)</span>、<span class="math inline">\(D\to B\)</span>和<span class="math inline">\(D\to C\)</span>寄存器间的传送。 （2）设计一个电路，实现下列操作。<span class="math inline">\(T_0\)</span>时刻完成<span class="math inline">\(D\to\)</span>总线。<span class="math inline">\(T_1\)</span>时刻完成总线<span class="math inline">\(\to A\)</span>。<span class="math inline">\(T_2\)</span>时刻完成<span class="math inline">\(A\to\)</span>总线。<span class="math inline">\(T_3\)</span>时刻完成总线<span class="math inline">\(\to B\)</span>。</li>
+<li>唐朔飞 3.14 设总线的时钟频率为8MHz，一个总线周期等于一个时钟周期。如果一个总线周期中并行传送16位数据，试问总线的带宽是多少？</li>
+<li>唐朔飞 3.15 在一个32位的总线系统中，总线的时钟频率为66MHz。假设总线最短传输周期为4个时钟周期，试计算总线的最大数据传输率。若想提高数据传输率，可采取什么措施？</li>
+<li>唐朔飞 3.16 在异步串行传送系统中，字符格式为：1个起始位、8个数据位、1个校验位、2个终止位。若要求每秒传送120个字符，试求传送的波特率和比特率。</li>
+</ol>
+<h1 id="io系统">IO系统</h1>
+<ol start="78" type="1">
+<li>磁盘存储器有6个盘片，最外两侧盘面不能记录，每面有204条磁道，每条磁道有12个扇段，每个扇段512B，磁盘机以7200rpm的速度旋转，平均寻道时间为8ms 1）计算该磁盘存储器的存储容量。 2）计算该磁盘存储器的平均寻址时间。</li>
+<li>唐朔飞 5.4 试比较程序查询方式、程序中断方式和DMA方式对CPU工作效率的影响。</li>
+<li>唐朔飞 5.8 某计算机的I/O设备采用异步串行传送方式传送字符信息。字符信息的格式为1位起始位、7位数据位、1位校验位和1位停止位。若要求每秒传送480个字符，那么该设备的数据传送速率为多少？</li>
+<li>唐朔飞 5.11 简述I/O接口的功能和基本组成。</li>
+<li>唐朔飞 8.23 在中断处理中，“保护现场”需要完成哪些任务？如何实现？</li>
+<li>唐朔飞 4.38 磁盘组有6片磁盘，最外两片盘面可以记录，存储区内径22cm，外径33cm，道密度40道/cm，内层密度400位/cm，转速3600转/分。 （1）共有多少存储面可用？ （2）共有多少柱面？ （3）盘组总存储容量是多少？</li>
+<li>唐朔飞 4.44 试从存储容量、存取速度、使用寿命和应用场合方面比较磁盘、磁带和光盘存储器。</li>
+</ol>
+<h1 id="指令的调度与优化">指令的调度与优化</h1>
+<ol start="85" type="1">
+<li>结合Arch2030报告，对神经网络六层循环不同层的循环展开分别代表的含义，采用上述技术应该如何优化（软件+硬件）？</li>
+</ol>
+<h1 id="智能计算系统">智能计算系统</h1>
+<h1 id="深度学习处理器原理">深度学习处理器原理</h1>
+
+    </div>
+
+    
+    
+    
+      
+
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div></div>
+  <button>
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.jpg" alt="GUO Songxiao WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpg" alt="GUO Songxiao Alipay">
+        <span>Alipay</span>
+      </div>
+      <div>
+        <img src="/images/bitcoin.jpg" alt="GUO Songxiao Bitcoin">
+        <span>Bitcoin</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>GUO Songxiao
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="http://gsxgoldenlegendary.github.io/2022/06/06/Solution-to-Computer-Orgnazation-and-Design-Homework/" title="Solutions to Computer Orgnization and Design Homework">http://gsxgoldenlegendary.github.io/2022/06/06/Solution-to-Computer-Orgnazation-and-Design-Homework/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://twitter.com/GSongxiao">
+          <span class="icon">
+            <i class="fab fa-twitter"></i>
+          </span>
+
+          <span class="label">Twitter</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/atom.xml">
+          <span class="icon">
+            <i class="fa fa-rss"></i>
+          </span>
+
+          <span class="label">RSS</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://github.com/gsxgoldenlegendary">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+
+          <span class="label">GitHub</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="mailto:gsxgoldenlegendary@gmail.com">
+          <span class="icon">
+            <i class="fa fa-envelope"></i>
+          </span>
+
+          <span class="label">E-Mail</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://www.facebook.com/songxiao.guo">
+          <span class="icon">
+            <i class="fab fa-facebook"></i>
+          </span>
+
+          <span class="label">FB Page</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://blog.csdn.net/weixin_52075219">
+          <span class="icon">
+            <i class="fab fa-cuttlefish"></i>
+          </span>
+
+          <span class="label">CSDN</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://www.zhihu.com/people/jin-se-chuan-shuo-58-72">
+          <span class="icon">
+            <i class="fab fa-zhihu"></i>
+          </span>
+
+          <span class="label">Zhihu</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Computer-Organization/" rel="tag"><i class="fa fa-tag"></i> Computer Organization</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/05/30/Comparative-Appreciation-among-In-the-Wave-of-Kanagawaoki-Impression-Sunrise-and-the-Ninth-Level-Wave/" rel="prev" title="Comparative Appreciation among In the Wave of Kanagawaoki, Impression Sunrise and the Ninth Level Wave">
+                  <i class="fa fa-chevron-left"></i> Comparative Appreciation among In the Wave of Kanagawaoki, Impression Sunrise and the Ninth Level Wave
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa-solid fa-chess-king"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GUO Songxiao</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.7/pdfobject.min.js","integrity":"sha256-ph3Dk89VmuTVXG6x/RDzk53SU9LPdAh1tpv0UvnDZ2I="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"gsxgoldenlegendary/gsxgoldenlegendary.github.io","issue_term":"pathname","theme":"github-dark"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>
