@@ -30,7 +30,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/codh8.png">
 <meta property="article:published_time" content="2022-06-05T19:58:15.000Z">
-<meta property="article:modified_time" content="2022-06-07T05:23:42.738Z">
+<meta property="article:modified_time" content="2022-06-07T06:01:07.686Z">
 <meta property="article:author" content="GUO Songxiao">
 <meta property="article:tag" content="Computer Organization">
 <meta name="twitter:card" content="summary">
@@ -284,7 +284,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-07 05:23:42" itemprop="dateModified" datetime="2022-06-07T05:23:42Z">2022-06-07</time>
+      <time title="Modified: 2022-06-07 06:01:07" itemprop="dateModified" datetime="2022-06-07T06:01:07Z">2022-06-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -425,19 +425,37 @@ S_{\max}=\lim\limits_{S_f\to\infty}S=\frac{10}9.
 <p>①增加专门的软件加速库处理求平方根，使其执行速度为原来的10倍；</p>
 <p>②通过调整流水线把浮点速度提高为原来的1.6倍。</p>
 <p>问：分别采用两种方法增强后此基准程序加速比各是多少？</p>
+<p><span class="math display">\[
+S_1=\frac1{1-0.2+\frac{0.2}{10}}=1.22.
+\]</span></p>
+<p><span class="math display">\[
+S_2=\frac1{1-0.5+\frac{0.5}{1.6}}=1.23.
+\]</span></p>
 <p>10、 求平方根和浮点乘是图形应用中两种常用的转换，假设求平方根操作在某机器的一个基准程序中占总执行时间的20%，浮点乘操作在该程序中占总执行时间50%，现通过两种方法加速两操作：</p>
 <p>①增加专门的软件函数加速库求平方根，使其执行速度为原来的10倍；</p>
 <p>②通过调整流水线把浮点乘速度提高 为原来的1.6倍。</p>
-<p>问：同时采用两种方法增强后此基准程序加速比是多少？</p>
+<p>问：同时采用两种方法增强后此基准程序加速比是多少？ <span class="math display">\[
+S=\frac1{1-0.5-0.2+\frac{0.5}{1.6}+\frac{0.2}{10}}=1.58.
+\]</span></p>
 <p>11、求平方根、浮点乘和定点乘是图形应用中三种常用的转换。假设浮点操作在某机器的一个基准程序中占总执行时间的30%，求平方根操作在总执行时间的20%，定点乘15%。现通过三种方法加速操作：</p>
 <p>①增加专门的硬件处理求平方根，使其执行速度为原来的10倍；</p>
 <p>②通过调整流水线把浮点速度提高为原来的1.6倍。</p>
 <p>③通过调整流水线把定点速度提高为原来的3倍。</p>
-<p>问：分别采用三种方法增强后此基准程序加速比各是多少？同时采用三种方法增强后此基准程序加速比各是多少？</p>
+<p>问：分别采用三种方法增强后此基准程序加速比各是多少？同时采用三种方法增强后此基准程序加速比各是多少？ <span class="math display">\[
+S_1=\frac1{1-0.2+\frac{0.2}{10}}=1.22.
+\]</span></p>
+<p><span class="math display">\[
+S_2=\frac1{1-0.3+\frac{0.3}{1.6}}=1.13.
+\]</span></p>
+<p><span class="math display">\[
+S_2=\frac1{1-0.15+\frac{0.15}{3}}=1.11.
+\]</span></p>
+<p><span class="math display">\[
+S=\frac1{1-0.2-0.3-0.15+\frac{0.2}{10}+\frac{0.3}{1.6}+\frac{0.15}{3}}=1.65.
+\]</span></p>
 <p>12、假设晶圆的成品率为100%，晶片为长为1.5cm的正方形。</p>
 <p>（1）直径为30cm的晶圆上有多少晶片？</p>
-<p>（2）假设单位面积的疵点密度为<span class="math inline">\(0.4/cm^2\)</span> ，且<span class="math inline">\(\alpha=4.0\)</span>，求晶片的成品率？</p>
-<p>13、COD RISC-V 1.12 Section 1.10 cites as a pitfall the utilization of a subset of the performance equation as a performance metric. To llustrate this, consider the following two processors. P1 has a clock rate of 4 GHz, average CPI of 0.9, and requires the execution of 5.0E9 instructions. P2 has a clock rate of 3 GHz, an average CPI of 0.75, and requires the execution of 1.0E9 instructions.</p>
+<p>（2）假设单位面积的疵点密度为<span class="math inline">\(0.4/cm^2\)</span> ，且<span class="math inline">\(\alpha=4.0\)</span>，求晶片的成品率？ 13、COD RISC-V 1.12 Section 1.10 cites as a pitfall the utilization of a subset of the performance equation as a performance metric. To llustrate this, consider the following two processors. P1 has a clock rate of 4 GHz, average CPI of 0.9, and requires the execution of 5.0E9 instructions. P2 has a clock rate of 3 GHz, an average CPI of 0.75, and requires the execution of 1.0E9 instructions.</p>
 <p>1.12.1 One usual fallacy is to consider the computer with the largest clock rate as having the highest performance. Check if this is true for P1 and P2.</p>
 <p>1.12.2 Another fallacy is to consider that the processor executing the largest number of instructions will need a larger CPU time. Considering that processor P1 is executing a sequence of 1.0E9 instructions and that the CPI of processors P1 and P2 do not change, determine the number of instructions that P2 can execute in the same time that P1 needs to execute 1.0E9 instructions.</p>
 <p>14、冯机架构中指令和数据都存储于存储器中，系统执行时如何区分？</p>
