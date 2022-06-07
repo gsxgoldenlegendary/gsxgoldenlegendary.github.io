@@ -21,18 +21,20 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"gsxgoldenlegendary.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="USTC-CODH课堂联系、课后作业及思考题总结。">
+    <meta name="description" content="USTC-CODH课堂练习、课后作业及思考题总结。思考题答案仅供参考。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Solutions to Computer Orgnization and Design Homework">
 <meta property="og:url" content="http://gsxgoldenlegendary.github.io/2022/06/06/Solution-to-Computer-Orgnazation-and-Design-Homework/index.html">
 <meta property="og:site_name" content="SONGXIAO&#39;S TOPBLOG">
-<meta property="og:description" content="USTC-CODH课堂联系、课后作业及思考题总结。">
+<meta property="og:description" content="USTC-CODH课堂练习、课后作业及思考题总结。思考题答案仅供参考。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/codh8.png">
 <meta property="article:published_time" content="2022-06-05T19:58:15.000Z">
-<meta property="article:modified_time" content="2022-06-05T14:02:36.486Z">
+<meta property="article:modified_time" content="2022-06-07T05:23:42.738Z">
 <meta property="article:author" content="GUO Songxiao">
 <meta property="article:tag" content="Computer Organization">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gsxgoldenlegendary.github.io/images/codh8.png">
 
 
 <link rel="canonical" href="http://gsxgoldenlegendary.github.io/2022/06/06/Solution-to-Computer-Orgnazation-and-Design-Homework/">
@@ -274,9 +276,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-06-05 19:58:15 / Modified: 14:02:36" itemprop="dateCreated datePublished" datetime="2022-06-05T19:58:15Z">2022-06-05</time>
+      <time title="Created: 2022-06-05 19:58:15" itemprop="dateCreated datePublished" datetime="2022-06-05T19:58:15Z">2022-06-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-06-07 05:23:42" itemprop="dateModified" datetime="2022-06-07T05:23:42Z">2022-06-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -305,20 +313,36 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>USTC-CODH课堂联系、课后作业及思考题总结。</p>
+        <p>USTC-CODH课堂练习、课后作业及思考题总结。思考题答案仅供参考。</p>
 <span id="more"></span>
 <h1 id="课程介绍及背景知识">课程介绍及背景知识</h1>
-<ol type="1">
-<li>复习二进制、八进制、十进制、十六进制之间的互相转换。</li>
-<li>复习逻辑门和移位等操作的物理结构与操作原理。</li>
-<li>了解CPU制作过程（AMD视频）。</li>
-<li>图灵奖报告（视频）。</li>
-<li>思考不同的编码格式之间的区别和联系（信息的存储与计算、二进制与多进制）。</li>
-</ol>
+<p>1、复习二进制、八进制、十进制、十六进制之间的互相转换。</p>
+<ul>
+<li>十进制转二进制：十进制数除2取余法，即十进制数除2，余数为权位上的数，得到的商值继续除，直到商为0为止。</li>
+<li>二进制转十进制：把二进制数按权展开、相加即得十进制数。</li>
+<li>八进制转二进制：八进制数通过除2取余法，得到二进制数，对每个八进制为3个二进制，不足时在最左边补零。</li>
+<li>二进制转八进制：3位二进制数按权展开相加得到1位八进制数。（注意事项，3位二进制转成八进制是从右到左开始转换，不足时补0）。</li>
+<li>十六进制转二进制：十六进制数通过除2取余法，得到二进制数，对每个十六进制为4个二进制，不足时在最左边补零。</li>
+<li>二进制转十六进制：与二进制转八进制方法近似，八进制是取三合一，十六进制是取四合一。（注意事项，4位二进制转成十六进制是从右到左开始转换，不足时补0）。</li>
+</ul>
+<p>2、复习逻辑门和移位等操作的物理结构与操作原理。</p>
+<p>逻辑门是在集成电路上的基本组件。简单的逻辑门可由晶体管组成。这些晶体管的组合可以使代表两种信号的高低电平在通过它们之后产生高电平或者低电平的信号。高、低电平可以分别代表逻辑上的“真”与“假”或二进制当中的1和0，从而实现逻辑运算。</p>
+<p>移位运算符在程序设计中，是位操作运算符的一种。移位运算符可以在二进制的基础上对数字进行平移。按照平移的方向和填充数字的规则分为三种：&lt;&lt;(左移)、&gt;&gt;(带符号右移)和&gt;&gt;&gt;(无符号右移)。</p>
+<p>3、了解CPU制作过程。</p>
+<p><a target="_blank" rel="noopener" href="https://v.qq.com/x/page/w0177nsqogb.html">AMD CPU生产过程 (中文字幕)_半导体行业观察</a></p>
+<p>4、图灵奖报告。</p>
+<p><a target="_blank" rel="noopener" href="http://foodnwine.ifeng.com/c/8Ap36Kt2hxt">图灵奖得主谈全球教育：高校需改变评价体系</a></p>
+<p>5、思考不同的编码格式之间的区别和联系。</p>
+<p>区别：三进制逻辑相比较现今的计算机使用二进制数字系统更接近人类大脑的思维方式：二进制计算规则非常简单但并不能完全表达人类想法。在一般情况下，命题不一定为真或假，还可能为未知。在三进制逻辑学中，符号1代表真；符号-1代表假；符号0代表未知。这种逻辑表达方式更符合计算机在人工智能方面的发展趋势。它为计算机的模糊运算和自主学习提供了可能，但电子工程师对这种非二进制的研究大都停留在表面或形式上，没有真正深入到实际应用中去。三进制代码的一个特点是对称，即相反数的一致性，因此它就和二进制代码不同，不存在无符号数的概念。这样，三进制计算机的架构也要简单、稳定、经济得多。其指令系统也更便于阅读，而且非常高效。随着技术的进步，真空管和晶体管等计算机元器件被速度更快、可靠性更好的铁氧体磁芯和半导体二极管取代。这些电子元器件组成了一个很好的可控电流变压器，这为三进制逻辑电路的实现提供了可能，因为电压存在着三种状态：正电压（1）、零电压（0）和负电压（-1）。三进制逻辑电路非但比二进制逻辑电路速度更快、可靠性更高，而且需要的设备和电能也更少。这些原因促成了三进制计算机Сетунь的诞生。</p>
+<p>联系：不同进制的计算机都是以逻辑电路为基础，是现代一种用于高速计算的电子计算机器，可以进行数值计算，又可以进行逻辑计算，还具有存储记忆功能。是能够按照程序运行，自动、高速处理海量数据的现代化智能电子设备。</p>
 <h1 id="计算机系统概论">计算机系统概论</h1>
-<ol start="6" type="1">
-<li><p>一微处理器，主频为20MHz ，请计算其时钟周期。若一个机器周期由2个时钟周期组成，平均每条指令用3个机器周期的时间(即“指令执行时间”)，请计算该处理器的平均运行速度MIPS。</p></li>
-<li><p>某台计算机只有Load/Store 指令能对存储器进行读/写操作，其它指令只对寄存器进行操作。根据对某程序跟踪实验结果，已知每种指令所占的比例及CPI数如下：</p>
+<p>6、一微处理器，主频为20MHz ，请计算其时钟周期。若一个机器周期由2个时钟周期组成，平均每条指令用3个机器周期的时间(即“指令执行时间”)，请计算该处理器的平均运行速度MIPS。 <span class="math display">\[
+时钟周期=\frac1{时钟频率}=\frac1{20MHz}=5\times10^{-8}s.
+\]</span></p>
+<p><span class="math display">\[
+平均速度=\frac1{指令执行时间}=\frac1{时钟周期\times2\times3}=3.33MIPS.
+\]</span></p>
+<p>7、某台计算机只有Load/Store 指令能对存储器进行读/写操作，其它指令只对寄存器进行操作。根据对某程序跟踪实验结果，已知每种指令所占的比例及CPI数如下：</p>
 <table>
 <thead>
 <tr class="header">
@@ -350,47 +374,130 @@
 </tr>
 </tbody>
 </table>
-<p>求上述情况下的平均CPI。 假设该程序由M条指令组成。算逻运算中25%的指令两个操作数中的一个已在寄存器中，另一个必须在算逻指令执行前用Load指令从存储器取到寄存器。因此有人建议增加另一种算逻指令，其特点是一个操作数取自寄存器，另一个操作数取自存储器，即寄存器存储器类型，假设这种指令的CPI等于2。同时，转移指令的CPI变为3。求新指令系统的平均CPI。</p></li>
-<li><p>假设在某程序的执行过程中，浮点操作时间占整个执行时间的10%，现希望对浮点操作加速。设对浮点操作的加速比 <span class="math inline">\(S_f\)</span> 。请画出程序总的加速比<span class="math inline">\(S\)</span>和<span class="math inline">\(S_f\)</span>之间的关系曲线；请问程序的最大加速比可达多少？</p></li>
-<li><p>求平方根和浮点乘是图形应用中两种常用的转换。假设浮点操作在某机器的一个基准程序中占总执行时间的50%，求平方根操作在总执行时间的20%，现通过两种方法加速操作： ①增加专门的软件加速库处理求平方根，使其执行速度为原来的10倍； ②通过调整流水线把浮点速度提高为原来的1.6倍。 问：分别采用两种方法增强后此基准程序加速比各是多少？</p></li>
-<li><p>求平方根和浮点乘是图形应用中两种常用的转换，假设求平方根操作在某机器的一个基准程序中占总执行时间的20%，浮点乘操作在该程序中占总执行时间50%，现通过两种方法加速两操作： ①增加专门的软件函数加速库求平方根，使其执行速度为原来的10倍； ②通过调整流水线把浮点乘速度提高 为原来的1.6倍。 问：同时采用两种方法增强后此基准程序加速比是多少？</p></li>
-<li><p>求平方根、浮点乘和定点乘是图形应用中三种常用的转换。假设浮点操作在某机器的一个基准程序中占总执行时间的30%，求平方根操作在总执行时间的20%，定点乘15%。现通过三种方法加速操作： ①增加专门的硬件处理求平方根，使其执行速度为原来的10倍； ②通过调整流水线把浮点速度提高为原来的1.6倍。 ③通过调整流水线把定点速度提高为原来的3倍。 问：分别采用三种方法增强后此基准程序加速比各是多少？同时采用三种方法增强后此基准程序加速比各是多少？</p></li>
-<li><p>假设晶圆的成品率为100%，晶片为长为1.5cm的正方形。（1）直径为30cm的晶圆上有多少晶片？（2）假设单位面积的疵点密度为<span class="math inline">\(0.4/cm^2\)</span> ，且<span class="math inline">\(\alpha=4.0\)</span>，求晶片的成品率？</p></li>
-<li><p>COD RISC-V 1.12 Section 1.10 cites as a pitfall the utilization of a subset of the performance equation as a performance metric. To llustrate this, consider the following two processors. P1 has a clock rate of 4 GHz, average CPI of 0.9, and requires the execution of 5.0E9 instructions. P2 has a clock rate of 3 GHz, an average CPI of 0.75, and requires the execution of 1.0E9 instructions. 1.12.1 One usual fallacy is to consider the computer with the largest clock rate as having the highest performance. Check if this is true for P1 and P2. 1.12.2 Another fallacy is to consider that the processor executing the largest number of instructions will need a larger CPU time. Considering that processor P1 is executing a sequence of 1.0E9 instructions and that the CPI of processors P1 and P2 do not change, determine the number of instructions that P2 can execute in the same time that P1 needs to execute 1.0E9 instructions.</p></li>
-<li><p>冯机架构中指令和数据都存储于存储器中，系统执行时如何区分？</p></li>
-<li><p>“计算机组成”与“计算机系统结构”的关系？</p></li>
-<li><p>比较Amdahl’s Law和古斯塔夫森定律 。</p></li>
-</ol>
+<p>求上述情况下的平均CPI。 <span class="math display">\[
+\overline {CPI}=43\%\times1+21\%\times2+12\%\times2+24\%\times2=1.57.
+\]</span></p>
+<p>假设该程序由M条指令组成。算逻运算中25%的指令两个操作数中的一个已在寄存器中，另一个必须在算逻指令执行前用Load指令从存储器取到寄存器。因此有人建议增加另一种算逻指令，其特点是一个操作数取自寄存器，另一个操作数取自存储器，即寄存器——存储器类型，假设这种指令的CPI等于2。同时，转移指令的CPI变为3。求新指令系统的平均CPI。</p>
+<table>
+<thead>
+<tr class="header">
+<th>指令类型</th>
+<th>指令所占比例</th>
+<th>CPI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>算术逻辑指令</td>
+<td>32.25%</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>新算术逻辑指令</td>
+<td>10.75%</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>Load指令</td>
+<td>10.25%</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>Store指令</td>
+<td>12%</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>转移指令</td>
+<td>24%</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[
+\overline{CPI}=\frac{32.25\%\times1+10.75\%\times2+10.35\%\times2+12\%\times2+24\%\times3}{32.25\%+10.75\%+10.25\%+12\%+24\%}=1.91.
+\]</span></p>
+<p>8、 假设在某程序的执行过程中，浮点操作时间占整个执行时间的10%，现希望对浮点操作加速。设对浮点操作的加速比 <span class="math inline">\(S_f\)</span> 。请画出程序总的加速比<span class="math inline">\(S\)</span>和<span class="math inline">\(S_f\)</span>之间的关系曲线；请问程序的最大加速比可达多少？ <span class="math display">\[
+S=\frac1{1-10\%+\frac{10\%}{S_f}}.
+\]</span> <img src="https://gsxgoldenlegendary.github.io/images/codh8.png" /> <span class="math display">\[
+S_{\max}=\lim\limits_{S_f\to\infty}S=\frac{10}9.
+\]</span> 9、求平方根和浮点乘是图形应用中两种常用的转换。假设浮点操作在某机器的一个基准程序中占总执行时间的50%，求平方根操作在总执行时间的20%，现通过两种方法加速操作：</p>
+<p>①增加专门的软件加速库处理求平方根，使其执行速度为原来的10倍；</p>
+<p>②通过调整流水线把浮点速度提高为原来的1.6倍。</p>
+<p>问：分别采用两种方法增强后此基准程序加速比各是多少？</p>
+<p>10、 求平方根和浮点乘是图形应用中两种常用的转换，假设求平方根操作在某机器的一个基准程序中占总执行时间的20%，浮点乘操作在该程序中占总执行时间50%，现通过两种方法加速两操作：</p>
+<p>①增加专门的软件函数加速库求平方根，使其执行速度为原来的10倍；</p>
+<p>②通过调整流水线把浮点乘速度提高 为原来的1.6倍。</p>
+<p>问：同时采用两种方法增强后此基准程序加速比是多少？</p>
+<p>11、求平方根、浮点乘和定点乘是图形应用中三种常用的转换。假设浮点操作在某机器的一个基准程序中占总执行时间的30%，求平方根操作在总执行时间的20%，定点乘15%。现通过三种方法加速操作：</p>
+<p>①增加专门的硬件处理求平方根，使其执行速度为原来的10倍；</p>
+<p>②通过调整流水线把浮点速度提高为原来的1.6倍。</p>
+<p>③通过调整流水线把定点速度提高为原来的3倍。</p>
+<p>问：分别采用三种方法增强后此基准程序加速比各是多少？同时采用三种方法增强后此基准程序加速比各是多少？</p>
+<p>12、假设晶圆的成品率为100%，晶片为长为1.5cm的正方形。</p>
+<p>（1）直径为30cm的晶圆上有多少晶片？</p>
+<p>（2）假设单位面积的疵点密度为<span class="math inline">\(0.4/cm^2\)</span> ，且<span class="math inline">\(\alpha=4.0\)</span>，求晶片的成品率？</p>
+<p>13、COD RISC-V 1.12 Section 1.10 cites as a pitfall the utilization of a subset of the performance equation as a performance metric. To llustrate this, consider the following two processors. P1 has a clock rate of 4 GHz, average CPI of 0.9, and requires the execution of 5.0E9 instructions. P2 has a clock rate of 3 GHz, an average CPI of 0.75, and requires the execution of 1.0E9 instructions.</p>
+<p>1.12.1 One usual fallacy is to consider the computer with the largest clock rate as having the highest performance. Check if this is true for P1 and P2.</p>
+<p>1.12.2 Another fallacy is to consider that the processor executing the largest number of instructions will need a larger CPU time. Considering that processor P1 is executing a sequence of 1.0E9 instructions and that the CPI of processors P1 and P2 do not change, determine the number of instructions that P2 can execute in the same time that P1 needs to execute 1.0E9 instructions.</p>
+<p>14、冯机架构中指令和数据都存储于存储器中，系统执行时如何区分？</p>
+<p>15、“计算机组成”与“计算机系统结构”的关系？</p>
+<ul>
+<li>计算机体系结构
+<ul>
+<li>程序员可见的机器属性，即概念性的结构与功能特性
+<ul>
+<li>程序员特指机器语言/汇编语言程序员</li>
+<li>机器属性包括指令集、数据类型、存储器寻址技术、I/O机制等</li>
+</ul></li>
+</ul></li>
+<li>计算机组成
+<ul>
+<li>计算机体系结构的逻辑实现
+<ul>
+<li>具有对程序员透明的实现细节</li>
+</ul></li>
+<li>包含实际机器的数据流和控制流的组成和逻辑设计等</li>
+<li>着眼于物理机器内部各事件的排序方式与控制方式，各部件的功能以及相互间的联系</li>
+</ul></li>
+</ul>
+<p>16、比较Amdahl’s Law和古斯塔夫森定律 。</p>
 <h1 id="指令系统">指令系统</h1>
-<ol start="17" type="1">
-<li><p>写出下面函数的汇编代码</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cswap(<span class="type">int</span> v[], <span class="type">int</span> k, <span class="type">int</span> l)</span><br><span class="line">&#123;</span><br><span class="line"><span class="type">int</span> temp;</span><br><span class="line">v[<span class="number">0</span>]-&gt;$s4</span><br><span class="line"><span class="title function_">if</span><span class="params">(v[k]!=v[l])</span></span><br><span class="line">&#123;</span><br><span class="line">temp=v[k];</span><br><span class="line">v[k]=v[l];</span><br><span class="line">v[l]=temp;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>COD RISC-V 2.9 For each RISC-V instruction in Exercise 2.8, show the value of the opcode (op), source register (rs1), and destination register (rd) fields. For the I-type instructions, show the value of the immediate field, and for the R-type instructions, show the value of the second source register (rs2). For non U- and UJ-type instructions, show the funct3 field, and for R-type and S-type instructions, also show the funct7 field.</p></li>
-<li><p>COD RISC-V 2.24 Consider the following RISC-V loop:</p>
+<p>17、 写出下面函数的汇编代码</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cswap(<span class="type">int</span> v[], <span class="type">int</span> k, <span class="type">int</span> l)&#123;</span><br><span class="line">	<span class="type">int</span> temp;</span><br><span class="line">	v[<span class="number">0</span>]-&gt;$s4</span><br><span class="line">	<span class="title function_">if</span><span class="params">(v[k]!=v[l])</span>&#123;</span><br><span class="line">    	temp=v[k];</span><br><span class="line">    	v[k]=v[l];</span><br><span class="line">    	v[l]=temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>18、COD RISC-V 2.9 For each RISC-V instruction in Exercise 2.8, show the value of the opcode (op), source register (rs1), and destination register (rd) fields. For the I-type instructions, show the value of the immediate field, and for the R-type instructions, show the value of the second source register (rs2). For non U- and UJ-type instructions, show the funct3 field, and for R-type and S-type instructions, also show the funct7 field.</p>
+<p>19、COD RISC-V 2.24 Consider the following RISC-V loop:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LOOP:</span><br><span class="line">beq x6, x0, DONE</span><br><span class="line">addi x6, x6, -1</span><br><span class="line">addi x5, x5, 2</span><br><span class="line">jal x0, LOOP</span><br><span class="line">DONE:</span><br></pre></td></tr></table></figure>
-<p>2.24.1 Assume that the register <code>x6</code> is initialized to the value 10. What is the final value in register <code>x5</code> assuming the <code>x5</code> is initially zero? 2.24.2 For the loop above, write the equivalent C code. Assume that the registers <code>x5</code> and <code>x6</code> are integers acc and i , respectively. 2.24.3 For the loop written in RISC-V assembly above, assume that the register <code>x6</code> is initialized to the value N. How many RISC-V instructions are executed? 2.24.4 For the loop written in RISC-V assembly above, replace the instruction “ <code>beq x6, x0, DONE</code> ” with the instruction “ <code>blt x6, x0, DONE</code> ” and write the equivalent C code.</p></li>
-<li><p>COD RISC-V 2.35 Consider the following code:</p>
+<p>2.24.1 Assume that the register <code>x6</code> is initialized to the value 10. What is the final value in register <code>x5</code> assuming the <code>x5</code> is initially zero?</p>
+<p>2.24.2 For the loop above, write the equivalent C code. Assume that the registers <code>x5</code> and <code>x6</code> are integers acc and i , respectively.</p>
+<p>2.24.3 For the loop written in RISC-V assembly above, assume that the register <code>x6</code> is initialized to the value N. How many RISC-V instructions are executed?</p>
+<p>2.24.4 For the loop written in RISC-V assembly above, replace the instruction “ <code>beq x6, x0, DONE</code> ” with the instruction “ <code>blt x6, x0, DONE</code> ” and write the equivalent C code.</p>
+<p>20、COD RISC-V 2.35 Consider the following code:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lb x6, 0(x7)</span><br><span class="line">sd x6, 8(x7)</span><br></pre></td></tr></table></figure>
-<p>Assume that the register <code>x7</code> contains the address <code>0×10000000</code> and the data at address is <code>0×1122334455667788</code> . 2.35.1 What value is stored in <code>0×1000000</code>8 on a big-endian machine? 2.35.2 What value is stored in <code>0×1000000</code>8 on a little-endian machine?</p></li>
-<li><p>COD RISC-V 2.40 Assume that for a given program 70% of the executed instructions are arithmetic, 10% are load/store, and 20% are branch. 2.40.1 Given this instruction mix and the assumption that an arithmetic instruction requires two cycles, a load/store instruction takes six cycles, and a branch instruction takes three cycles, find the average CPI. 2.40.2 For a 25% improvement in performance, how many cycles, on average, may an arithmetic instruction take if load/store and branch instructions are not improved at all? 2.40.3 For a 50% improvement in performance, how many cycles, on average, may an arithmetic instruction take if load/store and branch instructions are not improved at all?</p></li>
-<li><p>CPU的ISA要定义哪些内容？</p></li>
-<li><p>8086为什么要采用段式内存管理模式？</p></li>
-<li><p>Windows系统中可执行程序的格式？</p></li>
-<li><p>调研现在常用的处理器是大尾端还是小尾端，如x86、ARM、MIPS、PowerPC等？</p></li>
-<li><p>分析MIPS、x86、RISC-V指令集架构、比较相同不同点。</p></li>
-<li><p>调研国内外典型的RISC-V处理器核、比较相同不同点。</p></li>
-<li><p>扩展阅读Rocket及BOOM的资料。</p></li>
-</ol>
+<p>Assume that the register <code>x7</code> contains the address <code>0×10000000</code> and the data at address is <code>0×1122334455667788</code> .</p>
+<p>2.35.1 What value is stored in <code>0×1000000</code>8 on a big-endian machine?</p>
+<p>2.35.2 What value is stored in <code>0×1000000</code>8 on a little-endian machine?</p>
+<p>21、COD RISC-V 2.40 Assume that for a given program 70% of the executed instructions are arithmetic, 10% are load/store, and 20% are branch.</p>
+<p>2.40.1 Given this instruction mix and the assumption that an arithmetic instruction requires two cycles, a load/store instruction takes six cycles, and a branch instruction takes three cycles, find the average CPI.</p>
+<p>2.40.2 For a 25% improvement in performance, how many cycles, on average, may an arithmetic instruction take if load/store and branch instructions are not improved at all?</p>
+<p>2.40.3 For a 50% improvement in performance, how many cycles, on average, may an arithmetic instruction take if load/store and branch instructions are not improved at all?</p>
+<p>22、CPU的ISA要定义哪些内容？</p>
+<p>23、8086为什么要采用段式内存管理模式？</p>
+<p>24、Windows系统中可执行程序的格式？</p>
+<p>25、调研现在常用的处理器是大尾端还是小尾端，如x86、ARM、MIPS、PowerPC等？</p>
+<p>26、分析MIPS、x86、RISC-V指令集架构、比较相同不同点。</p>
+<p>27、调研国内外典型的RISC-V处理器核、比较相同不同点。</p>
+<p>28、扩展阅读Rocket及BOOM的资料。</p>
 <h1 id="程序的编译过程">程序的编译过程</h1>
-<ol start="29" type="1">
-<li>以GCC为例，代码是如何转换为指令的。</li>
-<li>GCC的不同优化之间的区别在哪些方面？</li>
-</ol>
+<p>29、以GCC为例，代码是如何转换为指令的。</p>
+<p>30、GCC的不同优化之间的区别在哪些方面？</p>
 <h1 id="cpu设计-单周期多周期">CPU设计-单周期、多周期</h1>
-<ol start="31" type="1">
-<li><p>有一段程序共有100条指令，其中Load指令为20%，Store指令为20%，R类的ALU指令为40%，Beq指令为10%，JUMP指令为10%。这段程序分别在单周期和多周期的CPU上实现（多周期参考RISC-V的CPI），其中单周期CPU时钟为200MHz，多周期CPU时钟为800MHz（考虑到存储器、ALU实现复杂），问在何种CPU上运行时快，快多少？</p></li>
-<li><p>COD RISC-V 4.1 Consider the following instruction: Instruction: and rd, rs1, rs2 Interpretation: Reg[rd] = Reg[rs1] AND Reg[rs2] 4.1.1 What are the values of control signals generated by the control in Figure 4.10 for this instruction? 4.1.2 Which resources (blocks) perform a useful function for this instruction? 4.1.3 Which resources (blocks) produce no output for this instruction? Which resources produce output that is not used?</p></li>
-<li><p>COD RISC-V 4.7 Problems in this exercise assume that the logic blocks used to implement a processor’s datapath have the following latencies:</p>
+<p>31、有一段程序共有100条指令，其中Load指令为20%，Store指令为20%，R类的ALU指令为40%，Beq指令为10%，JUMP指令为10%。这段程序分别在单周期和多周期的CPU上实现（多周期参考RISC-V的CPI），其中单周期CPU时钟为200MHz，多周期CPU时钟为800MHz（考虑到存储器、ALU实现复杂），问在何种CPU上运行时快，快多少？</p>
+<p>32、COD RISC-V 4.1 Consider the following instruction: Instruction: and rd, rs1, rs2 Interpretation: Reg[rd] = Reg[rs1] AND Reg[rs2]</p>
+<p>4.1.1 What are the values of control signals generated by the control in Figure 4.10 for this instruction?</p>
+<p>4.1.2 Which resources (blocks) perform a useful function for this instruction?</p>
+<p>4.1.3 Which resources (blocks) produce no output for this instruction? Which resources produce output that is not used?</p>
+<p>33、COD RISC-V 4.7 Problems in this exercise assume that the logic blocks used to implement a processor’s datapath have the following latencies:</p>
 <table style="width:100%;">
 <colgroup>
 <col style="width: 11%" />
@@ -433,20 +540,24 @@
 </tr>
 </tbody>
 </table>
-<p>“Register read” is the time needed after the rising clock edge for the new register value to appear on the output. This value applies to the PC only. “Register setup” is the amount of time a register’s data input must be stable before the rising edge of the clock. This value applies to both the PC and Register File. 4.7.1 What is the latency of an R-type instruction (i.e., how long must the clock period be to ensure that this instruction works correctly)? 4.7.2 What is the latency of <code>ld</code>? (Check your answer carefully. Many students place extra muxes on the critical path.) 4.7.3 What is the latency of <code>sd</code>? (Check your answer carefully. Many students place extra muxes on the critical path.) 4.7.4 What is the latency of <code>beq</code>? 4.7.5 What is the latency of an I-type instruction? 4.7.6 What is the minimum clock period for this CPU?</p></li>
-<li><p>单周期处理器在一个周期内完成指令所有的微操作，思考： 寻址方式如何实现？ 周期宽度如何确定？ 能否“在一个clk内完成? 能否将两个adder合二为一? 能否将两个memory合二为一?</p></li>
-<li><p>根据图4-22 ，画出主控制器的PLA实现图 先写布尔表达式。 请参考英文版教材附录C第2节。 由于PLA规模不小，可以手绘，也可以用软件画完后打印出来。</p></li>
-<li><p>每一类指令的指令周期各含多少个时钟周期？</p></li>
-<li><p>分别分析R/I/S/B-type指令的多周期设计方案中每个周期所用到的功能部件。</p></li>
-<li><p>调研不同FSM控制器实现方式的特点。</p></li>
-<li><p>调研水平微指令和垂直微指令的特点。（参考唐书第10章内容）</p></li>
-</ol>
+<p>"Register read" is the time needed after the rising clock edge for the new register value to appear on the output. This value applies to the PC only. “Register setup” is the amount of time a register’s data input must be stable before the rising edge of the clock. This value applies to both the PC and Register File.</p>
+<p>4.7.1 What is the latency of an R-type instruction (i.e., how long must the clock period be to ensure that this instruction works correctly)?</p>
+<p>4.7.2 What is the latency of <code>ld</code>? (Check your answer carefully. Many students place extra muxes on the critical path.)</p>
+<p>4.7.3 What is the latency of <code>sd</code>? (Check your answer carefully. Many students place extra muxes on the critical path.)</p>
+<p>4.7.4 What is the latency of <code>beq</code>?</p>
+<p>4.7.5 What is the latency of an I-type instruction?</p>
+<p>4.7.6 What is the minimum clock period for this CPU?</p>
+<p>34、单周期处理器在一个周期内完成指令所有的微操作，思考：寻址方式如何实现？周期宽度如何确定？能否在一个clk内完成？能否将两个adder合二为一？能否将两个memory合二为一？</p>
+<p>35、根据图4-22 ，画出主控制器的PLA实现图 先写布尔表达式。 请参考英文版教材附录C第2节。 由于PLA规模不小，可以手绘，也可以用软件画完后打印出来。</p>
+<p>36、每一类指令的指令周期各含多少个时钟周期？</p>
+<p>37、分别分析R/I/S/B-type指令的多周期设计方案中每个周期所用到的功能部件。</p>
+<p>38、调研不同FSM控制器实现方式的特点。</p>
+<p>39、调研水平微指令和垂直微指令的特点。（参考唐书第10章内容）</p>
 <h1 id="处理器设计-流水线">处理器设计-流水线</h1>
-<ol start="40" type="1">
-<li><p>画出下边指令序列中的定向路径:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SUB x1,x5, x4 </span><br><span class="line">ADD x1, x1, x4 </span><br><span class="line">BEQ x1, x4, Offset</span><br><span class="line">LW x1, 45(x3)</span><br><span class="line">ADD x1, x1, x4</span><br><span class="line">SW x1, 5(x3)</span><br></pre></td></tr></table></figure></li>
-<li><p>假设部件延迟MEM=2ns， R-Type ALU=2ns，Reg=1ns，其他部件没有延时。某程序编译生成100条指令，其中LW 20%，SW20%，R-Type ALU 40%，BEQ 20%。采用MIPS/RISC-V的5级流水线，并假设LW互锁和分支延迟如下，其他无开销。有一半的LW执行后为R-Type ALU，因此需要互锁1个周期；分支延迟为1个周期，采用等待策略；求这段代码在单周期、多周期、流水线三种方式的性能对比。</p></li>
-<li><p>COD RISC-V 4.16 In this exercise, we examine how pipelining affects the clock cycle time of the processor. Problems in this exercise assume that individual stages of the datapath have the following latencies:</p>
+<p>40、画出下边指令序列中的定向路径:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SUB x1,x5, x4 </span><br><span class="line">ADD x1, x1, x4 </span><br><span class="line">BEQ x1, x4, Offset</span><br><span class="line">LW x1, 45(x3)</span><br><span class="line">ADD x1, x1, x4</span><br><span class="line">SW x1, 5(x3)</span><br></pre></td></tr></table></figure>
+<p>41、假设部件延迟MEM=2ns， R-Type ALU=2ns，Reg=1ns，其他部件没有延时。某程序编译生成100条指令，其中LW 20%，SW20%，R-Type ALU 40%，BEQ 20%。采用MIPS/RISC-V的5级流水线，并假设LW互锁和分支延迟如下，其他无开销。有一半的LW执行后为R-Type ALU，因此需要互锁1个周期；分支延迟为1个周期，采用等待策略；求这段代码在单周期、多周期、流水线三种方式的性能对比。</p>
+<p>42、COD RISC-V 4.16 In this exercise, we examine how pipelining affects the clock cycle time of the processor. Problems in this exercise assume that individual stages of the datapath have the following latencies:</p>
 <table>
 <thead>
 <tr class="header">
@@ -486,60 +597,70 @@
 </tr>
 </tbody>
 </table>
-<p>4.16.1 What is the clock cycle time in a pipelined and non-pipelined processor? 4.16.2 What is the total latency of an ld instruction in a pipelined and non-pipelined processor? 4.16.3 If we can split one stage of the pipelined datapath into two new stages, each with half the latency of the original stage, which stage would you split and what is the new clock cycle time of the processor? 4.16.4 Assuming there are no stalls or hazards, what is the utilization of the data memory? 4.16.5 Assuming there are no stalls or hazards, what is the utilization of the write-register port of the “Registers” unit?</p></li>
-<li><p>COD RISC-V 4.23 If we change load/store instructions to use a register (without an offset) as the address, these instructions no longer need to use the ALU. (See Exercise 4.15.) As a result, the MEM and EX stages can be overlapped and the pipeline has only four stages. 4.23.1 How will the reduction in pipeline depth affect the cycle time? 4.23.2 How might this change improve the performance of the pipeline? 4.23.3 How might this change degrade the performance of the pipeline?</p></li>
-<li><p>理想流水线加速比=？IPC=？</p></li>
-<li><p>为何单周期、多周期的控制信号不需要buffer，而流水线的控制信号需要buffer？</p></li>
-<li><p>哪些情形可能造成流水线stall，有哪些解决方案？</p></li>
-<li><p>影响流水线性能发挥的因素有哪些，可以采用哪些手段减小这些因素的影响？</p></li>
-<li><p>指令流水线中在哪个阶段会产生什么相关？</p></li>
-<li><p>为何MIPS只有I-type指令访存/RISC-V的I类S类？</p></li>
-<li><p>典型的流水线的多发射技术有哪些？</p></li>
-<li><p>影响流水线性能发挥的因素有哪些?</p></li>
-<li><p>为何RV只有Load/store指令访存？</p></li>
-<li><p>单周期、多周期的控制信号无须buffer，而流水线的控制信号需要buffer的原因？</p></li>
-<li><p>流水线控制器的实现方式。</p></li>
-</ol>
+<p>4.16.1 What is the clock cycle time in a pipelined and non-pipelined processor?</p>
+<p>4.16.2 What is the total latency of an ld instruction in a pipelined and non-pipelined processor?</p>
+<p>4.16.3 If we can split one stage of the pipelined datapath into two new stages, each with half the latency of the original stage, which stage would you split and what is the new clock cycle time of the processor?</p>
+<p>4.16.4 Assuming there are no stalls or hazards, what is the utilization of the data memory?</p>
+<p>4.16.5 Assuming there are no stalls or hazards, what is the utilization of the write-register port of the “Registers” unit?</p>
+<p>43、COD RISC-V 4.23 If we change load/store instructions to use a register (without an offset) as the address, these instructions no longer need to use the ALU. (See Exercise 4.15.) As a result, the MEM and EX stages can be overlapped and the pipeline has only four stages.</p>
+<p>4.23.1 How will the reduction in pipeline depth affect the cycle time?</p>
+<p>4.23.2 How might this change improve the performance of the pipeline?</p>
+<p>4.23.3 How might this change degrade the performance of the pipeline?</p>
+<p>44、理想流水线加速比=？IPC=？</p>
+<p>45、为何单周期、多周期的控制信号不需要buffer，而流水线的控制信号需要buffer？</p>
+<p>46、哪些情形可能造成流水线stall，有哪些解决方案？</p>
+<p>47、影响流水线性能发挥的因素有哪些，可以采用哪些手段减小这些因素的影响？</p>
+<p>48、指令流水线中在哪个阶段会产生什么相关？</p>
+<p>49、为何MIPS只有I-type指令访存/RISC-V的I类S类？</p>
+<p>50、典型的流水线的多发射技术有哪些？</p>
+<p>51、影响流水线性能发挥的因素有哪些?</p>
+<p>52、为何RV只有Load/store指令访存？</p>
+<p>53、单周期、多周期的控制信号无须buffer，而流水线的控制信号需要buffer的原因？</p>
+<p>54、流水线控制器的实现方式。</p>
 <h1 id="深度与浮点流水线举例-mipsr4000">深度与浮点流水线举例-MIPSR4000</h1>
 <h1 id="中断与异常">中断与异常</h1>
-<ol start="47" type="1">
-<li><p>COD RISC-V 4.22 [5] &lt;§4.5&gt; Consider the fragment of RISC-V assembly below:</p>
+<p>47、COD RISC-V 4.22 [5] &lt;§4.5&gt; Consider the fragment of RISC-V assembly below:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sd x29, 12(x16)</span><br><span class="line">ld x29, 8(x16)</span><br><span class="line">sub x17, x15, x14</span><br><span class="line">beqz x17, label</span><br><span class="line">add x15, x11, x14</span><br><span class="line">sub x15, x30, x14</span><br></pre></td></tr></table></figure>
-<p>Suppose we modify the pipeline so that it has only one memory (that handles both instructions and data). In this case, there will be a structural hazard every time a program needs to fetch an instruction during the same cycle in which another instruction accesses data. 4.22.1 Draw a pipeline diagram to show where the code above will stall. 4.22.2 In general, is it possible to reduce the number of stalls/ NOP s resulting from this structural hazard by reordering code? 4.22.3 Must this structural hazard be handled in hardware? We have seen that data hazards can be eliminated by adding NOP s to the code. Can you do the same with this structural hazard? If so, explain how. If not, explain why not. 4.22.4 Approximately how many stalls would you expect this structural hazard to generate in a typical program? (Use the instruction mix from Exercise 4.8.)</p></li>
-<li><p>COD RISC-V 4.25 Consider the following loop.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">LOOP: ldx10, 0(x13)</span><br><span class="line">ld x11, 8(x13)</span><br><span class="line">add x12, x10, x11</span><br><span class="line">subi x13, x13, 16</span><br><span class="line">bnez x12, LOOP</span><br></pre></td></tr></table></figure>
-<p>Assume that perfect branch prediction is used (no stalls due to control hazards), that there are no delay slots, that the pipeline has full forwarding support, and that branches are resolved in the EX (as opposed to the ID) stage. 4.25.1 Show a pipeline execution diagram for the first two iterations of this loop. 4.25.2 Mark pipeline stages that do not perform useful work. How often while the pipeline is full do we have a cycle in which all five pipeline stages are doing useful work? (Begin with the cycle during which the subi is in the IF stage. End with the cycle during which the bnez is in the IF stage.)</p></li>
-<li><p>唐朔飞 8.23 在中断处理过程中，“保护现场”需要完成哪些任务？如何实现？</p></li>
-<li><p>唐朔飞 8.24 现有 A、B、C、D 4个中断源，其优先级由高到底按<span class="math inline">\(A\to B\to C\to D\)</span>顺序排列。若中断服务程序的执行时间为<span class="math inline">\(20\mu s\)</span>，根据下图所示的中断源请求中断的时刻，画出CPU执行程序的轨迹。</p></li>
-<li><p>中断周期要完成哪些微操作？</p></li>
-<li><p>多周期状态机中，出现溢出的指令是否将错误结果写回？</p></li>
-<li><p>多周期中状态机中，如何响应中断？</p></li>
-<li><p>指令顺序执行，中断“精确”；指令流水执行，中断“精确”或“非精确”可选 精确中断，为何提交点是M段？</p></li>
-<li><p>EPC和cause应该在哪个段？异常检测电路？</p></li>
-<li><p>mips异常返回指令eret如何实现？</p></li>
-<li><p>异常与中断同时发生，优先级？</p></li>
-<li><p>（分支）延迟槽中的指令发生异常，EPC = ？</p></li>
-<li><p>比较中断、异常、过程调用 ✓ 请求时间、响应时间，断点与现场，返回点，同步异步，中断周期、系 统状态？</p></li>
-<li><p>假设如下指令序列 ✓ 采用多周期执行方式和流水线非精确方式，在第几个周期检 测出异常？（LW互锁=1）80000184 SW $27, 1004指令何 时取指？</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">LOOP: LW $1, 40($10) ；取$1</span><br><span class="line">ADD $2,$3,$1 ；加法</span><br><span class="line">SW $2, 40($10) ；存</span><br><span class="line">SUB $9,$9,$11</span><br><span class="line">；迭代器</span><br><span class="line">XXX $5,$7</span><br><span class="line">；异常-未定义指令（ID段检测）</span><br><span class="line">BNE LOOP,$9,$0</span><br><span class="line">；分支指令</span><br></pre></td></tr></table></figure></li>
-</ol>
+<p>Suppose we modify the pipeline so that it has only one memory (that handles both instructions and data). In this case, there will be a structural hazard every time a program needs to fetch an instruction during the same cycle in which another instruction accesses data.</p>
+<p>4.22.1 Draw a pipeline diagram to show where the code above will stall.</p>
+<p>4.22.2 In general, is it possible to reduce the number of stalls/ NOP s resulting from this structural hazard by reordering code?</p>
+<p>4.22.3 Must this structural hazard be handled in hardware? We have seen that data hazards can be eliminated by adding NOP s to the code. Can you do the same with this structural hazard? If so, explain how. If not, explain why not.</p>
+<p>4.22.4 Approximately how many stalls would you expect this structural hazard to generate in a typical program? (Use the instruction mix from Exercise 4.8.)</p>
+<p>​</p>
+<p>48、 COD RISC-V 4.25 Consider the following loop.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LOOP: </span><br><span class="line">ld x10, 0(x13)</span><br><span class="line">ld x11, 8(x13)</span><br><span class="line">add x12, x10, x11</span><br><span class="line">subi x13, x13, 16</span><br><span class="line">bnez x12, LOOP</span><br></pre></td></tr></table></figure>
+<p>Assume that perfect branch prediction is used (no stalls due to control hazards), that there are no delay slots, that the pipeline has full forwarding support, and that branches are resolved in the EX (as opposed to the ID) stage.</p>
+<p>4.25.1 Show a pipeline execution diagram for the first two iterations of this loop.</p>
+<p>4.25.2 Mark pipeline stages that do not perform useful work. How often while the pipeline is full do we have a cycle in which all five pipeline stages are doing useful work? (Begin with the cycle during which the subi is in the IF stage. End with the cycle during which the bnez is in the IF stage.)</p>
+<p>49、唐朔飞 8.23 在中断处理过程中，“保护现场”需要完成哪些任务？如何实现？</p>
+<p>50、唐朔飞 8.24 现有 A、B、C、D 4个中断源，其优先级由高到底按<span class="math inline">\(A\to B\to C\to D\)</span>顺序排列。若中断服务程序的执行时间为<span class="math inline">\(20\mu s\)</span>，根据下图所示的中断源请求中断的时刻，画出CPU执行程序的轨迹。</p>
+<p>51、中断周期要完成哪些微操作？</p>
+<p>52、多周期状态机中，出现溢出的指令是否将错误结果写回？</p>
+<p>53、多周期中状态机中，如何响应中断？</p>
+<p>54、指令顺序执行，中断“精确”；指令流水执行，中断“精确”或“非精确”可选精确中断，为何提交点是M段？</p>
+<p>55、EPC和cause应该在哪个段？异常检测电路？</p>
+<p>56、MIPS异常返回指令eret如何实现？</p>
+<p>57、异常与中断同时发生，优先级？</p>
+<p>58、（分支）延迟槽中的指令发生异常，EPC = ？</p>
+<p>59、比较中断、异常、过程调用✓ 请求时间、响应时间，断点与现场，返回点，同步异步，中断周期、系统状态？</p>
+<p>60、假设如下指令序列采用多周期执行方式和流水线非精确方式，在第几个周期检测出异常？（LW互锁=1）80000184 SW $27, 1004指令何 时取指？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">LOOP: </span><br><span class="line">LW $1, 40($10) ；取$1</span><br><span class="line">ADD $2,$3,$1 ；加法</span><br><span class="line">SW $2, 40($10) ；存</span><br><span class="line">SUB $9,$9,$11；迭代器</span><br><span class="line">XXX $5,$7；异常-未定义指令（ID段检测）</span><br><span class="line">BNE LOOP,$9,$0；分支指令    </span><br></pre></td></tr></table></figure>
 <h1 id="存储系统">存储系统</h1>
-<ol start="61" type="1">
-<li>在一个具有4个存储体的低位多体交叉存储器中，如果处理器的访存地址为以下十进制值。求该存储器比单体存储器的平均访问速率提高多少（忽略初启时的延迟）？
+<p>61、 在一个具有4个存储体的低位多体交叉存储器中，如果处理器的访存地址为以下十进制值。求该存储器比单体存储器的平均访问速率提高多少（忽略初启时的延迟）？</p>
 <ol type="1">
-<li>0001、0002、0003、…、0100</li>
-<li>0002、0004、0006、…、0200</li>
-<li>0003、0006、0009、…、0300</li>
-</ol></li>
-<li><p>设存储器容量为32字，字长64位，模块数m=4，分别用多体高位交叉即顺序方式和多体低位交叉方式进行组织。存储周期T=200ns，数据总线宽度为64位，总线传送周期t=50ns。若连续读出4个字，问顺序存储器和交叉存储器的带宽各是多少?</p></li>
-<li><p>具有1位纠错能力的编码系统最小码距是多少？</p></li>
-<li><p>单纠错海明码码距是多少？</p></li>
-<li><p>（n+k, n）CRC码码距是多少？</p></li>
-<li><p>比较海明码与CRC码的容错能力.</p></li>
-<li><p>有效信息为1010,生成多项式G(x)=1011,将 其编成CRC码。</p></li>
-<li><p>假设CPU执行某段程序时，共访问Cache命中2000次，访问主存50次。已知Cache存取周期为50ns，主存存取周期为200ns。求Cache-主存系统的命中率、效率和平均访问时间。</p></li>
-<li><p>假设主存只允许存放a、b、c三个页面，逻辑上构成a进c出的FIFO队列。某次操作中进程访存的序列是<code>0,1,2,4,2,3,0,2,1,3,2</code>（虚页号）。若分别采用FIFO算法、FIFO+LRU算法，请用列表法分别求两种替换策略情况下主存的命中率。</p></li>
-<li><p>COD RISC-V 5.5 For a direct-mapped cache design with a 64-bit address, the following bits of the address are used to access the cache.</p>
+<li><p>0001、0002、0003、…、0100</p></li>
+<li><p>0002、0004、0006、…、0200</p></li>
+<li><p>0003、0006、0009、…、0300</p></li>
+</ol>
+<p>62、 设存储器容量为32字，字长64位，模块数m=4，分别用多体高位交叉即顺序方式和多体低位交叉方式进行组织。存储周期T=200ns，数据总线宽度为64位，总线传送周期t=50ns。若连续读出4个字，问顺序存储器和交叉存储器的带宽各是多少?</p>
+<p>63、具有1位纠错能力的编码系统最小码距是多少？</p>
+<p>64、单纠错海明码码距是多少？</p>
+<p>65、<span class="math inline">\((n+k, n)\)</span>CRC码码距是多少？</p>
+<p>66、比较海明码与CRC码的容错能力。</p>
+<p>67、有效信息为1010,生成多项式G(x)=1011，将其编成CRC码。</p>
+<p>68、假设CPU执行某段程序时，共访问Cache命中2000次，访问主存50次。已知Cache存取周期为50ns，主存存取周期为200ns。求Cache-主存系统的命中率、效率和平均访问时间。</p>
+<p>69、假设主存只允许存放a、b、c三个页面，逻辑上构成a进c出的FIFO队列。某次操作中进程访存的序列是<code>0,1,2,4,2,3,0,2,1,3,2</code>（虚页号）。若分别采用FIFO算法、FIFO+LRU算法，请用列表法分别求两种替换策略情况下主存的命中率。</p>
+<p>70、COD RISC-V 5.5 For a direct-mapped cache design with a 64-bit address, the following bits of the address are used to access the cache.</p>
 <table>
 <thead>
 <tr class="header">
@@ -556,7 +677,10 @@
 </tr>
 </tbody>
 </table>
-<p>5.5.1 [5] &lt;§5.3&gt; What is the cache block size (in words)? 5.5.2 [5] &lt;§5.3&gt; How many blocks does the cache have? 5.5.3 [5] &lt;§5.3&gt; What is the ratio between total bits required for such a cache implementation over the data storage bits? Beginning from power on, the following byte-addressed cache references are recorded. Address:</p>
+<p>5.5.1 What is the cache block size (in words)?</p>
+<p>5.5.2 How many blocks does the cache have?</p>
+<p>5.5.3 What is the ratio between total bits required for such a cache implementation over the data storage bits? Beginning from power on, the following byte-addressed cache references are recorded.</p>
+<p>Address:</p>
 <table>
 <thead>
 <tr class="header">
@@ -592,35 +716,41 @@
 <td>2180</td>
 </tr>
 </tbody>
-</table></li>
-<li><p>COD RISC-V 5.11 This exercise examines the effect of different cache designs, specifically comparing associative caches to the direct-mapped caches from Section 5.4. For these exercises, refer to the sequence of word address shown below. <span class="math display">\[
-0x03, 0xb4, 0x2b, 0x02, 0xbe, 0x58, 0xbf, 0x0e, 0x1f, 0xb5,
-0xbf, 0xba, 0x2e, 0xce
-\]</span> 5.11.1 Sketch the organization of a three-way set associative cache with two-word blocks and a total size of 48 words. Your sketch should have a style similar to Figure 5.18, but clearly show the width of the tag and data fields. 5.11.2 Trace the behavior of the cache from Exercise 5.11.1. Assume a true LRU replacement policy. For each reference, identify the binary word address, the tag, the index, the offset, whether the reference is a hit or a miss, and which tags are in each way of the cache after the reference has been handled. 5.11.3 Sketch the organization of a fully associative cache with one-word blocks and a total size of eight words. Your sketch should have a style similar to Figure 5.18, but clearly show the width of the tag and data fields. 5.11.4 Trace the behavior of the cache from Exercise 5.11.3. Assume a true LRU replacement policy. For each reference, identify the binary word address, the tag, the index, the offset, whether the reference is a hit or a miss, and the contents of the cache after each reference has been handled. 5.11.5 Sketch the organization of a fully associative cache with two-word blocks and a total size of eight words. Your sketch should have a style similar to Figure 5.18, but clearly show the width of the tag and data fields. 5.11.6 Trace the behavior of the cache from Exercise 5.11.5. Assume an LRU replacement policy. For each reference, identify the binary word address, the tag, the index, the offset, whether the reference is a hit or a miss, and the contents of the cache after each reference has been handled. 5.11.7 Repeat Exercise 5.11.6 using MRU (most recently used) replacement. 5.11.8 Repeat Exercise 5.11.6 using the optimal replacement policy (i.e., the one that gives the lowest miss rate).</p></li>
-</ol>
+</table>
+<p>​</p>
+<p>71、 COD RISC-V 5.11 This exercise examines the effect of different cache designs, specifically comparing associative caches to the direct-mapped caches from Section 5.4. For these exercises, refer to the sequence of word address shown below. <span class="math display">\[
+    0x03, 0xb4, 0x2b, 0x02, 0xbe, 0x58, 0xbf, 0x0e, 0x1f, 0xb5,
+    0xbf, 0xba, 0x2e, 0xce
+\]</span> 5.11.1 Sketch the organization of a three-way set associative cache with two-word blocks and a total size of 48 words. Your sketch should have a style similar to Figure 5.18, but clearly show the width of the tag and data fields.</p>
+<p>5.11.2 Trace the behavior of the cache from Exercise 5.11.1. Assume a true LRU replacement policy. For each reference, identify the binary word address, the tag, the index, the offset, whether the reference is a hit or a miss, and which tags are in each way of the cache after the reference has been handled.</p>
+<p>5.11.3 Sketch the organization of a fully associative cache with one-word blocks and a total size of eight words. Your sketch should have a style similar to Figure 5.18, but clearly show the width of the tag and data fields.</p>
+<p>5.11.4 Trace the behavior of the cache from Exercise 5.11.3. Assume a true LRU replacement policy. For each reference, identify the binary word address, the tag, the index, the offset, whether the reference is a hit or a miss, and the contents of the cache after each reference has been handled.</p>
+<p>5.11.5 Sketch the organization of a fully associative cache with two-word blocks and a total size of eight words. Your sketch should have a style similar to Figure 5.18, but clearly show the width of the tag and data fields.</p>
+<p>5.11.6 Trace the behavior of the cache from Exercise 5.11.5. Assume an LRU replacement policy. For each reference, identify the binary word address, the tag, the index, the offset, whether the reference is a hit or a miss, and the contents of the cache after each reference has been handled.</p>
+<p>5.11.7 Repeat Exercise 5.11.6 using MRU (most recently used) replacement.</p>
+<p>5.11.8 Repeat Exercise 5.11.6 using the optimal replacement policy (i.e., the one that gives the lowest miss rate).</p>
 <h1 id="总线系统">总线系统</h1>
-<ol start="72" type="1">
-<li>唐朔飞 3.4 为什么要设置总线判优控制？常见的集中式总线控制有几种，各有何特点，哪种方式响应时间最快，哪种方式对电路故障最敏感？</li>
-<li>唐朔飞 3.8 为什么说半同步通信同时保留了同步通信和异步通信的特点？</li>
-<li>设数据总线上接有 A、B、C、D 4个寄存器，要求选用合适的74系列芯片，完成下列逻辑设计： （1）设计一个电路，在同一时间实现<span class="math inline">\(D\to A\)</span>、<span class="math inline">\(D\to B\)</span>和<span class="math inline">\(D\to C\)</span>寄存器间的传送。 （2）设计一个电路，实现下列操作。<span class="math inline">\(T_0\)</span>时刻完成<span class="math inline">\(D\to\)</span>总线。<span class="math inline">\(T_1\)</span>时刻完成总线<span class="math inline">\(\to A\)</span>。<span class="math inline">\(T_2\)</span>时刻完成<span class="math inline">\(A\to\)</span>总线。<span class="math inline">\(T_3\)</span>时刻完成总线<span class="math inline">\(\to B\)</span>。</li>
-<li>唐朔飞 3.14 设总线的时钟频率为8MHz，一个总线周期等于一个时钟周期。如果一个总线周期中并行传送16位数据，试问总线的带宽是多少？</li>
-<li>唐朔飞 3.15 在一个32位的总线系统中，总线的时钟频率为66MHz。假设总线最短传输周期为4个时钟周期，试计算总线的最大数据传输率。若想提高数据传输率，可采取什么措施？</li>
-<li>唐朔飞 3.16 在异步串行传送系统中，字符格式为：1个起始位、8个数据位、1个校验位、2个终止位。若要求每秒传送120个字符，试求传送的波特率和比特率。</li>
-</ol>
+<p>72、唐朔飞 3.4 为什么要设置总线判优控制？常见的集中式总线控制有几种，各有何特点，哪种方式响应时间最快，哪种方式对电路故障最敏感？</p>
+<p>73、唐朔飞 3.8 为什么说半同步通信同时保留了同步通信和异步通信的特点？</p>
+<p>74、设数据总线上接有 A、B、C、D 4个寄存器，要求选用合适的74系列芯片，完成下列逻辑设计： （1）设计一个电路，在同一时间实现<span class="math inline">\(D\to A\)</span>、<span class="math inline">\(D\to B\)</span>和<span class="math inline">\(D\to C\)</span>寄存器间的传送。 （2）设计一个电路，实现下列操作。<span class="math inline">\(T_0\)</span>时刻完成<span class="math inline">\(D\to\)</span>总线。<span class="math inline">\(T_1\)</span>时刻完成总线<span class="math inline">\(\to A\)</span>。<span class="math inline">\(T_2\)</span>时刻完成<span class="math inline">\(A\to\)</span>总线。<span class="math inline">\(T_3\)</span>时刻完成总线<span class="math inline">\(\to B\)</span>。</p>
+<p>75、唐朔飞 3.14 设总线的时钟频率为8MHz，一个总线周期等于一个时钟周期。如果一个总线周期中并行传送16位数据，试问总线的带宽是多少？</p>
+<p>76、唐朔飞 3.15 在一个32位的总线系统中，总线的时钟频率为66MHz。假设总线最短传输周期为4个时钟周期，试计算总线的最大数据传输率。若想提高数据传输率，可采取什么措施？</p>
+<p>77、唐朔飞 3.16 在异步串行传送系统中，字符格式为：1个起始位、8个数据位、1个校验位、2个终止位。若要求每秒传送120个字符，试求传送的波特率和比特率。</p>
 <h1 id="io系统">IO系统</h1>
-<ol start="78" type="1">
-<li>磁盘存储器有6个盘片，最外两侧盘面不能记录，每面有204条磁道，每条磁道有12个扇段，每个扇段512B，磁盘机以7200rpm的速度旋转，平均寻道时间为8ms 1）计算该磁盘存储器的存储容量。 2）计算该磁盘存储器的平均寻址时间。</li>
-<li>唐朔飞 5.4 试比较程序查询方式、程序中断方式和DMA方式对CPU工作效率的影响。</li>
-<li>唐朔飞 5.8 某计算机的I/O设备采用异步串行传送方式传送字符信息。字符信息的格式为1位起始位、7位数据位、1位校验位和1位停止位。若要求每秒传送480个字符，那么该设备的数据传送速率为多少？</li>
-<li>唐朔飞 5.11 简述I/O接口的功能和基本组成。</li>
-<li>唐朔飞 8.23 在中断处理中，“保护现场”需要完成哪些任务？如何实现？</li>
-<li>唐朔飞 4.38 磁盘组有6片磁盘，最外两片盘面可以记录，存储区内径22cm，外径33cm，道密度40道/cm，内层密度400位/cm，转速3600转/分。 （1）共有多少存储面可用？ （2）共有多少柱面？ （3）盘组总存储容量是多少？</li>
-<li>唐朔飞 4.44 试从存储容量、存取速度、使用寿命和应用场合方面比较磁盘、磁带和光盘存储器。</li>
-</ol>
+<p>78、磁盘存储器有6个盘片，最外两侧盘面不能记录，每面有204条磁道，每条磁道有12个扇段，每个扇段512B，磁盘机以7200rpm的速度旋转，平均寻道时间为8ms。</p>
+<p>1）计算该磁盘存储器的存储容量。</p>
+<p>2）计算该磁盘存储器的平均寻址时间。</p>
+<p>79、唐朔飞 5.4 试比较程序查询方式、程序中断方式和DMA方式对CPU工作效率的影响。</p>
+<p>80、唐朔飞 5.8 某计算机的I/O设备采用异步串行传送方式传送字符信息。字符信息的格式为1位起始位、7位数据位、1位校验位和1位停止位。若要求每秒传送480个字符，那么该设备的数据传送速率为多少？</p>
+<p>81、唐朔飞 5.11 简述I/O接口的功能和基本组成。</p>
+<p>82、唐朔飞 8.23 在中断处理中，“保护现场”需要完成哪些任务？如何实现？</p>
+<p>83、唐朔飞 4.38 磁盘组有6片磁盘，最外两片盘面可以记录，存储区内径22cm，外径33cm，道密度40道/cm，内层密度400位/cm，转速3600转/分。</p>
+<p>（1）共有多少存储面可用？</p>
+<p>（2）共有多少柱面？</p>
+<p>（3）盘组总存储容量是多少？</p>
+<p>84、唐朔飞 4.44 试从存储容量、存取速度、使用寿命和应用场合方面比较磁盘、磁带和光盘存储器。</p>
 <h1 id="指令的调度与优化">指令的调度与优化</h1>
-<ol start="85" type="1">
-<li>结合Arch2030报告，对神经网络六层循环不同层的循环展开分别代表的含义，采用上述技术应该如何优化（软件+硬件）？</li>
-</ol>
+<p>85、结合Arch2030报告，对神经网络六层循环不同层的循环展开分别代表的含义，采用上述技术应该如何优化（软件+硬件）？</p>
 <h1 id="智能计算系统">智能计算系统</h1>
 <h1 id="深度学习处理器原理">深度学习处理器原理</h1>
 
