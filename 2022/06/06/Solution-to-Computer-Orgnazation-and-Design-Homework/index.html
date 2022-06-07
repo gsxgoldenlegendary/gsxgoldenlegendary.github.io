@@ -30,7 +30,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/codh8.png">
 <meta property="article:published_time" content="2022-06-05T19:58:15.000Z">
-<meta property="article:modified_time" content="2022-06-07T06:01:07.686Z">
+<meta property="article:modified_time" content="2022-06-07T13:05:03.771Z">
 <meta property="article:author" content="GUO Songxiao">
 <meta property="article:tag" content="Computer Organization">
 <meta name="twitter:card" content="summary">
@@ -284,7 +284,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-07 06:01:07" itemprop="dateModified" datetime="2022-06-07T06:01:07Z">2022-06-07</time>
+      <time title="Modified: 2022-06-07 13:05:03" itemprop="dateModified" datetime="2022-06-07T13:05:03Z">2022-06-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -453,12 +453,47 @@ S_2=\frac1{1-0.15+\frac{0.15}{3}}=1.11.
 <p><span class="math display">\[
 S=\frac1{1-0.2-0.3-0.15+\frac{0.2}{10}+\frac{0.3}{1.6}+\frac{0.15}{3}}=1.65.
 \]</span></p>
-<p>12、假设晶圆的成品率为100%，晶片为长为1.5cm的正方形。</p>
-<p>（1）直径为30cm的晶圆上有多少晶片？</p>
-<p>（2）假设单位面积的疵点密度为<span class="math inline">\(0.4/cm^2\)</span> ，且<span class="math inline">\(\alpha=4.0\)</span>，求晶片的成品率？ 13、COD RISC-V 1.12 Section 1.10 cites as a pitfall the utilization of a subset of the performance equation as a performance metric. To llustrate this, consider the following two processors. P1 has a clock rate of 4 GHz, average CPI of 0.9, and requires the execution of 5.0E9 instructions. P2 has a clock rate of 3 GHz, an average CPI of 0.75, and requires the execution of 1.0E9 instructions.</p>
-<p>1.12.1 One usual fallacy is to consider the computer with the largest clock rate as having the highest performance. Check if this is true for P1 and P2.</p>
-<p>1.12.2 Another fallacy is to consider that the processor executing the largest number of instructions will need a larger CPU time. Considering that processor P1 is executing a sequence of 1.0E9 instructions and that the CPI of processors P1 and P2 do not change, determine the number of instructions that P2 can execute in the same time that P1 needs to execute 1.0E9 instructions.</p>
+<p>12、假设晶圆的成品率为<span class="math inline">\(100\%\)</span>，晶片为长为<span class="math inline">\(1.5cm\)</span>的正方形。</p>
+<p>（1）直径为<span class="math inline">\(30cm\)</span>的晶圆上有多少晶片？ <span class="math display">\[
+n=\frac{\pi\cdot(15cm)^2}{(1.5cm)^2}-\frac{\pi\cdot30cm}{\sqrt{2\cdot(1.5cm)^2}}=296.
+\]</span> （2）假设单位面积的疵点密度为<span class="math inline">\(0.4/cm^2\)</span> ，且<span class="math inline">\(\alpha=4.0\)</span>，求晶片的成品率？ <span class="math display">\[
+\beta=100\%\cdot(1+\frac{0.4/cm^2\cdot(1.5cm)^2}{4.0})^{-4.0}=0.44.
+\]</span> 13、COD RISC-V 1.12 Section 1.10 cites as a pitfall the utilization of a subset of the performance equation as a performance metric. To illustrate this, consider the following two processors. P1 has a clock rate of 4 GHz, average CPI of 0.9, and requires the execution of 5.0E9 instructions. P2 has a clock rate of 3 GHz, an average CPI of 0.75, and requires the execution of 1.0E9 instructions.</p>
+<p>1.12.1 One usual fallacy is to consider the computer with the largest clock rate as having the highest performance. Check if this is true for P1 and P2.s <span class="math display">\[
+T_{CPU}=CPI\times IC\times T_{CLK}.
+\]</span></p>
+<p><span class="math display">\[
+T(P1)=\frac{0.9\times5.0\times10^9}{4\times10^{9}Hz}=1.125s
+\]</span></p>
+<p><span class="math display">\[
+T(P2)=\frac{0.75\times1.0\times10^9}{3\times10^{9}Hz}=0.25s
+\]</span></p>
+<p>clock rate(P1) &gt; clock rate(P2), performance(P1) &lt; performance(P2).</p>
+<p>1.12.2 Another fallacy is to consider that the processor executing the largest number of instructions will need a larger CPU time. Considering that processor P1 is executing a sequence of 1.0E9 instructions and that the CPI of processors P1 and P2 do not change, determine the number of instructions that P2 can execute in the same time that P1 needs to execute 1.0E9 instructions. <span class="math display">\[
+IC&#39;=\frac{\frac{1.125}{5}s\times 3\times10^9Hz}{0.75}=9\times10^8.
+\]</span></p>
+<p>1.12.3 A common fallacy is to use MIPS (millions of instructions per second) to compare the performance of two different processors, and consider that the processor with the largest MIPS has the largest performance. Check if this is true for P1 and P2. <span class="math display">\[
+MIPS(P1)=\frac{4\times10^9}{10^6\times 0.9}=4.44\times10^3.
+\]</span></p>
+<p><span class="math display">\[
+MIPS(P2)=\frac{3\times10^9}{10^6\times 0.75}=4\times10^3.
+\]</span></p>
+<p>MIPS(P1) &gt; MIPS(P2), performance(P1) &lt; performance(P2).</p>
+<p>1.12.4 Another common performance figure is MFLOPS (millions of floating-point operations per second), defined as <span class="math display">\[
+MFLOPS=\frac{No.FPoperations}{executiontime\times1E6},
+\]</span> but this figure has the same problems as MIPS. Assume that 40% of the instructions executed on both P1 and P2 are floating-point instructions. Find the MFLOPS figures for the processors. <span class="math display">\[
+MFLOPS(P1)=\frac{0.4\times5\times10^9}{1.125s\times10^{-6}}=1.78\times10^3.
+\]</span></p>
+<p><span class="math display">\[
+MFLOPS(P2)=\frac{0.4\times1\times10^9}{0.25s\times10^{-6}}=1.6\times10^3.
+\]</span></p>
+<p>MFLOPS(P1) &gt; MFLOPS(P2), performance(P1) &lt; performance(P2).</p>
 <p>14、冯机架构中指令和数据都存储于存储器中，系统执行时如何区分？</p>
+<p>计算机区分指令和数据有以下2种方法：</p>
+<ul>
+<li><p>通过不同的时间段来区分指令和数据，即在取指令阶段（或取指微程序）取出的为指令，在执行指令阶段（或相应微程序）取出的即为数据。</p></li>
+<li><p>通过地址来源区分，由PC提供存储单元地址的取出的是指令，由指令地址码部分提供存储单元地址的取出的是操作数。</p></li>
+</ul>
 <p>15、“计算机组成”与“计算机系统结构”的关系？</p>
 <ul>
 <li>计算机体系结构
@@ -480,9 +515,14 @@ S=\frac1{1-0.2-0.3-0.15+\frac{0.2}{10}+\frac{0.3}{1.6}+\frac{0.15}{3}}=1.65.
 </ul></li>
 </ul>
 <p>16、比较Amdahl’s Law和古斯塔夫森定律 。</p>
+<ul>
+<li>阿姆达尔定律定义了串行系统并行化后加速比的计算公式与理论上限。如果仅仅对计算机中的一部分做性能改进，则改进越多，系统获得的效果越小。如果只针对整个任务的一部分进行优化，那么所获得的加速比不大于<span class="math inline">\(\frac1{(1- f_e )}\)</span>。</li>
+<li>古斯塔夫森定律是对阿姆达尔定律的补充，说明处理器个数，串行比例和加速比的关系。当问题的规模增大时，程序的串行部分保持不变。当增加处理器的数量时，每个处理器执行的任务仍然相同。加速比<span class="math inline">\(S(P)=P-\alpha(P-1)\)</span>，<span class="math inline">\(P\)</span>为处理器数量，<span class="math inline">\(\alpha\)</span>是并行处理器的非并行部分。</li>
+</ul>
 <h1 id="指令系统">指令系统</h1>
 <p>17、 写出下面函数的汇编代码</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cswap(<span class="type">int</span> v[], <span class="type">int</span> k, <span class="type">int</span> l)&#123;</span><br><span class="line">	<span class="type">int</span> temp;</span><br><span class="line">	v[<span class="number">0</span>]-&gt;$s4</span><br><span class="line">	<span class="title function_">if</span><span class="params">(v[k]!=v[l])</span>&#123;</span><br><span class="line">    	temp=v[k];</span><br><span class="line">    	v[k]=v[l];</span><br><span class="line">    	v[l]=temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">cswap</span><span class="params">(<span class="type">int</span> v[], <span class="type">int</span> k, <span class="type">int</span> l)</span>&#123;</span><br><span class="line">	<span class="type">int</span> temp;</span><br><span class="line">	<span class="keyword">if</span>(v[k]!=v[l])&#123;</span><br><span class="line">    	temp=v[k];</span><br><span class="line">    	v[k]=v[l];</span><br><span class="line">    	v[l]=temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">cswap(int*, int, int):</span><br><span class="line">        addi    sp,sp,-48</span><br><span class="line">        sd      s0,40(sp)</span><br><span class="line">        addi    s0,sp,48</span><br><span class="line">        sd      a0,-40(s0)</span><br><span class="line">        mv      a5,a1</span><br><span class="line">        mv      a4,a2</span><br><span class="line">        sw      a5,-44(s0)</span><br><span class="line">        mv      a5,a4</span><br><span class="line">        sw      a5,-48(s0)</span><br><span class="line">        lw      a5,-44(s0)</span><br><span class="line">        slli    a5,a5,2</span><br><span class="line">        ld      a4,-40(s0)</span><br><span class="line">        add     a5,a4,a5</span><br><span class="line">        lw      a3,0(a5)</span><br><span class="line">        lw      a5,-48(s0)</span><br><span class="line">        slli    a5,a5,2</span><br><span class="line">        ld      a4,-40(s0)</span><br><span class="line">        add     a5,a4,a5</span><br><span class="line">        lw      a5,0(a5)</span><br><span class="line">        mv      a4,a3</span><br><span class="line">        beq     a4,a5,.L3</span><br><span class="line">        lw      a5,-44(s0)</span><br><span class="line">        slli    a5,a5,2</span><br><span class="line">        ld      a4,-40(s0)</span><br><span class="line">        add     a5,a4,a5</span><br><span class="line">        lw      a5,0(a5)</span><br><span class="line">        sw      a5,-20(s0)</span><br><span class="line">        lw      a5,-48(s0)</span><br><span class="line">        slli    a5,a5,2</span><br><span class="line">        ld      a4,-40(s0)</span><br><span class="line">        add     a4,a4,a5</span><br><span class="line">        lw      a5,-44(s0)</span><br><span class="line">        slli    a5,a5,2</span><br><span class="line">        ld      a3,-40(s0)</span><br><span class="line">        add     a5,a3,a5</span><br><span class="line">        lw      a4,0(a4)</span><br><span class="line">        sw      a4,0(a5)</span><br><span class="line">        lw      a5,-48(s0)</span><br><span class="line">        slli    a5,a5,2</span><br><span class="line">        ld      a4,-40(s0)</span><br><span class="line">        add     a5,a4,a5</span><br><span class="line">        lw      a4,-20(s0)</span><br><span class="line">        sw      a4,0(a5)</span><br><span class="line">.L3:</span><br><span class="line">        nop</span><br><span class="line">        ld      s0,40(sp)</span><br><span class="line">        addi    sp,sp,48</span><br><span class="line">        jr      ra</span><br></pre></td></tr></table></figure>
 <p>18、COD RISC-V 2.9 For each RISC-V instruction in Exercise 2.8, show the value of the opcode (op), source register (rs1), and destination register (rd) fields. For the I-type instructions, show the value of the immediate field, and for the R-type instructions, show the value of the second source register (rs2). For non U- and UJ-type instructions, show the funct3 field, and for R-type and S-type instructions, also show the funct7 field.</p>
 <p>19、COD RISC-V 2.24 Consider the following RISC-V loop:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LOOP:</span><br><span class="line">beq x6, x0, DONE</span><br><span class="line">addi x6, x6, -1</span><br><span class="line">addi x5, x5, 2</span><br><span class="line">jal x0, LOOP</span><br><span class="line">DONE:</span><br></pre></td></tr></table></figure>
@@ -500,9 +540,15 @@ S=\frac1{1-0.2-0.3-0.15+\frac{0.2}{10}+\frac{0.3}{1.6}+\frac{0.15}{3}}=1.65.
 <p>2.40.2 For a 25% improvement in performance, how many cycles, on average, may an arithmetic instruction take if load/store and branch instructions are not improved at all?</p>
 <p>2.40.3 For a 50% improvement in performance, how many cycles, on average, may an arithmetic instruction take if load/store and branch instructions are not improved at all?</p>
 <p>22、CPU的ISA要定义哪些内容？</p>
+<p>数据类型及格式，指令格式，寻址方式和可访问地址空间的大小，程序可访问的寄存器个数、位数和编号，控制寄存器的定义，I/O空间的编制方式，中断结构，机器工作状态的定义和切换，输入输出结构和数据传送方式，存储保护方式等。</p>
 <p>23、8086为什么要采用段式内存管理模式？</p>
+<p>便于存储器的管理，使得可以用16位寄存器来寻址20位的内存空间。</p>
 <p>24、Windows系统中可执行程序的格式？</p>
 <p>25、调研现在常用的处理器是大尾端还是小尾端，如x86、ARM、MIPS、PowerPC等？</p>
+<p>x86：小尾端；</p>
+<p>ARM：默认小尾端，可以通过寄存器置位进入大尾端的工作模式；</p>
+<p>MIPS：可以通过寄存器置位进入两个尾端的工作模式；</p>
+<p>PowerPC：大尾端。</p>
 <p>26、分析MIPS、x86、RISC-V指令集架构、比较相同不同点。</p>
 <p>27、调研国内外典型的RISC-V处理器核、比较相同不同点。</p>
 <p>28、扩展阅读Rocket及BOOM的资料。</p>
