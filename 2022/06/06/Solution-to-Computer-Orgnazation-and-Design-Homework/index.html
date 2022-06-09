@@ -29,8 +29,10 @@
 <meta property="og:description" content="USTC-CODH课堂练习、课后作业及思考题总结。思考题答案仅供参考。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/codh8.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210314160859450.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1NjA4Mjc3,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://pic4.zhimg.com/v2-d6bfa8042150d2becd581266c907be17_r.jpg">
 <meta property="article:published_time" content="2022-06-05T19:58:15.000Z">
-<meta property="article:modified_time" content="2022-06-07T13:05:03.771Z">
+<meta property="article:modified_time" content="2022-06-09T12:43:51.341Z">
 <meta property="article:author" content="GUO Songxiao">
 <meta property="article:tag" content="Computer Organization">
 <meta name="twitter:card" content="summary">
@@ -284,7 +286,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-07 13:05:03" itemprop="dateModified" datetime="2022-06-07T13:05:03Z">2022-06-07</time>
+      <time title="Modified: 2022-06-09 12:43:51" itemprop="dateModified" datetime="2022-06-09T12:43:51Z">2022-06-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -520,41 +522,130 @@ MFLOPS(P2)=\frac{0.4\times1\times10^9}{0.25s\times10^{-6}}=1.6\times10^3.
 <li>古斯塔夫森定律是对阿姆达尔定律的补充，说明处理器个数，串行比例和加速比的关系。当问题的规模增大时，程序的串行部分保持不变。当增加处理器的数量时，每个处理器执行的任务仍然相同。加速比<span class="math inline">\(S(P)=P-\alpha(P-1)\)</span>，<span class="math inline">\(P\)</span>为处理器数量，<span class="math inline">\(\alpha\)</span>是并行处理器的非并行部分。</li>
 </ul>
 <h1 id="指令系统">指令系统</h1>
-<p>17、 写出下面函数的汇编代码</p>
+<p>17、唐朔飞 7.4 假设指令字长为16位，操作数的地址码为6位，指令分零地址、一地址、二地址三种格式。</p>
+<p>（1）设操作码固定，若零地址指令有P种，一地址指令有Q种，问二地址指令最多有几种？ <span class="math display">\[
+2^{16-6*2}-P-Q.
+\]</span> （2）采用扩展操作码技术，若二地址指令有X种，零地址指令最多有Y种，则一地址指令有几种？ <span class="math display">\[
+(2^{16-6*2}-X)*2^6-\frac Y{2^6}.
+\]</span> 18、 写出下面函数的汇编代码</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">cswap</span><span class="params">(<span class="type">int</span> v[], <span class="type">int</span> k, <span class="type">int</span> l)</span>&#123;</span><br><span class="line">	<span class="type">int</span> temp;</span><br><span class="line">	<span class="keyword">if</span>(v[k]!=v[l])&#123;</span><br><span class="line">    	temp=v[k];</span><br><span class="line">    	v[k]=v[l];</span><br><span class="line">    	v[l]=temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">cswap(int*, int, int):</span><br><span class="line">        addi    sp,sp,-48</span><br><span class="line">        sd      s0,40(sp)</span><br><span class="line">        addi    s0,sp,48</span><br><span class="line">        sd      a0,-40(s0)</span><br><span class="line">        mv      a5,a1</span><br><span class="line">        mv      a4,a2</span><br><span class="line">        sw      a5,-44(s0)</span><br><span class="line">        mv      a5,a4</span><br><span class="line">        sw      a5,-48(s0)</span><br><span class="line">        lw      a5,-44(s0)</span><br><span class="line">        slli    a5,a5,2</span><br><span class="line">        ld      a4,-40(s0)</span><br><span class="line">        add     a5,a4,a5</span><br><span class="line">        lw      a3,0(a5)</span><br><span class="line">        lw      a5,-48(s0)</span><br><span class="line">        slli    a5,a5,2</span><br><span class="line">        ld      a4,-40(s0)</span><br><span class="line">        add     a5,a4,a5</span><br><span class="line">        lw      a5,0(a5)</span><br><span class="line">        mv      a4,a3</span><br><span class="line">        beq     a4,a5,.L3</span><br><span class="line">        lw      a5,-44(s0)</span><br><span class="line">        slli    a5,a5,2</span><br><span class="line">        ld      a4,-40(s0)</span><br><span class="line">        add     a5,a4,a5</span><br><span class="line">        lw      a5,0(a5)</span><br><span class="line">        sw      a5,-20(s0)</span><br><span class="line">        lw      a5,-48(s0)</span><br><span class="line">        slli    a5,a5,2</span><br><span class="line">        ld      a4,-40(s0)</span><br><span class="line">        add     a4,a4,a5</span><br><span class="line">        lw      a5,-44(s0)</span><br><span class="line">        slli    a5,a5,2</span><br><span class="line">        ld      a3,-40(s0)</span><br><span class="line">        add     a5,a3,a5</span><br><span class="line">        lw      a4,0(a4)</span><br><span class="line">        sw      a4,0(a5)</span><br><span class="line">        lw      a5,-48(s0)</span><br><span class="line">        slli    a5,a5,2</span><br><span class="line">        ld      a4,-40(s0)</span><br><span class="line">        add     a5,a4,a5</span><br><span class="line">        lw      a4,-20(s0)</span><br><span class="line">        sw      a4,0(a5)</span><br><span class="line">.L3:</span><br><span class="line">        nop</span><br><span class="line">        ld      s0,40(sp)</span><br><span class="line">        addi    sp,sp,48</span><br><span class="line">        jr      ra</span><br></pre></td></tr></table></figure>
-<p>18、COD RISC-V 2.9 For each RISC-V instruction in Exercise 2.8, show the value of the opcode (op), source register (rs1), and destination register (rd) fields. For the I-type instructions, show the value of the immediate field, and for the R-type instructions, show the value of the second source register (rs2). For non U- and UJ-type instructions, show the funct3 field, and for R-type and S-type instructions, also show the funct7 field.</p>
-<p>19、COD RISC-V 2.24 Consider the following RISC-V loop:</p>
+<p>19、COD RISC-V 2.9 For each RISC-V instruction in</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">addi x30, x10, 8</span><br><span class="line">addi x31, x10, 0</span><br><span class="line">sd x31, 0(x30)</span><br><span class="line">ld x30, 0(x30)</span><br><span class="line">add x5, x30, x31</span><br></pre></td></tr></table></figure>
+<p>, show the value of the opcode (op), source register (rs1), and destination register (rd) fields. For the I-type instructions, show the value of the immediate field, and for the R-type instructions, show the value of the second source register (rs2). For non U- and UJ-type instructions, show the funct3 field, and for R-type and S-type instructions, also show the funct7 field.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">type</th>
+<th style="text-align: center;">opcode, funct7, funct3</th>
+<th style="text-align: center;">rs1</th>
+<th style="text-align: center;">rs2</th>
+<th style="text-align: center;">rd</th>
+<th style="text-align: center;">imm</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">I-</td>
+<td style="text-align: center;">0x13, 0x0,</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">I-</td>
+<td style="text-align: center;">0x13, 0x0,</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">31</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">S-</td>
+<td style="text-align: center;">0x23, 0x3,</td>
+<td style="text-align: center;">31</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">I-</td>
+<td style="text-align: center;">0x3, 0x3,</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">R-</td>
+<td style="text-align: center;">0x33, 0x0, 0x0</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">31</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p>20、COD RISC-V 2.24 Consider the following RISC-V loop:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LOOP:</span><br><span class="line">beq x6, x0, DONE</span><br><span class="line">addi x6, x6, -1</span><br><span class="line">addi x5, x5, 2</span><br><span class="line">jal x0, LOOP</span><br><span class="line">DONE:</span><br></pre></td></tr></table></figure>
 <p>2.24.1 Assume that the register <code>x6</code> is initialized to the value 10. What is the final value in register <code>x5</code> assuming the <code>x5</code> is initially zero?</p>
+<p>Th e final value of <code>x5</code> is <code>20</code> .</p>
 <p>2.24.2 For the loop above, write the equivalent C code. Assume that the registers <code>x5</code> and <code>x6</code> are integers acc and i , respectively.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">acc=<span class="number">0</span>;</span><br><span class="line">i=<span class="number">10</span>;</span><br><span class="line"><span class="keyword">while</span>(i!=<span class="number">0</span>)&#123;</span><br><span class="line">    i-=<span class="number">1</span>;</span><br><span class="line">    acc+=<span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>2.24.3 For the loop written in RISC-V assembly above, assume that the register <code>x6</code> is initialized to the value N. How many RISC-V instructions are executed?</p>
+<p><code>4N+1</code>.</p>
 <p>2.24.4 For the loop written in RISC-V assembly above, replace the instruction “ <code>beq x6, x0, DONE</code> ” with the instruction “ <code>blt x6, x0, DONE</code> ” and write the equivalent C code.</p>
-<p>20、COD RISC-V 2.35 Consider the following code:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">acc=<span class="number">0</span>;</span><br><span class="line">i=<span class="number">10</span>;</span><br><span class="line"><span class="keyword">while</span>(i&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">    i-=<span class="number">1</span>;</span><br><span class="line">    acc+=<span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>21、COD RISC-V 2.35 Consider the following code:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lb x6, 0(x7)</span><br><span class="line">sd x6, 8(x7)</span><br></pre></td></tr></table></figure>
 <p>Assume that the register <code>x7</code> contains the address <code>0×10000000</code> and the data at address is <code>0×1122334455667788</code> .</p>
-<p>2.35.1 What value is stored in <code>0×1000000</code>8 on a big-endian machine?</p>
-<p>2.35.2 What value is stored in <code>0×1000000</code>8 on a little-endian machine?</p>
-<p>21、COD RISC-V 2.40 Assume that for a given program 70% of the executed instructions are arithmetic, 10% are load/store, and 20% are branch.</p>
-<p>2.40.1 Given this instruction mix and the assumption that an arithmetic instruction requires two cycles, a load/store instruction takes six cycles, and a branch instruction takes three cycles, find the average CPI.</p>
-<p>2.40.2 For a 25% improvement in performance, how many cycles, on average, may an arithmetic instruction take if load/store and branch instructions are not improved at all?</p>
-<p>2.40.3 For a 50% improvement in performance, how many cycles, on average, may an arithmetic instruction take if load/store and branch instructions are not improved at all?</p>
-<p>22、CPU的ISA要定义哪些内容？</p>
+<p>2.35.1 What value is stored in <code>0×10000008</code> on a big-endian machine?</p>
+<p><code>0x11</code>.</p>
+<p>2.35.2 What value is stored in <code>0×10000008</code> on a little-endian machine?</p>
+<p><code>0x88</code>.</p>
+<p>22、COD RISC-V 2.40 Assume that for a given program 70% of the executed instructions are arithmetic, 10% are load/store, and 20% are branch.</p>
+<p>2.40.1 Given this instruction mix and the assumption that an arithmetic instruction requires two cycles, a load/store instruction takes six cycles, and a branch instruction takes three cycles, find the average CPI. <span class="math display">\[
+\overline{CPI}=0.7*2+0.1*6+0.2*3=2.6.
+\]</span> 2.40.2 For a 25% improvement in performance, how many cycles, on average, may an arithmetic instruction take if load/store and branch instructions are not improved at all? <span class="math display">\[
+0.7x+0.1*6+0.2*3=2.6*0.75\Rightarrow x=1.07.
+\]</span> 2.40.3 For a 50% improvement in performance, how many cycles, on average, may an arithmetic instruction take if load/store and branch instructions are not improved at all? <span class="math display">\[
+0.7x+0.1*6+0.2*3=2.6*0.5\Rightarrow x=0.143.
+\]</span> 23、CPU的ISA要定义哪些内容？</p>
 <p>数据类型及格式，指令格式，寻址方式和可访问地址空间的大小，程序可访问的寄存器个数、位数和编号，控制寄存器的定义，I/O空间的编制方式，中断结构，机器工作状态的定义和切换，输入输出结构和数据传送方式，存储保护方式等。</p>
-<p>23、8086为什么要采用段式内存管理模式？</p>
+<p>24、8086为什么要采用段式内存管理模式？</p>
 <p>便于存储器的管理，使得可以用16位寄存器来寻址20位的内存空间。</p>
-<p>24、Windows系统中可执行程序的格式？</p>
-<p>25、调研现在常用的处理器是大尾端还是小尾端，如x86、ARM、MIPS、PowerPC等？</p>
+<p>25、Windows系统中可执行程序的格式？</p>
+<p>26、调研现在常用的处理器是大尾端还是小尾端，如x86、ARM、MIPS、PowerPC等？</p>
 <p>x86：小尾端；</p>
 <p>ARM：默认小尾端，可以通过寄存器置位进入大尾端的工作模式；</p>
 <p>MIPS：可以通过寄存器置位进入两个尾端的工作模式；</p>
 <p>PowerPC：大尾端。</p>
-<p>26、分析MIPS、x86、RISC-V指令集架构、比较相同不同点。</p>
-<p>27、调研国内外典型的RISC-V处理器核、比较相同不同点。</p>
-<p>28、扩展阅读Rocket及BOOM的资料。</p>
+<p>27、分析MIPS、x86、RISC-V指令集架构、比较相同不同点。</p>
+<p><img src="https://img-blog.csdnimg.cn/20210314160859450.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1NjA4Mjc3,size_16,color_FFFFFF,t_70" /></p>
+<p>28、调研国内外典型的RISC-V处理器核、比较相同不同点。</p>
+<p><a target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1664724825695807851">简评几款开源 RISC-V 处理器</a></p>
+<p>29、扩展阅读Rocket及BOOM的资料。</p>
+<p><a target="_blank" rel="noopener" href="https://www2.eecs.berkeley.edu/Pubs/TechRpts/2016/EECS-2016-17.pdf">Rocket</a>：标量；机器字长64 位；5 级pipeline，采用单发射；支持虚拟内存，可以兼容的移植开源操作系统；分支推断缓存（Branch Prediction Buff）、分支历史表（Branch History Table）、返回栈（Return Address Stack）；Rocket Custom Coprocessor Interface (RoCC)。</p>
+<p><a target="_blank" rel="noopener" href="https://docs.boom-core.org/en/latest/">BOOM（Berkeley Out-of-Order Machine）</a>：超标量；机器字长为64 位，支持指令集为RV64G；6 级流水线，乱序发射；</p>
 <h1 id="程序的编译过程">程序的编译过程</h1>
-<p>29、以GCC为例，代码是如何转换为指令的。</p>
-<p>30、GCC的不同优化之间的区别在哪些方面？</p>
+<p>30、以GCC为例，代码是如何转换为指令的。</p>
+<p><img src="https://pic4.zhimg.com/v2-d6bfa8042150d2becd581266c907be17_r.jpg" /></p>
+<p>31、GCC的不同优化之间的区别在哪些方面？</p>
+<ul>
+<li>O0选项不进行任何优化，在这种情况下，编译器尽量的缩短编译消耗（时间，空间），此时，debug会产出和程序预期的结果。当程序运行被断点打断，此时程序内的各种声明是独立的，我们可以任意的给变量赋值，或者在函数体内把程序计数器指到其他语句,以及从源程序中 精确地获取你期待的结果。</li>
+<li>O1优化会消耗少多的编译时间，它主要对代码的分支，常量以及表达式等进行优化。</li>
+<li>O2会尝试更多的寄存器级的优化以及指令级的优化，它会在编译期间占用更多的内存和编译时间。</li>
+<li>O3在O2的基础上进行更多的优化，例如使用伪寄存器网络，普通函数的内联，以及针对循环的更多优化。</li>
+<li>Os主要是对代码大小的优化，我们基本不用做更多的关心。 通常各种优化都会打乱程序的结构，让调试工作变得无从着手。并且会打乱执行顺序，依赖内存操作顺序的程序需要做相关处理才能确保程序的正确性。</li>
+</ul>
+<p>"The more we study, the more we discoverour ignorance." by Percy Bysshe Shelley.</p>
 <h1 id="cpu设计-单周期多周期">CPU设计-单周期、多周期</h1>
 <p>31、有一段程序共有100条指令，其中Load指令为20%，Store指令为20%，R类的ALU指令为40%，Beq指令为10%，JUMP指令为10%。这段程序分别在单周期和多周期的CPU上实现（多周期参考RISC-V的CPI），其中单周期CPU时钟为200MHz，多周期CPU时钟为800MHz（考虑到存储器、ALU实现复杂），问在何种CPU上运行时快，快多少？</p>
 <p>32、COD RISC-V 4.1 Consider the following instruction: Instruction: and rd, rs1, rs2 Interpretation: Reg[rd] = Reg[rs1] AND Reg[rs2]</p>
