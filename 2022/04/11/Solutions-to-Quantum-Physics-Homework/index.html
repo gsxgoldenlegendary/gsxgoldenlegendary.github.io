@@ -30,7 +30,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/qm0.jpg">
 <meta property="article:published_time" content="2022-04-10T18:44:30.000Z">
-<meta property="article:modified_time" content="2022-06-09T13:13:55.608Z">
+<meta property="article:modified_time" content="2022-06-10T00:52:45.640Z">
 <meta property="article:author" content="GUO Songxiao">
 <meta property="article:tag" content="Quantum Physics">
 <meta name="twitter:card" content="summary">
@@ -284,7 +284,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-09 13:13:55" itemprop="dateModified" datetime="2022-06-09T13:13:55Z">2022-06-09</time>
+      <time title="Modified: 2022-06-10 00:52:45" itemprop="dateModified" datetime="2022-06-10T00:52:45Z">2022-06-10</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1024,14 +1024,68 @@ c&d
 $$
 
 <p>用Pauli矩阵展开，求出展开系数。</p>
-<p>//TODO</p>
+<p><span class="math display">\[
+P\equiv p_0\sigma_0+p_1\sigma_1+p_2\sigma_2+p_3\sigma_3。
+\]</span> 
+$$
+p_0=\frac12\tr(P\sigma_0)=\frac12\tr\begin{pmatrix}a&b\\c&d\end{pmatrix}=\frac12(a+d).
+$$
+
+$$
+p_1=\frac12\tr(P\sigma_1)=\frac12\tr\begin{pmatrix}b&a\\d&c\end{pmatrix}=\frac12(b+c).
+$$
+
+$$
+p_2=\frac12\tr(P\sigma_2)=\frac12\tr\begin{pmatrix}\mathrm ib&-\mathrm ia\\\mathrm id&-\mathrm ic\end{pmatrix}=\frac{\mathrm i}2(b-c).
+$$
+
+$$
+p_3=\frac12\tr(P\sigma_3)=\frac12\tr\begin{pmatrix}a&-b\\c&-d\end{pmatrix}=\frac12(a-d).
+$$
+
+</p>
 <p>49、求<span class="math inline">\(\sigma_y\)</span>算符的本征态和本征值，并给出状态<span class="math inline">\((\alpha,\beta)^T\)</span>上测量<span class="math inline">\(s_y\)</span>的测量值和相应的几率。</p>
-<p>//TODO</p>
-<p>50、求空间单位方向上算符 𝜎 Ԧ ⋅ 𝑛 对应的本征值和本征态。</p>
-<p>//TODO</p>
-<p>51、加热银蒸汽时的炉温<span class="math inline">\(T=1320K\)</span>，不均匀磁场区长度<span class="math inline">\(l=0.1m\)</span>，磁场梯度<span class="math inline">\(\frac{\mathrm dB}{\mathrm dz}=2300T/m\)</span>。冷凝屏紧贴磁场末端，观测到银原子沉积的两条斑纹间隔<span class="math inline">\(\Delta x=4mm\)</span>。求银原子磁矩<span class="math inline">\(\mu_z\)</span>。</p>
-<p>//TODO</p>
-<p>52、氢原子处于定态<span class="math inline">\(u_{3,1,1}\)</span>，受到扰动后向低能级跃迁，会有几条谱线？增加沿 <span class="math inline">\(z\)</span> 轴方向的磁场，各谱线分别分裂成几条（不考虑电子自旋）？</p>
+<p>由<span class="math inline">\(\det(\sigma_y-\lambda I)=0\)</span>，得<span class="math inline">\(s_y\)</span>的本征值<span class="math inline">\(\pm1\)</span>，本征矢 <span class="math display">\[
+|\uparrow\rangle=\frac1{\sqrt 2}(1,\mathrm i)^T,|\downarrow\rangle=\frac1{\sqrt 2}(1,-\mathrm i)^T.
+\]</span></p>
+<p>自旋态的展开 <span class="math display">\[
+|\chi\rangle=\frac1{\sqrt{|\alpha|^2+|\beta|^2}}(\alpha,\beta)^T\equiv A_1|\uparrow\rangle_y+A_2\downarrow\rangle_y.
+\]</span></p>
+<p><span class="math display">\[
+A_1 = _y \langle\uparrow|\chi\rangle=\frac1{\sqrt{2(|\alpha|^2+|\beta|^2)}}(1,-\mathrm i)(\alpha,\beta)^T=\frac1{\sqrt{2(|\alpha|^2+|\beta|^2)}}(\alpha-\mathrm i\beta).
+\]</span></p>
+<p><span class="math display">\[
+A_2=_y\langle\downarrow|\chi\rangle=\frac1{\sqrt{2(|\alpha|^2+|\beta|^2)}}(1,\mathrm i)(\alpha,\beta)^T=\frac1{\sqrt{2(|\alpha|^2+|\beta|^2)}}(\alpha+\mathrm i\beta).
+\]</span></p>
+<p><span class="math inline">\(\hat s_y=\sigma_y\)</span>，<span class="math inline">\(s_y\)</span>的测量值是<span class="math inline">\(\pm\frac\hbar2\)</span>，几率 <span class="math display">\[
+|A_1|^2=\frac{|\alpha|^2+|\beta|^2-2\Im(\alpha\beta^*)}{2(|\alpha|^2+|\beta|^2)},|A_2|^2=\frac{|\alpha|^2+|\beta|^2+2\Im(\alpha\beta^*)}{2(|\alpha|^2+|\beta|^2)},
+\]</span> 50、求空间单位方向上算符<span class="math inline">\((\vec\sigma\cdot\vec n)\)</span>对应的本征值和本征态。</p>
+<p>球坐标系的单位矢量 <span class="math display">\[
+(n_1,n_2,n_3)=(\sin\theta\cos\varphi,\sin\theta\sin\varphi,\cos\theta).
+\]</span> 算符的显式表达式</p>
+
+$$
+\sigma_1n_1+\sigma_2n_2+\sigma_3n_3=\begin{pmatrix}\cos\theta&\sin\theta e^{\mathrm i\varphi}\\\sin\theta e^{\mathrm i\varphi}&-\cos\theta\end{pmatrix}.
+$$
+
+<p>本征值 <span class="math display">\[
+\det(\vec\sigma\cdot\vec n-\lambda\mathbb 1)=0\Rightarrow\lambda=\pm1.
+\]</span> 本征矢 <span class="math display">\[
+|\uparrow\rangle_n=(\cos\frac\theta2e^{\frac{\mathrm i\varphi}2},\sin\frac\theta2e^{\frac{\mathrm i\varphi}2})^T,|\downarrow\rangle_n=(-\sin\frac\theta2e^{\frac{\mathrm i\varphi}2},\cos\frac\theta2e^{\frac{\mathrm i\varphi}2})^T.
+\]</span> 51、加热银蒸汽时的炉温<span class="math inline">\(T=1320K\)</span>，不均匀磁场区长度<span class="math inline">\(l=0.1m\)</span>，磁场梯度<span class="math inline">\(\frac{\mathrm dB}{\mathrm dz}=2300T/m\)</span>。冷凝屏紧贴磁场末端，观测到银原子沉积的两条斑纹间隔<span class="math inline">\(\Delta x=4mm\)</span>。求银原子磁矩<span class="math inline">\(\mu_z\)</span>。</p>
+<p>银原子均方根速率 <span class="math display">\[
+\frac12mv^2=\frac32k_BT\Rightarrow=\sqrt{\frac{3k_BT}m}.
+\]</span> 磁矩与外场作用的势能 <span class="math display">\[
+W=-\vec\mu\cdot\vec B=-\mu_z(\frac{\mathrm d B}{\mathrm d z}z).
+\]</span> 银原子所受的作用力 <span class="math display">\[
+F=-\nabla W=\mu_z\frac{\mathrm d B}{\mathrm d z}.
+\]</span> 通过磁场区域后的横向偏移 <span class="math display">\[
+x=\frac12at^2=\frac12\frac Fm(\frac lv)^2=\frac{l^2\mu_z}{6k_BT}\frac{\mathrm d B}{\mathrm d z}.
+\]</span> 两条斑纹的横向间隔 <span class="math display">\[
+\Delta x=2x=\frac{l^2\mu_z}{3k_BT}\frac{\mathrm d B}{\mathrm d z}.
+\]</span> 实验测得的磁矩是 <span class="math display">\[
+\mu_B=\frac{3k_BT\Delta x}{l^2\frac{\mathrm dB}{\mathrm dz}}=9.5\times10^{-24}J\cdot s.
+\]</span> 52、氢原子处于定态<span class="math inline">\(u_{3,1,1}\)</span>，受到扰动后向低能级跃迁，会有几条谱线？增加沿 <span class="math inline">\(z\)</span> 轴方向的磁场，各谱线分别分裂成几条（不考虑电子自旋）？</p>
 <p>由<span class="math inline">\(\Delta l=\pm 1\)</span>，<span class="math inline">\(\Delta m=0.\pm1\)</span>，知<span class="math inline">\(u_{3,1,1}\)</span>可以向<span class="math inline">\(u_{2,0,0}\)</span>及<span class="math inline">\(u_1,0,0\)</span>跃迁，共两条谱线，加磁场也不会发生能级分裂。</p>
 <p>53、设电子是均匀球体。已知电子的角动量是<span class="math inline">\(\frac\hbar2\)</span>，估算电子的角速度以及赤道上的线速度。 <span class="math display">\[
 L=I\frac v{r_e} \Rightarrow v=\frac LIr_e=\frac{5\hbar}{4m_er_e}3.28\times10^{11}m/s
@@ -1061,13 +1115,14 @@ $$
 |\chi\rangle=\frac1{\sqrt{30}}(1+2\mathrm i,3+4\mathrm i)^T.
 \]</span></p>
 <p><span class="math display">\[
-A_1=\langle\uparrow(y)|\chi\rangle=\frac1{\sqrt{60}}(1,-\mathrm i)(1+2\mathrm i,3+4\mathrm i)=\frac{\sqrt{15}}{30}(5-\mathrm i).
+A_1=_y\langle\uparrow|\chi\rangle=\frac1{\sqrt{60}}(1,-\mathrm i)(1+2\mathrm i,3+4\mathrm i)^T=\frac{\sqrt{15}}{30}(5-\mathrm i).
 \]</span></p>
 <p><span class="math display">\[
-A_2=\langle\downarrow(y)|\chi\rangle=\frac1{\sqrt{60}}(1,\mathrm i)(1+2\mathrm i,3+4\mathrm i)=\frac{\sqrt{15}}{30}(-3+5\mathrm i).
+A_2=_y\langle\downarrow|\chi\rangle=\frac1{\sqrt{60}}(1,\mathrm i)(1+2\mathrm i,3+4\mathrm i)^T=\frac{\sqrt{15}}{30}(-3+5\mathrm i).
 \]</span></p>
-<p>故取值有<span class="math inline">\((1,\mathrm i)^T\)</span>和<span class="math inline">\((1,-\mathrm i)^T\)</span>两种，概率分别为<span class="math inline">\(|A_1|^2=\frac{13}{30}\)</span>和<span class="math inline">\(|A_2|^2=\frac{17}{30}\)</span>。</p>
-<p>56、电子的总角动量<span class="math inline">\(\vec J\)</span>为轨道角动量<span class="math inline">\(\vec L\)</span>与自旋角动量<span class="math inline">\(\vec s\)</span>之和。由于轨道角动量算符与自旋角动量算符作用在不同的空间，所以互相对易，即有 <span class="math display">\[
+<p><span class="math inline">\(\hat s_y=\sigma_y\)</span>，<span class="math inline">\(s_y\)</span>的测量值是<span class="math inline">\(\pm\frac\hbar2\)</span>，概率分别为 <span class="math display">\[
+|A_1|^2=\frac{13}{30},|A_2|^2=\frac{17}{30}.
+\]</span> 56、电子的总角动量<span class="math inline">\(\vec J\)</span>为轨道角动量<span class="math inline">\(\vec L\)</span>与自旋角动量<span class="math inline">\(\vec s\)</span>之和。由于轨道角动量算符与自旋角动量算符作用在不同的空间，所以互相对易，即有 <span class="math display">\[
 [\hat{L_j},\hat {s_k}]=0,j.k=1,2,3.
 \]</span> （1）求总角动量的对易关系<span class="math inline">\([\vec{J_j},\vec {J_k}]\)</span>。 <span class="math display">\[
 [\vec{J_j},\vec {J_k}]=[\vec{L_j}+\vec {s_j},\vec{L_k}+\vec {s_k}]=[\vec{L_j},\vec {L_k}]+[\vec{s_j},\vec {s_k}]=\mathrm i\hbar\varepsilon_{jkl}\hat{\vec L_l}+\mathrm i\hbar\varepsilon_{jkl}\hat{\vec s_l}=\mathrm i\hbar\epsilon_{jkl}\hat{J_l}.
@@ -1094,7 +1149,7 @@ A_2=\langle\downarrow(y)|\chi\rangle=\frac1{\sqrt{60}}(1,\mathrm i)(1+2\mathrm i
 W=-\vec\mu\cdot\vec B=-\mu_z(\frac{\mathrm d B}{\mathrm d z}z).
 \]</span> 银原子所受的作用力 <span class="math display">\[
 F=-\nabla W=\mu_z\frac{\mathrm d B}{\mathrm d z}.
-\]</span> 通过磁场区域的横向偏移 <span class="math display">\[
+\]</span> 通过磁场区域后的横向偏移 <span class="math display">\[
 x_1=\frac12at^2=\frac12\frac Fm(\frac av)^2=\frac{a^2\mu_z}{2mv^2}\frac{\mathrm d B}{\mathrm d z}.
 \]</span> 在磁场外的横向偏移 <span class="math display">\[
 x_2=v_2t_2=\frac{Fab}{mv^2}=\frac{\mu_zab\mathrm d B}{mv^2\mathrm dz}.
