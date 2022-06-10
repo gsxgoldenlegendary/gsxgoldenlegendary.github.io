@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/codh41-0.png">
 <meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/codh41-1.png">
 <meta property="article:published_time" content="2022-06-05T19:58:15.000Z">
-<meta property="article:modified_time" content="2022-06-10T03:18:00.502Z">
+<meta property="article:modified_time" content="2022-06-10T12:47:43.746Z">
 <meta property="article:author" content="GUO Songxiao">
 <meta property="article:tag" content="Computer Organization">
 <meta name="twitter:card" content="summary">
@@ -292,7 +292,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-10 03:18:00" itemprop="dateModified" datetime="2022-06-10T03:18:00Z">2022-06-10</time>
+      <time title="Modified: 2022-06-10 12:47:43" itemprop="dateModified" datetime="2022-06-10T12:47:43Z">2022-06-10</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -932,10 +932,44 @@ start\to0\to1\to2\to3\to4\to0\to1\to6\to7\to0.
 <li><p>垂直型微指令：微指令中设置微操作码字段，采用微操作码编译法，由微操作码规定微指令的功能。并行操作能力弱，效率低，灵活性较弱，而且执行一条指令的时间较长，并且解释指令的微程序，有微指令字较短而微程序长的特点，对于用户来说比较容易掌握。垂直型微指令的结构类似于一般机器指令的结构由微操作码译码确定微指令的功能。垂直型微指令字长较短实现一条机器指令的微程序要比水平型微指令编写的微程序长得多它是用较长的微程序结构来换取较短的微指令结构。</p></li>
 </ul>
 <h1 id="处理器设计-流水线">处理器设计-流水线</h1>
-<p>46、画出下边指令序列中的定向路径:</p>
+<p>46、假设某产品的生产需要4道工序，该产品生产车间以前只有1个工人，1套生产该产品的机器。该工人工作8小时，可以生产120件（即每4分钟生产1件）。要将该产品日产量提高到480件，如何能实现目标？</p>
+<p>两种解决方案：方案一：增加3名工人、3套设备。方案二：产品生产采用流水线方式，分为4道工序；增加3名工人，每人负责一道工序。</p>
+<p>两种方案的工作过程对比：两种方案中，单件产品的生产时间均不变。但在稳定情况下，方案一：每4分钟，4件产品同时进入流水线，4件成品同时离开流水线，需要增加3套设备。方案二：每分钟，1件产品进入流水线，1件成品离开流水线，不需要增加任何设备。</p>
+<p>方案二的主要特点：每件产品还是要经过4道工序处理，单件产品的加工时间并没有改变，但它将不同产品的不同步骤重叠在一起，使得每件产品的产出时间从表面上看是从原来的4分钟缩减到1分钟，提高了产品的产出率。</p>
+<p>47、RISC-V五级流水处理器为何没有PC写入信号？</p>
+<p>没有发生阻塞时，每一个周期PC都需要更新，故不需要写入信号。当发生阻塞时，可以使向PC写入的数据保持不变。</p>
+<p>48、访存相关和寄存器相关的例子？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sw a0,0(a1);</span><br><span class="line">lw a2,0(a1);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">add a0,a0,a1;</span><br><span class="line">add a0,a0,a1;</span><br></pre></td></tr></table></figure>
+<p>49、流水线何时会产生WAW和WAR相关？</p>
+<p>普通运算指令提前写回可能产生WAW相关。</p>
+<p>ALU指令访存且访存需要多个周期时可能产生WAR相关。</p>
+<p>50、如何让BEQ指令在第三和第五个周期内完成？</p>
+<p>在EX段增加一个专用比较器进行分支成功的判断即可将BEQ指令在第三个周期内完成。</p>
+<p>在第五个周期完成的话，需要考虑分支失败但是访存指令已经执行的情况，此时可以立刻执行一条恢复性质的指令。</p>
+<p>51、如何提前知道分支是否成功？</p>
+<p>根据该指令历史的分支情况进行预测。</p>
+<p>52、预测成功和预测失败应该采取什么策略？</p>
+<p>预测成功时，应该记录下这次的成功经验，便于下次预测；预测失败时，需要立即停止流水线中的指令，重新回到正确的分支处运行，并且记录下这次的失败经验，便于下次预测。</p>
+<p>53、如何使得IPC&gt;1?</p>
+<p>采用特别的技术，比如超标量、超流水、超长指令字，总之就是在一个时钟周期内流出多条指令。</p>
+<p>54、画出下边指令序列中的定向路径：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SUB x1,x5, x4 </span><br><span class="line">ADD x1, x1, x4 </span><br><span class="line">BEQ x1, x4, Offset</span><br><span class="line">LW x1, 45(x3)</span><br><span class="line">ADD x1, x1, x4</span><br><span class="line">SW x1, 5(x3)</span><br></pre></td></tr></table></figure>
-<p>41、假设部件延迟MEM=2ns， R-Type ALU=2ns，Reg=1ns，其他部件没有延时。某程序编译生成100条指令，其中LW 20%，SW20%，R-Type ALU 40%，BEQ 20%。采用MIPS/RISC-V的5级流水线，并假设LW互锁和分支延迟如下，其他无开销。有一半的LW执行后为R-Type ALU，因此需要互锁1个周期；分支延迟为1个周期，采用等待策略；求这段代码在单周期、多周期、流水线三种方式的性能对比。</p>
-<p>42、COD RISC-V 4.16 In this exercise, we examine how pipelining affects the clock cycle time of the processor. Problems in this exercise assume that individual stages of the datapath have the following latencies:</p>
+<blockquote>
+<p>SUB-&gt;ADD: EX/MEM.ALUOUT-&gt;ID/EX.A</p>
+<p>ADD-&gt;BEQ: EX/MEM.ALUOUT-&gt;ID/EX.A</p>
+<p>LW-&gt;ADD: MEM/WB.MDR-&gt;ID/EX.A</p>
+<p>ADD-&gt;SW: EX/MEM.ALUOUT-&gt;ID/EX.B</p>
+</blockquote>
+<p>55、假设部件延迟MEM=2ns， R-Type ALU=2ns，Reg=1ns，其他部件没有延时。某程序编译生成100条指令，其中LW 20%，SW20%，R-Type ALU 40%，BEQ 20%。采用MIPS/RISC-V的5级流水线，并假设LW互锁和分支延迟如下，其他无开销：有一半的LW执行后为R-Type ALU，因此需要互锁1个周期；分支延迟为1个周期，采用等待策略。求这段代码在单周期、多周期、流水线三种方式的性能对比。</p>
+<p>单周期： <span class="math display">\[
+(2+1+2+2+1)*100=800ns.
+\]</span> 多周期： <span class="math display">\[
+(20*5+20*4+20*4+20*3)*2=800ns.
+\]</span> 流水线： <span class="math display">\[
+10+99*2+(10+20)*2=268ns.
+\]</span> 单周期与多周期性能相同，流水线加速比为<span class="math inline">\(\frac{800}{268}=2.99\)</span>。</p>
+<p>56、COD RISC-V 4.16 In this exercise, we examine how pipelining affects the clock cycle time of the processor. Problems in this exercise assume that individual stages of the datapath have the following latencies:</p>
 <table>
 <thead>
 <tr class="header">
@@ -956,48 +990,78 @@ start\to0\to1\to2\to3\to4\to0\to1\to6\to7\to0.
 </tr>
 </tbody>
 </table>
-<p>Also, assume that instructions executed by the processor are broken down as follows:</p>
-<table>
-<thead>
-<tr class="header">
-<th>ALU/Logic</th>
-<th>Jump/Branch</th>
-<th>Load</th>
-<th>Store</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>45%</td>
-<td>20%</td>
-<td>20%</td>
-<td>15%</td>
-</tr>
-</tbody>
-</table>
+<p>Also, assume that instructions executed by the processor are broken down as follows: | ALU/Logic | Jump/Branch | Load | Store | | --------- | ----------- | ---- | ----- | | 45% | 20% | 20% | 15% |</p>
 <p>4.16.1 What is the clock cycle time in a pipelined and non-pipelined processor?</p>
+<p>Pipelined:<code>350ps</code>.</p>
+<p>Non-pipelined:<code>250+350+150+300+200=1250ps</code>.</p>
 <p>4.16.2 What is the total latency of an ld instruction in a pipelined and non-pipelined processor?</p>
+<p>Pipelined:<code>350*5=1750ps</code>.</p>
+<p>Non-pipelined:<code>1250ps</code>.</p>
 <p>4.16.3 If we can split one stage of the pipelined datapath into two new stages, each with half the latency of the original stage, which stage would you split and what is the new clock cycle time of the processor?</p>
+<p>ID, <code>300ps</code>.</p>
 <p>4.16.4 Assuming there are no stalls or hazards, what is the utilization of the data memory?</p>
+<p><code>20%+15%=35%</code>.</p>
 <p>4.16.5 Assuming there are no stalls or hazards, what is the utilization of the write-register port of the “Registers” unit?</p>
-<p>43、COD RISC-V 4.23 If we change load/store instructions to use a register (without an offset) as the address, these instructions no longer need to use the ALU. (See Exercise 4.15.) As a result, the MEM and EX stages can be overlapped and the pipeline has only four stages.</p>
+<p><code>45%+20%=65%</code></p>
+<p>57、COD RISC-V 4.23 If we change load/store instructions to use a register (without an offset) as the address, these instructions no longer need to use the ALU. (See Exercise 4.15.) As a result, the MEM and EX stages can be overlapped and the pipeline has only four stages.</p>
 <p>4.23.1 How will the reduction in pipeline depth affect the cycle time?</p>
+<p>Th e clock period won’t change because we aren’t making any changes to the slowest stage.</p>
 <p>4.23.2 How might this change improve the performance of the pipeline?</p>
+<p>Moving the MEM stage in parallel with the EX stage will eliminate the need for a cycle between loads and operations that use the result of the loads. This can potentially reduce the number of stalls in a program.</p>
 <p>4.23.3 How might this change degrade the performance of the pipeline?</p>
-<p>44、理想流水线加速比=？IPC=？</p>
-<p>45、为何单周期、多周期的控制信号不需要buffer，而流水线的控制信号需要buffer？</p>
-<p>46、哪些情形可能造成流水线stall，有哪些解决方案？</p>
-<p>47、影响流水线性能发挥的因素有哪些，可以采用哪些手段减小这些因素的影响？</p>
-<p>48、指令流水线中在哪个阶段会产生什么相关？</p>
-<p>49、为何MIPS只有I-type指令访存/RISC-V的I类S类？</p>
-<p>50、典型的流水线的多发射技术有哪些？</p>
-<p>51、影响流水线性能发挥的因素有哪些?</p>
-<p>52、为何RV只有Load/store指令访存？</p>
-<p>53、单周期、多周期的控制信号无须buffer，而流水线的控制信号需要buffer的原因？</p>
-<p>54、流水线控制器的实现方式。</p>
+<p>Removing the offset from <code>ld</code> and <code>sd</code> may increase the total number of instructions because some <code>ld</code> and <code>sd</code> instructions will need to be replaced with a <code>addi</code>/<code>ld</code> or <code>addi</code>/<code>sd</code> pair.</p>
+<p>58、单周期和流水线的关系？</p>
+<p>流水线是单周期的升华。具体表现在：单周期的各个主要部件在流水线中仍然得以使用，并且流水线需要采用与单周期相同的哈佛架构；当流水线的拆分合理时，可以达到同时各个部件的同时充分利用，这一点是单周期所做不到的。</p>
+<p>59、流水线中实现一个周期访存（取指，取数）的前提条件是什么？</p>
+<p>使用块式存储器存储，并且不使用二次存储器寻址方式。</p>
+<p>60、流水线执行第一条指令时，IF在取指，其他段在做什么？</p>
+<p>什么都没做。</p>
+<p>61、各流水段的控制信号何时生成与释放？</p>
+<p>控制信号都在上一个时钟周期执行完毕后生成，当前时钟周期执行后释放。</p>
+<p>62、寻址方式如何实现的？哪些寻址方式适合流水线？</p>
+<p>寻址方式通过硬件电路直接实现。</p>
+<p>隐含寻址、立即寻址、直接寻址、寄存器寻址、偏移寻址适合流水线。</p>
+<p>63、如果R-type指令也可访存，则应如何设计流水线？</p>
+<p>需要在MEM段后面或内部再加一个ALU。</p>
+<p>64、MIPS能否采用“取指、译码、执行”三段流水线？</p>
+<p>可以。单周期都可以，理论上更多段流水都可以。</p>
+<p>65、Stall原因与判断规则？如何实现stall？</p>
+<p>原因：当前段的指令不需要执行而被执行，需要立刻阻止。</p>
+<p>判断规则：分支失败或Load后接ALU指令。</p>
+<p>实现：给段间寄存器和PC加写使能。</p>
+<p>66、理想流水线加速比=？IPC=？</p>
+<p>加速比与流水级数相同，IPC=1。</p>
+<p>67、为何单周期、多周期的控制信号不需要buffer，而流水线的控制信号需要buffer？</p>
+<p>单周期与多周期同时执行的都是同一条指令，控制需要立刻发生；流水线同时执行多条指令，控制信号组要等到特定指令到达特定段再执行，若无buffer，立刻操作的是其他指令，与设计不符。</p>
+<p>68、哪些情形可能造成流水线stall，有哪些解决方案？</p>
+<p>分支失败或Load后接ALU指令，可以采取等待或者分支预测技术。</p>
+<p>69、影响流水线性能发挥的因素有哪些，可以采用哪些手段减小这些因素的影响？</p>
+<ul>
+<li>多个任务在同一时间周期内争用同一个流水段：合理设计。</li>
+<li>数据依赖：做好几种相关的处理。</li>
+<li>条件转移的影响 ：做好分支预测。</li>
+</ul>
+<p>70、指令流水线中在哪个阶段会产生什么相关？</p>
+<p>ID：结构相关。</p>
+<p>EX：控制相关、数据相关。</p>
+<p>MEM：数据相关。</p>
+<p>WB：数据相关。</p>
+<p>71、为何MIPS只有I-type指令访存/RISC-V的I类S类？</p>
+<p>MIPS把store指令设计为I-type，而RISC-V把store类指令设计为S-type。这样MIPS的store指令的第一个寄存器作为了源，与其他I-type指令不统一；RISC-Vstore指令相当于空开了第一个寄存器，使得第一个寄存器仅用于目的，对硬件更友好。</p>
+<p>72、典型的流水线的多发射技术有哪些？</p>
+<ul>
+<li>集中式与分布式</li>
+<li>数据捕捉与非数据捕捉</li>
+<li>压缩与非压缩</li>
+</ul>
+<p>73、为何RISC-V只有Load/store指令访存？</p>
+<p>因为RISC-V是简单指令集，没用那么多功能复杂的指令。</p>
+<p>74、流水线控制器的实现方式。</p>
+<p>全组合式实现。</p>
 <h1 id="深度与浮点流水线举例-mipsr4000">深度与浮点流水线举例-MIPSR4000</h1>
+<p>“The more we study, the more we discover our ignorance."by Percy Bysshe Shelley.</p>
 <h1 id="中断与异常">中断与异常</h1>
-<p>47、COD RISC-V 4.22 [5] &lt;§4.5&gt; Consider the fragment of RISC-V assembly below:</p>
+<p>75、COD RISC-V 4.22 Consider the fragment of RISC-V assembly below:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sd x29, 12(x16)</span><br><span class="line">ld x29, 8(x16)</span><br><span class="line">sub x17, x15, x14</span><br><span class="line">beqz x17, label</span><br><span class="line">add x15, x11, x14</span><br><span class="line">sub x15, x30, x14</span><br></pre></td></tr></table></figure>
 <p>Suppose we modify the pipeline so that it has only one memory (that handles both instructions and data). In this case, there will be a structural hazard every time a program needs to fetch an instruction during the same cycle in which another instruction accesses data.</p>
 <p>4.22.1 Draw a pipeline diagram to show where the code above will stall.</p>
@@ -1020,7 +1084,7 @@ start\to0\to1\to2\to3\to4\to0\to1\to6\to7\to0.
 <p>56、MIPS异常返回指令eret如何实现？</p>
 <p>57、异常与中断同时发生，优先级？</p>
 <p>58、（分支）延迟槽中的指令发生异常，EPC = ？</p>
-<p>59、比较中断、异常、过程调用✓ 请求时间、响应时间，断点与现场，返回点，同步异步，中断周期、系统状态？</p>
+<p>59、比较中断、异常、过程调用，请求时间、响应时间，断点与现场，返回点，同步异步，中断周期、系统状态？</p>
 <p>60、假设如下指令序列采用多周期执行方式和流水线非精确方式，在第几个周期检测出异常？（LW互锁=1）80000184 SW $27, 1004指令何 时取指？</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">LOOP: </span><br><span class="line">LW $1, 40($10) ；取$1</span><br><span class="line">ADD $2,$3,$1 ；加法</span><br><span class="line">SW $2, 40($10) ；存</span><br><span class="line">SUB $9,$9,$11；迭代器</span><br><span class="line">XXX $5,$7；异常-未定义指令（ID段检测）</span><br><span class="line">BNE LOOP,$9,$0；分支指令    </span><br></pre></td></tr></table></figure>
 <h1 id="存储系统">存储系统</h1>
