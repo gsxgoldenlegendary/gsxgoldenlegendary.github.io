@@ -33,14 +33,18 @@
 <meta property="og:image" content="https://pic4.zhimg.com/v2-d6bfa8042150d2becd581266c907be17_r.jpg">
 <meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/codh34.png">
 <meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/codh35-0.png">
-<meta property="og:image" content="https://gsxgoldenlegendary/github.io/images/codh35-1.png">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/codh35-1.png">
 <meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/codh35-0.png">
 <meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/codh41-0.png">
 <meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/codh41-1.png">
 <meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/codh83-0.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200702152943506.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Njc2NjcwMw==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/codh100-1.png">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/codh100-0.png">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/codh101-0.png">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/codh101-1.png">
 <meta property="article:published_time" content="2022-06-05T19:58:15.000Z">
-<meta property="article:modified_time" content="2022-06-12T02:17:23.879Z">
+<meta property="article:modified_time" content="2022-06-12T03:19:40.373Z">
 <meta property="article:author" content="GUO Songxiao">
 <meta property="article:tag" content="Computer Organization">
 <meta name="twitter:card" content="summary">
@@ -294,7 +298,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-12 02:17:23" itemprop="dateModified" datetime="2022-06-12T02:17:23Z">2022-06-12</time>
+      <time title="Modified: 2022-06-12 03:19:40" itemprop="dateModified" datetime="2022-06-12T03:19:40Z">2022-06-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -730,7 +734,7 @@ start\to0\to1\to2\to3\to4\to0\to1\to6\to7\to0.
 <img src="https://gsxgoldenlegendary.github.io/images/codh35-0.png" alt="单周期RISC-V处理器数据通路" /><figcaption>单周期RISC-V处理器数据通路</figcaption>
 </figure>
 <figure>
-<img src="https://gsxgoldenlegendary/github.io/images/codh35-1.png" alt="多周期RISC-V处理器数据通路" /><figcaption>多周期RISC-V处理器数据通路</figcaption>
+<img src="https://gsxgoldenlegendary.github.io/images/codh35-1.png" alt="多周期RISC-V处理器数据通路" /><figcaption>多周期RISC-V处理器数据通路</figcaption>
 </figure>
 <p>一、数据通路的区别</p>
 <ol type="1">
@@ -992,7 +996,25 @@ start\to0\to1\to2\to3\to4\to0\to1\to6\to7\to0.
 </tr>
 </tbody>
 </table>
-<p>Also, assume that instructions executed by the processor are broken down as follows: | ALU/Logic | Jump/Branch | Load | Store | | --------- | ----------- | ---- | ----- | | 45% | 20% | 20% | 15% |</p>
+<p>Also, assume that instructions executed by the processor are broken down as follows:</p>
+<table>
+<thead>
+<tr class="header">
+<th>ALU/Logic</th>
+<th>Jump/Branch</th>
+<th>Load</th>
+<th>Store</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>45%</td>
+<td>20%</td>
+<td>20%</td>
+<td>15%</td>
+</tr>
+</tbody>
+</table>
 <p>4.16.1 What is the clock cycle time in a pipelined and non-pipelined processor?</p>
 <p>Pipelined:<code>350ps</code>.</p>
 <p>Non-pipelined:<code>250+350+150+300+200=1250ps</code>.</p>
@@ -1100,7 +1122,12 @@ start\to0\to1\to2\to3\to4\to0\to1\to6\to7\to0.
 <p>4.22.1 Draw a pipeline diagram to show where the code above will stall.</p>
 <p>Stalls are marked with **:</p>
 <blockquote>
-<p><code>sd x29, 12(x16)       IF ID EX ME WB</code> <code>ld x29, 8(x16)           IF ID EX ME WB</code> <code>sub x17, x15, x14           IF ID EX ME WB</code> <code>bez x17, label                     ** ** IF ID EX ME WB</code> <code>add x15, x11, x14                        IF ID EX ME WB</code> <code>sub x15,x30,x14                             IF ID EX ME WB</code></p>
+<p><code>sd x29, 12(x16)       IF ID EX ME WB</code></p>
+<p><code>ld x29, 8(x16)           IF ID EX ME WB</code></p>
+<p><code>sub x17, x15, x14           IF ID EX ME WB</code></p>
+<p><code>bez x17, label                     ** ** IF ID EX ME WB</code></p>
+<p><code>add x15, x11, x14                        IF ID EX ME WB</code></p>
+<p><code>sub x15,x30,x14                             IF ID EX ME WB</code></p>
 </blockquote>
 <p>4.22.2 In general, is it possible to reduce the number of stalls/ NOP s resulting from this structural hazard by reordering code?</p>
 <p>Reordering code won’t help. Every instruction must be fetched; thus, every data access causes a stall. Reordering code will just change the pair of instructions that are in conflict.</p>
@@ -1115,7 +1142,17 @@ start\to0\to1\to2\to3\to4\to0\to1\to6\to7\to0.
 <p>4.25.2 Mark pipeline stages that do not perform useful work. How often while the pipeline is full do we have a cycle in which all five pipeline stages are doing useful work? (Begin with the cycle during which the subi is in the IF stage. End with the cycle during which the bnez is in the IF stage.)</p>
 <p>… indicates a stall. ! indicates a stage that does not do useful work.</p>
 <blockquote>
-<p><code>ld x10, 0(x13)        IF ID EX ME | WB</code> <code>ld x11, 8(x13)           IF ID EX | ME WB</code> <code>add x12, x10, x11       IF ID | .. EX ME! WB</code> <code>subi x13, x13, 16          IF | .. ID EX ME! WB</code> <code>bnez x12, LOOP                 | .. IF ID EX ME! WB</code> <code>ld x10, 0(x13)                            IF ID EX ME WB</code> <code>ld x11, 8(x13)                               IF ID EX ME WB</code> <code>add x12, x10, x11                           IF ID .. EX | ME! WB</code> <code>subi x13, x13, 16                              IF .. ID | EX ME WB</code> <code>bnez x12, LOOP                                           IF | ID EX ME! WB!</code> <code>Completely busy               |  N  N  N  N  N  N  N  N |</code></p>
+<p><code>ld x10, 0(x13)        IF ID EX ME | WB</code></p>
+<p><code>ld x11, 8(x13)           IF ID EX | ME WB</code></p>
+<p><code>add x12, x10, x11       IF ID | .. EX ME! WB</code></p>
+<p><code>subi x13, x13, 16          IF | .. ID EX ME! WB</code></p>
+<p><code>bnez x12, LOOP                 | .. IF ID EX ME! WB</code></p>
+<p><code>ld x10, 0(x13)                            IF ID EX ME WB</code></p>
+<p><code>ld x11, 8(x13)                               IF ID EX ME WB</code></p>
+<p><code>add x12, x10, x11                           IF ID .. EX | ME! WB</code></p>
+<p><code>subi x13, x13, 16                              IF .. ID | EX ME WB</code></p>
+<p><code>bnez x12, LOOP                                           IF | ID EX ME! WB!</code></p>
+<p><code>Completely busy               |  N  N  N  N  N  N  N  N |</code></p>
 </blockquote>
 <p>88、唐朔飞 8.23 在中断处理过程中，“保护现场”需要完成哪些任务？如何实现？</p>
 <p>中断处理过程中“保护现场”要完成保存程序的断点和通用寄存器及状态寄存器的内容，具体来说，可在中断服务程序的起始部分安排若干条指令，将寄存器的内容存到存储器中保存或用进栈指令将各存储器的内容推入堆栈保存，即进程序中断时间的“现场”保护起来。</p>
@@ -1155,9 +1192,24 @@ start\to0\to1\to2\to3\to4\to0\to1\to6\to7\to0.
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">异常指令： </span><br><span class="line">80000180 SW $26,1000（$0）</span><br><span class="line">80000184 SW $27, 1004（$0）</span><br></pre></td></tr></table></figure>
 <p>多周期：5+4+4+4+2=19；19+3+4=26。</p>
 <p>流水线：1+1+1+1+1+1+1=7；7+3+2=12.</p>
-<p>"study the past if you would define the future."by Confucius.</p>
+<p>"Study the past if you would define the future." by Confucius.</p>
 <h1 id="存储系统">存储系统</h1>
-<p>100、 在一个具有4个存储体的低位多体交叉存储器中，如果处理器的访存地址为以下十进制值。求该存储器比单体存储器的平均访问速率提高多少（忽略初启时的延迟）？</p>
+<p>100、设CPU有16根地址线、8根数据线，并用<code>MREQ</code>作为访存控制信号（低电平有效），用WR作为读/写控制信号（高电平为读，低电平为写）。现有下列存储芯片：1K×4位RAM、4K×8位RAM、8K×8位RAM、2K×8位ROM、4K×8位ROM、8K×8位ROM及74138译码器和各种门电路。画出CPU与存储器的连接图，要求如下：<br />
+1）主存地址空间分配为：6000H ~ 67FFH为系统程序区；6800H ~ 6BFFH为用户程序区； 2）合理选用上述存储芯片，说明各选几片； 3）详细画出存储芯片的片选逻辑图。</p>
+<p>第一步，确定所要求的主存空间各区域容量。</p>
+<p>第二步，根据容量和用途，选片：系统区：1片2K×8位的ROM；用户区：2片1K×4位的RAM。</p>
+<p>第三步，分配CPU地址线。CPU的低11位地址线<span class="math inline">\(A_{10}\textasciitilde A_0\)</span> 与2K × 8位ROM的地址线相连；低10位地址线<span class="math inline">\(A_9\textasciitilde A_0\)</span> 与2片1K × 4位RAM的地址线相连。剩下的高位地址线与访存控制信号一起产生存储芯片的片选信号。</p>
+<p><img src="https://gsxgoldenlegendary.github.io/images/codh100-1.png" /></p>
+<p>第四步，片选信号的形成。根据74138译码逻辑关系，必须保证控制端<span class="math inline">\(G_1\)</span>为高电平，<span class="math inline">\(G_{2A}\)</span> 和<span class="math inline">\(G_{2B}\)</span> 为低电平，译码器才能正常工作。<span class="math inline">\(A_{15}\)</span>始终为低、<span class="math inline">\(A_{14}\)</span>始终为高，分别接<span class="math inline">\(G_{2A}\)</span>和<span class="math inline">\(G_1\)</span> ；而<code>MREQ</code>低电平有效，接<span class="math inline">\(G_{2B}\)</span>剩下<span class="math inline">\(A_{13}\)</span> 、<span class="math inline">\(A_{12}\)</span> 、<span class="math inline">\(A_{11}\)</span> ，分别接译码器的输入端C、B、A译码结果为4（<span class="math inline">\(Y_4\)</span>有效），选中ROM；译码结果为5（<span class="math inline">\(Y_5\)</span>有效），与<span class="math inline">\(A_{10}\)</span> 一起通过与门，都为低电平有效时，选中2片RAM。</p>
+<p><img src="https://gsxgoldenlegendary.github.io/images/codh100-0.png" /></p>
+<p>101、设CPU有16根地址线、8根数据线，并用MREQ作为访存控制信号（低电平有效），用WR作为读/写控制信号（高电平为读，低电平为写）。现有下列存储芯片：1K×4位RAM、4K×8位RAM、8K×8位RAM、2K×8位ROM、4K×8位ROM、8K×8位ROM及74138译码器和各种门电路。画出CPU与存储器的连接图。要求主存的地址空间：最小8K地址为系统程序区，与其相邻的16K地址为用户程序区，最大的4K地址空间为系统程序工作区。详细画出存储芯片的片选逻辑并指出存储芯片的种类及片数。</p>
+<p>第一步，根据题目的地址范围写出对应的二进制地址码。</p>
+<p>第二步，根据容量及作用，选片。系统程序区：1片8K×8位ROM；用户程序区：2片8K×8位RAM；系统程序工作区：1片4K×8位RAM。</p>
+<p>第三步，分配地址线。<span class="math inline">\(A_{12}\textasciitilde A_0\)</span>，与1片8K×8位ROM和2片8K×8位RAM的地址线相连；<span class="math inline">\(A_{11}\textasciitilde A_0\)</span> ，与1片4K×8位RAM的地址线相连。</p>
+<p><img src="https://gsxgoldenlegendary.github.io/images/codh101-0.png" /></p>
+<p>第四步，形成片选信号。<span class="math inline">\(G_1\)</span>接+5V，<span class="math inline">\(G_{2A}\)</span>和<span class="math inline">\(G_{2B}\)</span>接<code>MREQ</code>，保证译码器正常工作；<span class="math inline">\(A_{15}A_{14}A_{ 13}\)</span>分别接译码输入端C、B、A，其译码输出<span class="math inline">\(Y_0\)</span> 、<span class="math inline">\(Y_1\)</span> 、<span class="math inline">\(Y_2\)</span> 、<span class="math inline">\(Y _7\)</span> 分别作为三类存储芯片的片选信号最大4K地址的片选，需要结合<span class="math inline">\(Y_7\)</span> 和<span class="math inline">\(A_{12}\)</span>。</p>
+<p><img src="https://gsxgoldenlegendary.github.io/images/codh101-1.png" /></p>
+<p>102、 在一个具有4个存储体的低位多体交叉存储器中，如果处理器的访存地址为以下十进制值。求该存储器比单体存储器的平均访问速率提高多少（忽略初启时的延迟）？</p>
 <ol type="1">
 <li><p>0001、0002、0003、…、0100</p></li>
 <li><p>0002、0004、0006、…、0200</p></li>
@@ -1169,6 +1221,7 @@ start\to0\to1\to2\to3\to4\to0\to1\to6\to7\to0.
 <p>65、<span class="math inline">\((n+k, n)\)</span>CRC码码距是多少？</p>
 <p>66、比较海明码与CRC码的容错能力。</p>
 <p>67、有效信息为1010,生成多项式G(x)=1011，将其编成CRC码。</p>
+<p>68、调研新型存储器的典型特征，如原理、密度、易失性、速度、容量等。</p>
 <p>68、假设CPU执行某段程序时，共访问Cache命中2000次，访问主存50次。已知Cache存取周期为50ns，主存存取周期为200ns。求Cache-主存系统的命中率、效率和平均访问时间。</p>
 <p>69、假设主存只允许存放a、b、c三个页面，逻辑上构成a进c出的FIFO队列。某次操作中进程访存的序列是<code>0,1,2,4,2,3,0,2,1,3,2</code>（虚页号）。若分别采用FIFO算法、FIFO+LRU算法，请用列表法分别求两种替换策略情况下主存的命中率。</p>
 <p>70、COD RISC-V 5.5 For a direct-mapped cache design with a 64-bit address, the following bits of the address are used to access the cache.</p>
@@ -1240,6 +1293,7 @@ start\to0\to1\to2\to3\to4\to0\to1\to6\to7\to0.
 <p>5.11.6 Trace the behavior of the cache from Exercise 5.11.5. Assume an LRU replacement policy. For each reference, identify the binary word address, the tag, the index, the offset, whether the reference is a hit or a miss, and the contents of the cache after each reference has been handled.</p>
 <p>5.11.7 Repeat Exercise 5.11.6 using MRU (most recently used) replacement.</p>
 <p>5.11.8 Repeat Exercise 5.11.6 using the optimal replacement policy (i.e., the one that gives the lowest miss rate).</p>
+<p>"Study the past if you would define the future." by Confucius.</p>
 <h1 id="总线系统">总线系统</h1>
 <p>72、唐朔飞 3.4 为什么要设置总线判优控制？常见的集中式总线控制有几种，各有何特点，哪种方式响应时间最快，哪种方式对电路故障最敏感？</p>
 <p>73、唐朔飞 3.8 为什么说半同步通信同时保留了同步通信和异步通信的特点？</p>
@@ -1247,6 +1301,7 @@ start\to0\to1\to2\to3\to4\to0\to1\to6\to7\to0.
 <p>75、唐朔飞 3.14 设总线的时钟频率为8MHz，一个总线周期等于一个时钟周期。如果一个总线周期中并行传送16位数据，试问总线的带宽是多少？</p>
 <p>76、唐朔飞 3.15 在一个32位的总线系统中，总线的时钟频率为66MHz。假设总线最短传输周期为4个时钟周期，试计算总线的最大数据传输率。若想提高数据传输率，可采取什么措施？</p>
 <p>77、唐朔飞 3.16 在异步串行传送系统中，字符格式为：1个起始位、8个数据位、1个校验位、2个终止位。若要求每秒传送120个字符，试求传送的波特率和比特率。</p>
+<p>"Study the past if you would define the future." by Confucius.</p>
 <h1 id="io系统">IO系统</h1>
 <p>78、磁盘存储器有6个盘片，最外两侧盘面不能记录，每面有204条磁道，每条磁道有12个扇段，每个扇段512B，磁盘机以7200rpm的速度旋转，平均寻道时间为8ms。</p>
 <p>1）计算该磁盘存储器的存储容量。</p>
@@ -1260,8 +1315,10 @@ start\to0\to1\to2\to3\to4\to0\to1\to6\to7\to0.
 <p>（2）共有多少柱面？</p>
 <p>（3）盘组总存储容量是多少？</p>
 <p>84、唐朔飞 4.44 试从存储容量、存取速度、使用寿命和应用场合方面比较磁盘、磁带和光盘存储器。</p>
+<p>"Study the past if you would define the future." by Confucius.</p>
 <h1 id="指令的调度与优化">指令的调度与优化</h1>
 <p>85、结合Arch2030报告，对神经网络六层循环不同层的循环展开分别代表的含义，采用上述技术应该如何优化（软件+硬件）？</p>
+<p>"Study the past if you would define the future." by Confucius.</p>
 <h1 id="智能计算系统">智能计算系统</h1>
 <h1 id="深度学习处理器原理">深度学习处理器原理</h1>
 
