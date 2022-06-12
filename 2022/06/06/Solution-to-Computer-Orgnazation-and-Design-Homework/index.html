@@ -37,8 +37,10 @@
 <meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/codh35-0.png">
 <meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/codh41-0.png">
 <meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/codh41-1.png">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/codh83-0.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200702152943506.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Njc2NjcwMw==,size_16,color_FFFFFF,t_70">
 <meta property="article:published_time" content="2022-06-05T19:58:15.000Z">
-<meta property="article:modified_time" content="2022-06-10T12:47:43.746Z">
+<meta property="article:modified_time" content="2022-06-12T02:17:23.879Z">
 <meta property="article:author" content="GUO Songxiao">
 <meta property="article:tag" content="Computer Organization">
 <meta name="twitter:card" content="summary">
@@ -292,7 +294,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-10 12:47:43" itemprop="dateModified" datetime="2022-06-10T12:47:43Z">2022-06-10</time>
+      <time title="Modified: 2022-06-12 02:17:23" itemprop="dateModified" datetime="2022-06-12T02:17:23Z">2022-06-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1061,34 +1063,101 @@ start\to0\to1\to2\to3\to4\to0\to1\to6\to7\to0.
 <h1 id="深度与浮点流水线举例-mipsr4000">深度与浮点流水线举例-MIPSR4000</h1>
 <p>“The more we study, the more we discover our ignorance."by Percy Bysshe Shelley.</p>
 <h1 id="中断与异常">中断与异常</h1>
-<p>75、COD RISC-V 4.22 Consider the fragment of RISC-V assembly below:</p>
+<p>75、各中断源如何向 CPU 提出请求？</p>
+<p>使用中断请求标记INTR。一个请求源对应一个INTR中断请求标记触发器，多个INTR组成中断请求标记寄存器。</p>
+<p>76、各中断源同时提出请求怎么办？</p>
+<p>软件实现（程序查询）；硬件实现（排队器）。</p>
+<p>77、CPU什么条件、什么时间、以什么方式响应中断？</p>
+<ol type="1">
+<li>响应中断的条件：CPU允许中断触发器 EINT = 1。</li>
+<li>响应中断的时间：指令执行周期结束时刻由CPU 发查询信号。</li>
+<li>响应中断的方式：中断周期完成的主要操作，通过中断隐指令（保护程序断点、寻找服务程序入口地址、硬件关中断）完成。</li>
+</ol>
+<p>78、如何恢复现场，如何返回？</p>
+<p>由中断服务程序ISR完成。</p>
+<p>79、如何寻找入口地址？</p>
+<p>硬件向量法、软件查询法。</p>
+<p>80、处理中断的过程中又出现新的中断怎么办？</p>
+<ol type="1">
+<li>提前设置开中断。</li>
+<li>优先级别高的中断源有权中断优先级别低的中断源。</li>
+</ol>
+<p>81、多重中断的优先级如何设定？</p>
+<p>屏蔽触发器的作用——动态优先级设定。</p>
+<p>82、为何不改变响应优先级？</p>
+<p>响应优先级是根据硬件排队器确定的，采用屏蔽触发器只能改变处理优先级。</p>
+<p>83、结合屏蔽字设置的响应和处理流程，分析红色圈中的“锯齿”是从何来的？</p>
+<p><img src="https://gsxgoldenlegendary.github.io/images/codh83-0.png" /></p>
+<p>响应优先级与处理优先级不同。A结束以后，先响应B，再响应C，最后响应D，但是需要先处理D。锯齿段是对响应操作的执行。</p>
+<p>84、MIPS算术溢出应该在哪个周期？</p>
+<p>EX。</p>
+<p>85、根据RISC-V与MIPS的多周期数据通路区别考虑异常处理方式？</p>
+<p>RISC-V：保存导致异常（或被中断）的指令的PC值、保存问题的表征、跳转到处理程序；</p>
+<p>MIPS：断点保存、异常识别、跳转异常服务程序（PC）。</p>
+<p>86、COD RISC-V 4.22 Consider the fragment of RISC-V assembly below:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sd x29, 12(x16)</span><br><span class="line">ld x29, 8(x16)</span><br><span class="line">sub x17, x15, x14</span><br><span class="line">beqz x17, label</span><br><span class="line">add x15, x11, x14</span><br><span class="line">sub x15, x30, x14</span><br></pre></td></tr></table></figure>
 <p>Suppose we modify the pipeline so that it has only one memory (that handles both instructions and data). In this case, there will be a structural hazard every time a program needs to fetch an instruction during the same cycle in which another instruction accesses data.</p>
 <p>4.22.1 Draw a pipeline diagram to show where the code above will stall.</p>
+<p>Stalls are marked with **:</p>
+<blockquote>
+<p><code>sd x29, 12(x16)       IF ID EX ME WB</code> <code>ld x29, 8(x16)           IF ID EX ME WB</code> <code>sub x17, x15, x14           IF ID EX ME WB</code> <code>bez x17, label                     ** ** IF ID EX ME WB</code> <code>add x15, x11, x14                        IF ID EX ME WB</code> <code>sub x15,x30,x14                             IF ID EX ME WB</code></p>
+</blockquote>
 <p>4.22.2 In general, is it possible to reduce the number of stalls/ NOP s resulting from this structural hazard by reordering code?</p>
+<p>Reordering code won’t help. Every instruction must be fetched; thus, every data access causes a stall. Reordering code will just change the pair of instructions that are in conflict.</p>
 <p>4.22.3 Must this structural hazard be handled in hardware? We have seen that data hazards can be eliminated by adding NOP s to the code. Can you do the same with this structural hazard? If so, explain how. If not, explain why not.</p>
+<p>You can’t solve this structural hazard with NOPs, because even the NOPs must be fetched from instruction memory.</p>
 <p>4.22.4 Approximately how many stalls would you expect this structural hazard to generate in a typical program? (Use the instruction mix from Exercise 4.8.)</p>
-<p>​</p>
-<p>48、 COD RISC-V 4.25 Consider the following loop.</p>
+<p><code>25%+11%=36%</code>. Every data access will cause a stall.</p>
+<p>87、 COD RISC-V 4.25 Consider the following loop.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LOOP: </span><br><span class="line">ld x10, 0(x13)</span><br><span class="line">ld x11, 8(x13)</span><br><span class="line">add x12, x10, x11</span><br><span class="line">subi x13, x13, 16</span><br><span class="line">bnez x12, LOOP</span><br></pre></td></tr></table></figure>
 <p>Assume that perfect branch prediction is used (no stalls due to control hazards), that there are no delay slots, that the pipeline has full forwarding support, and that branches are resolved in the EX (as opposed to the ID) stage.</p>
 <p>4.25.1 Show a pipeline execution diagram for the first two iterations of this loop.</p>
 <p>4.25.2 Mark pipeline stages that do not perform useful work. How often while the pipeline is full do we have a cycle in which all five pipeline stages are doing useful work? (Begin with the cycle during which the subi is in the IF stage. End with the cycle during which the bnez is in the IF stage.)</p>
-<p>49、唐朔飞 8.23 在中断处理过程中，“保护现场”需要完成哪些任务？如何实现？</p>
-<p>50、唐朔飞 8.24 现有 A、B、C、D 4个中断源，其优先级由高到底按<span class="math inline">\(A\to B\to C\to D\)</span>顺序排列。若中断服务程序的执行时间为<span class="math inline">\(20\mu s\)</span>，根据下图所示的中断源请求中断的时刻，画出CPU执行程序的轨迹。</p>
-<p>51、中断周期要完成哪些微操作？</p>
-<p>52、多周期状态机中，出现溢出的指令是否将错误结果写回？</p>
-<p>53、多周期中状态机中，如何响应中断？</p>
-<p>54、指令顺序执行，中断“精确”；指令流水执行，中断“精确”或“非精确”可选精确中断，为何提交点是M段？</p>
-<p>55、EPC和cause应该在哪个段？异常检测电路？</p>
-<p>56、MIPS异常返回指令eret如何实现？</p>
-<p>57、异常与中断同时发生，优先级？</p>
-<p>58、（分支）延迟槽中的指令发生异常，EPC = ？</p>
-<p>59、比较中断、异常、过程调用，请求时间、响应时间，断点与现场，返回点，同步异步，中断周期、系统状态？</p>
-<p>60、假设如下指令序列采用多周期执行方式和流水线非精确方式，在第几个周期检测出异常？（LW互锁=1）80000184 SW $27, 1004指令何 时取指？</p>
+<p>… indicates a stall. ! indicates a stage that does not do useful work.</p>
+<blockquote>
+<p><code>ld x10, 0(x13)        IF ID EX ME | WB</code> <code>ld x11, 8(x13)           IF ID EX | ME WB</code> <code>add x12, x10, x11       IF ID | .. EX ME! WB</code> <code>subi x13, x13, 16          IF | .. ID EX ME! WB</code> <code>bnez x12, LOOP                 | .. IF ID EX ME! WB</code> <code>ld x10, 0(x13)                            IF ID EX ME WB</code> <code>ld x11, 8(x13)                               IF ID EX ME WB</code> <code>add x12, x10, x11                           IF ID .. EX | ME! WB</code> <code>subi x13, x13, 16                              IF .. ID | EX ME WB</code> <code>bnez x12, LOOP                                           IF | ID EX ME! WB!</code> <code>Completely busy               |  N  N  N  N  N  N  N  N |</code></p>
+</blockquote>
+<p>88、唐朔飞 8.23 在中断处理过程中，“保护现场”需要完成哪些任务？如何实现？</p>
+<p>中断处理过程中“保护现场”要完成保存程序的断点和通用寄存器及状态寄存器的内容，具体来说，可在中断服务程序的起始部分安排若干条指令，将寄存器的内容存到存储器中保存或用进栈指令将各存储器的内容推入堆栈保存，即进程序中断时间的“现场”保护起来。</p>
+<p>89、唐朔飞 8.24 现有 A、B、C、D 4个中断源，其优先级由高到底按<span class="math inline">\(A\to B\to C\to D\)</span>顺序排列。若中断服务程序的执行时间为<span class="math inline">\(20\mu s\)</span>，根据下图所示的中断源请求中断的时刻，画出CPU执行程序的轨迹。</p>
+<p><img src="https://img-blog.csdnimg.cn/20200702152943506.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Njc2NjcwMw==,size_16,color_FFFFFF,t_70" /></p>
+<p>90、中断周期要完成哪些微操作？</p>
+<p>请求中断→响应中断→关闭中断→保留断点→中断源识别→保护现场→中断服务子程序→恢复现场→中断返回。</p>
+<p>91、多周期状态机中，出现溢出的指令是否将错误结果写回？</p>
+<p>否。</p>
+<p>92、多周期中状态机中，如何响应中断？</p>
+<p>使用独立的状态进行响应。</p>
+<p>93、指令顺序执行，中断“精确”；指令流水执行，中断“精确”或“非精确”可选精确中断，为何提交点是M段？</p>
+<p>前一条指令已执行完成，后续指令被flush，保证没有指令完成写回。</p>
+<p>94、EPC和cause应该在哪个段？异常检测电路？</p>
+<p>都在WB段。</p>
+<p>95、MIPS异常返回指令eret如何实现？</p>
+<p>eret指令会原子性地把中断响应打开（置SR（EXL）），并把状态级由kernel转到user级，并返回原地址继续执行。</p>
+<p>96、异常与中断同时发生，优先级？</p>
+<p>异常优先级高。</p>
+<p>97、（分支）延迟槽中的指令发生异常，EPC = ？</p>
+<p>应该保存为分支正确后的地址。</p>
+<p>98、比较中断、异常、过程调用，请求时间、响应时间，断点与现场，返回点，同步异步，中断周期、系统状态？</p>
+<p>中断：中断是指计算机运行过程中，出现某些意外情况需主机干预时，机器能自动停止正在运行的程序并转入处理新情况的程序，处理完毕后又返回原被暂停的程序继续运行。</p>
+<p>异常：异常指的是在程序运行过程中发生的异常事件，通常是由外部问题（如硬件错误、输入错误）所导致的。在Java等面向对象的编程语言中异常属于对象。</p>
+<p>过程调用：一个过程调用包括将数据（以参数和返回值的形式）与控制从代码的一部分传递到另一部分。除此之外，在进入时为过程的局部变量分配空间，在退出的时候释放这些空间。数据传递、局部变量的分配和释放通过操纵程序栈来实现。栈作为一种能够实现先进后出、后进先出的数据结构，非常适合用于实现函数调用以及返回的机制。</p>
+<p>请求时间：客户发出请求到得到响应的整个过程的时间响应时间。</p>
+<p>响应时间：系统对请求作出响应的时间。</p>
+<p>断点：中断或异常发生的位置。</p>
+<p>现场：中断或异常发生时处理器中各个寄存器的值。</p>
+<p>返回点：中断或异常处理程序运行后返回到原程序的位置。</p>
+<p>同步：调用一旦开始，调用者必须等到方法调用返回后，才能继续后续的行为。</p>
+<p>异步：调用更像一个消息传递，一旦开始，方法调用就会立即返回，调用者就可以继续后续的操作。而，异步方法通常会在另外一个线程中，“真实”地执行着。整个过程，不会阻碍调用者的工作。</p>
+<p>中断周期：当CPU采用中断方式实现主机与I/O交换信息时，CPU在每条指令执行阶段结束前， 都要发中断查询信号，以检测是否有某个I/O提出中断请求。如果有请求，CPU则要进入中断响应阶段，又称中断周期。在这阶段， CPU必须将程序断点保存到存储器中。</p>
+<p>系统状态：操作系统的管理程序运行时的状态，它具有较高的特权级别。</p>
+<p>99、假设如下指令序列采用多周期执行方式和流水线非精确方式，在第几个周期检测出异常？（LW互锁=1）<code>80000184 SW $27, 1004</code>指令何时取指？</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">LOOP: </span><br><span class="line">LW $1, 40($10) ；取$1</span><br><span class="line">ADD $2,$3,$1 ；加法</span><br><span class="line">SW $2, 40($10) ；存</span><br><span class="line">SUB $9,$9,$11；迭代器</span><br><span class="line">XXX $5,$7；异常-未定义指令（ID段检测）</span><br><span class="line">BNE LOOP,$9,$0；分支指令    </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">异常指令： </span><br><span class="line">80000180 SW $26,1000（$0）</span><br><span class="line">80000184 SW $27, 1004（$0）</span><br></pre></td></tr></table></figure>
+<p>多周期：5+4+4+4+2=19；19+3+4=26。</p>
+<p>流水线：1+1+1+1+1+1+1=7；7+3+2=12.</p>
+<p>"study the past if you would define the future."by Confucius.</p>
 <h1 id="存储系统">存储系统</h1>
-<p>61、 在一个具有4个存储体的低位多体交叉存储器中，如果处理器的访存地址为以下十进制值。求该存储器比单体存储器的平均访问速率提高多少（忽略初启时的延迟）？</p>
+<p>100、 在一个具有4个存储体的低位多体交叉存储器中，如果处理器的访存地址为以下十进制值。求该存储器比单体存储器的平均访问速率提高多少（忽略初启时的延迟）？</p>
 <ol type="1">
 <li><p>0001、0002、0003、…、0100</p></li>
 <li><p>0002、0004、0006、…、0200</p></li>
