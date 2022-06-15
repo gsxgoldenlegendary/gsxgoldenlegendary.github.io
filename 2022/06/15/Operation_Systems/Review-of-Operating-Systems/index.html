@@ -29,7 +29,7 @@
 <meta property="og:description" content="Review Questions of Operating Systems Internals and Design Principles, Ninth Edition.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-06-15T10:55:57.000Z">
-<meta property="article:modified_time" content="2022-06-15T04:09:30.911Z">
+<meta property="article:modified_time" content="2022-06-15T06:21:08.508Z">
 <meta property="article:author" content="GUO Songxiao">
 <meta property="article:tag" content="Operating Systems">
 <meta name="twitter:card" content="summary">
@@ -276,7 +276,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2022-06-15 10:55:57 / Modified: 04:09:30" itemprop="dateCreated datePublished" datetime="2022-06-15T10:55:57Z">2022-06-15</time>
+      <time title="Created: 2022-06-15 10:55:57 / Modified: 06:21:08" itemprop="dateCreated datePublished" datetime="2022-06-15T10:55:57Z">2022-06-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -310,15 +310,116 @@
 <h1 id="background">Background</h1>
 <h2 id="computer-system-overview">Computer System Overview</h2>
 <p>1.1. List and briefly define the four main elements of a computer.</p>
+<ul>
+<li>Processor : Controls the operation of the computer and performs its data processing functions.</li>
+<li>Main memory : Stores data and programs.</li>
+<li>I/O modules: Move data between the computer and its external environment.</li>
+<li>System bus : Provides for communication among processors, main memory, and I/O modules.</li>
+</ul>
 <p>1.2. Define the two main categories of processor registers.</p>
+<ul>
+<li>A memory address register (MAR), which specifies the address in memory for the next read or write;</li>
+<li>A memory buffer register (MBR), which contains the data to be written into memory, or receives the data read from memory.</li>
+</ul>
 <p>1.3. In general terms, what are the four distinct actions that a machine instruction can specify?</p>
+<ul>
+<li>Processor-memory: Data may be transferred from processor to memory, or from memory to processor.</li>
+<li>Processor-I/O: Data may be transferred to or from a peripheral device by transferring between the processor and an I/O module.</li>
+<li>Data processing: The processor may perform some arithmetic or logic operation on data.</li>
+<li>Control: An instruction may specify that the sequence of execution be altered.</li>
+</ul>
 <p>1.4. What is an interrupt?</p>
+<p>An interrupt is a signal which is sent from a device or from software to the operating system.</p>
 <p>1.5. How are multiple interrupts dealt with?</p>
+<ul>
+<li>The first is to disable interrupts while an interrupt is being processed.</li>
+<li>A second approach is to define priorities for interrupts and to allow an interrupt of higher priority to cause a lower-priority interrupt handler to be interrupted.</li>
+</ul>
 <p>1.6. What characteristics distinguish the various elements of a memory hierarchy?</p>
+<p>Capacity, access time, and cost.</p>
 <p>1.7. What is cache memory?</p>
+<p>A small, fast memory between the processor and main memory, namely the cache.</p>
 <p>1.8. What is the difference between a multiprocessor and a multicore system?</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>MultiCore</th>
+<th>MultiProcessor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A single CPU or processor with two or more independent processing units called cores that are capable of reading and executing program instructions.</td>
+<td>A system with two or more CPU’s that allows simultaneous processing of programs.</td>
+</tr>
+<tr class="even">
+<td>It executes single program faster.</td>
+<td>It executes multiple programs Faster.</td>
+</tr>
+<tr class="odd">
+<td>Not as reliable as multiprocessor.</td>
+<td>More reliable since failure in one CPU will not affect other.</td>
+</tr>
+<tr class="even">
+<td>It has less traffic.</td>
+<td>It has more traffic.</td>
+</tr>
+<tr class="odd">
+<td>It does not need to be configured.</td>
+<td>It needs little complex configuration.</td>
+</tr>
+<tr class="even">
+<td>It’s very cheaper (single CPU that does not require multiple CPU support system).</td>
+<td>It is Expensive (Multiple separate CPU’s that require system that supports multiple processors) as compared to MultiCore.</td>
+</tr>
+</tbody>
+</table>
 <p>1.9. What is the distinction between spatial locality and temporal locality?</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Spatial Locality</th>
+<th>Temporal Locality</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>In Spatial Locality, nearby instructions to recently executed instruction are likely to be executed soon.</td>
+<td>In Temporal Locality, a recently executed instruction is likely to be executed again very soon.</td>
+</tr>
+<tr class="even">
+<td>It refers to the tendency of execution which involve a number of memory locations .</td>
+<td>It refers to the tendency of execution where memory location that have been used recently have a access.</td>
+</tr>
+<tr class="odd">
+<td>It is also known as locality in space.</td>
+<td>It is also known as locality in time.</td>
+</tr>
+<tr class="even">
+<td>It only refers to data item which are closed together in memory.</td>
+<td>It repeatedly refers to same data in short time span.</td>
+</tr>
+<tr class="odd">
+<td>Each time new data comes into execution.</td>
+<td>Each time same useful data comes into execution.</td>
+</tr>
+<tr class="even">
+<td>Example : Data elements accessed in array (where each time different (or just next) element is being accessing ).</td>
+<td>Example : Data elements accessed in loops (where same data elements are accessed multiple times).</td>
+</tr>
+</tbody>
+</table>
 <p>1.10. In general, what are the strategies for exploiting spatial locality and temporal locality?</p>
+<p>Spatial locality is exploited using larger cache blocks and prefetching.</p>
+<p>Temporal locality is exploited by keeping recently used instructions and data values in the cache memory, and by exploiting cache hierarchy.</p>
 <h2 id="operation-system-overview">Operation System Overview</h2>
 <p>2.1. What are three objectives of an OS design?</p>
 <p>2.2. What is the kernel of an OS?</p>
@@ -333,23 +434,156 @@
 <p>2.11. List the key design issues for an SMP operating system.</p>
 <h1 id="processes">Processes</h1>
 <h2 id="process-description-and-control">Process Description and Control</h2>
+<p>3.1. What is an instruction trace?</p>
+<p>3.2. What common events lead to the creation of a process?</p>
+<p>3.3. For the processing model of Figure 3.6 , briefly define each state.</p>
+<p>3.4. What does it mean to preempt a process?</p>
+<p>3.5. What is swapping and what is its purpose?</p>
+<p>3.6. Why does Figure 3.9b have two blocked states?</p>
+<p>3.7. List four characteristics of a suspended process.</p>
+<p>3.8. For what types of entities does the OS maintain tables of information for management purposes?</p>
+<p>3.9. List three general categories of information in a process control block.</p>
+<p>3.10. Why are two modes (user and kernel) needed?</p>
+<p>3.11. What are the steps performed by an OS to create a new process?</p>
+<p>3.12. What is the difference between an interrupt and a trap?</p>
+<p>3.13. Give three examples of an interrupt.</p>
+<p>3.14. What is the difference between a mode switch and a process switch?</p>
 <h2 id="threads">Threads</h2>
+<p>4.1. Table 3.5 lists typical elements found in a process control block for an unthreaded OS. Of these, which should belong to a thread control block, and which should belong to a process control block for a multithreaded system?</p>
+<p>4.2. List reasons why a mode switch between threads may be cheaper than a mode switch between processes.</p>
+<p>4.3. What are the two separate and potentially independent characteristics embodied in the concept of process?</p>
+<p>4.4. Give four general examples of the use of threads in a single-user multiprocessing system.</p>
+<p>4.5. What resources are typically shared by all of the threads of a process?</p>
+<p>4.6. List three advantages of ULTs over KLTs.</p>
+<p>4.7. List two disadvantages of ULTs compared to KLTs.</p>
+<p>4.8. Define jacketing.</p>
 <h2 id="concurrency-mutual-exclusion-and-synchronization">Concurrency: Mutual Exclusion and Synchronization</h2>
+<p>5.1. List four design issues for which the concept of concurrency is relevant.</p>
+<p>5.2. What are three contexts in which concurrency arises?</p>
+<p>5.3. What is the basic requirement for the execution of concurrent processes?</p>
+<p>5.4. List three degrees of awareness between processes and briefly define each.</p>
+<p>5.5. What is the distinction between competing processes and cooperating processes?</p>
+<p>5.6. List the three control problems associated with competing processes, and briefly define each.</p>
+<p>5.7. List the requirements for mutual exclusion.</p>
+<p>5.8. What operations can be performed on a semaphore?</p>
+<p>5.9. What is the difference between binary and general semaphores?</p>
+<p>5.10. What is the difference between strong and weak semaphores?</p>
+<p>5.11. What is a monitor?</p>
+<p>5.12. What is the distinction between blocking and nonblocking with respect to messages?</p>
+<p>5.13. What conditions are generally associated with the readers/writers problem?</p>
 <h2 id="concurrency-deadlock-and-starvation">Concurrency: Deadlock and Starvation</h2>
+<p>6.1. Give examples of reusable and consumable resources.</p>
+<p>6.2. What are the three conditions that must be present for deadlock to be possible?</p>
+<p>6.3. What are the four conditions that create deadlock?</p>
+<p>6.4. How can the hold-and-wait condition be prevented?</p>
+<p>6.5. List two ways in which the no-preemption condition can be prevented.</p>
+<p>6.6. How can the circular wait condition be prevented?</p>
+<p>6.7. What is the difference among deadlock avoidance, detection, and prevention?</p>
 <h1 id="memory">Memory</h1>
 <h2 id="memory-management">Memory Management</h2>
+<p>7.1. What requirements is memory management intended to satisfy?</p>
+<p>7.2. Why is the capability to relocate processes desirable?</p>
+<p>7.3. Why is it not possible to enforce memory protection at compile time?</p>
+<p>7.4. What are some reasons to allow two or more processes to all have access to a particular region of memory?</p>
+<p>7.5. In a fixed partitioning scheme, what are the advantages of using unequal-size partitions?</p>
+<p>7.6. What is the difference between internal and external fragmentation?</p>
+<p>7.7. What are the distinctions among logical, relative, and physical addresses?</p>
+<p>7.8. What is the difference between a page and a frame?</p>
+<p>7.9. What is the difference between a page and a segment?</p>
 <h2 id="virtual-memory">Virtual Memory</h2>
+<p>8.1. What is the difference between simple paging and virtual memory paging?</p>
+<p>8.2. Explain thrashing.</p>
+<p>8.3. Why is the principle of locality crucial to the use of virtual memory?</p>
+<p>8.4. What elements are typically found in a page table entry? Briefly define each element.</p>
+<p>8.5. What is the purpose of a translation lookaside buffer?</p>
+<p>8.6. Briefly define the alternative page fetch policies.</p>
+<p>8.7. What is the difference between resident set management and page replacement policy?</p>
+<p>8.8. What is the relationship between FIFO and clock page replacement algorithms?</p>
+<p>8.9. What is accomplished by page buffering?</p>
+<p>8.10. Why is it not possible to combine a global replacement policy and a fixed allocation policy?</p>
+<p>8.11. What is the difference between a resident set and a working set?</p>
+<p>8.12. What is the difference between demand cleaning and precleaning?</p>
 <h1 id="scheduling">Scheduling</h1>
 <h2 id="uniprocessor-scheduling">Uniprocessor Scheduling</h2>
+<p>9.1. Briefly describe the three types of processor scheduling.</p>
+<p>9.2. What is usually the critical performance requirement in an interactive operating system?</p>
+<p>9.3. What is the difference between turnaround time and response time?</p>
+<p>9.4. For process scheduling, does a low-priority value represent a low priority or a high priority?</p>
+<p>9.5. What is the difference between preemptive and nonpreemptive scheduling?</p>
+<p>9.6. Briefly define FCFS scheduling.</p>
+<p>9.7. Briefly define round-robin scheduling.</p>
+<p>9.8. Briefly define shortest-process-next scheduling.</p>
+<p>9.9. Briefly define shortest-remaining-time scheduling.</p>
+<p>9.10. Briefly define highest-response-ratio-next scheduling.</p>
+<p>9.11. Briefly define feedback scheduling.</p>
 <h2 id="multiprocessor-multicore-and-real-time-scheduling">Multiprocessor, Multicore, and Real-Time Scheduling</h2>
+<p>10.1. List and briefly define five different categories of synchronization granularity.</p>
+<p>10.2. List and briefly define four techniques for thread scheduling.</p>
+<p>10.3. List and briefly define three versions of load sharing.</p>
+<p>10.4. What is the difference between hard and soft real-time tasks?</p>
+<p>10.5. What is the difference between periodic and aperiodic real-time tasks?</p>
+<p>10.6. List and briefly define five general areas of requirements for a real-time operating system.</p>
+<p>10.7. List and briefly define four classes of real-time scheduling algorithms.</p>
+<p>10.8. What items of information about a task might be useful in real-time scheduling?</p>
 <h1 id="inputoutput-and-files">Input/Output and Files</h1>
 <h2 id="io-management-and-disk-scheduling">I/O Management and Disk Scheduling</h2>
+<p>11.1. List and briefly define three techniques for performing I/O.</p>
+<p>11.2. What is the difference between logical I/O and device I/O?</p>
+<p>11.3. What is the difference between block-oriented devices and stream- oriented devices? Give a few examples of each.</p>
+<p>11.4. Why would you expect improved performance using a double buffer rather than a single buffer for I/O?</p>
+<p>11.5. What delay elements are involved in a disk read or write?</p>
+<p>11.6. Briefly define the disk scheduling policies illustrated in Figure 11.7 .</p>
+<p>11.7. Briefly define the seven RAID levels.</p>
+<p>11.8. What is the typical disk sector size?</p>
 <h2 id="file-management">File Management</h2>
+<p>12.1. What is the difference between a field and a record?</p>
+<p>12.2. What is the difference between a file and a database?</p>
+<p>12.3. What is a file management system?</p>
+<p>12.4. What criteria are important in choosing a file organization?</p>
+<p>12.5. List and briefly define five file organizations.</p>
+<p>12.6. Why is the average search time to find a record in a file less for an indexed sequential file than for a sequential file?</p>
+<p>12.7. What are typical operations that may be performed on a directory?</p>
+<p>12.8. What is the relationship between a pathname and a working directory?</p>
+<p>12.9. What are typical access rights that may be granted or denied to a particular user for a particular file?</p>
+<p>12.10. List and briefly define three blocking methods.</p>
+<p>12.11. List and briefly define three file allocation methods.</p>
 <h1 id="embedded-systems">Embedded Systems</h1>
 <h2 id="embedded-operating-systems">Embedded Operating Systems</h2>
+<p>13.1. What is an embedded system?</p>
+<p>13.2. What are some typical requirements or constraints on embedded systems?</p>
+<p>13.3. What is an embedded OS?</p>
+<p>13.4. What are some of the key characteristics of an embedded OS?</p>
+<p>13.5. Explain the relative advantages and disadvantages of an embedded OS based on an existing commercial OS compared to a purpose-built embedded OS.</p>
+<p>13.6. What is the target application for TinyOS?</p>
+<p>13.7. What are the design goals for TinyOS?</p>
+<p>13.8. What is a TinyOS component?</p>
+<p>13.9. What software comprises the TinyOS operating system?</p>
+<p>13.10. What is the default scheduling discipline for TinyOS?</p>
 <h2 id="virtual-machines">Virtual Machines</h2>
+<p>14.1. Briefly describe Type 1 and Type 2 virtualization.</p>
+<p>14.2. Briefly describe container virtualization.</p>
+<p>14.3. Explain the concept of ballooning.</p>
+<p>14.4. Give a brief description of Java VM.</p>
 <h2 id="operating-system-security">Operating System Security</h2>
+<p>15.1. What are typical access rights that may be granted or denied to a particular user for a particular file?</p>
+<p>15.2. List and briefly define three classes of intruders.</p>
+<p>15.3. In general terms, what are four means of authenticating a user’s identity?</p>
+<p>15.4. Briefly describe the difference between DAC and RBAC.</p>
+<p>15.5. What types of programming languages are vulnerable to buffer overflows?</p>
+<p>15.6. What are the two broad categories of defenses against buffer overflows?</p>
+<p>15.7. List and briefly describe some of the defenses against buffer overflows that can be used when compiling new programs.</p>
+<p>15.8. List and briefly describe some of the defenses against buffer overflows that can be implemented when running existing, vulnerable programs.</p>
 <h2 id="cloud-and-iot-operating-systems">Cloud and IOT Operating Systems</h2>
+<p>16.1 Define cloud computing.</p>
+<p>16.2 List and briefly define three cloud service models.</p>
+<p>16.3 What is the cloud computing reference architecture?</p>
+<p>16.4 List and briefly define the key components of a cloud operating system.</p>
+<p>16.5 What is the relationship between a cloud OS and IaaS?</p>
+<p>16.6 What is OpenStack?</p>
+<p>16.7 Define the Internet of Things.</p>
+<p>16.8 List and briefly define the principal components of an IoT-enabled thing.</p>
+<p>16.9 What requirements should an IoT OS satisfy?</p>
+<p>16.10 What is RIOT?</p>
 
     </div>
 
