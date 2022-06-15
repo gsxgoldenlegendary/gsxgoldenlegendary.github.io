@@ -56,7 +56,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20210321153222444.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2RpdmU2Njg=,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/codh-126-0.png">
 <meta property="article:published_time" content="2022-06-05T19:58:15.000Z">
-<meta property="article:modified_time" content="2022-06-13T07:29:40.572Z">
+<meta property="article:modified_time" content="2022-06-15T00:07:37.648Z">
 <meta property="article:author" content="GUO Songxiao">
 <meta property="article:tag" content="Computer Organization">
 <meta name="twitter:card" content="summary">
@@ -310,7 +310,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-13 07:29:40" itemprop="dateModified" datetime="2022-06-13T07:29:40Z">2022-06-13</time>
+      <time title="Modified: 2022-06-15 00:07:37" itemprop="dateModified" datetime="2022-06-15T00:07:37Z">2022-06-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1251,7 +1251,7 @@ start\to0\to1\to2\to3\to4\to0\to1\to6\to7\to0.
 1）主存地址空间分配为：6000H ~ 67FFH为系统程序区；6800H ~ 6BFFH为用户程序区； 2）合理选用上述存储芯片，说明各选几片； 3）详细画出存储芯片的片选逻辑图。</p>
 <p>第一步，确定所要求的主存空间各区域容量。</p>
 <p>第二步，根据容量和用途，选片：系统区：1片2K×8位的ROM；用户区：2片1K×4位的RAM。</p>
-<p>第三步，分配CPU地址线。CPU的低11位地址线<span class="math inline">\(A_{10}\textasciitilde A_0\)</span> 与2K × 8位ROM的地址线相连；低10位地址线<span class="math inline">\(A_9\textasciitilde A_0\)</span> 与2片1K × 4位RAM的地址线相连。剩下的高位地址线与访存控制信号一起产生存储芯片的片选信号。</p>
+<p>第三步，分配CPU地址线。CPU的低11位地址线<span class="math inline">\(A_{10}- A_0\)</span> 与2K × 8位ROM的地址线相连；低10位地址线<span class="math inline">\(A_9- A_0\)</span> 与2片1K × 4位RAM的地址线相连。剩下的高位地址线与访存控制信号一起产生存储芯片的片选信号。</p>
 <p><img src="https://gsxgoldenlegendary.github.io/images/codh100-1.png" /></p>
 <p>第四步，片选信号的形成。根据74138译码逻辑关系，必须保证控制端<span class="math inline">\(G_1\)</span>为高电平，<span class="math inline">\(G_{2A}\)</span> 和<span class="math inline">\(G_{2B}\)</span> 为低电平，译码器才能正常工作。<span class="math inline">\(A_{15}\)</span>始终为低、<span class="math inline">\(A_{14}\)</span>始终为高，分别接<span class="math inline">\(G_{2A}\)</span>和<span class="math inline">\(G_1\)</span> ；而<code>MREQ</code>低电平有效，接<span class="math inline">\(G_{2B}\)</span>剩下<span class="math inline">\(A_{13}\)</span> 、<span class="math inline">\(A_{12}\)</span> 、<span class="math inline">\(A_{11}\)</span> ，分别接译码器的输入端C、B、A译码结果为4（<span class="math inline">\(Y_4\)</span>有效），选中ROM；译码结果为5（<span class="math inline">\(Y_5\)</span>有效），与<span class="math inline">\(A_{10}\)</span> 一起通过与门，都为低电平有效时，选中2片RAM。</p>
 <p><img src="https://gsxgoldenlegendary.github.io/images/codh100-0.png" /></p>
