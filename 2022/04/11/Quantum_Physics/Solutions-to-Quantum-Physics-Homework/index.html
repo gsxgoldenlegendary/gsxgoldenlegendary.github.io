@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-128x128.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico">
+  <link rel="mask-icon" href="/images/favicon.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gsxgoldenlegendary.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="为适应科大新培养方案的要求，替代原普通物理课程“光学与原子物理”，新设的课程 “量子物理”需要对教学内容作较大幅度的压缩和调整。按照课程组协商意见，删去光学和原子物理学中比较专业化的内容，改以讲授量子理论为主，并增加有关量子信息的介绍，同时取消了作业详细解答的下发。本人出于为考试前有材料复习的目的，整理了此习题解答。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Solutions to Quantum Physics Homework">
+<meta property="og:url" content="http://gsxgoldenlegendary.github.io/2022/04/11/Quantum_Physics/Solutions-to-Quantum-Physics-Homework/index.html">
+<meta property="og:site_name" content="SONGXIAO&#39;S TOPBLOG">
+<meta property="og:description" content="为适应科大新培养方案的要求，替代原普通物理课程“光学与原子物理”，新设的课程 “量子物理”需要对教学内容作较大幅度的压缩和调整。按照课程组协商意见，删去光学和原子物理学中比较专业化的内容，改以讲授量子理论为主，并增加有关量子信息的介绍，同时取消了作业详细解答的下发。本人出于为考试前有材料复习的目的，整理了此习题解答。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/qm0.jpg">
+<meta property="article:published_time" content="2022-04-10T18:44:30.000Z">
+<meta property="article:modified_time" content="2022-06-15T00:06:09.721Z">
+<meta property="article:author" content="GUO Songxiao">
+<meta property="article:tag" content="Quantum Physics">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gsxgoldenlegendary.github.io/images/qm0.jpg">
+
+
+<link rel="canonical" href="http://gsxgoldenlegendary.github.io/2022/04/11/Quantum_Physics/Solutions-to-Quantum-Physics-Homework/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://gsxgoldenlegendary.github.io/2022/04/11/Quantum_Physics/Solutions-to-Quantum-Physics-Homework/","path":"2022/04/11/Quantum_Physics/Solutions-to-Quantum-Physics-Homework/","title":"Solutions to Quantum Physics Homework"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Solutions to Quantum Physics Homework | SONGXIAO'S TOPBLOG</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SONGXIAO'S TOPBLOG</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">VENI VIDI VICI</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-friends"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>friends</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%A0%E4%BD%95%E5%85%89%E5%AD%A6%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">几何光学简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%A0%E4%BD%95%E5%85%89%E5%AD%A6%E4%B8%89%E5%AE%9A%E5%BE%8B"><span class="nav-number">1.1.</span> <span class="nav-text">几何光学三定律</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B4%B9%E9%A9%AC%E5%8E%9F%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">费马原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%90%E5%83%8F%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%AD%89%E5%85%89%E7%A8%8B%E5%8E%9F%E7%90%86"><span class="nav-number">1.3.</span> <span class="nav-text">成像系统的等光程原理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%89%E6%98%AF%E7%94%B5%E7%A3%81%E6%B3%A2"><span class="nav-number">2.</span> <span class="nav-text">光是电磁波</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8"><span class="nav-number">2.1.</span> <span class="nav-text">基本性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%89%E7%9F%A2%E9%87%8F%E5%92%8C%E5%85%89%E5%BC%BA"><span class="nav-number">2.2.</span> <span class="nav-text">光矢量和光强</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%89%E7%9A%84%E5%8F%A0%E5%8A%A0"><span class="nav-number">2.3.</span> <span class="nav-text">光的叠加</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%89%E7%9A%84%E5%B9%B2%E6%B6%89"><span class="nav-number">3.</span> <span class="nav-text">光的干涉</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%B9%B2%E6%9D%A1%E4%BB%B6"><span class="nav-number">3.1.</span> <span class="nav-text">相干条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8C%E7%BC%9D%E5%B9%B2%E6%B6%89"><span class="nav-number">3.2.</span> <span class="nav-text">双缝干涉</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%96%84%E8%86%9C%E5%B9%B2%E6%B6%89"><span class="nav-number">3.3.</span> <span class="nav-text">薄膜干涉</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%89%E7%9A%84%E8%A1%8D%E5%B0%84"><span class="nav-number">4.</span> <span class="nav-text">光的衍射</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E5%B0%94%E9%9C%8D%E5%A4%AB%E8%A1%8D%E5%B0%84%E5%85%AC%E5%BC%8F"><span class="nav-number">4.1.</span> <span class="nav-text">基尔霍夫衍射公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E7%BC%9D%E8%A1%8D%E5%B0%84"><span class="nav-number">4.2.</span> <span class="nav-text">单缝衍射</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%86%E5%AD%94%E8%A1%8D%E5%B0%84"><span class="nav-number">4.3.</span> <span class="nav-text">圆孔衍射</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%89%E6%A0%85"><span class="nav-number">4.4.</span> <span class="nav-text">光栅</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%89%E7%9A%84%E5%81%8F%E6%8C%AF"><span class="nav-number">5.</span> <span class="nav-text">光的偏振</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%81%8F%E6%8C%AF%E5%85%89%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">5.1.</span> <span class="nav-text">偏振光的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%81%8F%E6%8C%AF%E5%99%A8%E4%BB%B6"><span class="nav-number">5.2.</span> <span class="nav-text">偏振器件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%89%E7%9A%84%E9%87%8F%E5%AD%90%E6%80%A7"><span class="nav-number">6.</span> <span class="nav-text">光的量子性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%BB%91%E4%BD%93%E8%BE%90%E5%B0%84"><span class="nav-number">6.1.</span> <span class="nav-text">黑体辐射</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8E%BB%E5%B0%94%E5%8E%9F%E5%AD%90%E6%A8%A1%E5%9E%8B"><span class="nav-number">7.</span> <span class="nav-text">玻尔原子模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%A2%E7%91%9F%E7%A6%8F%E6%A8%A1%E5%9E%8B"><span class="nav-number">7.1.</span> <span class="nav-text">卢瑟福模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E5%AD%90%E5%85%89%E8%B0%B1"><span class="nav-number">7.2.</span> <span class="nav-text">原子光谱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B0%A2%E5%8E%9F%E5%AD%90%E7%9A%84%E7%8E%BB%E5%B0%94%E6%A8%A1%E5%9E%8B"><span class="nav-number">7.3.</span> <span class="nav-text">氢原子的玻尔模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%97%E5%85%B0%E5%85%8B-%E8%B5%AB%E5%85%B9%E5%AE%9E%E9%AA%8C"><span class="nav-number">7.4.</span> <span class="nav-text">弗兰克-赫兹实验</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%89%A9%E8%B4%A8%E6%B3%A2"><span class="nav-number">8.</span> <span class="nav-text">物质波</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%B7%E5%B8%83%E7%BD%97%E6%84%8F%E6%B3%A2"><span class="nav-number">8.1.</span> <span class="nav-text">德布罗意波</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E8%AF%81%E6%8D%AE"><span class="nav-number">8.2.</span> <span class="nav-text">实验证据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E7%A1%AE%E5%AE%9A%E5%85%B3%E7%B3%BB"><span class="nav-number">8.3.</span> <span class="nav-text">不确定关系</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B3%A2%E5%87%BD%E6%95%B0%E4%B8%8E%E8%96%9B%E5%AE%9A%E8%B0%94%E6%96%B9%E7%A8%8B"><span class="nav-number">9.</span> <span class="nav-text">波函数与薛定谔方程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%96%9B%E5%AE%9A%E8%B0%94%E6%96%B9%E7%A8%8B"><span class="nav-number">9.1.</span> <span class="nav-text">薛定谔方程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%A0%E5%8A%A0%E5%8E%9F%E7%90%86"><span class="nav-number">9.2.</span> <span class="nav-text">叠加原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E6%80%81%E8%96%9B%E5%AE%9A%E8%B0%94%E6%96%B9%E7%A8%8B"><span class="nav-number">9.3.</span> <span class="nav-text">定态薛定谔方程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%87%8F%E5%AD%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%BC%94%E5%8C%96"><span class="nav-number">10.</span> <span class="nav-text">量子系统的演化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E7%BB%B4%E6%97%A0%E9%99%90%E6%B7%B1%E5%8A%BF%E9%98%B1"><span class="nav-number">10.1.</span> <span class="nav-text">一维无限深势阱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A2%E5%87%BD%E6%95%B0%E9%9A%8F%E6%97%B6%E9%97%B4%E7%9A%84%E6%BC%94%E5%8C%96"><span class="nav-number">10.2.</span> <span class="nav-text">波函数随时间的演化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E6%9D%A1%E4%BB%B6"><span class="nav-number">10.3.</span> <span class="nav-text">连接条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%B6%E8%B7%83%E5%8A%BF"><span class="nav-number">10.4.</span> <span class="nav-text">阶跃势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9D%9B%BF%E5%8A%BF%E9%98%B1"><span class="nav-number">10.5.</span> <span class="nav-text">𝛿势阱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%90%E6%8C%AF%E5%AD%90"><span class="nav-number">10.6.</span> <span class="nav-text">谐振子</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E7%9A%84%E7%89%A9%E7%90%86%E9%87%8F"><span class="nav-number">11.</span> <span class="nav-text">量子力学中的物理量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E9%87%8F%E7%9A%84%E7%AE%97%E7%AC%A6"><span class="nav-number">11.1.</span> <span class="nav-text">物理量的算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E6%98%93%E5%85%B3%E7%B3%BB"><span class="nav-number">11.2.</span> <span class="nav-text">对易关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E7%A1%AE%E5%AE%9A%E5%85%B3%E7%B3%BB-1"><span class="nav-number">11.3.</span> <span class="nav-text">不确定关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%9B%E5%AD%A6%E9%87%8F%E7%9A%84%E6%BC%94%E5%8C%96"><span class="nav-number">11.4.</span> <span class="nav-text">力学量的演化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%81%87%E8%AE%BE"><span class="nav-number">11.5.</span> <span class="nav-text">量子力学的基本假设</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B0%A2%E5%8E%9F%E5%AD%90%E8%A7%A3"><span class="nav-number">12.</span> <span class="nav-text">氢原子解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%90%83%E5%9D%90%E6%A0%87%E7%B3%BB%E7%9A%84%E8%96%9B%E5%AE%9A%E8%B0%94%E6%96%B9%E7%A8%8B"><span class="nav-number">12.1.</span> <span class="nav-text">球坐标系的薛定谔方程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%84%E5%90%91%E6%96%B9%E7%A8%8B%E5%92%8C%E8%A7%92%E5%90%91%E6%96%B9%E7%A8%8B"><span class="nav-number">12.2.</span> <span class="nav-text">径向方程和角向方程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%9F%E7%BC%9A%E6%80%81%E5%92%8C%E6%95%A3%E5%B0%84%E6%80%81"><span class="nav-number">12.3.</span> <span class="nav-text">束缚态和散射态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%84%E5%90%91%E6%B3%A2%E5%87%BD%E6%95%B0%E5%92%8C%E7%90%83%E8%B0%90%E5%87%BD%E6%95%B0"><span class="nav-number">12.4.</span> <span class="nav-text">径向波函数和球谐函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%B5%E5%AD%90%E4%BA%91"><span class="nav-number">12.5.</span> <span class="nav-text">电子云</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8D%E5%B0%84%E5%AF%B9%E7%A7%B0%E5%BD%A2%E5%92%8C%E5%AE%87%E7%A7%B0"><span class="nav-number">12.6.</span> <span class="nav-text">反射对称形和宇称</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BD%AC%E5%8A%A8%E4%B8%8E%E5%B9%B3%E7%A7%BB"><span class="nav-number">13.</span> <span class="nav-text">转动与平移</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%A8%E9%81%93%E8%A7%92%E5%8A%A8%E9%87%8F"><span class="nav-number">13.1.</span> <span class="nav-text">轨道角动量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%90%83%E8%B0%90%E5%87%BD%E6%95%B0"><span class="nav-number">13.2.</span> <span class="nav-text">球谐函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E7%BB%B4%E7%A9%BA%E9%97%B4%E7%9A%84%E8%BD%AC%E5%8A%A8"><span class="nav-number">13.3.</span> <span class="nav-text">三维空间的转动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A9%BA%E9%97%B4%E5%B9%B3%E7%A7%BB"><span class="nav-number">13.4.</span> <span class="nav-text">空间平移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E5%B9%B3%E7%A7%BB"><span class="nav-number">13.5.</span> <span class="nav-text">时间平移</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%B5%E5%AD%90%E7%9A%84%E7%A3%81%E7%9F%A9%E5%92%8C%E8%87%AA%E6%97%8B"><span class="nav-number">14.</span> <span class="nav-text">电子的磁矩和自旋</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%A8%E9%81%93%E7%A3%81%E7%9F%A9"><span class="nav-number">14.1.</span> <span class="nav-text">轨道磁矩</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%B5%E5%AD%90%E7%9A%84%E8%87%AA%E6%97%8B%E5%92%8C%E7%A3%81%E7%9F%A9"><span class="nav-number">14.2.</span> <span class="nav-text">电子的自旋和磁矩</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%AF%B9%E8%AE%BA%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6"><span class="nav-number">15.</span> <span class="nav-text">相对论量子力学</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#klein%E6%96%B9%E7%A8%8B"><span class="nav-number">15.1.</span> <span class="nav-text">Klein方程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dirac%E6%96%B9%E7%A8%8B"><span class="nav-number">15.2.</span> <span class="nav-text">Dirac方程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E8%80%A6%E5%90%88"><span class="nav-number">16.</span> <span class="nav-text">角动量的耦合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%A4%E7%B2%92%E5%AD%90%E7%9A%84%E8%87%AA%E6%97%8B%E6%80%81"><span class="nav-number">16.1.</span> <span class="nav-text">两粒子的自旋态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E8%80%A6%E5%90%88-1"><span class="nav-number">16.2.</span> <span class="nav-text">角动量的耦合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B2%BE%E7%BB%86%E7%BB%93%E6%9E%84%E5%92%8C%E8%B6%85%E7%B2%BE%E7%BB%86%E7%BB%93%E6%9E%84"><span class="nav-number">16.3.</span> <span class="nav-text">精细结构和超精细结构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%A8%E5%90%8C%E7%B2%92%E5%AD%90"><span class="nav-number">17.</span> <span class="nav-text">全同粒子</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B2%92%E5%AD%90%E7%9A%84%E5%85%A8%E5%90%8C%E6%80%A7"><span class="nav-number">17.1.</span> <span class="nav-text">粒子的全同性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%BB%E8%89%B2-%E7%88%B1%E5%9B%A0%E6%96%AF%E5%9D%A6%E5%87%9D%E8%81%9A"><span class="nav-number">17.2.</span> <span class="nav-text">玻色-爱因斯坦凝聚</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B0%A6%E5%8E%9F%E5%AD%90%E7%9A%84%E8%83%BD%E7%BA%A7"><span class="nav-number">17.3.</span> <span class="nav-text">氦原子的能级</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%A4%E6%80%81%E7%B3%BB%E7%BB%9F%E5%92%8C%E9%87%8F%E5%AD%90%E6%AF%94%E7%89%B9"><span class="nav-number">18.</span> <span class="nav-text">两态系统和量子比特</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8F%E5%AD%90%E6%AF%94%E7%89%B9"><span class="nav-number">18.1.</span> <span class="nav-text">量子比特</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rabi%E6%8C%AF%E8%8D%A1"><span class="nav-number">18.2.</span> <span class="nav-text">Rabi振荡</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%B7%E5%90%88%E6%80%81"><span class="nav-number">18.3.</span> <span class="nav-text">混合态</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%87%8F%E5%AD%90%E4%BF%A1%E6%81%AF%E7%AE%80%E4%BB%8B"><span class="nav-number">19.</span> <span class="nav-text">量子信息简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#epr%E4%BD%AF%E8%B0%AC"><span class="nav-number">19.1.</span> <span class="nav-text">EPR佯谬</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8F%E5%AD%90%E7%BA%A0%E7%BC%A0"><span class="nav-number">19.2.</span> <span class="nav-text">量子纠缠</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8F%E5%AD%90%E4%B8%8D%E5%8F%AF%E5%85%8B%E9%9A%86%E5%AE%9A%E7%90%86"><span class="nav-number">19.3.</span> <span class="nav-text">量子不可克隆定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8F%E5%AD%90%E9%9A%90%E5%BD%A2%E4%BC%A0%E6%80%81"><span class="nav-number">19.4.</span> <span class="nav-text">量子隐形传态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8F%E5%AD%90%E5%AF%86%E9%92%A5%E5%88%86%E5%8F%91"><span class="nav-number">19.5.</span> <span class="nav-text">量子密钥分发</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="GUO Songxiao"
+      src="/images/header.jpg">
+  <p class="site-author-name" itemprop="name">GUO Songxiao</p>
+  <div class="site-description" itemprop="description">I must search. Even if the endless powdering of stars in the Galaxy makes the quest seem hopeless, and even if I must do it alone.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">111</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/gsxgoldenlegendary" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;gsxgoldenlegendary" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:gsxgoldenlegendary@gmail.com" title="E-Mail → mailto:gsxgoldenlegendary@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/GSongxiao" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;GSongxiao" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/songxiao.guo" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;songxiao.guo" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/weixin_52075219" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_52075219" rel="noopener" target="_blank"><i class="fab fa-cuttlefish fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/jin-se-chuan-shuo-58-72" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;jin-se-chuan-shuo-58-72" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://home.ustc.edu.cn/~logname" title="http:&#x2F;&#x2F;home.ustc.edu.cn&#x2F;~logname" rel="noopener" target="_blank">Homepage</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://gsxgoldenlegendary.github.io/2022/04/11/Quantum_Physics/Solutions-to-Quantum-Physics-Homework/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="GUO Songxiao">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SONGXIAO'S TOPBLOG">
+      <meta itemprop="description" content="I must search. Even if the endless powdering of stars in the Galaxy makes the quest seem hopeless, and even if I must do it alone.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Solutions to Quantum Physics Homework | SONGXIAO'S TOPBLOG">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Solutions to Quantum Physics Homework
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-04-10 18:44:30" itemprop="dateCreated datePublished" datetime="2022-04-10T18:44:30Z">2022-04-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-06-15 00:06:09" itemprop="dateModified" datetime="2022-06-15T00:06:09Z">2022-06-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Physics/" itemprop="url" rel="index"><span itemprop="name">Physics</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>为适应科大新培养方案的要求，替代原普通物理课程“光学与原子物理”，新设的课程 “量子物理”需要对教学内容作较大幅度的压缩和调整。按照课程组协商意见，删去光学和原子物理学中比较专业化的内容，改以讲授量子理论为主，并增加有关量子信息的介绍，同时取消了作业详细解答的下发。本人出于为考试前有材料复习的目的，整理了此习题解答。</p>
+<span id="more"></span>
+<h1 id="几何光学简介">几何光学简介</h1>
+<h2 id="几何光学三定律">几何光学三定律</h2>
+<p>1、有一个半径为<span class="math inline">\(a\)</span>的透明小球，折射率是<span class="math inline">\(n\)</span>。取光轴为沿水平方向过球心的直线。一条光线从左侧平行于光轴入射，与 光轴的距离是<span class="math inline">\(x\)</span>。经过两次折射后得到出射光线，求出射光线与入射光线的夹角。</p>
+<p>记空气折射率为<span class="math inline">\(n_0\)</span>，则 <span class="math display">\[
+\sin \theta_1=\frac x a,
+\]</span> 第一次折射，有 <span class="math display">\[
+n_0\sin\theta_1=n\sin\theta_2,
+\]</span></p>
+<p>第二次折射，有 <span class="math display">\[
+n\sin\theta_2=n\sin\theta_3,
+\]</span> 光线偏折角度 <span class="math display">\[
+\Delta\theta=(\theta_1-\theta_2)+(\theta_3-\theta_2)=2(\arcsin\frac x a-\arcsin\frac{n_0x}{na}).
+\]</span></p>
+<h2 id="费马原理">费马原理</h2>
+<p>2、设在阳光暴晒下，马路上方空气折射率<span class="math inline">\(n\)</span>随高度<span class="math inline">\(y\)</span>的变化规律为 <span class="math display">\[
+n(y) = n_0 (1 + Ay), A = 0.8 × 10^{−6}m^{−1}.
+\]</span></p>
+<p>一人站在马路上向前看，能看到多远？设此人眼睛离地面高度为 <span class="math inline">\(1.6m\)</span>。</p>
+<p>由费马原理， <span class="math display">\[
+\int n\mathrm ds=\int n_0(1+Ay)\sqrt{(1+y^2)}\mathrm dx=\int F(x,y,y^{&#39;})\mathrm dx
+\]</span> 极值曲线满足Euler-Lagrange方程 <span class="math display">\[
+\frac{\partial F}{\partial y}-\frac{\mathrm d}{\mathrm dx}\frac{\partial F}{\partial y^{&#39;}}=0,
+\]</span> 得到 <span class="math display">\[
+A=(1+Ay)\frac{y^{&#39;&#39;}}{1+{y^{&#39;}}^2}
+\]</span> 令 <span class="math display">\[
+p=\frac{\mathrm dy}{\mathrm dx},
+\]</span> 得到 <span class="math display">\[
+\frac{\mathrm dy}{a+Ay}=\frac{p\mathrm dp}{A(1+p^2)}.
+\]</span> 积分得 <span class="math display">\[
+\ln(1+Ay)=\frac12\ln(1+p^2)+C.
+\]</span> 根据“最远处”条件，当<span class="math inline">\(y=0\)</span>时，有<span class="math inline">\(p=0\)</span>，故<span class="math inline">\(C=0\)</span>。</p>
+<p>于是 <span class="math display">\[
+1+Ay=\sqrt{1+{y^{&#39;}}^2}.
+\]</span> 令 <span class="math display">\[
+\cosh t=1+Ay,
+\]</span> 则 <span class="math display">\[
+Ax+C_1=t=\ln(Ay+1+\sqrt{(Ay+1)^2-1}).
+\]</span> 代入<span class="math inline">\((x,y)=(0,0)\)</span>得<span class="math inline">\(C_1=0\)</span>，</p>
+<p>代入<span class="math inline">\(y=1.6m\)</span>，得<span class="math inline">\(x=1999.9998m\)</span>。</p>
+<h2 id="成像系统的等光程原理">成像系统的等光程原理</h2>
+<h1 id="光是电磁波">光是电磁波</h1>
+<h2 id="基本性质">基本性质</h2>
+<h2 id="光矢量和光强">光矢量和光强</h2>
+<p>3、平面波在<span class="math inline">\(y-z\)</span>平面内，沿着与<span class="math inline">\(𝑦-\)</span>轴夹角为<span class="math inline">\(30^\circ\)</span>方向传播，写出它的标量波函数、复波函数和复振幅。</p>
+<p>波矢 <span class="math display">\[
+\vec k=\frac{2\pi}\lambda(0,\frac {\sqrt 3} 2,\frac 1 2),
+\]</span> 标量波函数 <span class="math display">\[
+E=E_0\cos(\omega t-\vec k\cdot\vec r+\varphi_0)=E_0\cos(\omega t-\frac{\sqrt3\pi}\lambda y- \frac{\pi}\lambda z+\varphi_0);
+\]</span> 复波函数 <span class="math display">\[
+\tilde E(t,\vec r)=E_0e^{-\mathrm i(\omega t-\vec k\cdot\vec r+\varphi_0)}=E_0e^{-\mathrm i(\omega t-\frac{\sqrt3\pi}\lambda y- \frac{\pi}\lambda z+\varphi_0)}
+\]</span> 复振幅 <span class="math display">\[
+\tilde E_0(\vec r)=E_0e^{-\mathrm i(-\vec k\cdot\vec r+\varphi_0)}=E_0e^{-\mathrm i(-\frac{\sqrt3\pi}\lambda y- \frac{\pi}\lambda z+\varphi_0)}
+\]</span></p>
+<h2 id="光的叠加">光的叠加</h2>
+<h1 id="光的干涉">光的干涉</h1>
+<h2 id="相干条件">相干条件</h2>
+<p>4、三个扬声器排成直线，相距<span class="math inline">\(d\)</span>，播放单频声音信号 <span class="math display">\[
+𝑠_𝑗 (𝑡) = 𝐴 \cos(𝜔𝑡 + 𝜑_𝑗) ,𝑗 = 1,2,3.
+\]</span></p>
+<p>远处一个麦克风在夹角为<span class="math inline">\(\theta\)</span>的方向接收声音。欲使麦克风处消音，三个初相位<span class="math inline">\(\varphi_1,\varphi_2,\varphi_3\)</span>应该满足什么关系？</p>
+<p>消声相当于振幅为0 <span class="math display">\[
+A\cos(\omega\frac {l_1}{v_0}+\varphi_1)+A\cos(\omega\frac {l_2}{v_0}+\varphi_2)+A\cos(\omega\frac {l_3}{v_0}+\varphi_3)=0.
+\]</span> 几何关系 <span class="math display">\[
+l_1^2=d^2+l_2^2-2dl_2\sin\theta,
+\]</span></p>
+<p><span class="math display">\[
+l_3^2=d^2+l_2^2+2dl_2\sin\theta.
+\]</span></p>
+<p>远处近似 <span class="math display">\[
+l_1=l_2-d\sin\theta,
+\]</span></p>
+<p><span class="math display">\[
+l_3=l_2+d\sin\theta.
+\]</span></p>
+<p>故 <span class="math display">\[
+\cos(\frac\omega{v_0}l_2-\frac\omega{v_0}d\sin\theta+\varphi_1)+\cos(\frac\omega{v_0}l_2+\varphi_2)+\cos(\frac\omega{v_0}l_2+\frac\omega{v_0}d\sin\theta+\varphi_1)=0.
+\]</span> 对<span class="math inline">\(\forall l_2\)</span>均成立，记其为<span class="math inline">\(f(l_2)=0\)</span>，则<span class="math inline">\(\frac{\mathrm d}{\mathrm d l_2}f(l_2)=0\)</span>，</p>
+<p>即 <span class="math display">\[
+\sin(\frac\omega{v_0}l_2-\frac\omega{v_0}d\sin\theta+\varphi_1)+\sin(\frac\omega{v_0}l_2+\varphi_2)+\sin(\frac\omega{v_0}l_2+\frac\omega{v_0}d\sin\theta+\varphi_1)=0.
+\]</span> 平方相消得 <span class="math display">\[
+-\frac12=\cos(\frac{2\omega d}{v_0}\sin\theta+\phi_3-\phi_1).
+\]</span></p>
+<p><span class="math display">\[
+\varphi_3-\varphi_1=\frac43\pi或\frac53\pi+2k\pi-\frac{2\omega d\sin\theta}{v_0},k\in Z
+\]</span></p>
+<p>同理有 <span class="math display">\[
+\varphi_3-\varphi_2=\frac43\pi或\frac53\pi+2k\pi-\frac{\omega d\sin\theta}{v_0},k\in Z
+\]</span></p>
+<p><span class="math display">\[
+\varphi_2-\varphi_1=\frac43\pi或\frac53\pi+2k\pi-\frac{\omega d\sin\theta}{v_0},k\in Z
+\]</span></p>
+<p>利用约束条件 <span class="math display">\[
+\varphi_2-\varphi_1+\varphi_3-\varphi_2=\varphi_3+\varphi_1,
+\]</span> 只能取 <span class="math display">\[
+(\varphi_1,\varphi_2,\varphi_3)=(\varphi,\varphi+\frac53\pi+2k\pi-\frac{\omega d\sin\theta}{v_0},\varphi+\frac{10}3\pi+(2k+1)\pi-\frac{\omega d\sin\theta}{v_0}),k\in Z.
+\]</span> 其中<span class="math inline">\(v_0\)</span>是声速。</p>
+<h2 id="双缝干涉">双缝干涉</h2>
+<p>5、用很薄的云母片覆盖在双缝实验的一条缝上，看到干涉条纹移动了 <span class="math inline">\(9\)</span>个条纹间距，求云母片的厚度。已知云母片折射率<span class="math inline">\(n= 1.58\)</span>，光源波长 <span class="math inline">\(550nm\)</span>。 <span class="math display">\[
+N\lambda=\delta(\Delta L)=\delta(L_1-L_2)=nh-h,
+\]</span></p>
+<p><span class="math display">\[
+h=8.53\mu m
+\]</span></p>
+<h2 id="薄膜干涉">薄膜干涉</h2>
+<p>6、在折射率为 <span class="math inline">\(1.5\)</span> 的玻璃表面，镀上一层折射率为 <span class="math inline">\(1.30\)</span> 的透明薄膜。对于 <span class="math inline">\(550nm\)</span> 的黄绿光垂直入射的情形，为了增强透射光束强度，应使反射光干涉相消。求膜的厚度。</p>
+<p>此两个界面反射波均有半波损， <span class="math display">\[
+\Delta L=2n_1 h=(k+0.5)\lambda,k\in \mathbb R,
+\]</span></p>
+<p><span class="math display">\[
+h=211.5(k+0.5)nm,k\in \mathbb R.
+\]</span></p>
+<h1 id="光的衍射">光的衍射</h1>
+<h2 id="基尔霍夫衍射公式">基尔霍夫衍射公式</h2>
+<h2 id="单缝衍射">单缝衍射</h2>
+<p>7、用波长 <span class="math inline">\(589.3nm\)</span> 的钠黄光作为夫琅禾费单缝衍射的光源，测得第二极小到干涉图样中心的距离为 <span class="math inline">\(0.30cm\)</span>。改用未知波长的单色光源，测得第三极小到中心的距离为 <span class="math inline">\(0.42cm\)</span>。求未知波长。</p>
+<p>由 <span class="math display">\[
+x=\frac{m\lambda}az
+\]</span> 得 <span class="math display">\[
+\lambda=\frac{0.42}3\frac{2\times589.3}{0.30}nm=550.0nm.
+\]</span></p>
+<h2 id="圆孔衍射">圆孔衍射</h2>
+<p>8、天空的两颗星相对于望远镜的角距离为<span class="math inline">\(4.8 × 10^{−6} rad\)</span>，都发出 <span class="math inline">\(550nm\)</span> 的光。望远镜的口径至少多大，才能分辨这两颗星？ <span class="math display">\[
+\delta\theta=1.22\frac\lambda D,
+\]</span></p>
+<p><span class="math display">\[
+D=0.14m.
+\]</span></p>
+<p>9、 评估你的手机像素数目是否超过了镜头的光学衍射极限。</p>
+<p>取分辨率<span class="math inline">\(10^8\)</span>像素，光圈系数<span class="math inline">\(F_{2.2}\)</span>，CMOS图像传感器尺寸为1cm。</p>
+<p>根据艾里斑可辨的瑞利条件，每一块艾里斑的最小大小为 <span class="math display">\[
+S=\pi a^2f^2\tan^2\frac\theta2\approx\pi a^2f^2\sin^2\frac\theta2\approx\pi a^2\frac{1.22^2}4(\frac fd)^2\lambda^2.
+\]</span> 其中<span class="math inline">\(a\in(1,2)\)</span>，<span class="math inline">\(\lambda\)</span>为光波长，取红光760nm，则 <span class="math display">\[
+S_{max}=\frac{4\pi\times1.22^2\times760^2}{4\times2\times2^2}=5580.22nm^2.
+\]</span></p>
+<p><span class="math display">\[
+10^8S_{max}=55.8mm^2&lt;100mm^2=S(CMOS),
+\]</span></p>
+<p>故还没有达到光学极限。</p>
+<h2 id="光栅">光栅</h2>
+<p>10、 用氦氖激光器发出的波长为 <span class="math inline">\(632.8nm\)</span> 的红光，垂直入射到平面透射光栅上，测得第一级极大出现在 <span class="math inline">\(38^\circ\)</span>方向。</p>
+<p>（1）求光栅常数。 <span class="math display">\[
+d=\frac{\lambda_0}{\sin\theta}=1.028\mu m.
+\]</span> （2）能否看到第二级极大？ <span class="math display">\[
+m=\frac{d\sin\theta}\lambda\leqslant\frac d\lambda&lt;2
+\]</span> 故看不到第二级极大。</p>
+<h1 id="光的偏振">光的偏振</h1>
+<h2 id="偏振光的分类">偏振光的分类</h2>
+<h2 id="偏振器件">偏振器件</h2>
+<p>11、 四个偏振片依次前后排列。每个偏振片的透振方向，均相对于前一偏振片沿顺时针方向转过$ 30^{}$角。不考虑吸收、反射等光能损失，则透过此偏振片系统的光强是入射光强的多少倍？ <span class="math display">\[
+I=\int_0^{2\pi}\frac{I_0}{2\pi}(\cos\theta\cos^3\frac\pi6)^2=\frac{27I_0}{128}.
+\]</span> 12、入射光是沿<span class="math inline">\(x-\)</span>轴偏振的线偏振光，二分之一波片的快轴与<span class="math inline">\(x\)</span>轴夹角是<span class="math inline">\(\theta\)</span>（逆时针为正）。写出入射光的琼斯矢量、二分之一波片的琼斯矩阵，计算出射光的琼斯矢量和偏振方向。</p>
+<p>入射光的琼斯矢量</p>
+
+$$
+\begin{pmatrix}
+1\\
+0
+\end{pmatrix}.
+$$
+
+<p><span class="math inline">\(\frac12\)</span>波片的琼斯矩阵为</p>
+
+$$
+\begin{pmatrix}
+\cos\theta&-\sin\theta\\
+\sin\theta&\cos\theta
+\end{pmatrix}
+\begin{pmatrix}
+1&0\\
+0&-1
+\end{pmatrix}
+\begin{pmatrix}
+\cos\theta&-\sin\theta\\
+\sin\theta&\cos\theta
+\end{pmatrix}^{-1}
+=
+\begin{pmatrix}
+\cos2\theta&\sin2\theta\\
+\sin2\theta&-\cos2\theta
+\end{pmatrix}.
+$$
+
+<p>出射光的琼斯矢量</p>
+
+$$
+\begin{pmatrix}
+\cos2\theta&\sin2\theta\\
+\sin2\theta&-\cos2\theta
+\end{pmatrix}
+\begin{pmatrix}
+1\\
+0
+\end{pmatrix}
+=
+\begin{pmatrix}
+\cos2\theta\\
+\sin2\theta
+\end{pmatrix}.
+$$
+
+<p>出射光的偏振方向：<span class="math inline">\(2\theta\)</span>。</p>
+<h1 id="光的量子性">光的量子性</h1>
+<h2 id="黑体辐射">黑体辐射</h2>
+<p>13、利用普朗克辐射公式，求斯特藩-玻尔兹曼定律常数<span class="math inline">\(\sigma\)</span>。 <span class="math display">\[
+(\int_0^\infty\frac{x^3}{e^x-1}\mathrm d x=\frac{\pi^4}{15})
+\]</span> Stefan-Boltzman定律： <span class="math display">\[
+R=\sigma T^4.
+\]</span> Planck公式： <span class="math display">\[
+R=\int_0^{+\infty}r_0(\lambda,T)\mathrm d\lambda=\int_0^{+\infty}\frac{2\pi hc^2}{\lambda^5e^{\frac{hc}{\lambda k_BT}-1}}\mathrm d\lambda=\frac{2\pi^5k_B^4}{15h^3c^2}T^4.
+\]</span> 故 <span class="math display">\[
+\sigma=\frac{2\pi^5k_B^4}{15h^3c^2}.
+\]</span> 14、热核爆炸中火球的温度可达<span class="math inline">\(10^7K\)</span>，</p>
+<p>（1）求辐射最强的波长；</p>
+<p>由Wien位移公式 <span class="math display">\[
+\lambda_m=\frac bT=\frac{0.2898}{10^7}cm=2.898\times10^{-10}m.
+\]</span> （2）这种波长的光子能量是多少？ <span class="math display">\[
+\varepsilon=h\nu-\frac{hc}{\lambda_m}=6.859\times10^{-16}J.
+\]</span> ## 光电效应</p>
+<p>15、 铝的脱出功是 <span class="math inline">\(4.2eV\)</span>，用波长为$ 200nm$ 的光照射铝表面，</p>
+<p>（1）求铝的截止波长。 <span class="math display">\[
+\lambda_0=\frac c\nu=\frac{hc}{A}=295.8nm.
+\]</span> （2）光电子的最大初动能。 <span class="math display">\[
+\varepsilon=h\nu-A=\frac {hc}\lambda-A=2.01eV.
+\]</span> （3）求截止电压。 <span class="math display">\[
+U=\frac\varepsilon e=2.01V.
+\]</span> （4）如果入射光强是<span class="math inline">\(2.0W/m^2\)</span> ，阴极面积是<span class="math inline">\(1m^2\)</span>，光束垂直照射阴极，那么饱和电流最大是多少？ <span class="math display">\[
+I=\frac{\mathrm dq}{\mathrm dt}=e\frac{\mathrm dN}{\mathrm dt}=e\frac{\mathrm d\frac W{\frac{hc}\lambda}}{\mathrm dt}=\frac {eIS}\varepsilon=0.32A.
+\]</span> ## 康普顿散射</p>
+<p>16、能量为$ 0.41MeV $的 X 射线光子与静止的自由电子碰撞，反冲电子的速度为<span class="math inline">\(0.6c\)</span>，求散射光的波长和散射角。</p>
+<p>由能量守恒 <span class="math display">\[
+m_ec^2+E=+\frac{m_e}{\sqrt{1-(\frac vc)^2}}c^2+\frac{hc}{\lambda_1}.
+\]</span> 得 <span class="math display">\[
+\lambda_1=4.397\times10^{-12}m.
+\]</span> 碰撞前X射线波长 <span class="math display">\[
+\lambda_0=\frac{hc}E=3.024\times10^{-12}m.
+\]</span> 利用康普顿散射公式 <span class="math display">\[
+\lambda_0-\lambda_1=2\frac h{m_ec}\sin^2\frac\theta2,
+\]</span> 有 <span class="math display">\[
+\theta=64.28^\circ.
+\]</span> ## 波粒二象性</p>
+<p>17、用<span class="math inline">\(1mW\)</span>的单色激光射向透明的球状小颗粒。设颗粒半径为<span class="math inline">\(a\)</span>，折射率是 <span class="math inline">\(n\)</span>。假如颗粒偏离激光的距离为<span class="math inline">\(x\)</span>，那么颗粒所受到的垂直于入射激光方向的横向力有多大， 指向那个方向？</p>
+<p>记空气折射率为<span class="math inline">\(n_0=1\)</span>，则 <span class="math display">\[
+\sin \theta_1=\frac x a,
+\]</span> 第一次折射，有 <span class="math display">\[
+n_0\sin\theta_1=n\sin\theta_2,
+\]</span></p>
+<p>第二次折射，有 <span class="math display">\[
+n\sin\theta_2=n\sin\theta_3,
+\]</span> 光线偏折角度 <span class="math display">\[
+\Delta\theta=(\theta_1-\theta_2)+(\theta_3-\theta_2)=2(\arcsin\frac x a-\arcsin\frac{x}{na}).
+\]</span></p>
+<p>横向力 <span class="math display">\[
+F=2\frac{\mathrm dp}{\mathrm dt}\sin\frac{\Delta \theta}2=2\frac{\mathrm dW}{c\mathrm dt}\sin\frac{\Delta\theta}2=2\frac Pc\sin(\arcsin\frac xa-\arcsin\frac{x}{na}).
+\]</span> 方向垂直于球状小颗粒中的光线指向外侧。</p>
+<h1 id="玻尔原子模型">玻尔原子模型</h1>
+<h2 id="卢瑟福模型">卢瑟福模型</h2>
+<h2 id="原子光谱">原子光谱</h2>
+<h2 id="氢原子的玻尔模型">氢原子的玻尔模型</h2>
+<p>18、在气体放电管中，一束能量为10eV的电子和单原子气体发生碰撞，发出的辐射波长有：140.2nm, 253.6nm和313.2nm。其中253.6nm的光谱较其它两个成分强。给出能级图，以及到达阳极的电子的能量。 <span class="math display">\[
+\Delta E=h\nu=\frac {hc}\lambda=8.84eV,4.89eV,3.95eV.
+\]</span> <img src="https://gsxgoldenlegendary.github.io/images/qm0.jpg" /></p>
+<p>到达阳极的电子能量：</p>
+<ul>
+<li>未碰撞，10eV;</li>
+<li>碰撞后原子处于第一激发态，10－4.89＝5.11eV;</li>
+<li>碰撞后原子处于第二激发态，10－8.84＝1.16eV;</li>
+<li>两次碰撞，10－2 × 4.89＝0.22eV.</li>
+</ul>
+<p>19、已知氢原子的电离能为 <span class="math inline">\(13.6eV\)</span>，求<span class="math inline">\(B^{4+}\)</span>离子从<span class="math inline">\(n= 2\)</span>能级跃迁到基态的辐射能量、波长。 <span class="math display">\[
+E_n=-\frac 1{2n^2}m_eZ^2\alpha^2c^2,
+\]</span> <span class="math inline">\(n=1,Z=1\)</span>时 <span class="math display">\[
+-13.6eV=-\frac12m_e\alpha^2c^2;
+\]</span> <span class="math inline">\(n=2,Z=5\)</span>时 <span class="math display">\[
+E_2(B)=-\frac1{2\times25}m_e25\alpha^2c^2;
+\]</span> <span class="math inline">\(n=1,Z=5\)</span>时 <span class="math display">\[
+E_1(B)=-\frac1{2}m_e25\alpha^2c^2;
+\]</span></p>
+<p><span class="math display">\[
+\Delta E=E_2(B)-E_1(B)= 255 eV.
+\]</span></p>
+<p><span class="math display">\[
+\lambda=\frac{hc}{\Delta E}=4.86 nm.
+\]</span></p>
+<p>20、气体放电管用 <span class="math inline">\(12.2eV\)</span> 的电子轰击氢原子，确定此时氢所发出的谱线的波长。 <span class="math display">\[
+E_1=-13.6eV,E_2=-3.4eV,E_3=-1.51eV,E_4=-0.85eV.
+\]</span> 由<span class="math inline">\(12.2eV&lt;E4-E1\)</span>知氢原子只能被激发到第1、2激发态。从第1激发态跃迁到基态及从第2激发态跃迁到第1激发态及基态分别发出谱线波长为 <span class="math display">\[
+\lambda_1=\frac c{\nu_1}=\frac{ch}{E2-E1}=1.19\times10^{-7}m,
+\]</span></p>
+<p><span class="math display">\[
+\lambda_2=\frac c{\nu_2}=\frac{ch}{E3-E1}=1.02\times10^{-7}m,
+\]</span></p>
+<p><span class="math display">\[
+\lambda_1=\frac c{\nu_1}=\frac{ch}{E3-E2}=6.56\times10^{-7}m,
+\]</span></p>
+<p>21、设氢原子原来是静止的。当氢原子从<span class="math inline">\(n = 4\)</span>的态跃迁到基态时，给出原子的反冲速度、 发射光子的波长，并与不考虑反冲时的光子波长对比。</p>
+<p>考虑反冲时</p>
+
+$$
+\left\{
+\begin{array}\\
+E_4-E_1=\frac12mv^2+\frac{hc}\lambda,\\
+\frac h\lambda=mv.
+\end{array}
+\right.
+\Rightarrow
+\left\{
+\begin{array}\\
+\lambda=97.24nm,\\
+v=4.07m/s.
+\end{array}
+\right.
+$$
+
+<p>不考虑反冲时 <span class="math display">\[
+\lambda_0=\frac c{v_0}=\frac{ch}{E_4-E_1}=97.1nm.
+\]</span> 二者差别不大。</p>
+<h2 id="弗兰克-赫兹实验">弗兰克-赫兹实验</h2>
+<h1 id="物质波">物质波</h1>
+<h2 id="德布罗意波">德布罗意波</h2>
+<p>22、显微镜可以分辨的最小尺寸，约为光波的波长。要观测尺寸$ 1nm$ 左右的分子，光子的最小能量是多少？如果改为使用电子显微镜，那么电子的最小能量是多少？ <span class="math display">\[
+E_1=\frac{hc}\lambda=1.988\times10^{-18}J.
+\]</span></p>
+<p><span class="math display">\[
+E_2=\frac{p^2}{2m_e}=\frac{h^2}{2\lambda^2m_e}=2.439\times10^{-19}J.
+\]</span></p>
+<p>23、 写出非相对论粒子物质波的色散关系，并求出物质波的相速度和群速度。</p>
+<p>色散关系</p>
+
+$$
+\left\{
+\begin{array}\\
+E=\hbar\omega,\\
+p=\hbar k,\\
+E=\frac{p^2}{2m},
+\end{array}
+\Rightarrow
+\omega=\frac{\hbar k^2}{2m}.
+\right.
+$$
+
+
+
+<p>相速度 <span class="math display">\[
+v_p=\frac\omega k=\frac{\hbar k^2}{2m}=\frac p{2m}=v.
+\]</span> 群速度 <span class="math display">\[
+v_g=\frac{\mathrm d\omega}{\mathrm dk}=\frac{\hbar k}{m}=\frac pm=v.
+\]</span></p>
+<h2 id="实验证据">实验证据</h2>
+<h2 id="不确定关系">不确定关系</h2>
+<h1 id="波函数与薛定谔方程">波函数与薛定谔方程</h1>
+<h2 id="薛定谔方程">薛定谔方程</h2>
+<p>24、非相对论粒子被封闭在长、宽、高为<span class="math inline">\(a,b,c\)</span>的盒子中，利用驻波条件计算其能级。</p>
+
+$$
+\left\{
+\begin{array}\\
+k=\frac{2\pi}\lambda=\sqrt{k_x^2+k_y^2+k_z^2},\\
+2a=n_1\frac{2\pi}{k_x},\\
+2b=n_2\frac{2\pi}{k_y},\\
+2c=n_3\frac{2\pi}{k_z},\\
+E=\frac{p^2}{2m},\\
+p=\frac h\lambda,
+\end{array}
+\Rightarrow
+E=\frac{h^2}{8m}(\frac1{a^2n_1^2}+\frac1{b^2n_2^2}+\frac1{c^2n_3^2}),n_1,n_2,n_3\in \mathbb {Z^*}
+\right.
+$$
+
+<p>25、下列非相对论粒子被限制在宽为𝐿的盒子中。利用海森堡不确定关系估算它们的动能最小值：</p>
+<p>（1）电子关在𝐿 = 1Å的盒子。 <span class="math display">\[
+\Delta x\Delta p_x\geqslant h\Rightarrow\Delta x\Delta vm\geqslant h\Rightarrow\Delta v\geqslant\frac h{\Delta xm}.
+\]</span></p>
+<p><span class="math display">\[
+\Delta v_{min}=\frac{6.626\times10^{-34}}{10^{-10}\times9.1\times10^{-31}}=7.2\times10^6m/s.
+\]</span></p>
+<p>电子的速度取值的差最小为<span class="math inline">\(\Delta v\)</span>，也就是以<span class="math inline">\(\frac12|\Delta v|\)</span>速率运动时候动能最小，为 <span class="math display">\[
+E_{min}=\frac12m_e(\frac12|\Delta v|)^2=5.897\times10^{-18}J.
+\]</span> （2）中子（质量<span class="math inline">\(940MeV ⋅ c^{−2}\)</span>）限制在𝐿 = <span class="math inline">\(10fm\)</span>（原子核尺寸）的盒子中。</p>
+<p>同（1）可知<span class="math inline">\(E_{min}=3.649\times10^{-8}J\)</span>。</p>
+<p>（3）质量<span class="math inline">\(10^{−6}g\)</span>的灰尘被关在𝐿 = <span class="math inline">\(1μm\)</span>的盒中。</p>
+<p>同（1）可知<span class="math inline">\(E_{min}=5.488\times10^{-8}J\)</span>。</p>
+<p>26、双原子分子在平衡距离附近沿连线方向作一维微振动，记两个原子的质量分别为<span class="math inline">\(m_1\)</span>, <span class="math inline">\(m_2\)</span>， 坐标为<span class="math inline">\(x_1,x_2\)</span>，平衡距离为<span class="math inline">\(a\)</span>。原子之间的相互作用可近似为谐振子势， <span class="math display">\[
+𝑉 = \frac1 2 𝑘(𝑥_2 − 𝑥_1 − 𝑎)^ 2
+\]</span> 写出系统的薛定谔方程。</p>
+<p>取两原子连线上较远一点为原点，薛定谔方程为： <span class="math display">\[
+\mathrm i\hbar\frac\partial{\partial t}\psi(x_1,x_2,t)=(-\frac{\hbar^2}2(\frac{\mathrm d^2}{m_1\mathrm dx_1^2}+\frac{\mathrm d^2}{m_2\mathrm dx_2^2})+\frac12k(x_2-x_1-a)^2)\psi(x_1,x_2,t).
+\]</span> ## 统计解释</p>
+<h2 id="叠加原理">叠加原理</h2>
+<h2 id="定态薛定谔方程">定态薛定谔方程</h2>
+<p>27、设二维粒子在<span class="math inline">\(t= 0\)</span>时的波函数为 <span class="math display">\[
+\psi(x, y,t = 0) = (x + \mathrm i y) \exp{−(x ^2 + y^2 )}, x, y ∈ \mathbb R
+\]</span> （1）求几率密度和几率流。</p>
+<p>几率密度</p>
+
+$$
+\rho=\psi^*\psi=(x^2+y^2)e^{-2(x^2+y^2)}.
+$$
+
+<p>几率流</p>
+
+$$
+\vec j=\mathrm i\frac\hbar{2m}(\psi\nabla\psi^*-\psi^*\nabla\psi)=\frac{2\pi e^{-2(x^2+y^2)}(x\vec{e_y}-y\vec{e_x})}{2m}.
+$$
+
+
+<p>（2）如果这是一个定态，求势场<span class="math inline">\(V(x, y)\)</span>的表达式。 <span class="math display">\[
+V(x,y)=E+\frac{\hbar^2}{2m\psi(x,y,t=0)}\nabla^2\psi(x,y,t=0)=E+\frac{2\hbar^2}m(x^2+y^2-2).
+\]</span></p>
+<p>28、已知一维粒子的两个空间波函数 <span class="math display">\[
+u_1(x) = \exp(−\frac12x^2) , u_2(x)=2x\exp(−\frac12𝑥^2).
+\]</span> （1）归一化这两个波函数。 <span class="math display">\[
+\int_{-\infty}^\infty(u_1(x))^2\mathrm dx=\Gamma(\frac12)=\sqrt\pi.
+\]</span> 归一化的<span class="math inline">\(u_1(x)\)</span>： <span class="math display">\[
+v_1(x)=\frac{e^{-\frac{x^2}2}}{\sqrt\pi}.
+\]</span></p>
+<p><span class="math display">\[
+\int_{-\infty}^\infty(u_2(x))^2\mathrm dx=\int_{-\infty}^\infty 4x^2e^{-x^2}\mathrm dx=2\sqrt\pi.
+\]</span></p>
+<p>归一化的<span class="math inline">\(u_1(x)\)</span>： <span class="math display">\[
+v_2(x)=\frac{xe^{-\frac{x^2}2}}{\sqrt\pi}.
+\]</span> （2）两个波函数是否正交？ <span class="math display">\[
+\int_{-\infty}^\infty u_1(x)u_2(x)\mathrm dx=\int_{-\infty}^\infty2xe^{-x^2}\mathrm dx=0
+\]</span> 故此二波函数正交。</p>
+<h1 id="量子系统的演化">量子系统的演化</h1>
+<h2 id="一维无限深势阱">一维无限深势阱</h2>
+<h2 id="波函数随时间的演化">波函数随时间的演化</h2>
+<h2 id="连接条件">连接条件</h2>
+<p>29、质量为<span class="math inline">\(m\)</span>的粒子处于宽度为<span class="math inline">\(a\)</span>的一维无限深势阱之中，势函数为 <span class="math display">\[
+V(x)=
+\begin{cases}
+0,0 &lt; x &lt; a; \\
++\infty, x &lt; 0 or x &gt; a.
+\end{cases}
+\]</span> （1）写出能级和归一化的定态波函数。 <span class="math display">\[
+E_n=\frac{\hbar^2\pi^2n^2}{2ma^2}.
+\]</span></p>
+<p><span class="math display">\[
+u(x)=
+\begin{cases}
+0,&amp;x&lt;0orx&gt;a;\\
+\sqrt{\frac2a}\sin(\frac{n\pi}a(x-\frac a2)+\frac{1-(-1)^n}2\frac\pi2),&amp;0&lt;x&lt;a.
+\end{cases}
+\]</span></p>
+<p><span class="math display">\[
+\psi(x,t)=
+\begin{cases}
+0,&amp;x&lt;0orx&gt;a;\\
+\sqrt{\frac2a}\sin(\frac{n\pi}a(x-\frac a2)+\frac{1-(-1)^n}2\frac\pi2)e^{-\frac{\mathrm i\hbar\pi^2n^2t}{2ma^2} }, &amp;0&lt;x&lt;a.
+\end{cases}
+\]</span></p>
+<p>（2）现在假设在<span class="math inline">\(t = 0\)</span>时，粒子处于基态。这时在<span class="math inline">\(x = −a\)</span>处 设立一个无限高势垒，并突然把<span class="math inline">\(x = 0\)</span>处的隔板撤除，即势函数突变为 <span class="math display">\[
+𝑉&#39;(𝑥)=
+\begin{cases}
+0,&amp;-a &lt; 𝑥 &lt; 𝑎; \\
++\infty, &amp;𝑥 &lt; -a or 𝑥 &gt; 𝑎.
+\end{cases}
+\]</span> 求粒子处于新的基态的概率。</p>
+<p>撤去隔板后， <span class="math display">\[
+u_n&#39;(x)=
+\begin{cases}
+0,&amp;x&lt;-aorx&gt;a;\\
+\sqrt{\frac1a}\sin(\frac{n\pi x}{2a}+\frac{1-(-1)^n}2\frac\pi2),&amp;-a&lt;x&lt;a.
+\end{cases}
+\]</span> 在<span class="math inline">\(t=0\)</span>时基态粒子的波函数 <span class="math display">\[
+\psi(x,0)=
+\begin{cases}
+0,&amp;x&lt;0orx&gt;a;\\
+\sqrt{\frac2a}\sin(\frac{\pi}a(x-\frac a2)+\frac\pi2),&amp;0&lt;x&lt;a.
+\end{cases}
+\]</span></p>
+<p><span class="math display">\[
+c_1=\int_{-\infty}^\infty u_1&#39;^*\psi(x,0)\mathrm dx=\int_0^a\sqrt{\frac1a}\sin(\frac{\pi x}{2a}+\frac\pi 2)\sqrt{\frac2a}\sin\frac{\pi x}a\mathrm dx=-\frac{4\sqrt2}{3\pi.}
+\]</span></p>
+<p>故粒子处于新的基态的概率是 <span class="math display">\[
+|c_1|^2=\frac{32}{9\pi^2}.
+\]</span> （3）撤除隔板后，粒子处于哪个能级的概率最大？ <span class="math display">\[
+c_n=\int_{-\infty}^\infty u_n&#39;^*\psi(x,0)\mathrm dx=\int_{-\infty}^\infty \sqrt{\frac1a}\sin(\frac{n\pi x}{2a}+\frac{1-(-1)^n}2\frac\pi2)\sqrt{\frac2a}\sin(\frac{\pi}a(x-\frac a2)+\frac\pi2)\mathrm dx
+\]</span></p>
+<p><span class="math display">\[
+c_n=
+\begin{cases}
+\frac{\sqrt2}2,&amp;n=2;\\
+0,
+&amp;n=4,6,8,\cdots;\\
+\frac{4\sqrt2}{\pi(n^2-4)},&amp;n=1,3,5,\cdots.
+\end{cases}
+\]</span></p>
+<p>第2能级。</p>
+<p>（4）在势阱右半边（<span class="math inline">\(0 &lt; x &lt; a\)</span>）找到粒子的概率是 <span class="math display">\[
+\int_0^a(\sum_{n=0}^\infty \frac{4\sqrt2}{\pi((2n+1)^2-4)}e^{-\frac{\mathrm i\tau\hbar\pi^2(2n+1)^2}{8ma^2}}\sqrt{\frac1a}\sin(\frac{(2n+1)\pi x}{2a}+\frac\pi2)+\frac1{\sqrt{2a}}\sin\frac{\pi x}ae^{-\frac{\mathrm i\tau\hbar\pi^2}{2ma^2}})\mathrm dx.
+\]</span></p>
+<p>（5）求刚撤离隔板时，势阱内各点的几率流。在此后几率流是否不变？</p>
+<p>刚撤去隔板时<span class="math inline">\(\psi(x,0)=\psi^*(x,0)=0,\)</span> <span class="math display">\[
+\vec j=\mathrm i\frac\hbar{2m}(\psi\nabla\psi^*-\psi^*\nabla\psi)=0.
+\]</span> 否。</p>
+<h2 id="阶跃势">阶跃势</h2>
+<p>30、无限深势阱中，粒子演化的特征时间为 <span class="math display">\[
+\tau=\frac{ma^2}{\hbar}
+\]</span></p>
+<p>在此时间尺度上，会观察到明显的波包扩散。</p>
+<p>（1）考虑一个宽 <span class="math inline">\(2\)</span> 米的走廊，一个人待在走廊中。按量子力学，描述人的波包会发生扩散， 估算所需时间。计算时，你可以自行选取人的合理质量。</p>
+<p>人取<span class="math inline">\(60kg\)</span>。 <span class="math display">\[
+\tau=\frac{60\times2^2}{6.626\times10^{-34}}=3.622\times10^{35}s.
+\]</span> （2）同样是这个走廊，如果把电子关在其中，估算波包扩散所需的时间。 <span class="math display">\[
+\tau=\frac{9.1\times10^{-31}\times2^2}{6.626\times10^{-34}}=5.494\times10^3s.
+\]</span> （3）一个原子核被关在原子中，求波包扩散时间。原子核的质量与原子尺寸，请自行选取合理值。</p>
+<p>原子核质量取<span class="math inline">\(1.66\times10^{-27}kg\)</span>，原子尺寸取<span class="math inline">\(0.079nm\)</span>。 <span class="math display">\[
+\tau=\frac{1.66\times10^{-27}\times(0.079\times10^{-10})^2}{6.626\times10^{-34}}=1.564\times10^{-14}s.
+\]</span> 31、金属中的电子，在靠近表面处所受的作用势可近似为阶跃势。已知铜的功函数为<span class="math inline">\(4eV\)</span>， 估算铜中电子的透入距离。</p>
+<p>金属导体中自由电子热运动速率取<span class="math inline">\(v=1\times 10^5 m/s\)</span>，则透入距离 <span class="math display">\[
+\frac1{k_2}=\frac{\hbar}{\sqrt{2m_e(v_0-\frac12m_ev^2)}}=9.86\times10^{-11}m.
+\]</span> ## 方势垒和隧道效应</p>
+<h2 id="𝛿势阱">𝛿势阱</h2>
+<p>32、假定粒子的势场<span class="math inline">\(V(x)\)</span>为无限深势阱中有一𝛿-函数的势垒，即 <span class="math display">\[
+V(x)=
+\begin{cases}
+\gamma\delta(x),|x|&lt;a;\\
++\infty,|x|&gt;a.
+\end{cases}
+\]</span></p>
+<p>试求解系统的定态薛定谔方程：对偶函数和奇函数分开处理，找出系统的能级公式，并解释为什么奇函数不受𝛿-函数势垒的影响。</p>
+<p>系统的薛定谔方程 <span class="math display">\[
+(-\frac{\hbar^2}{2m}\frac{\mathrm d^2}{\mathrm dx^2}+V(x))u(x)=Eu(x).
+\]</span> <span class="math inline">\(|x|&gt;a\)</span>时，动能项分部积分后知恒正，总能量<span class="math inline">\(E=\langle\hat H\rangle&lt;+\infty\)</span>知<span class="math inline">\(u(x)=0\)</span>。</p>
+<p><span class="math inline">\(|x|&lt;\frac a2\)</span>且<span class="math inline">\(x\neq 0\)</span>时， <span class="math display">\[
+\frac{\mathrm d^2}{\mathrm dx^2} u(x)=-k^2u(x),k\mathop=^{def}\frac{\sqrt{2mE}}\hbar\Rightarrow u(x)=A\sin(kx+\delta).
+\]</span></p>
+<p><span class="math display">\[
+u(x)=
+\begin{cases}
+0,|x|&gt;a;\\
+A_1\sin(kx+\delta_1),-a&lt;x\leqslant0;\\
+A_2\sin(kx+\delta_2),0&lt;x&lt;a.\\
+\end{cases}
+\]</span></p>
+<p><span class="math display">\[
+\begin{cases}
+u(a)=u(-a)=0;\\
+u(0+)=u(0-);\\
+u&#39;(0+)-u&#39;(0-)=\frac{2m\gamma}{\hbar^2}u(0).
+\end{cases}
+\Rightarrow
+\begin{cases}
+A_2\sin(ka+\delta_2)=A_1\sin(-ka+\delta_1)=0;\\
+A_2\sin\delta_2=A_1\sin\delta_1;\\
+kA_2\cos\delta_2-kA_1\cos\delta_1=\frac{2m\gamma}{\hbar}A_1\sin\delta_1.
+\end{cases}
+\]</span></p>
+<p>由<span class="math inline">\(A_1,A_2\neq0\)</span>，有 <span class="math display">\[
+ka+\delta_2=n_1\pi,-ka+\delta_1=n_2\pi\Rightarrow\delta_1=-\delta_2+n\pi,n,n_1,n_2\in Z.
+\]</span> 进一步有 <span class="math display">\[
+\begin{cases}
+A_1=A_2;\\
+\delta_2=\arctan\frac{\hbar k}{m\gamma}.
+\end{cases}
+或
+\begin{cases}
+A_1=-A_2;\\
+\delta_2=0.
+\end{cases}
+\]</span> 归一化后得到两种情况的<span class="math inline">\(A_1=\sqrt{\frac2a}\)</span>。</p>
+<p>这样 <span class="math display">\[
+u(x)=
+\begin{cases}
+0,|x|\geqslant a;\\
+\sqrt{\frac2a}\sin(\frac{n_1\pi}a|x|+(1+\frac1a)\arctan\frac{\hbar k}{m\gamma})或\sqrt{\frac2a}\sin(\frac{n_2\pi}ax),|x|&lt;a,n_1,n_2\in Z*.
+\end{cases}
+\]</span> 由 <span class="math display">\[
+\frac{\sqrt{2mE}}\hbar=\frac{n_1\pi-\delta_2}a或\frac{n_2\pi}a,
+\]</span> 得能级 <span class="math display">\[
+E=(\frac\hbar{2ma}(n_1\pi+\arctan\frac{\hbar k}{m\gamma}))^2或(\frac{\hbar n_2}{2ma})^2,n_1,n_2\in Z^*
+\]</span> 解释：在没有考虑<span class="math inline">\(\delta-\)</span>势阱对波函数的影响时，奇函数在<span class="math inline">\(\delta-\)</span>势阱处的取值为<span class="math inline">\(0\)</span>，由量子力学假设之二，表明物质波在<span class="math inline">\(\delta-\)</span>势阱处出现的概率为0，自然没有影响。</p>
+<h2 id="谐振子">谐振子</h2>
+<p>33、一个谐振子处于基态，计算振子在经典禁止区的概率。 <span class="math display">\[
+P=1-\int_{-x_\max}^{x_\max}|u(x)|^2\mathrm dx=1-\int_{-\sqrt{\frac\hbar k}}^{\sqrt\frac\hbar k}\sqrt{\frac k{\hbar\pi}}e^{\frac{kx^2}{2\hbar}}\mathrm dx.
+\]</span></p>
+<h1 id="量子力学中的物理量">量子力学中的物理量</h1>
+<h2 id="物理量的算符">物理量的算符</h2>
+<h2 id="对易关系">对易关系</h2>
+<h2 id="不确定关系-1">不确定关系</h2>
+<p>34、估算谐振子基态能量。</p>
+<p>哈密顿算符 <span class="math display">\[
+H=\frac{p^2}{2m}+\frac12m\omega^2x^2,\omega^2\mathop=\limits^{def}\frac km.
+\]</span> 能量的期望值</p>
+
+$$
+\hat A\mathop=\limits^{def}\frac1{\sqrt{2m}}\hat p,\hat B\mathop=\limits^{def}\sqrt{\frac m2}\omega\hat x,\hat C\mathop=\limits^{def}[\hat A,\hat B]=\frac12\omega(-\mathrm i\hbar).
+$$
+
+$$
+\overline E=\langle\hat H\rangle=\langle\frac{\hat p^2}{2m}+\frac12m\omega^2\hat x^2\rangle=\langle\hat A^2+\hat B^2\rangle\geqslant2\sqrt{\overline{A^2}\cdot\overline{B^2}}\geqslant2\sqrt{{\overline C}^2}=\frac12\hbar\omega.
+$$
+
+
+<p>故能量最低的基态为<span class="math inline">\(\frac12\hbar\omega\)</span>。</p>
+<p>35、归一化高斯型波包 <span class="math inline">\(\psi(x) = e^{\frac{x^2}{\sigma^2}}\)</span>并求坐标算符<span class="math inline">\(\hat x\)</span>、动量算符<span class="math inline">\(\hat p\)</span>和动能算符<span class="math inline">\(\hat T =\frac 1 {2𝑚}\hat p^ 2\)</span>的期望值。 <span class="math display">\[
+\int_{-\infty}^{\infty}|\psi(x)|^2\mathrm dx=2\int_0^\infty e^{-\frac{2x^2}{\sigma^2}}\mathrm dx=\sqrt{\frac\pi2}\sigma.
+\]</span></p>
+<p><span class="math display">\[
+\psi(x)=(\sqrt{\frac\pi2}\sigma)^{-\frac12} e^{-\frac{x^2}{\sigma^2}}.
+\]</span></p>
+<p><span class="math display">\[
+\langle\hat x\rangle=\int_{-\infty}^{\infty}\psi^*(x)x\psi(x)\mathrm dx=0.
+\]</span></p>
+<p><span class="math display">\[
+\langle\hat p\rangle=\int_{-\infty}^{\infty}\psi^*(x)(-\mathrm i\hbar\frac\partial{\partial x})\psi(x)\mathrm dx=0.
+\]</span></p>
+<p><span class="math display">\[
+\langle\hat T\rangle=\int_{-\infty}^{\infty}\psi^*(x)(-\frac\hbar{2m}\frac{\partial^2}{\partial x^2})\psi(x)\mathrm dx=\int_{-\infty}^{\infty}(\sqrt{\frac\pi2}\sigma)^{-1}e^{-\frac{2x^2}{\sigma^2}}(-\hbar^2)(-\frac2{\sigma^2}+\frac{4x^2}{\sigma^4})\mathrm dx=\frac1{2m}\frac{\hbar^2}{\sigma^2}.
+\]</span></p>
+<p>36、写出一维谐振子在动量表象的哈密顿量算符。 <span class="math display">\[
+\hat H=\frac{\vec p^2}{2m}+\hat V=\frac{p^2}{2m}+\frac12k\hat x^2=\frac{p^2}{2m}+\frac12k(\mathrm i\hbar\frac\partial{\partial p_x})^2=\frac{p^2}{2m}+\frac{k\hbar}{2}\frac{\partial^2}{\partial p^2}.
+\]</span> 37、对单粒子的物理量，验证以下对易关系 <span class="math display">\[
+[\hat L_j,\hat r_k]=\mathrm i\hbar\varepsilon_{jkl}\hat r_l,
+\]</span></p>
+<p><span class="math display">\[
+[\hat L_j,\hat p_k]=\mathrm i\hbar\varepsilon_{jkl}\hat p_l,
+\]</span></p>
+<p><span class="math display">\[
+[\hat L_j,\hat T]=0.
+\]</span></p>
+<p><span class="math display">\[
+[\hat L_j,\hat r_k]=[\varepsilon_{jmn}\hat r_m\hat p_n,\hat r_k]=\varepsilon_{jmn}(\hat r_m[\hat p_n,\hat r_k]+[\hat r_m,\hat r_k]\hat p_n)=\varepsilon_{jmn}\delta_{nk}(-\mathrm i\hbar)\hat r_m=\varepsilon_{jlk}(-\mathrm i\hbar)\hat r_l=\mathrm i\hbar\varepsilon_{jkl}\hat r_l.
+\]</span></p>
+<p><span class="math display">\[
+[\hat L_j,\hat p_k]=[\varepsilon_{jmn}\hat r_m\hat p_n,\hat p_k]=\varepsilon_{jmn}(\hat r_m[\hat p_n,\hat p_k]+[\hat r_m,\hat p_k]\hat p_n)=\varepsilon_{jmn}\delta_{mk}\mathrm i\hbar\hat p_n=\mathrm i\hbar\varepsilon_{jkl}\hat p_l.
+\]</span></p>
+<p><span class="math display">\[
+[\hat L_j,\hat T]=\hat{\vec r}\times\hat{\vec p}\hat T-\hat T\hat{\vec r}\times\hat{\vec p}=\mathrm i\hbar\nabla_{\vec p}\times\vec p\frac{\vec p^2}{2m}-\frac{\vec p^2}{2m}\mathrm i\hbar\nabla_{\vec p}\times\vec p=0-0=0.
+\]</span></p>
+<p>38、考虑一维的弹簧振子，作用势为<span class="math inline">\(V(x)=\frac12kx^2\)</span>。</p>
+<p>求弹簧振子的坐标期望值<span class="math inline">\(\bar x(t)\)</span>和动量期望值<span class="math inline">\(\bar p(t)\)</span>随时间的变化规律<span class="math inline">\(\frac{\mathrm d\bar x}{\mathrm dt}\)</span>和<span class="math inline">\(\frac{\mathrm d\bar p}{\mathrm dt}\)</span>。这个关系式与牛顿力学一致吗？ <span class="math display">\[
+\frac{\partial\hat x}{\partial t}\psi(x)=0.
+\]</span></p>
+<p><span class="math display">\[
+[\hat x,\hat H]f=x(-\frac{\hbar^2}{2m}\frac{\mathrm d^2}{\mathrm dx^2}+\frac12kx^2)f-((-\frac{\hbar^2}{2m}\frac{\mathrm d^2}{\mathrm dx^2}+\frac12kx^2)(xf))=\frac\hbar mf&#39;=\frac{\mathrm i}m\hat pf.
+\]</span></p>
+<p>由海森堡运动方程： <span class="math display">\[
+\frac{\mathrm d\bar x}{\mathrm dt}=\frac {\mathrm d}{\mathrm dt}\langle\psi|\hat x|\psi\rangle=\langle\psi|\frac{\partial\hat x}{\partial t}+\frac1{\mathrm i\hbar}[\hat x,\hat H]|\psi\rangle=\frac1{m\hbar}\langle\psi|\hat p|\psi\rangle=\frac{\bar p}{m\hbar}.
+\]</span></p>
+<p>同理 <span class="math display">\[
+\frac{\mathrm d\bar p}{\mathrm dt}=-k\bar x.
+\]</span> 得到了微分方程组 <span class="math display">\[
+\begin{cases}
+\frac{\mathrm d\bar x}{\mathrm dt}=\frac{\bar p}{m\hbar},\\
+\frac{\mathrm d\bar p}{\mathrm dt}=-k\bar x.
+\end{cases}
+\Rightarrow
+\begin{cases}
+m\hbar\frac{\mathrm d^2\bar x}{\mathrm dt^2}=-k\bar x,\\
+m\hbar\frac{\mathrm d^2\bar p}{\mathrm dt^2}=-k\bar p.
+\end{cases}
+\]</span> 解得 <span class="math display">\[
+\begin{cases}
+\bar p=Ae^{\mathrm i\sqrt{\frac{k}{m\hbar}}t}+Be^{-\mathrm i\sqrt{\frac{k}{m\hbar}}t},\\
+\bar x=-\frac{\mathrm i}{\sqrt{km\hbar}}(Ae^{\mathrm i\sqrt{\frac{k}{m\hbar}}t}-Be^{-\mathrm i\sqrt{\frac{k}{m\hbar}}t}).
+\end{cases}
+\]</span> 带入<span class="math inline">\((t,\bar x)=(0,0)\)</span>得<span class="math inline">\(A=B\)</span>，此时<span class="math inline">\(p\neq0\)</span>，故<span class="math inline">\(A=B\neq 0\)</span>这样 <span class="math display">\[
+\begin{cases}
+\bar p=2A\cos\sqrt{\frac k{m\hbar}}t,\\
+\bar x=\frac{2A}{\sqrt{km\hbar}}\sin\sqrt{\frac k{m\hbar}}t.
+\end{cases}
+\Rightarrow
+\begin{cases}
+\frac{\mathrm d\bar x}{\mathrm dt}=\frac{2A}{m\hbar}\cos\sqrt{\frac k{m\hbar}}t,\\
+\frac{\mathrm d\bar p}{\mathrm dt}=-\frac{2A\sqrt k}{\sqrt{m\hbar}}\sin\sqrt{\frac k{m\hbar}}t.
+\end{cases}
+\]</span> 在牛顿力学中，由牛顿第二定律有 <span class="math display">\[
+\begin{cases}
+m\frac{\mathrm d^2 x}{\mathrm dt^2}=-kx,\\
+m\frac{\mathrm d^2 p}{\mathrm dt^2}=-kp.
+\end{cases}
+\]</span> 与量子力学中的关系式一致。</p>
+<p>39、</p>
+<p>（1）分别给出<span class="math inline">\(\hat x=x\)</span>和<span class="math inline">\(\hat p=-\mathrm i\hbar \frac \partial{\partial x}\)</span>的厄密共轭算符。 <span class="math display">\[
+\int_{-\infty}^{\infty}\psi^*_1(x)(x\psi_2(x))\mathrm dx=\int_{-\infty}^\infty(x\psi^*_1(x))\psi_2(x)\mathrm dx,
+\]</span> 所以<span class="math inline">\((\hat x)^\dagger=x\)</span>。 <span class="math display">\[
+\int_{-\infty}^\infty\psi^*_1(x)(-\mathrm i\hbar\frac\partial{\partial x}\psi_2(x))\mathrm dx=-\mathrm i\hbar((\psi^*_1(x)\psi_2(x))|_{-\infty}^\infty-\int_{-\infty}^\infty\frac\partial{\partial x}\psi^*_1(x)\psi_2(x)\mathrm dx)=\int_{-\infty}^\infty(\mathrm i\hbar\frac\partial{\partial x}\psi^*_1(x))\psi_2(x)\mathrm dx)=\int_{-\infty}^\infty(-\mathrm i\hbar\frac\partial{\partial x}\psi_1(x))^*\psi_2(x)\mathrm dx).
+\]</span> 所以<span class="math inline">\((\hat p)^\dagger=-\mathrm i\hbar\frac\partial{\partial x}\)</span>。</p>
+<p>（2）证明哈密顿量<span class="math inline">\(\hat H =-\frac{h^2}{2m}\frac{\partial^2}{\partial x^2}+V(x)\)</span>是厄密算符。 <span class="math display">\[
+\int_{-\infty}^\infty\psi^*_1(x)(\frac{\partial^2}{\partial x^2}\psi_2(x))\mathrm dx=(\psi^*_1(x)\frac\partial{\partial x}\psi_2(x))|_{-\infty}^\infty-\int_{-\infty}^\infty(\frac\partial{\partial x}\psi^*_1(x))(\frac\partial{\partial x}\psi_2(x))\mathrm dx=-(\frac\partial{\partial x}\psi^*_1(x)\psi_2(x))|_{-\infty}^\infty+\int_{-\infty}^\infty(\frac{\partial^2}{\partial x^2}\psi^*_1(x))\psi_2(x)\mathrm dx=\int_{-\infty}^\infty(\frac{\partial^2}{\partial x^2}\psi^*_1(x))\psi_2(x)\mathrm dx.
+\]</span> 这样<span class="math inline">\((\frac{\partial^2}{\partial x^2})^\dagger=\frac{\partial^2}{\partial x^2}\)</span>，所以 <span class="math display">\[
+(\hat H)^\dagger=-\frac{h^2}{2m}(\frac{\partial^2}{\partial x^2})^\dagger+V(x)=-\frac{h^2}{2m}\frac{\partial^2}{\partial x^2}+V(x)=\hat H.
+\]</span> 即哈密顿量是厄密算符。</p>
+<p>40、求动能算符 <span class="math display">\[
+\hat T=-\frac{h^2}{2m}\frac{\mathrm d^2}{\mathrm dx^2}
+\]</span> 的本征值和本征态。 <span class="math display">\[
+-\frac{h^2}{2m}\frac{\mathrm d^2}{\mathrm dx^2}u(x)=Eu(x),
+\]</span> 对于<span class="math inline">\(E&lt;0\)</span>， <span class="math display">\[
+\psi(x)=Ae^{kx}+Be^{-kx}
+\]</span> 在无穷远处发散到无穷，舍去。</p>
+<p>对于<span class="math inline">\(E&gt;0\)</span>， <span class="math display">\[
+\psi(x)=Ae^{\mathrm i kx}+Be^{-\mathrm ikx},
+\]</span></p>
+<p><span class="math display">\[
+E=\frac{\hbar^2k^2}{2m},
+\]</span></p>
+<p>在本征值<span class="math inline">\(E\)</span>下，选取两个线性无关的基 <span class="math display">\[
+\psi_1(x)=e^{\mathrm ikx},\psi_2(x)=e^{-\mathrm ikx}
+\]</span> 作为本征态。</p>
+<h2 id="力学量的演化">力学量的演化</h2>
+<h2 id="量子力学的基本假设">量子力学的基本假设</h2>
+<h1 id="氢原子解">氢原子解</h1>
+<h2 id="球坐标系的薛定谔方程">球坐标系的薛定谔方程</h2>
+<h2 id="径向方程和角向方程">径向方程和角向方程</h2>
+<h2 id="束缚态和散射态">束缚态和散射态</h2>
+<h2 id="径向波函数和球谐函数">径向波函数和球谐函数</h2>
+<p>41、氢原子处于<span class="math inline">\(n = 2\)</span>的能级，列出所有可能状态的量子数<span class="math inline">\((n, l, m)\)</span>。 <span class="math display">\[
+(2,0,0),(2,1,-1),(2,1,0),(2,1,1).
+\]</span> 42、设初始时刻氢原子处在状态<span class="math inline">\(\psi(t = 0) = \frac1{\sqrt2}(\psi_{200} − \psi_{100})\)</span>上，计算氢原子半径<span class="math inline">\(r\)</span>期望值的时间演化<span class="math inline">\(\bar r(t)\)</span>。 <span class="math display">\[
+\psi(r,t)=e^{\frac{-\mathrm iE_nt}{\hbar}}\psi(t=0)=\frac1{\sqrt2}(e^{\frac{\mathrm i\hbar t}{8ma_0^2}}\psi_{200}-e^{\frac{\mathrm i\hbar t}{2ma_0^2}}\psi_{100})=\frac1{\sqrt2}(e^{\frac{\mathrm i\hbar t}{8ma_0^2}}\frac1{4\sqrt{2\pi}a_0^{\frac52}}(r\cos\theta e^{-\frac r{2a_0}})-e^{\frac{\mathrm i\hbar t}{2ma_0^2}}\frac1{\sqrt\pi a_0^{\frac32}}e^{-\frac r{a_0}}).
+\]</span></p>
+<p><span class="math display">\[
+\overline r(t)=\langle\psi|r|\psi\rangle=\int_{-\infty}^\infty\psi(r,t)^*r\psi(r,t)\mathrm dr=\frac{15}4a_0+\frac{32\sqrt2a_0}{81}\cos\frac{3E_0}{4\hbar}t.
+\]</span></p>
+<p>43、已知氢原子的状态波函数为 <span class="math display">\[
+u_{nlm}=\frac1{81\sqrt{6\pi}a_0^\frac32}(\frac r{a_0})^2e^{-\frac r{3a_0}}(3\cos^2\theta-1),
+\]</span> 试确定量子数<span class="math inline">\((n,l,m)\)</span>。 <span class="math display">\[
+(3,2,0).
+\]</span></p>
+<h2 id="电子云">电子云</h2>
+<h2 id="反射对称形和宇称">反射对称形和宇称</h2>
+<h1 id="转动与平移">转动与平移</h1>
+<h2 id="轨道角动量">轨道角动量</h2>
+<h2 id="球谐函数">球谐函数</h2>
+<p>44、某一时刻的波函数 <span class="math display">\[
+\psi(\vec r)=f(r)(1+\frac zr+\frac{z^2}{r^2}),
+\]</span> 测量角动量<span class="math inline">\(\vec L^2\)</span>，<span class="math inline">\(L_z\)</span>。</p>
+<p>用<span class="math inline">\((\vec L^2,L_z)\)</span>的共同本征态展开波函数， <span class="math display">\[
+\psi\propto\sqrt{4\pi}Y_{00}+\sqrt{\frac{8\pi}3}Y_{10}+(\frac13\sqrt{\frac{16\pi}5}Y_{20}+\frac13\sqrt{4\pi}Y_{00})\propto4\sqrt5Y_{00}+\sqrt{30}Y_{10}+2Y_{20}.
+\]</span> 根据统计解释： <span class="math display">\[
+L_z=m\hbar=0;P=1.
+\]</span></p>
+<p><span class="math display">\[
+\vec L^2=l(l+1)\hbar^2=0or2\hbar^2or6\hbar^2;P=\frac{40}{57},\frac5{19},\frac2{57}.
+\]</span></p>
+<p>45、证明在<span class="math inline">\(L_z\)</span>的本征态下， <span class="math display">\[
+\langle L_x\rangle=\langle L_y\rangle=0.
+\]</span></p>
+<p><span class="math display">\[
+\langle L_x\rangle=\int_0^\pi\mathrm d\cos\theta\langle Y_{lm}(\theta,\phi)|\hat{L_x}|Y_{lm}(\theta,\phi)\rangle\newline=\int_0^\pi\mathrm d\cos\theta\frac1{\mathrm i\hbar}\langle Y_{lm}(\theta,\phi)|\hat{L_y}\hat{L_z}-\hat{L_z}\hat{L_y}|Y_{lm}(\theta,\phi)\rangle\newline=\int_0^\pi\mathrm d\cos\theta\frac1{\mathrm i\hbar}(\langle Y_{lm}(\theta,\phi)|\hat{L_y}|m\hbar Y_{lm}(\theta,\phi)\rangle-\langle m\hbar Y_{lm}(\theta,\phi)|\hat{L_z}|Y_{lm}(\theta,\phi)\rangle\newline=\int_0^\pi\mathrm d\cos\theta\frac m{\mathrm i}\cdot 0=0.
+\]</span></p>
+<p><span class="math inline">\(\langle L_y\rangle\)</span>同理。</p>
+<p>46、求单粒子的不确定关系 <span class="math display">\[
+\Delta L_x\Delta L_y\geqslant?
+\]</span> 设此粒子的量子态满足 <span class="math display">\[
+\langle L_x\rangle=\langle L_y\rangle=0,\langle L_z\rangle=2\hbar.
+\]</span> 取<span class="math inline">\(\hat A=\hat{L_x}-\langle L_x\rangle\)</span>，<span class="math inline">\(\hat B=\hat{L_y}-\langle L_y\rangle\)</span>，记<span class="math inline">\([\hat A,\hat B]=\mathrm i\hat C\)</span>，有 <span class="math display">\[
+\bar C^2=\langle\frac 1{\mathrm i}[\hat A,\hat B]\rangle^2=\langle[\hat {L_x},\hat {L_y}]\rangle^2=\langle\hbar \hat{L_z}\rangle^2=\hbar^2(2\hbar)^2.
+\]</span> 由 <span class="math display">\[
+\bar{A^2}\cdot\bar{B^2}\geqslant\frac14{\bar C}^2,
+\]</span> 有 <span class="math display">\[
+\Delta L_x^2\Delta L_y^2\geqslant\frac14\hbar^4\Rightarrow\Delta L_x\Delta L_y\geqslant\hbar^2。
+\]</span> 负值舍去。</p>
+<p>47、粒子的波函数为 <span class="math display">\[
+\psi(x,y,z)=(\frac{128}{\pi^3})^{\frac14}\alpha^{\frac52}x\exp(-\alpha^2(x^2+y^2+z^2)),
+\]</span> 测量角动量<span class="math inline">\(\vec{L}^2,L_z\)</span>会得到什么数值？概率是多少?</p>
+<p><span class="math display">\[
+\psi(x,y,z)=(\frac{128}{\pi^3})^{\frac14}\alpha^{\frac52}r\sin\theta\cos\varphi e^{-\alpha^2 r^2}=f(r)\sin\theta\frac{e^{\mathrm i\phi}+e^{-\mathrm i\phi}}2\propto Y_{1,1}+Y_{1,-1}.
+\]</span> <span class="math display">\[
+P(L_z=\hbar)=\frac12,P(L_z=-\hbar)=\frac12,P(\vec L^2=2\hbar)=1.
+\]</span></p>
+<h2 id="三维空间的转动">三维空间的转动</h2>
+<h2 id="空间平移">空间平移</h2>
+<h2 id="时间平移">时间平移</h2>
+<h1 id="电子的磁矩和自旋">电子的磁矩和自旋</h1>
+<h2 id="轨道磁矩">轨道磁矩</h2>
+<p>48、两维矩阵</p>
+
+$$
+P=
+\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix},
+$$
+
+<p>用Pauli矩阵展开，求出展开系数。</p>
+<p><span class="math display">\[
+P\equiv p_0\sigma_0+p_1\sigma_1+p_2\sigma_2+p_3\sigma_3。
+\]</span> 
+$$
+p_0=\frac12\tr(P\sigma_0)=\frac12\tr\begin{pmatrix}a&b\\c&d\end{pmatrix}=\frac12(a+d).
+$$
+
+$$
+p_1=\frac12\tr(P\sigma_1)=\frac12\tr\begin{pmatrix}b&a\\d&c\end{pmatrix}=\frac12(b+c).
+$$
+
+$$
+p_2=\frac12\tr(P\sigma_2)=\frac12\tr\begin{pmatrix}\mathrm ib&-\mathrm ia\\\mathrm id&-\mathrm ic\end{pmatrix}=\frac{\mathrm i}2(b-c).
+$$
+
+$$
+p_3=\frac12\tr(P\sigma_3)=\frac12\tr\begin{pmatrix}a&-b\\c&-d\end{pmatrix}=\frac12(a-d).
+$$
+
+</p>
+<h2 id="电子的自旋和磁矩">电子的自旋和磁矩</h2>
+<p>49、求<span class="math inline">\(\sigma_y\)</span>算符的本征态和本征值，并给出状态<span class="math inline">\((\alpha,\beta)^T\)</span>上测量<span class="math inline">\(s_y\)</span>的测量值和相应的几率。</p>
+<p>由<span class="math inline">\(\det(\sigma_y-\lambda I)=0\)</span>，得<span class="math inline">\(s_y\)</span>的本征值<span class="math inline">\(\pm1\)</span>，本征矢 <span class="math display">\[
+|\uparrow\rangle=\frac1{\sqrt 2}(1,\mathrm i)^T,|\downarrow\rangle=\frac1{\sqrt 2}(1,-\mathrm i)^T.
+\]</span></p>
+<p>自旋态的展开 <span class="math display">\[
+|\chi\rangle=\frac1{\sqrt{|\alpha|^2+|\beta|^2}}(\alpha,\beta)^T\equiv A_1|\uparrow\rangle_y+A_2\downarrow\rangle_y.
+\]</span></p>
+<p><span class="math display">\[
+A_1 = _y \langle\uparrow|\chi\rangle=\frac1{\sqrt{2(|\alpha|^2+|\beta|^2)}}(1,-\mathrm i)(\alpha,\beta)^T=\frac1{\sqrt{2(|\alpha|^2+|\beta|^2)}}(\alpha-\mathrm i\beta).
+\]</span></p>
+<p><span class="math display">\[
+A_2=_y\langle\downarrow|\chi\rangle=\frac1{\sqrt{2(|\alpha|^2+|\beta|^2)}}(1,\mathrm i)(\alpha,\beta)^T=\frac1{\sqrt{2(|\alpha|^2+|\beta|^2)}}(\alpha+\mathrm i\beta).
+\]</span></p>
+<p><span class="math inline">\(\hat s_y=\sigma_y\)</span>，<span class="math inline">\(s_y\)</span>的测量值是<span class="math inline">\(\pm\frac\hbar2\)</span>，几率 <span class="math display">\[
+|A_1|^2=\frac{|\alpha|^2+|\beta|^2-2\Im(\alpha\beta^*)}{2(|\alpha|^2+|\beta|^2)},|A_2|^2=\frac{|\alpha|^2+|\beta|^2+2\Im(\alpha\beta^*)}{2(|\alpha|^2+|\beta|^2)},
+\]</span> 50、求空间单位方向上算符<span class="math inline">\((\vec\sigma\cdot\vec n)\)</span>对应的本征值和本征态。</p>
+<p>球坐标系的单位矢量 <span class="math display">\[
+(n_1,n_2,n_3)=(\sin\theta\cos\varphi,\sin\theta\sin\varphi,\cos\theta).
+\]</span> 算符的显式表达式</p>
+
+$$
+\sigma_1n_1+\sigma_2n_2+\sigma_3n_3=\begin{pmatrix}\cos\theta&\sin\theta e^{\mathrm i\varphi}\\\sin\theta e^{\mathrm i\varphi}&-\cos\theta\end{pmatrix}.
+$$
+
+<p>本征值 <span class="math display">\[
+\det(\vec\sigma\cdot\vec n-\lambda\mathbb 1)=0\Rightarrow\lambda=\pm1.
+\]</span> 本征矢 <span class="math display">\[
+|\uparrow\rangle_n=(\cos\frac\theta2e^{\frac{\mathrm i\varphi}2},\sin\frac\theta2e^{\frac{\mathrm i\varphi}2})^T,|\downarrow\rangle_n=(-\sin\frac\theta2e^{\frac{\mathrm i\varphi}2},\cos\frac\theta2e^{\frac{\mathrm i\varphi}2})^T.
+\]</span> 51、加热银蒸汽时的炉温<span class="math inline">\(T=1320K\)</span>，不均匀磁场区长度<span class="math inline">\(l=0.1m\)</span>，磁场梯度<span class="math inline">\(\frac{\mathrm dB}{\mathrm dz}=2300T/m\)</span>。冷凝屏紧贴磁场末端，观测到银原子沉积的两条斑纹间隔<span class="math inline">\(\Delta x=4mm\)</span>。求银原子磁矩<span class="math inline">\(\mu_z\)</span>。</p>
+<p>银原子均方根速率 <span class="math display">\[
+\frac12mv^2=\frac32k_BT\Rightarrow=\sqrt{\frac{3k_BT}m}.
+\]</span> 磁矩与外场作用的势能 <span class="math display">\[
+W=-\vec\mu\cdot\vec B=-\mu_z(\frac{\mathrm d B}{\mathrm d z}z).
+\]</span> 银原子所受的作用力 <span class="math display">\[
+F=-\nabla W=\mu_z\frac{\mathrm d B}{\mathrm d z}.
+\]</span> 通过磁场区域后的横向偏移 <span class="math display">\[
+x=\frac12at^2=\frac12\frac Fm(\frac lv)^2=\frac{l^2\mu_z}{6k_BT}\frac{\mathrm d B}{\mathrm d z}.
+\]</span> 两条斑纹的横向间隔 <span class="math display">\[
+\Delta x=2x=\frac{l^2\mu_z}{3k_BT}\frac{\mathrm d B}{\mathrm d z}.
+\]</span> 实验测得的磁矩是 <span class="math display">\[
+\mu_B=\frac{3k_BT\Delta x}{l^2\frac{\mathrm dB}{\mathrm dz}}=9.5\times10^{-24}J\cdot s.
+\]</span> 52、氢原子处于定态<span class="math inline">\(u_{3,1,1}\)</span>，受到扰动后向低能级跃迁，会有几条谱线？增加沿 <span class="math inline">\(z\)</span> 轴方向的磁场，各谱线分别分裂成几条（不考虑电子自旋）？</p>
+<p>由<span class="math inline">\(\Delta l=\pm 1\)</span>，<span class="math inline">\(\Delta m=0.\pm1\)</span>，知<span class="math inline">\(u_{3,1,1}\)</span>可以向<span class="math inline">\(u_{2,0,0}\)</span>及<span class="math inline">\(u_{1,0,0}\)</span>跃迁，共两条谱线，加磁场也不会发生能级分裂。</p>
+<p>53、设电子是均匀球体。已知电子的角动量是<span class="math inline">\(\frac\hbar2\)</span>，估算电子的角速度以及赤道上的线速度。 <span class="math display">\[
+L=I\frac v{r_e} \Rightarrow v=\frac LIr_e=\frac{5\hbar}{4m_er_e}=5.2\times10^{10}m/s
+\]</span></p>
+<p>54、验证 <span class="math display">\[
+\frac1{2m_e}(\vec\sigma\cdot(\hat{\vec p}+e\vec A))^2=\frac1{2m_e}(\hat{\vec p}+e\vec A)^2+\frac{e\hbar}{2m_e}\vec\sigma\cdot\vec B.
+\]</span> <span class="math display">\[
+(\hat{\vec p}+e\vec A)\times(\hat{\vec p}+e\vec A)f=e\vec A\times(\hat{\vec p}f)+e\hat{\vec p}\times (\vec Af)=e\vec A\times\hat{\vec p}f+e(\hat{\vec p}\times \vec A)f+e(\hat{\vec p}f)\times \vec A=ef\hat{\vec p}\times A=-\mathrm ie\hbar\vec Bf.
+\]</span> 故由泡利矩阵性质有 <span class="math display">\[
+\frac1{2m_e}(\vec\sigma\cdot(\hat{\vec p}+e\vec A))^2=\frac1{2m_e}(\hat{\vec p}+e\vec A)^2+\frac1{2m_e}\mathrm i\vec\sigma\cdot((\hat{\vec p}+e\vec A)\times(\hat{\vec p}+e\vec A))=\frac1{2m_e}(\hat{\vec p}+e\vec A)^2+\frac{e\hbar}{2m_e}\vec\sigma\cdot\vec B.
+\]</span></p>
+<p>55、设电子的自旋波函数是</p>
+
+$$
+\begin{pmatrix}
+1+2\mathrm i\\
+3+4\mathrm i
+\end{pmatrix}
+$$
+
+<p>测量自旋<span class="math inline">\(s_y\)</span>，可能的取值有哪些？概率是分别是多少？</p>
+<p>由<span class="math inline">\(\det(\sigma_y-\lambda I)=0\)</span>，得<span class="math inline">\(s_y\)</span>的本征值<span class="math inline">\(\pm1\)</span>，本征矢 <span class="math display">\[
+|\uparrow\rangle=\frac1{\sqrt 2}(1,\mathrm i)^T,|\downarrow\rangle=\frac1{\sqrt 2}(1,-\mathrm i)^T.
+\]</span></p>
+<p><span class="math display">\[
+|\chi\rangle=\frac1{\sqrt{30}}(1+2\mathrm i,3+4\mathrm i)^T.
+\]</span></p>
+<p><span class="math display">\[
+A_1=_y\langle\uparrow|\chi\rangle=\frac1{\sqrt{60}}(1,-\mathrm i)(1+2\mathrm i,3+4\mathrm i)^T=\frac{\sqrt{15}}{30}(5-\mathrm i).
+\]</span></p>
+<p><span class="math display">\[
+A_2=_y\langle\downarrow|\chi\rangle=\frac1{\sqrt{60}}(1,\mathrm i)(1+2\mathrm i,3+4\mathrm i)^T=\frac{\sqrt{15}}{30}(-3+5\mathrm i).
+\]</span></p>
+<p><span class="math inline">\(\hat s_y=\sigma_y\)</span>，<span class="math inline">\(s_y\)</span>的测量值是<span class="math inline">\(\pm\frac\hbar2\)</span>，概率分别为 <span class="math display">\[
+|A_1|^2=\frac{13}{30},|A_2|^2=\frac{17}{30}.
+\]</span> 56、电子的总角动量<span class="math inline">\(\vec J\)</span>为轨道角动量<span class="math inline">\(\vec L\)</span>与自旋角动量<span class="math inline">\(\vec s\)</span>之和。由于轨道角动量算符与自旋角动量算符作用在不同的空间，所以互相对易，即有 <span class="math display">\[
+[\hat{L_j},\hat {s_k}]=0,j.k=1,2,3.
+\]</span> （1）求总角动量的对易关系<span class="math inline">\([\vec{J_j},\vec {J_k}]\)</span>。 <span class="math display">\[
+[\vec{J_j},\vec {J_k}]=[\vec{L_j}+\vec {s_j},\vec{L_k}+\vec {s_k}]=[\vec{L_j},\vec {L_k}]+[\vec{s_j},\vec {s_k}]=\mathrm i\hbar\varepsilon_{jkl}\hat{\vec L_l}+\mathrm i\hbar\varepsilon_{jkl}\hat{\vec s_l}=\mathrm i\hbar\epsilon_{jkl}\hat{J_l}.
+\]</span> （2）证明四个物理量<span class="math inline">\(\{\hat{\vec J^2},\hat{\vec L^2},\hat{\vec s^2},\hat{J_z}\}\)</span>两两对易，因而有完备的共同本征态。 <span class="math display">\[
+[\hat{\vec L}^2,\hat{\vec s}^2]=(\hat{\vec L}+\hat{\vec s})[\hat{\vec L},\hat{\vec s}]+[\hat{\vec L},\hat{\vec s}](\hat{\vec L}+\hat{\vec s})=0.
+\]</span></p>
+<p><span class="math display">\[
+[\hat{\vec J}^2,\hat{\vec L}^2]=[\hat{\vec L}^2,\hat{\vec L}^2]+[\hat{\vec s}^2,\hat{\vec L}^2]=0.
+\]</span></p>
+<p><span class="math display">\[
+[\hat{\vec J}^2,\hat{\vec s}^2]=[\hat{\vec L}^2,\hat{\vec s}^2]+[\hat{\vec s}^2,\hat{\vec s}^2]=0.
+\]</span></p>
+<p><span class="math display">\[
+[\hat{J_z},\hat{\vec L}^2]=[\hat{L_z}+\hat{s_z},\hat{\vec L}^2]=[\hat{s_z},\hat{\vec L}^2]=[\hat{s_z},\hat L_x^2]+[\hat{s_z},\hat L_y^2]+[\hat{s_z},\hat L_z^2]=[\hat{s_z},\hat L_x]\hat{L_x}+\hat{L_x}[\hat{s_z},\hat L_x^2]+[\hat{s_z},\hat L_x^2]\hat{L_y}+\hat{L_y}[\hat{s_z},\hat L_x^2]\hat{L_z}+\hat{L_z}[\hat{s_z},\hat L_x^2]=0.
+\]</span></p>
+<p><span class="math display">\[
+[\hat{J_z},\hat{\vec s}^2]=[\hat{L_z}+\hat{s_z},\hat{\vec s}^2]=[\hat{L_z},\hat{\vec s}^2]=[\hat{L_z},\hat s_x^2]+[\hat{L_z},\hat s_y^2]+[\hat{L_z},\hat s_z^2]=[\hat{L_z},\hat s_x]\hat{s_x}+\hat{s_x}[\hat{L_z},\hat s_x^2]+[\hat{L_z},\hat s_x^2]\hat{s_y}+\hat{s_y}[\hat{L_z},\hat s_x^2]\hat{s_z}+\hat{s_z}[\hat{L_z},\hat s_x^2]=0.
+\]</span></p>
+<p><span class="math display">\[
+[\hat {J_z},\hat{\vec J}^2]=[\hat J_z,\hat{\vec L}^2]+[\hat J_z,\hat{\vec s}^2]=0.
+\]</span></p>
+<p>57、在 Stern-Gerlach 实验中，窄银原子束从左侧向右通过梯度磁场，然后沉积在冷凝屏上。已知磁场区长度<span class="math inline">\(a = 10cm\)</span>，磁场区右边缘与屏的距离<span class="math inline">\(b = 20cm\)</span>，银原子速度$v = 300 m / s $。磁场强度的梯度值取多大时，原子束在屏上的裂距为<span class="math inline">\(2mm\)</span>？</p>
+<p>磁矩与外场作用的势能 <span class="math display">\[
+W=-\vec\mu\cdot\vec B=-\mu_z(\frac{\mathrm d B}{\mathrm d z}z).
+\]</span> 银原子所受的作用力 <span class="math display">\[
+F=-\nabla W=\mu_z\frac{\mathrm d B}{\mathrm d z}.
+\]</span> 通过磁场区域后的横向偏移 <span class="math display">\[
+x_1=\frac12at^2=\frac12\frac Fm(\frac av)^2=\frac{a^2\mu_z}{2mv^2}\frac{\mathrm d B}{\mathrm d z}.
+\]</span> 在磁场外的横向偏移 <span class="math display">\[
+x_2=v_2t_2=\frac{Fab}{mv^2}=\frac{\mu_zab\mathrm d B}{mv^2\mathrm dz}.
+\]</span> 两条纹的横向间隔 <span class="math display">\[
+\Delta x=2(x_1+x_2).
+\]</span> 磁场强度梯度</p>
+<p><span class="math display">\[
+\frac{\mathrm dB}{\mathrm dz}=\frac{\Delta xmv^2}{\mu_z(ab+\frac{a^2}2)}=69.64T/m.
+\]</span> 58、计算可知 <span class="math display">\[
+\exp(-\mathrm i\frac{\sigma_z}2\theta)(n_1\sigma_x+n_2\sigma_y)\exp(\mathrm i\frac{\sigma_z}2\theta)\equiv n_1&#39;\sigma_x+n_2&#39;\sigma_y
+\]</span> 求<span class="math inline">\((n_1&#39;,n_2&#39;)\)</span>。</p>
+<p>由于</p>
+
+$$
+(\sigma_z)^n=
+\begin{pmatrix}
+1&0\\
+0&(-1)^n
+\end{pmatrix},
+$$
+
+<p>故</p>
+
+$$
+\exp(-\mathrm i\frac\theta2\sigma_z)=
+\begin{pmatrix}
+\exp(-\mathrm i\frac\theta2)&0\\
+0&\exp(\mathrm i\frac\theta2)
+\end{pmatrix}
+$$
+
+$$
+\begin{pmatrix}
+\exp(-\mathrm i\frac\theta2)&0\\
+0&\exp(\mathrm i\frac\theta2)
+\end{pmatrix}
+\begin{pmatrix}
+0&n_1-\mathrm in_2\\
+n_1+\mathrm in_2&0
+\end{pmatrix}
+\begin{pmatrix}
+\exp(\mathrm i\frac\theta2)&0\\
+0&\exp(-\mathrm i\frac\theta2)
+\end{pmatrix}
+=
+\begin{pmatrix}
+0&n_1'-\mathrm in_2'\\
+n_1'+\mathrm in_2'&0
+\end{pmatrix}
+$$
+
+
+<p>解得 <span class="math display">\[
+n_1&#39;=n_1\cos\theta-n_2\sin\theta,n_2&#39;=n_1\sin\theta+n_2\cos\theta.
+\]</span> 59、求矩阵</p>
+
+$$
+A=
+\begin{pmatrix}
+0&1\\
+2&3
+\end{pmatrix}
+$$
+
+<p>的正切值<span class="math inline">\(\tan A\)</span>。</p>
+<p>由Cayley-Hamilton定理 <span class="math display">\[
+\tan A=c_0I+c_1A.
+\]</span> <span class="math inline">\(A\)</span>的特征值 <span class="math display">\[
+\lambda_{1,2}=\frac{3\pm\sqrt{17}}2
+\]</span> 满足 <span class="math display">\[
+\tan \lambda_1=c_0+c_1\lambda_1,
+\]</span></p>
+<p><span class="math display">\[
+\tan \lambda_2=c_0+c_1\lambda_2.
+\]</span></p>
+<p>解得 <span class="math display">\[
+\tan A=\frac{\tan\frac{3-\sqrt{17}}2-\tan \frac{3+\sqrt{17}}2}{-\sqrt{17}}
+\begin{pmatrix}
+0&amp;1\\
+2&amp;3
+\end{pmatrix}
++\frac{\frac{3-\sqrt{17}}2\tan \frac{3+\sqrt{17}}2-\frac{3+\sqrt{17}}2\tan \frac{3-\sqrt{17}}2}{-\sqrt{17}}
+\begin{pmatrix}
+1&amp;0\\
+0&amp;1
+\end{pmatrix}.
+\]</span></p>
+<h1 id="相对论量子力学">相对论量子力学</h1>
+<h2 id="klein方程">Klein方程</h2>
+<h2 id="dirac方程">Dirac方程</h2>
+<h1 id="角动量的耦合">角动量的耦合</h1>
+<h2 id="两粒子的自旋态">两粒子的自旋态</h2>
+<p>60、两个自旋为 <span class="math inline">\(\frac12\)</span> 的粒子组成复合系统，粒子A处在本征值<span class="math inline">\(S_{z,A}=+\frac\hbar2\)</span>对应本征态上，粒子B处在本征值<span class="math inline">\(S_{x,B}=+\frac\hbar2\)</span>对应本征态上，求测得总自旋为零的概率。</p>
+
+$$
+\hat S_z=\frac\hbar2
+\begin{pmatrix}
+1&0\\
+0&-1
+\end{pmatrix},
+$$
+
+<p>本征态为 <span class="math display">\[
+|\uparrow\rangle=(1,0)^T,|\downarrow\rangle=(0,1)^T.
+\]</span></p>
+<p><span class="math display">\[
+\chi_A=|\uparrow\rangle,
+\]</span></p>
+
+$$
+\hat S_x=\frac\hbar2
+\begin{pmatrix}
+0&1\\
+1&0
+\end{pmatrix},
+$$
+
+<p>本征态为 <span class="math display">\[
+\frac1{\sqrt2}(1,1)^T=\frac1{\sqrt2}(|\uparrow\rangle+|\downarrow\rangle).
+\]</span></p>
+<p><span class="math display">\[
+\chi_B=\frac1{\sqrt2}(|\uparrow\rangle+|\downarrow\rangle).
+\]</span></p>
+<p><span class="math display">\[
+|\chi_{AB}\rangle=\chi_A\otimes\chi_B=\frac1{\sqrt2}(|\uparrow\uparrow\rangle+|\uparrow\downarrow\rangle).
+\]</span></p>
+<p>总自旋<span class="math inline">\(S=0\)</span>的本征态为 <span class="math display">\[
+|00\rangle=\chi_{00}=\frac1{\sqrt2}(|\uparrow\downarrow\rangle-|\downarrow\uparrow\rangle).
+\]</span></p>
+<p><span class="math display">\[
+c=\langle00|\chi_{AB}\rangle=\frac12,P=|c|^2=\frac14.
+\]</span></p>
+<p>61、两电子系统处于总自旋<span class="math inline">\(S=1\)</span>的状态，那么物理量<span class="math inline">\(\vec s_1\cdot\vec s_2\)</span>的可能取值是多少？ <span class="math display">\[
+\hat{\vec S}=\hat{\vec S_1}+\hat{\vec S_2}.
+\]</span></p>
+<p><span class="math display">\[
+\hat S^2=S(S+1)\hbar^2=2\hbar^2,
+\]</span></p>
+<p><span class="math display">\[
+\hat S_1^2=\hat S_2^2=\frac12(\frac12+1)\hbar^2=\frac34\hbar^2,
+\]</span></p>
+<p><span class="math display">\[
+\hat{\vec S_1}\cdot\hat{\vec S_2}=\frac12(\hat S^2-\hat S_1^2-\hat S_2^2)=\frac14\hbar^2.
+\]</span></p>
+<p>62、自旋交换算符<span class="math inline">\(\hat P_{12}\)</span>交换两粒子的自旋状态。在直积表象， <span class="math display">\[
+\hat P_{12}|\uparrow\uparrow\rangle=|\uparrow\uparrow\rangle,\hat P_{12}|\uparrow\downarrow\rangle=|\downarrow\uparrow\rangle,\hat P_{12}|\downarrow\uparrow\rangle=|\uparrow\downarrow\rangle,\hat P_{12}|\downarrow\downarrow\rangle=|\downarrow\downarrow\rangle,
+\]</span></p>
+<p>写出算符<span class="math inline">\(\hat P_{12}\)</span>的矩阵形式。</p>
+
+$$
+\hat P_{12}(|\uparrow\uparrow\rangle,|\uparrow\downarrow\rangle,|\downarrow\uparrow\rangle,|\downarrow\downarrow\rangle)=(|\uparrow\uparrow\rangle,|\downarrow\uparrow\rangle,|\uparrow\downarrow\rangle,|\downarrow\downarrow\rangle),
+$$
+
+$$
+\hat{P_{12}}
+\begin{pmatrix}
+1&0&0&0\\
+0&1&0&0\\
+0&0&1&0\\
+0&0&0&1
+\end{pmatrix}
+=
+\begin{pmatrix}
+1&0&0&0\\
+0&0&1&0\\
+0&1&0&0\\
+0&0&0&1
+\end{pmatrix}.
+$$
+
+$$
+\hat{P_{12}}=
+\begin{pmatrix}
+1&0&0&0\\
+0&0&1&0\\
+0&1&0&0\\
+0&0&0&1
+\end{pmatrix}.
+$$
+
+
+<h2 id="角动量的耦合-1">角动量的耦合</h2>
+<p>63、对于<span class="math inline">\(l=1\)</span>，<span class="math inline">\(s=1\)</span>，计算<span class="math inline">\(\vec l\cdot \vec s\)</span>的可能值。 <span class="math display">\[
+\vec j=\vec l+\vec s,j=|l-s|,\cdots,l+s=0,1,2.
+\]</span></p>
+<p><span class="math display">\[
+l(l+1)\hbar^2+s(s+1)\hbar^2+2\vec l\cdot\vec s=(\vec l+\vec s)^2=\vec j^2=j(j+1)\hbar^2,
+\]</span></p>
+<p><span class="math display">\[
+\vec l\cdot\vec s=-2\hbar^2,\hbar^2,or\hbar.
+\]</span></p>
+<h2 id="精细结构和超精细结构">精细结构和超精细结构</h2>
+<h1 id="全同粒子">全同粒子</h1>
+<h2 id="粒子的全同性">粒子的全同性</h2>
+<h2 id="玻色-爱因斯坦凝聚">玻色-爱因斯坦凝聚</h2>
+<h2 id="氦原子的能级">氦原子的能级</h2>
+<p>64、 氦原子的两个电子，在基态时空间波函数都占据 1s 轨道。</p>
+<p>（1）只考虑电子与原子核的库仑作用，计算氦原子的基态能量。 <span class="math display">\[
+\psi_1=\sqrt{\frac8{\pi a_0^3}}\exp(-\frac{2r_1}{a_0}),\psi_2=\sqrt{\frac8{\pi a_0^3}}\exp(-\frac{2r_2}{a_0}).
+\]</span></p>
+<p><span class="math display">\[
+E=\langle\psi|\hat H|\psi\rangle=\langle\psi_1|\hat H_1|\psi_1\rangle+\langle\psi_2|\hat H_2|\psi_2\rangle=2\iiint\psi_1(-\frac\hbar{2m}\nabla^2-\frac{e^2}{\pi\varepsilon_0 r})\psi_1\mathrm dV=-108.9eV.
+\]</span></p>
+<p>（2）在此基础上，考虑电子间的库仑排斥力，那么对基态能量的修正是多少？</p>
+<p><span class="math display">\[
+E&#39;=\int_0^\infty\int_0^\infty\psi_1\psi_2\frac1{r_{12}}\psi_1\psi_2\mathrm dr_1\mathrm dr_2=16\pi^2\int_0^\infty((\int_0^{r_1}+\int_{r_1}^\infty)\psi_1\psi_2\frac1{r_2}\psi_1\psi_2r_1^2r_2^2\mathrm dr_2)\mathrm dr_1=34.0eV.
+\]</span> 故此时基态能量 <span class="math display">\[
+E&#39;&#39;=E+E&#39;=-74.9eV.
+\]</span> 65、根据泡利不相容原理，判断氦原子的两个激发态 <span class="math inline">\(2^1S_0\)</span>和 <span class="math inline">\(2^3S_1\)</span>，哪个能级高？这里的激发态指氦原子的一个电子被激发，另一个电子仍处于 1s 轨道的状态。</p>
+<p>自旋反平行的单重态<span class="math inline">\(2^1S_0\)</span>能级更高。</p>
+<p>单态：自旋波函数反对称，空间波函数对称，两个电子靠近，能级升高较多；三态：自旋波函数对称，空间波函数反对称，两个电子远离，能级升高较少。</p>
+<h1 id="两态系统和量子比特">两态系统和量子比特</h1>
+<h2 id="量子比特">量子比特</h2>
+<p>66、复矩阵<span class="math inline">\(u\in\mathbb C^{2\times2}\)</span>的矩阵元为</p>
+
+$$
+u=\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix}
+$$
+
+<p>如果<span class="math inline">\(u\)</span>是特殊幺正矩阵， <span class="math display">\[
+u^\dagger u=\mathbb 1_{2\times2}，\det u=1,
+\]</span> 证明： <span class="math display">\[
+c=-b^*,d=a^*,|a|^2+|b|^2=1.
+\]</span> <span class="math display">\[
+u^\dagger u=\mathbb 1_{2\times2}\Rightarrow
+\begin{cases}
+a^*b+c^*d=0,\\
+ab^*+cd^*=0,\\
+|a|^2+|c|^2=1,\\
+|b|^2+|d|^2=1.
+\end{cases}
+\]</span></p>
+<p><span class="math display">\[
+\det u=1\Rightarrow ad-bc=1.
+\]</span></p>
+<p><span class="math display">\[
+\begin{cases}
+a^*b+c^*d=0,\\
+ad-bc=1,
+\end{cases}
+\Rightarrow
+\begin{cases}
+ca^*b+cc^*d=0,\\
+ada^*-bca^*=a^*,
+\end{cases}
+\Rightarrow
+(|a|^2+|c|^2)d=a^*
+\Rightarrow
+d=a^*.
+\]</span></p>
+<p><span class="math display">\[
+\begin{cases}
+ab^*+cd^*=0,\\
+ad-bc=1,
+\end{cases}
+\Rightarrow
+\begin{cases}
+adb^*+cdd^*=0,\\
+adb^*-bcb^*=b^*,
+\end{cases}
+\Rightarrow
+(|b|^2+|d|^2)c=-b^*
+\Rightarrow
+c=-b^*.
+\]</span></p>
+<p><span class="math display">\[
+|a|^2+|c|^2=1,|c|=|b|\Rightarrow|a|^2+|b|^2=1.
+\]</span></p>
+<p>67、Hadamard门+相移门，能实现任意量子比特幺正变换。</p>
+<p>（1）计算并化简 <span class="math display">\[
+u(\alpha,\beta,\gamma)=u_z(\alpha)Hu_z(\beta)Hu_z(\gamma).
+\]</span> 
+$$
+u(\alpha,\beta,\gamma)=u_z(\alpha)Hu_z(\beta)Hu_z(\gamma)=
+\begin{pmatrix}
+e^{-\mathrm i\frac{\gamma+\alpha}2}\cos\frac\beta2&-\mathrm ie^{\mathrm i\frac{\gamma-\alpha}2}\sin\frac\beta2\\
+-\mathrm ie^{-\mathrm i\frac{\gamma-\alpha}2}\sin\frac\beta2&e^{\mathrm i\frac{\gamma+\alpha}2}\cos\frac\beta2
+\end{pmatrix}.
+$$
+</p>
+<p>（2）如果要使得</p>
+
+$$
+u(\alpha,\beta,\gamma)=\begin{pmatrix}
+a&b\\
+-b^*&a^*
+\end{pmatrix}
+$$
+
+<p>其中<span class="math inline">\(|a|^2+|b|^2=1\)</span>，求 <span class="math display">\[
+\alpha(a,b),\beta(a,b),\gamma(a,b).
+\]</span></p>
+
+$$
+\begin{pmatrix}
+e^{-\mathrm i\frac{\gamma+\alpha}2}\cos\frac\beta2&-\mathrm ie^{\mathrm i\frac{\gamma-\alpha}2}\sin\frac\beta2\\
+-\mathrm ie^{-\mathrm i\frac{\gamma-\alpha}2}\sin\frac\beta2&e^{\mathrm i\frac{\gamma+\alpha}2}\cos\frac\beta2
+\end{pmatrix}=\begin{pmatrix}
+a&b\\
+-b^*&a^*
+\end{pmatrix}.
+$$
+
+<p><span class="math inline">\(ab\neq0\)</span>时： <span class="math display">\[
+\alpha=\frac{\mathrm i}2\ln\frac {ab}{-a^*b^*},\beta=2\arccos\sqrt{aa^*},\gamma=\alpha=\frac{\mathrm i}2\ln\frac {-ab^*}{a^*b}
+\]</span> <span class="math inline">\(a=0\)</span>时： <span class="math display">\[
+\beta=\pi,\gamma-\alpha=-\mathrm i\ln\frac b{-b^*}.
+\]</span> <span class="math inline">\(b=0\)</span>时： <span class="math display">\[
+\beta=0,\gamma+\alpha=\mathrm i\ln\frac a{a^*}.
+\]</span></p>
+<h2 id="rabi振荡">Rabi振荡</h2>
+<h2 id="混合态">混合态</h2>
+<h1 id="量子信息简介">量子信息简介</h1>
+<h2 id="epr佯谬">EPR佯谬</h2>
+<h2 id="量子纠缠">量子纠缠</h2>
+<p>68、判断 <span class="math display">\[
+|\psi\rangle=\frac1{\sqrt{10}}|00\rangle-\frac1{\sqrt{10}}|01\rangle+\frac2{\sqrt{10}}\mathrm i|10\rangle-\frac2{\sqrt{10}}\mathrm i|11\rangle
+\]</span> 是不是纠缠态。 <span class="math display">\[
+|\psi\rangle=\frac1{\sqrt{10}}(|0\rangle+2\mathrm i|1\rangle)\otimes(|0\rangle-|1\rangle),
+\]</span> 故其不是纠缠态。</p>
+<h2 id="量子不可克隆定理">量子不可克隆定理</h2>
+<h2 id="量子隐形传态">量子隐形传态</h2>
+<h2 id="量子密钥分发">量子密钥分发</h2>
+
+    </div>
+
+    
+    
+    
+      
+
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div></div>
+  <button>
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.jpg" alt="GUO Songxiao WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpg" alt="GUO Songxiao Alipay">
+        <span>Alipay</span>
+      </div>
+      <div>
+        <img src="/images/bitcoin.jpg" alt="GUO Songxiao Bitcoin">
+        <span>Bitcoin</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>GUO Songxiao
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="http://gsxgoldenlegendary.github.io/2022/04/11/Quantum_Physics/Solutions-to-Quantum-Physics-Homework/" title="Solutions to Quantum Physics Homework">http://gsxgoldenlegendary.github.io/2022/04/11/Quantum_Physics/Solutions-to-Quantum-Physics-Homework/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://twitter.com/GSongxiao">
+          <span class="icon">
+            <i class="fab fa-twitter"></i>
+          </span>
+
+          <span class="label">Twitter</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/atom.xml">
+          <span class="icon">
+            <i class="fa fa-rss"></i>
+          </span>
+
+          <span class="label">RSS</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://github.com/gsxgoldenlegendary">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+
+          <span class="label">GitHub</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="mailto:gsxgoldenlegendary@gmail.com">
+          <span class="icon">
+            <i class="fa fa-envelope"></i>
+          </span>
+
+          <span class="label">E-Mail</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://www.facebook.com/songxiao.guo">
+          <span class="icon">
+            <i class="fab fa-facebook"></i>
+          </span>
+
+          <span class="label">FB Page</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://blog.csdn.net/weixin_52075219">
+          <span class="icon">
+            <i class="fab fa-cuttlefish"></i>
+          </span>
+
+          <span class="label">CSDN</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://www.zhihu.com/people/jin-se-chuan-shuo-58-72">
+          <span class="icon">
+            <i class="fab fa-zhihu"></i>
+          </span>
+
+          <span class="label">Zhihu</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Quantum-Physics/" rel="tag"><i class="fa fa-tag"></i> Quantum Physics</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/03/23/Computer_Organization/Monocyclic-CPU-Design/" rel="prev" title="Monocyclic CPU Design">
+                  <i class="fa fa-chevron-left"></i> Monocyclic CPU Design
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/04/12/Computer_Organization/Pipeline-CPU-Design/" rel="next" title="Pipeline CPU Design">
+                  Pipeline CPU Design <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa-solid fa-chess-king"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GUO Songxiao</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.7/pdfobject.min.js","integrity":"sha256-ph3Dk89VmuTVXG6x/RDzk53SU9LPdAh1tpv0UvnDZ2I="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"gsxgoldenlegendary/gsxgoldenlegendary.github.io","issue_term":"pathname","theme":"github-dark"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-128x128.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico">
+  <link rel="mask-icon" href="/images/favicon.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gsxgoldenlegendary.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="中国科学技术大学2019-2020学年数学分析(B2)测试真题难题集萃 题解来源：5，13，14：叶升宇；11，15：陈景毅；12：刘枭男；9：陈卿（教授）。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Solutions to Hard Problems of Mathematical Analysis">
+<meta property="og:url" content="http://gsxgoldenlegendary.github.io/2021/07/17/Mathematical_Analysis/Solutions-to-Hard-Problems-of-Mathematical-Analysis/index.html">
+<meta property="og:site_name" content="SONGXIAO&#39;S TOPBLOG">
+<meta property="og:description" content="中国科学技术大学2019-2020学年数学分析(B2)测试真题难题集萃 题解来源：5，13，14：叶升宇；11，15：陈景毅；12：刘枭男；9：陈卿（教授）。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-07-16T17:31:06.000Z">
+<meta property="article:modified_time" content="2022-05-25T02:03:51.993Z">
+<meta property="article:author" content="GUO Songxiao">
+<meta property="article:tag" content="Mathematical Analysis">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://gsxgoldenlegendary.github.io/2021/07/17/Mathematical_Analysis/Solutions-to-Hard-Problems-of-Mathematical-Analysis/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://gsxgoldenlegendary.github.io/2021/07/17/Mathematical_Analysis/Solutions-to-Hard-Problems-of-Mathematical-Analysis/","path":"2021/07/17/Mathematical_Analysis/Solutions-to-Hard-Problems-of-Mathematical-Analysis/","title":"Solutions to Hard Problems of Mathematical Analysis"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Solutions to Hard Problems of Mathematical Analysis | SONGXIAO'S TOPBLOG</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SONGXIAO'S TOPBLOG</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">VENI VIDI VICI</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-friends"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>friends</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%AD%E5%9B%BD%E7%A7%91%E5%AD%A6%E6%8A%80%E6%9C%AF%E5%A4%A7%E5%AD%A62019-2020%E5%AD%A6%E5%B9%B4%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90b2%E6%B5%8B%E8%AF%95%E7%9C%9F%E9%A2%98%E9%9A%BE%E9%A2%98%E9%9B%86%E8%90%83"><span class="nav-number">1.</span> <span class="nav-text">中国科学技术大学2019-2020学年数学分析(B2)测试真题难题集萃</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E5%9C%BA%E7%9A%84%E5%BE%AE%E5%95%86"><span class="nav-number">1.1.</span> <span class="nav-text">向量场的微商</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86"><span class="nav-number">1.2.</span> <span class="nav-text">二重积分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86%E7%9A%84%E6%8D%A2%E5%85%83"><span class="nav-number">1.3.</span> <span class="nav-text">二重积分的换元</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E9%87%8F%E5%9C%BA%E5%9C%A8%E6%9B%B2%E9%9D%A2%E4%B8%8A%E7%9A%84%E7%A7%AF%E5%88%86"><span class="nav-number">1.4.</span> <span class="nav-text">数量场在曲面上的积分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E5%9C%BA%E5%9C%A8%E6%9B%B2%E7%BA%BF%E4%B8%8A%E7%9A%84%E7%A7%AF%E5%88%86"><span class="nav-number">1.5.</span> <span class="nav-text">向量场在曲线上的积分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E5%9C%BA%E5%9C%A8%E6%9B%B2%E9%9D%A2%E4%B8%8A%E7%9A%84%E7%A7%AF%E5%88%86"><span class="nav-number">1.6.</span> <span class="nav-text">向量场在曲面上的积分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84fourier%E7%BA%A7%E6%95%B0"><span class="nav-number">1.7.</span> <span class="nav-text">函数的Fourier级数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AB%E5%8F%82%E5%8F%98%E9%87%8F%E7%9A%84%E5%8F%8D%E5%B8%B8%E7%A7%AF%E5%88%86"><span class="nav-number">1.8.</span> <span class="nav-text">含参变量的反常积分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#euler%E7%A7%AF%E5%88%86"><span class="nav-number">1.9.</span> <span class="nav-text">Euler积分</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="GUO Songxiao"
+      src="/images/header.jpg">
+  <p class="site-author-name" itemprop="name">GUO Songxiao</p>
+  <div class="site-description" itemprop="description">I must search. Even if the endless powdering of stars in the Galaxy makes the quest seem hopeless, and even if I must do it alone.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">111</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/gsxgoldenlegendary" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;gsxgoldenlegendary" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:gsxgoldenlegendary@gmail.com" title="E-Mail → mailto:gsxgoldenlegendary@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/GSongxiao" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;GSongxiao" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/songxiao.guo" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;songxiao.guo" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/weixin_52075219" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_52075219" rel="noopener" target="_blank"><i class="fab fa-cuttlefish fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/jin-se-chuan-shuo-58-72" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;jin-se-chuan-shuo-58-72" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://home.ustc.edu.cn/~logname" title="http:&#x2F;&#x2F;home.ustc.edu.cn&#x2F;~logname" rel="noopener" target="_blank">Homepage</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://gsxgoldenlegendary.github.io/2021/07/17/Mathematical_Analysis/Solutions-to-Hard-Problems-of-Mathematical-Analysis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="GUO Songxiao">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SONGXIAO'S TOPBLOG">
+      <meta itemprop="description" content="I must search. Even if the endless powdering of stars in the Galaxy makes the quest seem hopeless, and even if I must do it alone.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Solutions to Hard Problems of Mathematical Analysis | SONGXIAO'S TOPBLOG">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Solutions to Hard Problems of Mathematical Analysis
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-07-16 17:31:06" itemprop="dateCreated datePublished" datetime="2021-07-16T17:31:06Z">2021-07-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-05-25 02:03:51" itemprop="dateModified" datetime="2022-05-25T02:03:51Z">2022-05-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Mathematics/" itemprop="url" rel="index"><span itemprop="name">Mathematics</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="中国科学技术大学2019-2020学年数学分析b2测试真题难题集萃">中国科学技术大学2019-2020学年数学分析(B2)测试真题难题集萃</h1>
+<p>题解来源：5，13，14：叶升宇；11，15：陈景毅；12：刘枭男；9：陈卿（教授）。</p>
+<span id="more"></span>
+<p>由<span class="math inline">\(\LaTeX\)</span>生成的PDF版本链接：<a href="https://gsxgoldenlegendary.github.io/files/math01.pdf">Solutions to Hard Problems of Mathematical Analysis</a></p>
+<h2 id="向量场的微商">向量场的微商</h2>
+<p>1.设<span class="math display">\[\boldsymbol{v}=a\boldsymbol{i}+b\boldsymbol{j}+c\boldsymbol{k}\]</span>是常向量，<span class="math display">\[\boldsymbol{r}=x\boldsymbol{i}+y\boldsymbol{j}+z\boldsymbol{k}\]</span>.求向量场<span class="math display">\[\boldsymbol{v}\times\boldsymbol{r}\]</span>的旋度。</p>
+<p>解： 利用向量外积公式<span class="math display">\[\nabla\times(\boldsymbol{v}\times\boldsymbol{r})=-(\nabla\cdot\boldsymbol{v})\boldsymbol{r}+(\nabla\cdot\boldsymbol{r})\boldsymbol{v}=(\nabla\cdot\boldsymbol{r})\boldsymbol{v}=3\boldsymbol{v}.\]</span></p>
+<h2 id="二重积分">二重积分</h2>
+<p>2.求积分<span class="math display">\[\int_0^{\frac{\pi}{6}}dy\int_y^\frac{\pi}{6}\frac{\cos x}{x}dx.\]</span></p>
+<p>解： <span class="math display">\[\int_0^{\frac{\pi}{6}}dy\int_y^\frac{\pi}{6}\frac{\cos x}{x}dx=\int_0^{\frac{\pi}{6}}dx\int_0^x\frac{\cos x}{x}dy=\int_0^\frac{\pi}{6}\cos xdx=\frac{1}{2}.\]</span></p>
+<h2 id="二重积分的换元">二重积分的换元</h2>
+<p>3.设<span class="math display">\[D=\{(u.v)|u\geqslant 0,v\geqslant 0\}\]</span>为无界区域。求<span class="math display">\[\iint_D e^{-u^2-v^2-2uv\cos \alpha}dudv,  \]</span>其中<span class="math display">\[\alpha \in (0,\frac{\pi}{2})\]</span>为常数。</p>
+<p>解： 做代换<span class="math display">\[t=u-v\cos\alpha,s=v\sin \alpha,\]</span> 则参数范围<span class="math display">\[D&#39;=\{(t,s)|0\leqslant t,0\leqslant s\},\]</span> 代换的Jacobi行列式<span class="math display">\[\frac{\partial(u,v)}{\partial(t,s)}=\frac{1}{\sin\alpha}.\]</span> 原式变为<span class="math display">\[\iint_{D^{&#39;}} e^{-s^2-t^2}|\frac{1}{\sin\alpha}|dtds .\]</span> 利用常用积分<span class="math display">\[\int_{0}^{+\infty} \int_{0}^{+\infty} e^{-x^2-y^2}dxdy=\frac{\sqrt{\pi}}{2}, \]</span> 得原积分为<span class="math display">\[\frac{\sqrt{\pi}}{2\sin\alpha}.\]</span></p>
+<h2 id="数量场在曲面上的积分">数量场在曲面上的积分</h2>
+<p>4.设曲面<span class="math display">\[S=\{(x,y,z)\in\mathbb{R}^2|x+y+z=1,x,y,z\geqslant0\}.\]</span>求<span class="math display">\[\iint_SxyzdS.\]</span></p>
+<p>解： 使用<span class="math inline">\(x,y\)</span>做参数，则对应的面积元<span class="math display">\[dS=\sqrt{1+z_x^{&#39;2}+z_y^{&#39;2}}dxdy=\sqrt{3}dxdy ,\]</span> 参数范围<span class="math display">\[D=\{(x,y)|x,y\geqslant 0,x+y\leqslant 1\}.\]</span> 原式变为<span class="math display">\[\iint_Dxy(1-x-y)\sqrt{3}dxdy=\sqrt{3}\int_{0}^{1}dx \int_{0}^{1-x}(xy-x^2y-xy^2)dy=\sqrt{3}\int_{0}^{1}(\frac{x(1-x)^2}{2}-\frac{x^2(1-x)^2}{2}-\frac{x(1-x)^3}{3})dx=\frac{\sqrt{3}}{120}.\]</span></p>
+<p>5.求曲面<span class="math inline">\((x^2+y^2+z^2)^2=2xy(x,y\geqslant 0)\)</span>的面积。</p>
+<p>解： 换为球坐标,则参数曲面方程<span class="math display">\[\boldsymbol{r}=p\sin\theta\cos\phi\boldsymbol{i}+p\sin\theta\sin\phi\boldsymbol{j}+p\cos\theta\boldsymbol{k}\]</span> 其中<span class="math display">\[p=\sin\theta \sqrt{\sin 2\phi},0\leqslant \phi\leqslant \frac{\pi}{2},0\leqslant \theta \leqslant\pi,\]</span><span class="math display">\[p_\theta^{&#39;}=\cos\theta\sqrt{\sin2\phi},p_\phi^{&#39;}=\frac{\sin\theta\cos2\phi}{\sqrt{\sin2\phi}}.\]</span> 记<span class="math display">\[E=\boldsymbol{r}_\theta^{&#39;2}=\cos^2\phi(p\cos\theta+p_\theta^{&#39;}\sin\theta)^2+\sin^2\phi(p\cos\theta+p_\theta^{&#39;}\sin\theta)^2+(-p\sin\theta+p_\theta^{&#39;}\cos\theta)^2=p^2+p_\theta^{&#39;2};\]</span><span class="math display">\[G=\boldsymbol{r}_\phi^{&#39;2}=\sin^2\theta(p_\phi^{&#39;}\cos\phi-p\sin\phi)^2+\sin^2\theta(p_\phi^{&#39;}\sin\phi+p\cos\phi)^2+\cos^2\theta p_\phi^{&#39;2}=p^2\sin^2\theta+p_\phi^{&#39;2};\]</span><span class="math display">\[F=\boldsymbol{r}_\theta^{&#39;}\cdot\boldsymbol{r}_\phi^{&#39;}=\cos\phi(p\cos\theta+p_\theta^{&#39;}\sin\theta)\sin\theta(p_\phi^{&#39;}\cos\phi-p\sin\phi)+\sin\phi(p\cos\theta+p_\theta^{&#39;}\sin\theta)\sin\theta(p_\phi^{&#39;}\sin\phi+p\cos\phi)+(-p\sin\theta+p_\theta^{&#39;}\cos\theta)\cos\theta p_\phi^{&#39;}=p_\theta^{&#39;}p_\phi^{&#39;}.\]</span> 则面积元<span class="math display">\[dS=|\boldsymbol{r}_\theta^{&#39;2}\times\boldsymbol{r}_\phi^{&#39;2}|d\theta d\phi=\sqrt{EG-F^2}d\theta d\phi,=\sqrt{(p^2+p_\theta^{&#39;2})(p^2\sin^2\theta+p_\phi^{&#39;2})-p_\theta^{&#39;2}p_\phi^{&#39;2}}d\theta d\phi=\sqrt{(\sin^2\theta \sin 2\phi+\cos^2\theta\sin2\phi)(\sin^2\theta \sin 2\phi\sin^2\theta+\frac{\sin^2\theta\cos^22\phi}{\sin2\phi})-\cos^2\theta\sin2\phi\frac{\sin^2\theta\cos^22\phi}{\sin2\phi}}d\theta d\phi=\sin^2\theta d\theta d\phi.\]</span> 曲面面积<span class="math display">\[\iint_Sds=\int_0^{\frac{\pi}{2}}d\phi\int_0^\pi\sin^2\theta d\theta=\frac{\pi^2}{4}.\]</span></p>
+<h2 id="向量场在曲线上的积分">向量场在曲线上的积分</h2>
+<p>6.设<span class="math display">\[f\in C^1(\mathbb{R}^2),\]</span>满足<span class="math display">\[|\nabla f|^2=(\frac{\partial f}{\partial x})^2+(\frac{\partial f}{\partial y})^2\equiv 1.\]</span> （1）证明：<span class="math display">\[\forall \boldsymbol{P},\boldsymbol{Q} \in \mathbb{R}^2,|f(\boldsymbol{Q})-f(\boldsymbol{P})|\leqslant|\boldsymbol{P}-\boldsymbol{Q}|;\]</span> （2）设光滑曲线<span class="math inline">\(\boldsymbol{r}(t)=x(t)\boldsymbol{i}+y(t)\boldsymbol{j}(t\in[a,b])\)</span>满足<span class="math display">\[\frac{d\boldsymbol{r}}{dt}=\nabla f(\boldsymbol{r}(t))=\frac{\partial f}{\partial x}(x(t),y(t))\boldsymbol{i}+\frac{\partial f}{\partial y}(x(t),y(t))\boldsymbol{j},\]</span> 证明：<span class="math inline">\(\boldsymbol{r}(t)\)</span>是直线段。</p>
+<p>解： 记<span class="math display">\[\boldsymbol{P}=(x_1,y_1),\boldsymbol{Q}=(x_2,y_2).\]</span> 由微分中值定理,存在<span class="math display">\[x&#39;,y&#39;\]</span>有<span class="math display">\[|f(\boldsymbol{Q})-f(\boldsymbol{P})|=|(x_2-x_1)\frac{\partial f}{\partial x}(x&#39;,y&#39;)+(y_2-y_1)\frac{\partial f}{\partial y}(x&#39;,y&#39;)|\]</span> 由柯西不等式<span class="math display">\[\leqslant \sqrt{(x_2-x_1)^2+(y_2-y_1)^2}\sqrt{(\frac{\partial f}{\partial x})^2+(\frac{\partial f}{\partial y})^2}\]</span> 由已知<span class="math display">\[=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}\]</span><span class="math display">\[=|\boldsymbol{P}-\boldsymbol{Q}|.\]</span> 取<span class="math display">\[\boldsymbol{P}=\boldsymbol{r}(a),\boldsymbol{Q}=\boldsymbol{r}(b),\]</span></p>
+<p>则<span class="math display">\[\int_r |dr|=\int_a^b |\nabla f|dt=\int_a^b dt=\int_a^b \nabla f\cdot \nabla fdt=\int_r \nabla f\cdot d\boldsymbol{r}=\int_{\boldsymbol{P}}^{\boldsymbol{Q}}df=|f(\boldsymbol{Q})-f(\boldsymbol{P})|\leqslant|\boldsymbol{P}-\boldsymbol{Q}|.\]</span> 其中<span class="math display">\[\int_r |dr|\]</span>为<span class="math inline">\(\boldsymbol{P},\boldsymbol{Q}\)</span>两点间的曲线长度，<span class="math inline">\(|\boldsymbol{P}-\boldsymbol{Q}|\)</span>为<span class="math inline">\(\boldsymbol{P},\boldsymbol{Q}\)</span>两点间的直线长度，表明两点间曲线长度不大于直线长度，只能说明该曲线是直线。</p>
+<p>7.设D是平面有界区域，<span class="math inline">\(L=\partial D\)</span>是光滑曲线，<span class="math inline">\(\boldsymbol{n}\)</span>是<span class="math inline">\(\partial D\)</span>的单位外法向量，<span class="math inline">\(\boldsymbol{v}\in C_1(D),\boldsymbol{v}=P\boldsymbol{i}+Q\boldsymbol{j}.\)</span> 用Green公式证明：<span class="math display">\[\int_L(\boldsymbol{v}\cdot\boldsymbol{n})ds=\iint_D(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y})dxdy.\]</span></p>
+<p>解： 设单位外法向量<span class="math display">\[\boldsymbol{n}=\cos \alpha \boldsymbol{i}+\cos \beta \boldsymbol{j},\]</span> 则逆时针单位切向量<span class="math display">\[\boldsymbol{\tau}=-\cos\beta\boldsymbol{i}+\cos\alpha\boldsymbol{j}.\]</span> 一方面<span class="math display">\[\boldsymbol{\tau}ds=-\cos\beta\boldsymbol{i}ds+\cos\alpha\boldsymbol{j}ds ,\]</span> 另一方面<span class="math display">\[\boldsymbol{\tau}ds=\boldsymbol{i}dx+\boldsymbol{j}dy\]</span> 故<span class="math display">\[dx=-\cos\beta ds ,\,dy=cos\alpha ds.\]</span> 回到原式<span class="math display">\[\int_L(\boldsymbol{v}\cdot\boldsymbol{n})ds=\int_L(P\cos\alpha ds+Q\cos\beta ds)\]</span> 利用Green公式<span class="math display">\[=\int_LPdy-Qdx=\iint_D(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y})dxdy.\]</span></p>
+<h2 id="向量场在曲面上的积分">向量场在曲面上的积分</h2>
+<p>8.设曲面<span class="math display">\[S=\{(x,y,z)|x^2+y^2+z^2=1,z\geqslant0\},\]</span>定向与z轴正向同侧。 设<span class="math display">\[f=\frac{1+z}{1+x^2+y^2},g=xy+yz+zx.\]</span>求积分<span class="math display">\[\iint_S(\nabla f\times\nabla g)\cdot d\boldsymbol{S}.\]</span></p>
+<p>解： 取曲面<span class="math display">\[S&#39;=\{(x,y,z)|x^2+y^2\leqslant1,z=0\},\]</span> 定向与Z轴反向，则S与S'构成封闭曲面，定向向外。设其围城的区域为V。 由Gauss定理<span class="math display">\[\iint_{S+S&#39;}(\nabla f\times\nabla g)\cdot  d\boldsymbol{S}=\iiint_V\nabla\cdot(\nabla f\times\nabla g) dV= \iiint_V(\nabla f\cdot\nabla\times\nabla g)-\nabla g\cdot\nabla\times\nabla f)\,dV=0.\]</span> <span class="math display">\[\iint_{S&#39;}(\nabla f\times\nabla g)\cdot  d\boldsymbol{S}=\iint_{S&#39;}(\frac{-2x}{(1+x^2+y^2)^2},\frac{-2y}{(1+x^2+y^2)^2},\frac{1}{1+x^2+y^2})\times(y,x,x+y)\cdot d\boldsymbol{S}=\iint_{S&#39;}\frac{2y^2-2x^2}{(1+x^2+y^2)^2} dx dy=\int_0^{2\pi}-\cos 2\theta d\theta\int_0^1\frac{r^2}{(1+r^2)^2} dr^2=0.\]</span> 故<span class="math display">\[\iint_S(\nabla f\times\nabla g)\cdot  d\boldsymbol{S}=(\iint_{S+S&#39;}-\iint_{S&#39;})(\nabla f\times\nabla g)\cdot d\boldsymbol{S}=0.\]</span></p>
+<p>9.设<span class="math inline">\(\Omega\)</span>是<span class="math inline">\(\mathbb{R}^3\)</span>的有界区域，<span class="math inline">\(\partial \Omega\)</span>是光滑曲面。</p>
+<p>（1）设<span class="math display">\[f,g\in C^2(\overline{\Omega}),\]</span>满足</p>
+<p><span class="math display">\[\Delta f=\Delta g,f|_{\partial \Omega} =g|_{\partial \Omega}\]</span> 证明：<span class="math display">\[f=g.\]</span> （2）设<span class="math inline">\(\boldsymbol{v}_1,\boldsymbol{v}_2\)</span>是定义在<span class="math inline">\(\overline{\Omega}\)</span>上的光滑向量场（二阶偏导数连续），满足 <span class="math display">\[\nabla\times\boldsymbol{v}_1=\nabla\times\boldsymbol{v}_2\]</span> <span class="math display">\[\nabla\cdot\boldsymbol{v}_1=\nabla\cdot\boldsymbol{v}_2\]</span> <span class="math display">\[\boldsymbol{v}_1|_{\partial\Omega}=\boldsymbol{v}_2|_{\partial\Omega}\]</span> 证明： <span class="math display">\[\boldsymbol{v}_1=\boldsymbol{v}_2\]</span></p>
+<p>解： 记<span class="math display">\[h=f-g,\]</span> 则 <span class="math display">\[\Delta h=0,h|_{\partial \Omega}=0,\]</span> 要证<span class="math display">\[h=0.\]</span> 利用Gauss定理 <span class="math display">\[0=\iint_{\partial\Omega}h\nabla h\cdot\,d\boldsymbol{S} =\iiint_\Omega\nabla\cdot(h\nabla h)\,dV=  \iiint_\Omega((\nabla h)^2+h\Delta h)\,dV=\iiint_\Omega(\nabla h)^2\,dV.\]</span> 故<span class="math display">\[\nabla h=\boldsymbol{0}.\]</span> 这样<span class="math inline">\(h\)</span>为常数，又 <span class="math display">\[h|_{\partial D}=0\]</span></p>
+<p>得<span class="math inline">\(h=0\)</span>。 设<span class="math display">\[\boldsymbol{u}=\boldsymbol{v}_1-\boldsymbol{v}_2=(P,Q,R),\]</span> 则</p>
+<p><span class="math display">\[\nabla\times\boldsymbol{u}=\boldsymbol{0},\nabla\cdot\boldsymbol{u}=0,\boldsymbol{u}|_{\partial \Omega}=0.\]</span></p>
+<p>即<span class="math display">\[\frac{\partial Q}{\partial z}=\frac{\partial R}{\partial y},\frac{\partial R}{\partial x}=\frac{\partial P}{\partial z},\frac{\partial P}{\partial y}=\frac{\partial Q}{\partial x},\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}=0.\]</span> 求导得<span class="math display">\[\frac{\partial^2 R}{\partial xz}=\frac{\partial^2 P}{\partial z^2},\frac{\partial^2 P}{\partial y^2}=\frac{\partial^2 Q}{\partial xy},\frac{\partial^2 P}{\partial x^2}+\frac{\partial^2 Q}{\partial xy}+\frac{\partial^2 R}{\partial xz}=0.\]</span> 得到<span class="math display">\[\Delta P=0.\]</span> 由（1）知<span class="math display">\[P=0.\]</span> 同理<span class="math display">\[Q=0,R=0,\]</span> 即<span class="math display">\[\boldsymbol{u}=(0,0,0)=\boldsymbol{0}.\]</span></p>
+<h2 id="函数的fourier级数">函数的Fourier级数</h2>
+<p>10.求函数<span class="math display">\[y=|x|,x\in[-\pi,\pi]\]</span>的Fourier级数。</p>
+<p>解： <span class="math display">\[a_0=\frac{2}{\pi}\int_0^{\pi}xdx=\pi,\]</span><span class="math display">\[a_n=\frac{2}{\pi}\int_0^{\pi}x\cos nxdx=\frac{\cos n\pi-1}{n^2\pi}.\]</span><span class="math display">\[y\sim \frac{\pi}{2}+\frac{2}{\pi}\sum_{n = 0}^{\infty}\frac{(\cos n\pi-1)\cos nx}{n^2}=\frac{\pi}{2}-\frac{4}{\pi}\sum_{n=1}^\infty \frac{\cos ((2n+1)x)}{(2n+1)^2},x\in[-\pi,\pi] \]</span></p>
+<p>11.求和：<span class="math display">\[\frac{4}{\pi}\sum_{n=0}^\infty\frac{\sin ((2n+1)x)}{(2n+1)^3},x\in[-\pi,\pi]\]</span></p>
+<p>解： 因为<span class="math inline">\(f(x)\)</span>在<span class="math inline">\([-\pi,\pi]\)</span>上连续且<span class="math inline">\(f(-\pi)=f(\pi)\)</span>，故由Dirichlet定理，<span class="math display">\[\frac{\pi}{2}+\frac{4}{\pi}\sum_{n=1}^\infty \frac{\cos ((2n+1)x)}{(2n+1)^2}\]</span>在<span class="math inline">\([-\pi,\pi]\)</span>上一致收敛， 且有<span class="math display">\[\frac{\pi}{2}-\frac{4}{\pi}\sum_{n=1}^\infty \frac{\cos ((2n+1)x)}{(2n+1)^2}=x.\]</span> 在<span class="math inline">\([0,\pi)\)</span>上两边积分<span class="math display">\[\frac{\pi}{2}x-\frac{4}{\pi}\sum_{n=1}^\infty \frac{\sin ((2n+1)x)}{(2n+1)^3}=\frac{x^2}{2}+C.\]</span> 取<span class="math inline">\(x=0\)</span>得<span class="math inline">\(C=0\)</span>。 由原式是奇函数，故</p>
+<p><span class="math display">\[\frac{4}{\pi}\sum_{n=0}^\infty\frac{\sin ((2n+1)x)}{(2n+1)^3}=\begin{aligned}\frac{\pi}{2}-\frac{x^2}{2},x\in[-\pi,0];\frac{\pi}{2}+\frac{x^2}{2}.\in(0,-\pi].\end{aligned}\]</span></p>
+<p>12.设<span class="math inline">\(\{b_n\}\)</span> 是单调下降且非负数列，且级数 <span class="math display">\[\sum_{n=1}^\infty b_n\sin nx\]</span>在<span class="math inline">\([-\pi,\pi]\)</span>一致收敛。证明：<span class="math display">\[\lim_{n\to \infty}nb_n=0.\]</span></p>
+<p>解： 由Cauchy收敛准则，对<span class="math inline">\(\forall \epsilon&gt;0,\exists N,\)</span>当n，m&gt;N时（不妨设n&gt;m），对<span class="math inline">\(\forall x\)</span>, 总有<span class="math display">\[|b_m\sin mx+\cdots +b_n\sin nx|&lt;\epsilon.\]</span> 取<span class="math inline">\(x=\frac{\pi}{4m},n=2m-1\)</span>, 则利用<span class="math inline">\(b_n\)</span>的单调递减性有<span class="math display">\[mb_{2m}\sin \frac{\pi}{4}&lt;b_m \sin \frac{\pi}{4}+\cdots +b_{2m-1}\sin \frac{2m-1}{4m}\pi&lt;\epsilon.\]</span> 得到对<span class="math inline">\(\forall \epsilon&gt;0\)</span>，都存在N使得对<span class="math inline">\(\forall 2m&gt;2N\)</span>,<span class="math inline">\(2mb_{2m}&lt;\frac{\epsilon}{\sqrt{2}}\)</span>， 即<span class="math display">\[\lim_{n\to \infty}nb_n=0.\]</span></p>
+<h2 id="含参变量的反常积分">含参变量的反常积分</h2>
+<p>13.设<span class="math display">\[F(t)=\int_0^{+\infty}\frac{\sin tx}{1+x^2}\,dx.\]</span>求证： （1）<span class="math inline">\(F(t)\)</span>在<span class="math inline">\((0,+\infty)\)</span>上连续； （2）<span class="math inline">\(F(t)\)</span>在<span class="math inline">\((0,+\infty)\)</span>上可导； （3）<span class="math inline">\(F(t)\)</span>在<span class="math inline">\((0,+\infty)\)</span>上二阶可导且满足方程<span class="math inline">\(F^{&#39;&#39;}(t)-F(t)=-\frac{1}{t}\)</span>。</p>
+<p>解： 因为<span class="math display">\[|\int_0^{+\infty}\frac{\sin tx}{1+x^2}dx|&lt;\int_0^{+\infty}\frac{1}{1+x^2}dx=\frac{\pi}{2},\]</span> 由Weierstrass判别法知<span class="math display">\[\int_0^{+\infty}\frac{\sin tx}{1+x^2}dx\]</span>关于t一致收敛，故<span class="math inline">\(F(t)\)</span>连续。 对于<span class="math display">\[\int_0^{+\infty}\frac{x\cos tx}{1+x^2}dx,\]</span><span class="math inline">\(x=0\)</span>不是瑕点，所以只需考虑<span class="math display">\[\int_1^{+\infty}\frac{x\cos tx}{1+x^2}dx\]</span>关于t在t&gt;0上的一致收敛性即可。 由于<span class="math display">\[|\int_0^{+\infty}\cos txdx|&lt;\frac{2}{t}\leqslant2,\]</span> 对每个固定的t，<span class="math display">\[\frac{x}{1+x^2}\]</span>是x的单调函数，且关于t一致趋于0，由Dirichlet判别法知<span class="math display">\[\int_1^{+\infty}\frac{x\cos tx}{1+x^2}dx\]</span>一致收敛。 又<span class="math display">\[\int_0^{+\infty}\frac{\sin tx}{1+x^2}dx\]</span>收敛，<span class="math display">\[\frac{\sin tx}{1+x^2},\frac{x\cos tx}{1+x^2}\]</span>在<span class="math inline">\((0,+\infty)\times(0,+\infty)\)</span>上连续，所以<span class="math inline">\(F(t)\)</span>可导，且有<span class="math display">\[F^{&#39;}(t)=\int_0^{+\infty}\frac{x\cos tx}{1+x^2}dx=\frac{1}{t}\int_0^{+\infty}\frac{x}{1+x^2}d(\sin tx)=\frac{1}{t}\frac{x\sin tx}{1+x^2}|_0^{+\infty}-\frac{1}{t}\int_0^{+\infty}\sin txd(\frac{x}{1+x^2})=\frac{1}{t}\int_0^{+\infty}\frac{x^2-1}{(1+x^2)^2}\sin txdx=\frac{F(t)}{t}-\frac{2}{t}\int_0^{+\infty}\frac{\sin tx}{(1+x^2)^2}dx.\]</span> 即<span class="math display">\[tF^{&#39;}(t)=F(t)-2\int_0^{+\infty}\frac{\sin tx}{(1+x^2)^2}dx,\]</span> 由于<span class="math display">\[|\int_0^{+\infty}\sin tx\,dx|&lt;\frac{2}{t},\]</span><span class="math display">\[\frac{1}{(1+x^2)^2}\]</span>单调趋于0，由Dirichlet判别法知<span class="math display">\[\int_1^{+\infty}\frac{\sin tx}{(1+x^2)^2}dx\]</span>收敛。 对于<span class="math display">\[\int_0^{+\infty}\frac{x\cos tx}{(1+x^2)^2}dx,\]</span><span class="math inline">\(x=0\)</span>不是瑕点，所以只需考虑<span class="math display">\[\int_1^{+\infty}\frac{x\cos tx}{(1+x^2)^2}dx\]</span>关于t在<span class="math inline">\(t&gt;0\)</span>上的一致收敛性即可。 由于<span class="math display">\[|\int_0^{+\infty}\cos tx\,dx|&lt;\frac{2}{t}\leqslant2,\]</span>对每个固定的t，<span class="math display">\[\frac{x}{(1+x^2)^2}\]</span>是x的单调函数，且关于t一致趋于0，由Dirichlet判别法知<span class="math display">\[\int_1^{+\infty}\frac{x\cos tx}{(1+x^2)^2}dx\]</span>一致收敛。 又<span class="math display">\[\frac{\sin tx}{(1+x^2)^2},\frac{x\cos tx}{(1+x^2)^2}\]</span>在<span class="math inline">\((0,+\infty)\times(0,+\infty)\)</span>上连续，所以<span class="math inline">\(F(t)\)</span>可导。 两边求导得<span class="math display">\[tF^{&#39;&#39;}(t)+F^{&#39;}(t)=F^{&#39;}(t)-2\int_0^{+\infty}\frac{x\cos tx}{(1+x^2)^2}dx=F^{&#39;}(t)+\int_0^{+\infty}\cos txd(\frac{1}{1+x^2})\]</span><span class="math display">\[=F^{&#39;}(t)+\cos tx\frac{1}{1+x^2}|_0^{+\infty}+t\int_0^{+\infty}\frac{\sin tx}{1+x^2}\,dx=-1+tF(t).\]</span>即<span class="math display">\[tF^{&#39;&#39;}(t)=-1+tF(t),\]</span>得<span class="math display">\[F^{&#39;&#39;}(t)-F(t)=-\frac{1}{t}.\]</span></p>
+<p>14.设<span class="math inline">\(|\alpha|\neq 1\)</span>，证明积分<span class="math display">\[\int_0^{+\infty}\frac{\sin x\sin \alpha x}{x}dx\]</span>收敛，并求其值。</p>
+<p>解： 由于<span class="math inline">\(x=0\)</span>是可去瑕点，故只需将原积分视为无穷积分。 注意到<span class="math display">\[|\int_a^b\sin x\sin \alpha x| dx=\frac{1}{2}|\int_a^b\cos (1-\alpha)x-\cos (1+\alpha)x|\leqslant|\frac{1}{1-\alpha}|+|\frac{1}{1+\alpha}|,\]</span> 又<span class="math inline">\(\frac{1}{x}\)</span>单调趋于0，由Dirichlet判别法知原积分收敛。 引入积分因子，并记<span class="math display">\[I(\beta)=\int_0^{+\infty}e^{-\beta x}\frac{\sin x\sin \alpha x}{x}dx.\]</span> 在<span class="math inline">\(\beta&gt;\beta_0&gt;0\)</span>时，<span class="math display">\[|I(\beta)|&lt;|\int_0^{+\infty}e^{-\beta x}{x}dx |,\]</span> 而<span class="math display">\[\int_a^b e^{-\beta x}dx \]</span>一致有界。 对固定的<span class="math inline">\(\beta\)</span>, <span class="math display">\[\frac{1}{x} \]</span>单调一致趋于0。 由Dirlichlet判别法知<span class="math display">\[\int_0^{+\infty}e^{-\beta x}{x}dx\]</span>一致收敛。 由比较判别法知<span class="math inline">\(I(\beta)\)</span>收敛。 由于<span class="math display">\[|\int_0^{+\infty}-e^{-\beta x}\sin x\sin \alpha x\,dx|&lt;\int_0^{+\infty}e^{-\beta x}dx =1,\]</span> 故由比较判别法知<span class="math display">\[\int_0^{+\infty}-e^{-\beta x}\sin x\sin \alpha xdx\]</span>一致收敛。 又由<span class="math display">\[e^{-\beta x}\frac{\sin x\sin \alpha x}{x},-e^{-\beta x}\sin x\sin \alpha x\]</span> 在<span class="math inline">\((0,+\infty)\times(\beta_0,+\infty)\)</span>上连续， 故<span class="math inline">\(I(\beta)\)</span>可导，且有<span class="math display">\[I^{&#39;}(\beta)=\int_0^{+\infty}-e^{-\beta x}\sin x\sin \alpha xdx=-\frac{1}{2}\int_0^{+\infty}e^{-\beta x}(\cos(1-\alpha )x-\cos(1+\alpha)x)dx=-\frac{1}{2}\frac{\beta}{\beta^2+(\alpha-1)^2}+\frac{1}{2}\frac{\beta}{\beta^2+(\alpha+1)^2}.\]</span> 积分得<span class="math display">\[I(\beta)=\frac{1}{4}\ln \frac{(\alpha +1)^2+\beta^2}{(\alpha -1)^2+\beta^2}+C.\]</span>当<span class="math inline">\(\beta\to\infty\)</span>时，<span class="math inline">\(I(\beta)\to C\)</span>。 另一方面由<span class="math display">\[\int_0^{+\infty}e^{-\beta x}\frac{\sin x\sin \alpha x}{x}dx\]</span>的连续性知<span class="math inline">\(I(\beta)\to0,\)</span> 故<span class="math inline">\(C=0\)</span>。 这样<span class="math display">\[\int_0^{+\infty}\frac{\sin x\sin \alpha x}{x}dx=I(\beta)|_{\beta=0}=\frac{1}{2}\ln \frac{|\alpha+1|}{|\alpha-1|}.\]</span></p>
+<h2 id="euler积分">Euler积分</h2>
+<p>15.计算无穷积分<span class="math display">\[I=\int_1^{+\infty}t^2e^{t(2-t)}dt.\]</span></p>
+<p>解： <span class="math display">\[I=\int_1^{+\infty}t^2e^{t(2-t)}dt=\int_0^{+\infty}(1+s)^2e^{1-s^2}ds=e\int_0^{+\infty}e^{-s^2}ds+e\int_0^{+\infty}e^{-s^2}ds^2+\frac{e}{2}\Gamma(\frac{1}{2})=e+\frac{3\sqrt{\pi}e}{4}.\]</span></p>
+
+    </div>
+
+    
+    
+    
+      
+
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div></div>
+  <button>
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.jpg" alt="GUO Songxiao WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpg" alt="GUO Songxiao Alipay">
+        <span>Alipay</span>
+      </div>
+      <div>
+        <img src="/images/bitcoin.jpg" alt="GUO Songxiao Bitcoin">
+        <span>Bitcoin</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>GUO Songxiao
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="http://gsxgoldenlegendary.github.io/2021/07/17/Mathematical_Analysis/Solutions-to-Hard-Problems-of-Mathematical-Analysis/" title="Solutions to Hard Problems of Mathematical Analysis">http://gsxgoldenlegendary.github.io/2021/07/17/Mathematical_Analysis/Solutions-to-Hard-Problems-of-Mathematical-Analysis/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://twitter.com/GSongxiao">
+          <span class="icon">
+            <i class="fab fa-twitter"></i>
+          </span>
+
+          <span class="label">Twitter</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/atom.xml">
+          <span class="icon">
+            <i class="fa fa-rss"></i>
+          </span>
+
+          <span class="label">RSS</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://github.com/gsxgoldenlegendary">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+
+          <span class="label">GitHub</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="mailto:gsxgoldenlegendary@gmail.com">
+          <span class="icon">
+            <i class="fa fa-envelope"></i>
+          </span>
+
+          <span class="label">E-Mail</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://www.facebook.com/songxiao.guo">
+          <span class="icon">
+            <i class="fab fa-facebook"></i>
+          </span>
+
+          <span class="label">FB Page</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://blog.csdn.net/weixin_52075219">
+          <span class="icon">
+            <i class="fab fa-cuttlefish"></i>
+          </span>
+
+          <span class="label">CSDN</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://www.zhihu.com/people/jin-se-chuan-shuo-58-72">
+          <span class="icon">
+            <i class="fab fa-zhihu"></i>
+          </span>
+
+          <span class="label">Zhihu</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Mathematical-Analysis/" rel="tag"><i class="fa fa-tag"></i> Mathematical Analysis</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/07/16/Mathematical_Analysis/Differential-Calculus-of-Multiple-Variable-Function/" rel="prev" title="Differential Calculus of Multiple Variable Function">
+                  <i class="fa fa-chevron-left"></i> Differential Calculus of Multiple Variable Function
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/10/20/Digital_Circuit/USTC-Verilog-OJ-Solutions/" rel="next" title="USTC Verilog OJ Solutions">
+                  USTC Verilog OJ Solutions <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa-solid fa-chess-king"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GUO Songxiao</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.7/pdfobject.min.js","integrity":"sha256-ph3Dk89VmuTVXG6x/RDzk53SU9LPdAh1tpv0UvnDZ2I="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"gsxgoldenlegendary/gsxgoldenlegendary.github.io","issue_term":"pathname","theme":"github-dark"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-128x128.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico">
+  <link rel="mask-icon" href="/images/favicon.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gsxgoldenlegendary.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="树和二叉树ADT的逻辑结构、存储结构及基本操作：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tree and Binary Tree">
+<meta property="og:url" content="http://gsxgoldenlegendary.github.io/2021/12/29/Data_Structure/Tree-and-Binary-Tree/index.html">
+<meta property="og:site_name" content="SONGXIAO&#39;S TOPBLOG">
+<meta property="og:description" content="树和二叉树ADT的逻辑结构、存储结构及基本操作：">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-12-28T16:04:18.000Z">
+<meta property="article:modified_time" content="2022-01-30T12:03:30.000Z">
+<meta property="article:author" content="GUO Songxiao">
+<meta property="article:tag" content="Data Structure">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://gsxgoldenlegendary.github.io/2021/12/29/Data_Structure/Tree-and-Binary-Tree/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://gsxgoldenlegendary.github.io/2021/12/29/Data_Structure/Tree-and-Binary-Tree/","path":"2021/12/29/Data_Structure/Tree-and-Binary-Tree/","title":"Tree and Binary Tree"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Tree and Binary Tree | SONGXIAO'S TOPBLOG</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SONGXIAO'S TOPBLOG</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">VENI VIDI VICI</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-friends"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>friends</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">逻辑结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%91"><span class="nav-number">1.1.</span> <span class="nav-text">树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-number">1.2.</span> <span class="nav-text">二叉树</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">存储结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%91-1"><span class="nav-number">2.1.</span> <span class="nav-text">树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%91%E7%9A%84%E5%8F%8C%E4%BA%B2%E5%AD%98%E5%82%A8%E8%A1%A8%E7%A4%BA"><span class="nav-number">2.1.1.</span> <span class="nav-text">树的双亲存储表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%91%E7%9A%84%E5%AD%A9%E5%AD%90%E9%93%BE%E8%A1%A8%E5%AD%98%E5%82%A8%E8%A1%A8%E7%A4%BA"><span class="nav-number">2.1.2.</span> <span class="nav-text">树的孩子链表存储表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%91%E7%9A%84%E4%BA%8C%E5%8F%89%E9%93%BE%E8%A1%A8%E5%AD%A9%E5%AD%90-%E5%85%84%E5%BC%9F%E5%AD%98%E5%82%A8%E8%A1%A8%E7%A4%BA"><span class="nav-number">2.1.3.</span> <span class="nav-text">树的二叉链表（孩子-兄弟）存储表示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91-1"><span class="nav-number">2.2.</span> <span class="nav-text">二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E8%A1%A8%E7%A4%BA"><span class="nav-number">2.2.1.</span> <span class="nav-text">二叉树的顺序存储表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%BA%8C%E5%8F%89%E7%BA%BF%E7%B4%A2%E5%AD%98%E5%82%A8%E8%A1%A8%E7%A4%BA"><span class="nav-number">2.2.2.</span> <span class="nav-text">二叉树的二叉线索存储表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B5%AB%E5%A4%AB%E6%9B%BC%E6%A0%91%E5%92%8C%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81%E7%9A%84%E5%AD%98%E5%82%A8%E8%A1%A8%E7%A4%BA"><span class="nav-number">2.2.3.</span> <span class="nav-text">赫夫曼树和赫夫曼编码的存储表示</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-number">3.</span> <span class="nav-text">基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91-2"><span class="nav-number">3.1.</span> <span class="nav-text">二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E7%BA%BF%E7%B4%A2%E5%AD%98%E5%82%A8%E8%A1%A8%E7%A4%BA"><span class="nav-number">3.1.1.</span> <span class="nav-text">二叉线索存储表示</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="nav-number">3.1.1.1.</span> <span class="nav-text">中序遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%88%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="nav-number">3.1.1.2.</span> <span class="nav-text">先序遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="nav-number">3.1.1.3.</span> <span class="nav-text">后序遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA"><span class="nav-number">3.1.1.4.</span> <span class="nav-text">构建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E7%BB%93%E7%82%B9%E4%B8%AA%E6%95%B0"><span class="nav-number">3.1.1.5.</span> <span class="nav-text">计算结点个数</span></a></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="GUO Songxiao"
+      src="/images/header.jpg">
+  <p class="site-author-name" itemprop="name">GUO Songxiao</p>
+  <div class="site-description" itemprop="description">I must search. Even if the endless powdering of stars in the Galaxy makes the quest seem hopeless, and even if I must do it alone.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">111</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/gsxgoldenlegendary" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;gsxgoldenlegendary" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:gsxgoldenlegendary@gmail.com" title="E-Mail → mailto:gsxgoldenlegendary@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/GSongxiao" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;GSongxiao" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/songxiao.guo" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;songxiao.guo" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/weixin_52075219" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_52075219" rel="noopener" target="_blank"><i class="fab fa-cuttlefish fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/jin-se-chuan-shuo-58-72" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;jin-se-chuan-shuo-58-72" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://home.ustc.edu.cn/~logname" title="http:&#x2F;&#x2F;home.ustc.edu.cn&#x2F;~logname" rel="noopener" target="_blank">Homepage</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://gsxgoldenlegendary.github.io/2021/12/29/Data_Structure/Tree-and-Binary-Tree/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="GUO Songxiao">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SONGXIAO'S TOPBLOG">
+      <meta itemprop="description" content="I must search. Even if the endless powdering of stars in the Galaxy makes the quest seem hopeless, and even if I must do it alone.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Tree and Binary Tree | SONGXIAO'S TOPBLOG">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Tree and Binary Tree
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-12-28 16:04:18" itemprop="dateCreated datePublished" datetime="2021-12-28T16:04:18Z">2021-12-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-30 12:03:30" itemprop="dateModified" datetime="2022-01-30T12:03:30Z">2022-01-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Computer-Science/" itemprop="url" rel="index"><span itemprop="name">Computer Science</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>树和二叉树ADT的逻辑结构、存储结构及基本操作：</p>
+<span id="more"></span>
+<h1 id="逻辑结构">逻辑结构</h1>
+<h2 id="树">树</h2>
+<p>ADT Tree{</p>
+<p>数据对象D：D是具有相同特性的数据元素的集合。</p>
+<p>数据关系R：若D为空集，则称为空树； 若D仅含一个数据元素，则R为空集，否则R={H}，H是如下二元关系：</p>
+<ol type="1">
+<li>在D中存在唯一的称为根的数据元素root，它在关系H下无前驱；</li>
+<li>若<span class="math inline">\(D=\{root\}\neq\Phi\)</span>，则存在<span class="math inline">\(D-\{root\}\)</span>的一个划分<span class="math inline">\(D_1,D_2,\cdots,D_m(m&gt;0)\)</span>，对任意<span class="math inline">\(j\neq k(1\leqslant j,k\leqslant m)\)</span>，有<span class="math inline">\(D_j\cap D_k=\Phi\)</span>，且对任意的<span class="math inline">\(i(1\leqslant i\leqslant m)\)</span>，唯一存在数据元素<span class="math inline">\(x_i\in D\)</span>，有<span class="math inline">\(&lt;root,x_i&gt;\in H\)</span>；</li>
+<li>对应于<span class="math inline">\(D=\{root\}\)</span>的划分，<span class="math inline">\(H-\{&lt;root,x_1&gt;,\cdots,&lt;root,x_m&gt;\}\)</span>有唯一的一个划分<span class="math inline">\(H_1,H_2,\cdots,H_m(m&gt;0)\)</span>，对任意<span class="math inline">\(j\neq k(1\leqslant j,k\leqslant m)\)</span>有<span class="math inline">\(D_j\cap D_k=\Phi\)</span>，且对任意的<span class="math inline">\(i(1\leqslant i\leqslant m)\)</span>，<span class="math inline">\(H_i\)</span>是<span class="math inline">\(D_i\)</span>上的二元关系，<span class="math inline">\((D_i,\{H_i\})\)</span>是一棵符合本定义的树，称为根<span class="math inline">\(root\)</span>的子树。</li>
+</ol>
+<p>基本操作P：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">InitTree(&amp;T);</span><br><span class="line">DestroyTree(&amp;T);</span><br><span class="line">CreateTree(&amp;T,definition);</span><br><span class="line">ClearTree(&amp;T);</span><br><span class="line">TreeEmpty(T);</span><br><span class="line">TreeDepth(T);</span><br><span class="line">Root(T);</span><br><span class="line">Value(T,cur_e);</span><br><span class="line">Assign(T,cur_e,value);</span><br><span class="line">Parent(T,cur_e,value);</span><br><span class="line">LeftChild(T,cur_e);</span><br><span class="line">RightChild(T,cur_e);</span><br><span class="line">InsertChild(&amp;T,&amp;p,i,c);</span><br><span class="line">DeleteChild(&amp;T,&amp;p,i);</span><br><span class="line">TraverseTree(T,Visit());</span><br></pre></td></tr></table></figure>
+<p>}ADT Tree</p>
+<h2 id="二叉树">二叉树</h2>
+<p>ADT BinaryTree{</p>
+<p>数据对象D：D是具有相同特性的数据元素的集合。</p>
+<p>数据关系R：若<span class="math inline">\(D=\Phi\)</span>，则<span class="math inline">\(R=\Phi\)</span>，称BinaryTree为空二叉树； 若<span class="math inline">\(D\neq\Phi\)</span>则<span class="math inline">\(R=\{H\}\)</span>，H是如下二元关系：</p>
+<ol type="1">
+<li>在D中存在唯一的称为根的数据元素root，它在关系H下无前驱；</li>
+<li>若<span class="math inline">\(D=\{root\}\neq\Phi\)</span>，则存在<span class="math inline">\(D-\{root\}=\{D_l,D_r\}\)</span>，且<span class="math inline">\(D_l\cap D_r=\Phi\)</span>；</li>
+<li>若<span class="math inline">\(D_l\neq\Phi\)</span>，则<span class="math inline">\(D_l\)</span>中存在唯一的元素<span class="math inline">\(x_l\)</span>，<span class="math inline">\(&lt;root,x_l&gt;\in H\)</span>，且存在<span class="math inline">\(D_l\)</span>上的关系<span class="math inline">\(H_l\subset H\)</span>；若<span class="math inline">\(D_r\neq\Phi\)</span>，则<span class="math inline">\(D_r\)</span>中存在唯一的元素<span class="math inline">\(x_r\)</span>，<span class="math inline">\(&lt;root,x_r&gt;\in H\)</span>，且存在<span class="math inline">\(D_r\)</span>上的关系<span class="math inline">\(H_r\subset H\)</span>；<span class="math inline">\(H=\{&lt;root,x_l&gt;,&lt;root,x_r&gt;,H_l,H_r\}\)</span>；</li>
+<li><span class="math inline">\((D_l,\{H_l\})\)</span>是一棵符合本定义的二叉树，称为根的左子树，<span class="math inline">\((D_r,\{H_r\})\)</span>是一棵符合本定义的二叉树，称为根的右子树。</li>
+</ol>
+<p>基本操作P：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">InitBiTree(&amp;T);</span><br><span class="line">DestroyBiTree(&amp;T);</span><br><span class="line">CreateBiTree(&amp;T,definition);</span><br><span class="line">ClearBiTree(&amp;T);</span><br><span class="line">BiTreeEmpty(T);</span><br><span class="line">BiTreeDepth(T);</span><br><span class="line">Root(T);</span><br><span class="line">Value(T,e);</span><br><span class="line">Assign(T,&amp;e,value);</span><br><span class="line">Parent(T,cur_r,value);</span><br><span class="line">LeftChild(T,e);</span><br><span class="line">RightChild(T,e);</span><br><span class="line">LeftSibling(T,e);</span><br><span class="line">RightSibling(T,e);</span><br><span class="line">InsertChild(T,p,LR,c);</span><br><span class="line">DeleteChild(T,p,LR);</span><br><span class="line">PreOrderTraverseTree(T,Visit());</span><br><span class="line">InOrderTraverseTree(T,Visit());</span><br><span class="line">PostOrderTraverseTree(T,Visit());</span><br><span class="line">LevelOrderTraverseTree(T,Visit());</span><br></pre></td></tr></table></figure>
+<p>}ADT BinaryTree</p>
+<h1 id="存储结构">存储结构</h1>
+<h2 id="树-1">树</h2>
+<h3 id="树的双亲存储表示">树的双亲存储表示</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MAX_TREE_SIZE	<span class="comment">//最大节点个数</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">PTNode</span>&#123;</span></span><br><span class="line">    TElemType data;</span><br><span class="line">    <span class="type">int</span> parent;</span><br><span class="line">&#125;PTNode;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    PTNode nodes[MAX_TREE_SIZE];</span><br><span class="line">    <span class="type">int</span> r,n;</span><br><span class="line">&#125;PTree;</span><br></pre></td></tr></table></figure>
+<h3 id="树的孩子链表存储表示">树的孩子链表存储表示</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">CTNode</span>&#123;</span></span><br><span class="line">    <span class="type">int</span> child;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">CTNode</span>*<span class="title">next</span>;</span></span><br><span class="line">&#125;*ChildPtr;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    TElemType data;</span><br><span class="line">    ChildPtr firstchild;</span><br><span class="line">&#125;CTBox;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    CTBox nodes[MAX_TREE_SIZE];</span><br><span class="line">    <span class="type">int</span> n,r;</span><br><span class="line">&#125;CTree;</span><br></pre></td></tr></table></figure>
+<h3 id="树的二叉链表孩子-兄弟存储表示">树的二叉链表（孩子-兄弟）存储表示</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">CSNode</span>&#123;</span></span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">CSNode</span> *<span class="title">firstchild</span>,*<span class="title">nextsibling</span>;</span></span><br><span class="line">&#125;CSNode,*CSTree;</span><br></pre></td></tr></table></figure>
+<h2 id="二叉树-1">二叉树</h2>
+<h3 id="二叉树的顺序存储表示">二叉树的顺序存储表示</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MAX_TREE_SIZE 100</span></span><br><span class="line"><span class="keyword">typedef</span> TElemType SqBiTree[MAX_TREE_SIZE];</span><br><span class="line">SqBiTree bt;</span><br></pre></td></tr></table></figure>
+<h3 id="二叉树的二叉线索存储表示">二叉树的二叉线索存储表示</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">enum</span> <span class="title">Pointer</span>&#123;</span></span><br><span class="line">    Link,Thread</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">BiThrNode</span>&#123;</span></span><br><span class="line">    TElemType data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">BiThrNode</span>*<span class="title">lchild</span>,*<span class="title">rchild</span>;</span></span><br><span class="line">    PointerTag LTag,RTag;</span><br><span class="line">&#125;BiThrNode,*BiThrTree;</span><br></pre></td></tr></table></figure>
+<h3 id="赫夫曼树和赫夫曼编码的存储表示">赫夫曼树和赫夫曼编码的存储表示</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    <span class="type">unsigned</span> weight;</span><br><span class="line">    <span class="type">unsigned</span> parent,lchild,rchild;</span><br><span class="line">&#125;HTNode,*HuffmanTree;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">char</span>** HuffmanCode;</span><br></pre></td></tr></table></figure>
+<h1 id="基本操作">基本操作</h1>
+<h2 id="二叉树-2">二叉树</h2>
+<h3 id="二叉线索存储表示">二叉线索存储表示</h3>
+<h4 id="中序遍历">中序遍历</h4>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Status <span class="title function_">InOrderTraverse</span><span class="params">(BiTree T,Status(Visit*)(TElemType e))</span>&#123;</span><br><span class="line">    <span class="comment">//采用递归</span></span><br><span class="line">    <span class="keyword">if</span>(T)&#123;</span><br><span class="line">        InOrderTraverse(T-&gt;lchild);</span><br><span class="line">        Visit(T-&gt;data);</span><br><span class="line">        InOrderTraverse(T-&gt;rchild);</span><br><span class="line">    &#125;<span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> OK;</span><br><span class="line">&#125;<span class="comment">//InOrderTraverse</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Status <span class="title function_">InOrderTraverse</span><span class="params">(BiTree T,Status(Visit*)(TElemType e))</span>&#123;</span><br><span class="line">    <span class="comment">//采用非递归</span></span><br><span class="line">    InitStack(S);</span><br><span class="line">    Push(S,T);</span><br><span class="line">    <span class="keyword">while</span>(!StackEmpty(S))&#123;</span><br><span class="line">       <span class="keyword">while</span>(GetTop(S,e)&amp;&amp;e)</span><br><span class="line">           Push(S,e-&gt;lchild);</span><br><span class="line">        Pop(S,e);</span><br><span class="line">        <span class="keyword">if</span>(!StackEmpty(S))&#123;</span><br><span class="line">            Pop(S,e);</span><br><span class="line">            Visit(e-&gt;data);</span><br><span class="line">            Push(S,p-&gt;rchild);</span><br><span class="line">        &#125;<span class="comment">//if</span></span><br><span class="line">    &#125;<span class="comment">//while</span></span><br><span class="line">&#125;<span class="comment">//InOrderTraverse</span></span><br></pre></td></tr></table></figure>
+<h4 id="先序遍历">先序遍历</h4>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Status <span class="title function_">PreOrderTraverse</span><span class="params">(BiTree T,Status(Visit*)(TElemType e))</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T)&#123;</span><br><span class="line">        Visit(T-&gt;data);</span><br><span class="line">        PreOrderTraverse(T-&gt;lchild);</span><br><span class="line">        PreOrderTraverse(T-&gt;rchild);</span><br><span class="line">    &#125;<span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> OK;</span><br><span class="line">&#125;<span class="comment">//PreOrderTraverse</span></span><br></pre></td></tr></table></figure>
+<h4 id="后序遍历">后序遍历</h4>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Status <span class="title function_">PostOrderTraverse</span><span class="params">(BiTree T,Status(Visit*)(TElemType e))</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T)&#123;</span><br><span class="line">        PostOrderTraverse(T-&gt;lchild);</span><br><span class="line">        PostOrderTraverse(T-&gt;rchild);</span><br><span class="line">        Visit(T-&gt;data);</span><br><span class="line">    &#125;<span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> OK;</span><br><span class="line">&#125;<span class="comment">//PostOrderTraverse</span></span><br></pre></td></tr></table></figure>
+<h4 id="构建">构建</h4>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Status <span class="title function_">CreateBiTree</span><span class="params">(BiTree &amp;T)</span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(&amp;ch);</span><br><span class="line">    <span class="keyword">if</span>(ch==RefValue)</span><br><span class="line">        T=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        T=(BiTNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(BiTNode));</span><br><span class="line">        <span class="keyword">if</span>(!T)</span><br><span class="line">            <span class="built_in">exit</span>(OVERFLOW);</span><br><span class="line">        CreateBiTree(T-&gt;lchild);</span><br><span class="line">        CreateBiTree(T-&gt;rchild);</span><br><span class="line">    &#125;<span class="comment">//else</span></span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;<span class="comment">//CreateBiTree</span></span><br></pre></td></tr></table></figure>
+<h4 id="计算结点个数">计算结点个数</h4>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">Count</span><span class="params">(BiTree T)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!T)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> Count(T-&gt;lchild)+Count(T-&gt;rchild)+<span class="number">1</span>;</span><br><span class="line">&#125;<span class="comment">//Count</span></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+      
+
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div></div>
+  <button>
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.jpg" alt="GUO Songxiao WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpg" alt="GUO Songxiao Alipay">
+        <span>Alipay</span>
+      </div>
+      <div>
+        <img src="/images/bitcoin.jpg" alt="GUO Songxiao Bitcoin">
+        <span>Bitcoin</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>GUO Songxiao
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="http://gsxgoldenlegendary.github.io/2021/12/29/Data_Structure/Tree-and-Binary-Tree/" title="Tree and Binary Tree">http://gsxgoldenlegendary.github.io/2021/12/29/Data_Structure/Tree-and-Binary-Tree/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://twitter.com/GSongxiao">
+          <span class="icon">
+            <i class="fab fa-twitter"></i>
+          </span>
+
+          <span class="label">Twitter</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/atom.xml">
+          <span class="icon">
+            <i class="fa fa-rss"></i>
+          </span>
+
+          <span class="label">RSS</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://github.com/gsxgoldenlegendary">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+
+          <span class="label">GitHub</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="mailto:gsxgoldenlegendary@gmail.com">
+          <span class="icon">
+            <i class="fa fa-envelope"></i>
+          </span>
+
+          <span class="label">E-Mail</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://www.facebook.com/songxiao.guo">
+          <span class="icon">
+            <i class="fab fa-facebook"></i>
+          </span>
+
+          <span class="label">FB Page</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://blog.csdn.net/weixin_52075219">
+          <span class="icon">
+            <i class="fab fa-cuttlefish"></i>
+          </span>
+
+          <span class="label">CSDN</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://www.zhihu.com/people/jin-se-chuan-shuo-58-72">
+          <span class="icon">
+            <i class="fab fa-zhihu"></i>
+          </span>
+
+          <span class="label">Zhihu</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Data-Structure/" rel="tag"><i class="fa fa-tag"></i> Data Structure</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/12/29/Data_Structure/Array-and-Generalized-List/" rel="prev" title="Array and Generalized List">
+                  <i class="fa fa-chevron-left"></i> Array and Generalized List
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/12/29/Data_Structure/Graph/" rel="next" title="Graph">
+                  Graph <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa-solid fa-chess-king"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GUO Songxiao</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.7/pdfobject.min.js","integrity":"sha256-ph3Dk89VmuTVXG6x/RDzk53SU9LPdAh1tpv0UvnDZ2I="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"gsxgoldenlegendary/gsxgoldenlegendary.github.io","issue_term":"pathname","theme":"github-dark"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>

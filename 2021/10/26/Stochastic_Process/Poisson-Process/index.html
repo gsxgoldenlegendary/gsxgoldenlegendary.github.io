@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-128x128.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico">
+  <link rel="mask-icon" href="/images/favicon.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gsxgoldenlegendary.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Poisson 过程 Poisson过程是一系列离散事件的模型，事件之间的平均时间是确定的，但事件发生的确切时间是随机的，一个事件的到来与之前的事件无关。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Poisson Process">
+<meta property="og:url" content="http://gsxgoldenlegendary.github.io/2021/10/26/Stochastic_Process/Poisson-Process/index.html">
+<meta property="og:site_name" content="SONGXIAO&#39;S TOPBLOG">
+<meta property="og:description" content="Poisson 过程 Poisson过程是一系列离散事件的模型，事件之间的平均时间是确定的，但事件发生的确切时间是随机的，一个事件的到来与之前的事件无关。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-10-26T14:02:09.000Z">
+<meta property="article:modified_time" content="2021-12-02T11:15:24.000Z">
+<meta property="article:author" content="GUO Songxiao">
+<meta property="article:tag" content="Stochastic Process">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://gsxgoldenlegendary.github.io/2021/10/26/Stochastic_Process/Poisson-Process/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://gsxgoldenlegendary.github.io/2021/10/26/Stochastic_Process/Poisson-Process/","path":"2021/10/26/Stochastic_Process/Poisson-Process/","title":"Poisson Process"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Poisson Process | SONGXIAO'S TOPBLOG</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SONGXIAO'S TOPBLOG</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">VENI VIDI VICI</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-friends"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>friends</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#poisson-%E8%BF%87%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">Poisson 过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#poisson%E8%BF%87%E7%A8%8B"><span class="nav-number">1.1.</span> <span class="nav-text">Poisson过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#poisson%E8%BF%87%E7%A8%8B-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">Poisson过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8Epoisson%E8%BF%87%E7%A8%8B%E7%9B%B8%E8%81%94%E7%B3%BB%E7%9A%84%E8%8B%A5%E5%B9%B2%E5%88%86%E5%B8%83"><span class="nav-number">1.2.</span> <span class="nav-text">与Poisson过程相联系的若干分布</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%B4%E9%9A%94%E6%97%B6%E9%97%B4%E5%92%8C%E7%AD%89%E5%BE%85%E6%97%B6%E9%97%B4%E7%9A%84%E5%88%86%E5%B8%83"><span class="nav-number">1.2.1.</span> <span class="nav-text">间隔时间和等待时间的分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%89%E5%BE%85%E6%97%B6%E9%97%B4%E7%9A%84%E8%81%94%E5%90%88%E5%88%86%E5%B8%83"><span class="nav-number">1.2.2.</span> <span class="nav-text">等待时间的联合分布</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#poisson%E8%BF%87%E7%A8%8B%E7%9A%84%E6%8E%A8%E5%B9%BF"><span class="nav-number">1.3.</span> <span class="nav-text">Poisson过程的推广</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E8%BF%87%E7%A8%8B"><span class="nav-number">1.3.1.</span> <span class="nav-text">更新过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E8%BF%87%E7%A8%8B%E7%9A%84%E5%88%86%E5%B8%83"><span class="nav-number">1.3.2.</span> <span class="nav-text">更新过程的分布</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9A%BE%E9%A2%98%E9%9B%86%E8%90%83"><span class="nav-number">1.4.</span> <span class="nav-text">难题集萃</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E4%B8%AA%E7%8B%AC%E7%AB%8Bpoisson%E8%BF%87%E7%A8%8B"><span class="nav-number">1.4.1.</span> <span class="nav-text">多个独立Poisson过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%B2%E5%87%BB%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.4.2.</span> <span class="nav-text">冲击模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E9%BD%90%E6%AC%A1poisson%E8%BF%87%E7%A8%8B%E7%9A%84%E4%BA%8B%E4%BB%B6%E6%97%B6%E9%97%B4%E9%97%B4%E9%9A%94"><span class="nav-number">1.4.3.</span> <span class="nav-text">非齐次Poisson过程的事件时间间隔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E8%BF%87%E7%A8%8B%E7%9A%84%E7%AD%89%E5%BE%85%E6%97%B6%E9%97%B4"><span class="nav-number">1.4.4.</span> <span class="nav-text">更新过程的等待时间</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="GUO Songxiao"
+      src="/images/header.jpg">
+  <p class="site-author-name" itemprop="name">GUO Songxiao</p>
+  <div class="site-description" itemprop="description">I must search. Even if the endless powdering of stars in the Galaxy makes the quest seem hopeless, and even if I must do it alone.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">111</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/gsxgoldenlegendary" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;gsxgoldenlegendary" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:gsxgoldenlegendary@gmail.com" title="E-Mail → mailto:gsxgoldenlegendary@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/GSongxiao" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;GSongxiao" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/songxiao.guo" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;songxiao.guo" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/weixin_52075219" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_52075219" rel="noopener" target="_blank"><i class="fab fa-cuttlefish fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/jin-se-chuan-shuo-58-72" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;jin-se-chuan-shuo-58-72" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://home.ustc.edu.cn/~logname" title="http:&#x2F;&#x2F;home.ustc.edu.cn&#x2F;~logname" rel="noopener" target="_blank">Homepage</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://gsxgoldenlegendary.github.io/2021/10/26/Stochastic_Process/Poisson-Process/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="GUO Songxiao">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SONGXIAO'S TOPBLOG">
+      <meta itemprop="description" content="I must search. Even if the endless powdering of stars in the Galaxy makes the quest seem hopeless, and even if I must do it alone.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Poisson Process | SONGXIAO'S TOPBLOG">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Poisson Process
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-10-26 14:02:09" itemprop="dateCreated datePublished" datetime="2021-10-26T14:02:09Z">2021-10-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2021-12-02 11:15:24" itemprop="dateModified" datetime="2021-12-02T11:15:24Z">2021-12-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Mathematics/" itemprop="url" rel="index"><span itemprop="name">Mathematics</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="poisson-过程">Poisson 过程</h1>
+<p>Poisson过程是一系列离散事件的模型，事件之间的平均时间是确定的，但事件发生的确切时间是随机的，一个事件的到来与之前的事件无关。</p>
+<span id="more"></span>
+<h2 id="poisson过程">Poisson过程</h2>
+<h3 id="poisson过程-1">Poisson过程</h3>
+<p>一个整数值随机过程<span class="math inline">\(\{N(t),t\geqslant0\}\)</span>满足下述三个条件就称作强度为<span class="math inline">\(\lambda&gt;0\)</span>的Poisson过程：</p>
+<ol type="1">
+<li><span class="math inline">\(N(0)=0\)</span>；</li>
+<li><span class="math inline">\(N(t)\)</span>是独立增量过程；</li>
+<li>对任何<span class="math inline">\(t&gt;0\)</span>，<span class="math inline">\(s\geqslant0\)</span>增量<span class="math inline">\(N(s+t)-N(t)\)</span>服从参数为<span class="math inline">\(\lambda t\)</span>的Poisson分布，即<span class="math display">\[P\{N(s+t)-N(t)=k\}=\frac{(\lambda t)^ke^{-\lambda t}}{k!},k=0,1,\cdots\]</span>。</li>
+</ol>
+<p>满足假定1~4的随机过程<span class="math inline">\(N(t)\)</span>为Poisson过程。</p>
+<ol type="1">
+<li>在不相交区间中事件发生的数目相互独立，也即对任何整数<span class="math inline">\(n=1,2,\cdots\)</span>，设时刻<span class="math inline">\(t_0=0&lt;t_1&lt;t_2&lt;\cdots&lt;t_n\)</span>，增量<span class="math display">\[N(t_1)-N(t_0),N(t_2)-N(t_1),\cdots,N(t_n)-N(t_{n-1})\]</span>相互独立；</li>
+<li>对任何时刻<span class="math inline">\(t\)</span>和正数<span class="math inline">\(h\)</span>，随机变量（增量）<span class="math inline">\(N(t+h)-N(t)\)</span>的分布只依赖于区间长度<span class="math inline">\(h\)</span>而不依赖时刻<span class="math inline">\(t\)</span>；</li>
+<li>存在正整数<span class="math inline">\(\lambda\)</span>当<span class="math inline">\(h\downarrow 0\)</span>时，使在长度为的小区间中事件至少发生一次的概率<span class="math display">\[P\{N(t+h)-N(t)\geqslant1\}=\lambda h+\omicron(h)\]</span>；</li>
+<li>在小区间<span class="math inline">\((t,t+h]\)</span>发生两个或两个以上事件的概率为<span class="math inline">\(\omicron(h)\)</span>（可以忽略不计），即当<span class="math inline">\(h\downarrow 0\)</span>，<span class="math inline">\(P\{N(t+h)-N(t)\geqslant2\}=\omicron (h)\)</span>。</li>
+</ol>
+<h2 id="与poisson过程相联系的若干分布">与Poisson过程相联系的若干分布</h2>
+<h3 id="间隔时间和等待时间的分布">间隔时间和等待时间的分布</h3>
+<p>第<span class="math inline">\(n-1\)</span>次与第<span class="math inline">\(n\)</span>次事件间的间隔时间记作<span class="math inline">\(X_n\)</span>，而<span class="math inline">\(W_n=\sum\limits_{i-1}\limits^nX_i\)</span>为第<span class="math inline">\(n\)</span>次事件的到达或等待时间，则<span class="math inline">\(X_n,n=1,2,\cdots\)</span>是均值为<span class="math inline">\(\frac{1}{\lambda}\)</span>的独立同分布的指数随机变量，<span class="math inline">\(W_n\)</span>服从参数为<span class="math inline">\(n\)</span>，和<span class="math inline">\(\lambda\)</span>的<span class="math inline">\(\Gamma\)</span>分布。</p>
+<h3 id="等待时间的联合分布">等待时间的联合分布</h3>
+<p>若<span class="math inline">\(N(t),t\geqslant 0\)</span>为Poisson过程，则给定<span class="math inline">\(N(t)=n\)</span>下等待时间<span class="math inline">\(W_1,\cdots,W_n\)</span>的联合密度为<span class="math display">\[f_{W_1,\cdots,W_n|N(t)=n}(\omega_1.\cdots,\omega_n|n)=\frac{n!}{t^n},0&lt;\omega_1&lt;\cdots&lt;\omega_n\leqslant t\]</span>。</p>
+<h2 id="poisson过程的推广">Poisson过程的推广</h2>
+<h3 id="更新过程">更新过程</h3>
+<p>如果<span class="math inline">\(X_i,i=1,2,\cdots\)</span>为一非负的随机变量，它们独立同分布，分布函数为<span class="math inline">\(F(x)\)</span>。记<span class="math inline">\(W_0=0,W_n=\sum\limits_{i=1}\limits^nX_i\)</span>，<span class="math inline">\(W_i\)</span>表示第<span class="math inline">\(n\)</span>次事件发生的时刻，则称<span class="math inline">\(N(t)=max\{n:W_n\leqslant t\}\)</span>为更新过程。</p>
+<h3 id="更新过程的分布">更新过程的分布</h3>
+<p>更新过程<span class="math inline">\(N(t)\)</span>的分布<span class="math inline">\(P\{N(t)=n\}=F^{(n)}(t)-F^{(n+1)}(t)\)</span>，而更新函数<span class="math inline">\(m(t)=\sum\limits_{n=1}\limits^\infty F^{(n)}(t)\)</span>，其中<span class="math inline">\(F^{(n)}(t)\)</span>为<span class="math inline">\(F(t)\)</span>的<span class="math inline">\(n\)</span>重卷积，<span class="math inline">\(F(t)\)</span>即为<span class="math inline">\(X_i\)</span>的分布函数。</p>
+<h2 id="难题集萃">难题集萃</h2>
+<h3 id="多个独立poisson过程">多个独立Poisson过程</h3>
+<p>设某路口蓝车，白车和黄车的到达次数分别为强度<span class="math inline">\(\lambda_1,\lambda_2,\lambda_3\)</span>的Poisson过程，且相互独立。试求在相继到达的两辆蓝车之间，恰有<span class="math inline">\(k\)</span>辆车到达的概率。</p>
+<p>易知蓝车首先到达的概率为<span class="math inline">\(p=\frac{\lambda_1}{\lambda_1+\lambda_2+\lambda_3}\)</span>，不是蓝车的概率为<span class="math inline">\(1=p\)</span>，认为蓝车到达为“成功”，否则为“失败”，则两次蓝车之间到达车辆分布服从几何分布，即<span class="math display">\[P(N=k)=(1-p)^kp=\frac{\lambda_1(\lambda_2+\lambda_3)^k}{(\lambda_1+\lambda_2+\lambda_3)^{k+1}}\]</span>。</p>
+<h3 id="冲击模型">冲击模型</h3>
+<p>记<span class="math inline">\(N(t)\)</span>为某系统到某时刻<span class="math inline">\(t\)</span>受到的冲击次数，它是参数为<span class="math inline">\(\lambda\)</span> 的Poisson过程。设第<span class="math inline">\(k\)</span>次冲击对系统的损害大小<span class="math inline">\(Y_k\)</span>服从参数为<span class="math inline">\(\mu\)</span>的指数分布，<span class="math inline">\(Y_k,𝑘=1,2,· · ·\)</span>，独立同分布。记<span class="math inline">\(X(t)\)</span>为系统所受到的总损害。当损害超过一定的极限<span class="math inline">\(\alpha\)</span>时系统不能运行，寿命终止，记<span class="math inline">\(T\)</span>为系统寿命。试求该系统的平均寿命<span class="math inline">\(ET\)</span>。</p>
+<p>解： <span class="math display">\[
+ET=\int_0^\infty tf(t)\mathrm{d}t=\int_0^\infty(\int_0^tf(t)\mathrm{d}s)\mathrm{d}t
+\]</span></p>
+<p><span class="math display">\[
+=\int_0^\infty(\int_t^\infty f(t)\mathrm{d}t)\mathrm{d}s=\int_0^\infty P(T&gt;t)\mathrm{d}t
+\]</span></p>
+<p><span class="math display">\[
+P(T&gt;t)=P(X(t)\leqslant\alpha)=P(\sum\limits_{i=1}\limits^{N(t)}Y_i\leqslant\alpha)
+\]</span></p>
+<p><span class="math display">\[
+=\sum\limits_{n=0}\limits^\infty P(\sum\limits_{i=1}\limits^{N(t)}Y_i\leqslant\alpha|N(t)=n)P(N(t)=n)
+\]</span></p>
+<p><span class="math display">\[
+\therefore ET=\int_0^\infty 1\cdot P(N(t)=0)+\int_0^\infty\sum\limits_{n=0}\limits^\infty P(\sum\limits_{i=1}\limits^{n}Y_i\leqslant\alpha)P(N(t)=n)
+\]</span></p>
+<p><span class="math display">\[
+=\frac{1}{\lambda}+\int_0^\infty\sum\limits_{n=1}\limits^\infty(\int_0^\alpha\frac{\mu(\mu y)^{n-1}}{(n-1)!}e^{-\mu y}\mathrm{d}y)\frac{(\lambda t)^n e^{-\lambda t}}{n!}\mathrm{d}t
+\]</span></p>
+<p><span class="math display">\[
+=\frac{1}{\lambda}+\int_0^\alpha\sum\limits_{n=1}\limits^\infty(\int_0^\infty \frac{(\lambda t)^n e^{-\lambda t}}{n!}\mathrm{d}t)\frac{\mu(\mu y)^{n-1}}{(n-1)!}e^{-\mu y}\mathrm{d}y
+\]</span></p>
+<p><span class="math display">\[
+=\frac{1}{\lambda}+\int_0^\alpha\sum\limits_{n=1}^\limits\infty\frac{\Gamma(n)}{\lambda n!}\frac{\mu(\mu y)^{n-1}}{(n-1)!}e^{-\mu y}\mathrm{d}y
+\]</span></p>
+<p><span class="math display">\[
+=\frac{1}{\lambda}+\frac{1}{\lambda}\int_0^\alpha\sum\limits_{n=1}^\limits\infty\frac{\mu(\mu y)^{n-1}}{(n-1)!}e^{-\mu y}\mathrm{d}y
+\]</span></p>
+<p><span class="math display">\[
+=\frac{1}{\lambda}+\frac{1}{\lambda}\int_0^\alpha\mu\mathrm{d}y=\frac{\mu\alpha+1}{\lambda}
+\]</span></p>
+<p>注意：<span class="math inline">\(n\)</span>个同分布的参数为<span class="math inline">\(\lambda\)</span>的指数随机变量的和服从参数为<span class="math inline">\(n,\lambda\)</span>的<span class="math inline">\(\Gamma\)</span>分布。</p>
+<h3 id="非齐次poisson过程的事件时间间隔">非齐次Poisson过程的事件时间间隔</h3>
+<p>令<span class="math inline">\(N(t)\)</span>是强度为<span class="math inline">\(\lambda(t)\)</span>的非齐次Poisson过程，<span class="math inline">\(X_1,X_2,\cdots\)</span>为事件间的时间间隔，则<span class="math inline">\(X_i\)</span>不独立。</p>
+<p>解： <span class="math display">\[
+𝑃 (𝑋_2 &gt; 𝑡|𝑋_1 = 𝑠) = 𝑃 (𝑁(𝑡 + 𝑠) − 𝑁(𝑠) = 0|𝑁(𝑠) = 1) =𝑃(𝑁(𝑡 + 𝑠) − 𝑁(𝑠) = 0) = 𝑒^{-\int_s^{t+s}\lambda(s)\mathrm{d}s}
+\]</span> 由于<span class="math inline">\(𝑃(X_2&gt;t|X_1=s)\)</span>与<span class="math inline">\(s\)</span>有关，故<span class="math inline">\(X_1\)</span>与<span class="math inline">\(X_2\)</span>不独立，故<span class="math inline">\(X_i\)</span>不独立。</p>
+<p>注意：非齐次Poisson过程的<span class="math inline">\(N(t)\)</span>也是独立增量过程。</p>
+<h3 id="更新过程的等待时间">更新过程的等待时间</h3>
+<p>设<span class="math inline">\(N(t)\)</span>为更新过程，则<span class="math inline">\(\{N(t)\leqslant k\}\nLeftrightarrow\{W_k\geqslant t\}\)</span>。</p>
+<p>解：第<span class="math inline">\(k\)</span>次更新发生在<span class="math inline">\(t\)</span>时刻之前，第<span class="math inline">\(k+1\)</span>次更新发生在<span class="math inline">\(t\)</span>时刻之后，此时<span class="math inline">\(W_k&lt;k\)</span>，且<span class="math inline">\(N(t)\leqslant k\)</span>。</p>
+
+    </div>
+
+    
+    
+    
+      
+
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div></div>
+  <button>
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.jpg" alt="GUO Songxiao WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpg" alt="GUO Songxiao Alipay">
+        <span>Alipay</span>
+      </div>
+      <div>
+        <img src="/images/bitcoin.jpg" alt="GUO Songxiao Bitcoin">
+        <span>Bitcoin</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>GUO Songxiao
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="http://gsxgoldenlegendary.github.io/2021/10/26/Stochastic_Process/Poisson-Process/" title="Poisson Process">http://gsxgoldenlegendary.github.io/2021/10/26/Stochastic_Process/Poisson-Process/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://twitter.com/GSongxiao">
+          <span class="icon">
+            <i class="fab fa-twitter"></i>
+          </span>
+
+          <span class="label">Twitter</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/atom.xml">
+          <span class="icon">
+            <i class="fa fa-rss"></i>
+          </span>
+
+          <span class="label">RSS</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://github.com/gsxgoldenlegendary">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+
+          <span class="label">GitHub</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="mailto:gsxgoldenlegendary@gmail.com">
+          <span class="icon">
+            <i class="fa fa-envelope"></i>
+          </span>
+
+          <span class="label">E-Mail</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://www.facebook.com/songxiao.guo">
+          <span class="icon">
+            <i class="fab fa-facebook"></i>
+          </span>
+
+          <span class="label">FB Page</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://blog.csdn.net/weixin_52075219">
+          <span class="icon">
+            <i class="fab fa-cuttlefish"></i>
+          </span>
+
+          <span class="label">CSDN</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://www.zhihu.com/people/jin-se-chuan-shuo-58-72">
+          <span class="icon">
+            <i class="fab fa-zhihu"></i>
+          </span>
+
+          <span class="label">Zhihu</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Stochastic-Process/" rel="tag"><i class="fa fa-tag"></i> Stochastic Process</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/10/26/Stochastic_Process/Markov-Process/" rel="prev" title="Markov Process">
+                  <i class="fa fa-chevron-left"></i> Markov Process
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/10/27/Stochastic_Process/Introduction-of-Stochastic-Process/" rel="next" title="Introduction of Stochastic Process">
+                  Introduction of Stochastic Process <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa-solid fa-chess-king"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GUO Songxiao</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.7/pdfobject.min.js","integrity":"sha256-ph3Dk89VmuTVXG6x/RDzk53SU9LPdAh1tpv0UvnDZ2I="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"gsxgoldenlegendary/gsxgoldenlegendary.github.io","issue_term":"pathname","theme":"github-dark"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>

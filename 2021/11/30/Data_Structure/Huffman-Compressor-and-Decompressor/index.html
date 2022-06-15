@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-128x128.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico">
+  <link rel="mask-icon" href="/images/favicon.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gsxgoldenlegendary.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="数据结构 Huffman 压缩&#x2F;解压器大作业 项目环境  设备：Windows Surface Pro 7 Model 1866 i7 操作系统：Windows 11 Insider Preview 10.0.22504.1010 (rs_prerelease) 集成开发环境：JetBrain CLion 2021.2.1 编译器：MinGW 7.3.0 64-bit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Huffman Compressor and Decompressor">
+<meta property="og:url" content="http://gsxgoldenlegendary.github.io/2021/11/30/Data_Structure/Huffman-Compressor-and-Decompressor/index.html">
+<meta property="og:site_name" content="SONGXIAO&#39;S TOPBLOG">
+<meta property="og:description" content="数据结构 Huffman 压缩&#x2F;解压器大作业 项目环境  设备：Windows Surface Pro 7 Model 1866 i7 操作系统：Windows 11 Insider Preview 10.0.22504.1010 (rs_prerelease) 集成开发环境：JetBrain CLion 2021.2.1 编译器：MinGW 7.3.0 64-bit">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-11-29T22:13:04.000Z">
+<meta property="article:modified_time" content="2021-12-30T05:09:48.000Z">
+<meta property="article:author" content="GUO Songxiao">
+<meta property="article:tag" content="Data Structure">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://gsxgoldenlegendary.github.io/2021/11/30/Data_Structure/Huffman-Compressor-and-Decompressor/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://gsxgoldenlegendary.github.io/2021/11/30/Data_Structure/Huffman-Compressor-and-Decompressor/","path":"2021/11/30/Data_Structure/Huffman-Compressor-and-Decompressor/","title":"Huffman Compressor and Decompressor"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Huffman Compressor and Decompressor | SONGXIAO'S TOPBLOG</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SONGXIAO'S TOPBLOG</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">VENI VIDI VICI</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-friends"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>friends</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-huffman-%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B%E5%99%A8%E5%A4%A7%E4%BD%9C%E4%B8%9A"><span class="nav-number">1.</span> <span class="nav-text">数据结构 Huffman 压缩&#x2F;解压器大作业</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E7%8E%AF%E5%A2%83"><span class="nav-number">1.1.</span> <span class="nav-text">项目环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#compress.h"><span class="nav-number">1.2.</span> <span class="nav-text">Compress.h</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#compress.cpp"><span class="nav-number">1.3.</span> <span class="nav-text">Compress.cpp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#decompress.h"><span class="nav-number">1.4.</span> <span class="nav-text">Decompress.h</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#decompress.cpp"><span class="nav-number">1.5.</span> <span class="nav-text">Decompress.cpp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#main.h"><span class="nav-number">1.6.</span> <span class="nav-text">main.h</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#main.cpp"><span class="nav-number">1.7.</span> <span class="nav-text">main.cpp</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="GUO Songxiao"
+      src="/images/header.jpg">
+  <p class="site-author-name" itemprop="name">GUO Songxiao</p>
+  <div class="site-description" itemprop="description">I must search. Even if the endless powdering of stars in the Galaxy makes the quest seem hopeless, and even if I must do it alone.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">111</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/gsxgoldenlegendary" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;gsxgoldenlegendary" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:gsxgoldenlegendary@gmail.com" title="E-Mail → mailto:gsxgoldenlegendary@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/GSongxiao" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;GSongxiao" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/songxiao.guo" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;songxiao.guo" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/weixin_52075219" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_52075219" rel="noopener" target="_blank"><i class="fab fa-cuttlefish fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/jin-se-chuan-shuo-58-72" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;jin-se-chuan-shuo-58-72" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://home.ustc.edu.cn/~logname" title="http:&#x2F;&#x2F;home.ustc.edu.cn&#x2F;~logname" rel="noopener" target="_blank">Homepage</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://gsxgoldenlegendary.github.io/2021/11/30/Data_Structure/Huffman-Compressor-and-Decompressor/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="GUO Songxiao">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SONGXIAO'S TOPBLOG">
+      <meta itemprop="description" content="I must search. Even if the endless powdering of stars in the Galaxy makes the quest seem hopeless, and even if I must do it alone.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Huffman Compressor and Decompressor | SONGXIAO'S TOPBLOG">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Huffman Compressor and Decompressor
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-11-29 22:13:04" itemprop="dateCreated datePublished" datetime="2021-11-29T22:13:04Z">2021-11-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2021-12-30 05:09:48" itemprop="dateModified" datetime="2021-12-30T05:09:48Z">2021-12-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Computer-Science/" itemprop="url" rel="index"><span itemprop="name">Computer Science</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="数据结构-huffman-压缩解压器大作业">数据结构 Huffman 压缩/解压器大作业</h1>
+<h2 id="项目环境">项目环境</h2>
+<ul>
+<li>设备：Windows Surface Pro 7 Model 1866 i7</li>
+<li>操作系统：Windows 11 Insider Preview 10.0.22504.1010 (rs_prerelease)</li>
+<li>集成开发环境：JetBrain CLion 2021.2.1</li>
+<li>编译器：MinGW 7.3.0 64-bit</li>
+</ul>
+<span id="more"></span>
+<h2 id="compress.h">Compress.h</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Created by administrator Guo on 23/11/2021 15:46.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">ifndef</span> DSHW2_V1_COMPRESS_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DSHW2_V1_COMPRESS_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;main.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Compress</span> &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    std::vector&lt;HTNode&gt; Huffman_tree;</span><br><span class="line">    <span class="type">unsigned</span> bit_of_unit;</span><br><span class="line">    <span class="type">unsigned</span> fork_of_tree;</span><br><span class="line">    <span class="type">unsigned</span> bit_of_move;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> read_buffer ;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span> read_buffer_temp ;</span><br><span class="line">    <span class="type">unsigned</span> bit_of_read_buffer ;</span><br><span class="line">    <span class="type">unsigned</span> read_complement ;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> write_buffer ;</span><br><span class="line">    <span class="type">unsigned</span> bit_of_write_buffer ;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span> write_buffer_temp ;</span><br><span class="line">    std::string source_file_name;</span><br><span class="line">    std::string compress_file_name;</span><br><span class="line">    std::ifstream file_reader;</span><br><span class="line">    std::ifstream file_reader2;</span><br><span class="line">    std::ofstream file_writer;</span><br><span class="line">    std::ofstream tree_printer;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Compress</span>(<span class="type">unsigned</span> ,<span class="type">unsigned</span> ,<span class="type">const</span> std::string&amp;,<span class="type">const</span> std::string&amp;);</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">open_files</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">get_leaves</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">complete_leaves</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">struct_tree</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">encode</span><span class="params">(<span class="type">unsigned</span> )</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">encode_tree</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">unsigned</span> ,<span class="type">unsigned</span> )</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">print_tree</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">write_tree</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">write_content</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">close_files</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span> <span class="comment">//DSHW2_V1_COMPRESS_H</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="compress.cpp">Compress.cpp</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Created by administrator Guo on 23/11/2021 15:46.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;Compress.h&quot;</span></span></span><br><span class="line"></span><br><span class="line">Compress::<span class="built_in">Compress</span>(<span class="type">unsigned</span> bit_of_unit,<span class="type">unsigned</span> fork_of_tree,<span class="type">const</span> std::string&amp; source_file_name,<span class="type">const</span> std::string&amp;  compress_file_name)&#123;</span><br><span class="line">    Compress::bit_of_unit=bit_of_unit;</span><br><span class="line">    Compress::fork_of_tree=fork_of_tree;</span><br><span class="line">    bit_of_move = [fork_of_tree]() -&gt; <span class="type">unsigned</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (fork_of_tree == <span class="number">2</span>)<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (<span class="number">3</span> &lt;= fork_of_tree &amp;&amp; fork_of_tree &lt; <span class="number">8</span>)<span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (<span class="number">8</span> &lt;= fork_of_tree &amp;&amp; fork_of_tree &lt; <span class="number">16</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">4</span>;</span><br><span class="line">    &#125;();</span><br><span class="line">    read_buffer=<span class="number">0</span> ;</span><br><span class="line">    read_buffer_temp=<span class="number">0</span> ;</span><br><span class="line">    bit_of_read_buffer=<span class="number">0</span> ;</span><br><span class="line">    read_complement=<span class="number">0</span> ;</span><br><span class="line">    write_buffer=<span class="number">0</span>;</span><br><span class="line">    write_buffer_temp=<span class="number">0</span>;</span><br><span class="line">    bit_of_write_buffer=<span class="number">0</span>;</span><br><span class="line">    Compress::source_file_name=source_file_name;</span><br><span class="line">    Compress::compress_file_name=compress_file_name;</span><br><span class="line">    <span class="keyword">auto</span> zeroth_HTNode = <span class="keyword">new</span> <span class="built_in">HTNode</span>();</span><br><span class="line">    Huffman_tree.<span class="built_in">push_back</span>(*zeroth_HTNode);</span><br><span class="line">    tree_printer=std::<span class="built_in">ofstream</span> (<span class="string">&quot;tree.txt&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Compress::open_files</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    file_reader=std::ifstream (source_file_name, std::ios::binary);</span><br><span class="line">    file_reader2=std::ifstream (source_file_name,std::ios::binary);</span><br><span class="line">    file_writer=std::<span class="built_in">ofstream</span> (compress_file_name,std::ios::binary);</span><br><span class="line">    <span class="keyword">if</span>(!file_reader.<span class="built_in">is_open</span>()||!file_reader2.<span class="built_in">is_open</span>()||!file_writer)&#123;</span><br><span class="line">        std::cout&lt;&lt;<span class="string">&quot;Fail in opening files!\n&quot;</span>;</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Compress::get_leaves</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (; file_reader.<span class="built_in">peek</span>() != EOF || bit_of_read_buffer &gt; <span class="number">0</span>;) &#123;</span><br><span class="line">        <span class="keyword">if</span> (bit_of_read_buffer &lt; bit_of_unit) &#123;</span><br><span class="line">            <span class="keyword">if</span> (file_reader.<span class="built_in">peek</span>() != EOF) &#123;</span><br><span class="line">                file_reader.<span class="built_in">read</span>(<span class="built_in">reinterpret_cast</span>&lt;<span class="type">char</span> *&gt;(&amp;read_buffer_temp), <span class="built_in">sizeof</span>(<span class="type">char</span>));</span><br><span class="line">                read_buffer = (read_buffer &lt;&lt; <span class="number">8</span>) + read_buffer_temp;</span><br><span class="line">                bit_of_read_buffer += <span class="number">8</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                read_complement = bit_of_unit - bit_of_read_buffer;</span><br><span class="line">                read_buffer = read_buffer &lt;&lt; read_complement;</span><br><span class="line">                bit_of_read_buffer = bit_of_unit;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">auto</span> number = read_buffer &gt;&gt; (bit_of_read_buffer - bit_of_unit);</span><br><span class="line">            bit_of_read_buffer -= bit_of_unit;</span><br><span class="line">            read_buffer &amp;= ((<span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span>)<span class="number">1</span> &lt;&lt; bit_of_read_buffer) - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">auto</span> iter = std::<span class="built_in">find</span>(Huffman_tree.<span class="built_in">begin</span>() + <span class="number">1</span>, Huffman_tree.<span class="built_in">end</span>(), number);</span><br><span class="line">            <span class="keyword">if</span> (iter != Huffman_tree.<span class="built_in">end</span>()) &#123;</span><br><span class="line">                ++iter-&gt;weight;</span><br><span class="line">                <span class="keyword">if</span>(iter-&gt;weight==INT32_MAX)&#123;</span><br><span class="line">                    std::cout&lt;&lt;<span class="string">&quot;To big to compress!\n&quot;</span>;</span><br><span class="line">                    <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">auto</span> temp_HTNode = <span class="keyword">new</span> <span class="built_in">HTNode</span>();</span><br><span class="line">                temp_HTNode-&gt;number = number;</span><br><span class="line">                temp_HTNode-&gt;weight = <span class="number">1</span>;</span><br><span class="line">                Huffman_tree.<span class="built_in">push_back</span>(*temp_HTNode);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Compress::complete_leaves</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (; (Huffman_tree.<span class="built_in">size</span>() - <span class="number">2</span>) % (fork_of_tree - <span class="number">1</span>) != <span class="number">0</span>;) &#123;</span><br><span class="line">        <span class="keyword">auto</span> temp_HTNode = <span class="keyword">new</span> <span class="built_in">HTNode</span>();</span><br><span class="line">        Huffman_tree.<span class="built_in">push_back</span>(*temp_HTNode);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Compress::struct_tree</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">auto</span> cycle_number = (Huffman_tree.<span class="built_in">size</span>() - <span class="number">2</span>) / (fork_of_tree - <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">unsigned</span> i = <span class="number">0</span>; i &lt; cycle_number; ++i) &#123;</span><br><span class="line">        <span class="keyword">auto</span> temp_HTNode = <span class="keyword">new</span> <span class="built_in">HTNode</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">unsigned</span> j = <span class="number">0</span>; j &lt; fork_of_tree; ++j) &#123;</span><br><span class="line">            <span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> temp_weight;</span><br><span class="line">            <span class="keyword">auto</span> length = Huffman_tree.<span class="built_in">size</span>();</span><br><span class="line">            <span class="type">unsigned</span> k = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span> (; Huffman_tree[k].is_in_tree; ++k) &#123;&#125;</span><br><span class="line">            temp_weight = Huffman_tree[k].weight;</span><br><span class="line">            <span class="keyword">auto</span> min_position = k;</span><br><span class="line">            <span class="keyword">for</span> (; k &lt; length; ++k) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!Huffman_tree[k].is_in_tree &amp;&amp; Huffman_tree[k].weight &lt; temp_weight) &#123;</span><br><span class="line">                    temp_weight = Huffman_tree[k].weight;</span><br><span class="line">                    min_position = k;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            Huffman_tree[min_position].parent = length;</span><br><span class="line">            Huffman_tree[min_position].is_in_tree = <span class="literal">true</span>;</span><br><span class="line">            temp_HTNode-&gt;child[j] = min_position;</span><br><span class="line">            temp_HTNode-&gt;weight += Huffman_tree[min_position].weight;</span><br><span class="line">        &#125;</span><br><span class="line">        Huffman_tree.<span class="built_in">push_back</span>(*temp_HTNode);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Compress::encode</span><span class="params">(<span class="type">unsigned</span> position)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; fork_of_tree; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (Huffman_tree[position].child[i]) &#123;</span><br><span class="line">            Huffman_tree[Huffman_tree[position].child[i]].code = (Huffman_tree[position].code &lt;&lt; bit_of_move) + i;</span><br><span class="line">            Huffman_tree[Huffman_tree[position].child[i]].bit_of_code = Huffman_tree[position].bit_of_code + bit_of_move;</span><br><span class="line">            <span class="built_in">encode</span>(Huffman_tree[position].child[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Compress::encode_tree</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Huffman_tree[Huffman_tree.<span class="built_in">size</span>() - <span class="number">1</span>].code = <span class="number">1</span>;</span><br><span class="line">    Huffman_tree[Huffman_tree.<span class="built_in">size</span>() - <span class="number">1</span>].bit_of_code = bit_of_move;</span><br><span class="line">    <span class="built_in">encode</span>(Huffman_tree.<span class="built_in">size</span>() - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Compress::print_tree</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">print</span>(Huffman_tree.<span class="built_in">size</span>()<span class="number">-1</span>,<span class="number">0</span>);</span><br><span class="line">    tree_printer.<span class="built_in">close</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Compress::print</span><span class="params">(<span class="type">unsigned</span> position, <span class="type">unsigned</span> depth)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; depth; ++i) &#123;</span><br><span class="line">        tree_printer &lt;&lt; <span class="string">&#x27;\t&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    tree_printer &lt;&lt; Huffman_tree[position].code;</span><br><span class="line">    <span class="type">int</span> j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (; Huffman_tree[position].child[j] == <span class="number">0</span> &amp;&amp; j &lt; fork_of_tree; ++j) &#123;&#125;</span><br><span class="line">    <span class="keyword">if</span> (j == fork_of_tree) &#123;</span><br><span class="line">        tree_printer &lt;&lt; <span class="string">&#x27;\t&#x27;</span> &lt;&lt; Huffman_tree[position].number;</span><br><span class="line">    &#125;</span><br><span class="line">    tree_printer &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; fork_of_tree; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (Huffman_tree[position].child[i] != <span class="number">0</span>)</span><br><span class="line">            <span class="built_in">print</span>(Huffman_tree[position].child[i], depth + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Compress::write_tree</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">auto</span> size = Huffman_tree.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">    file_writer.<span class="built_in">write</span>(<span class="built_in">reinterpret_cast</span>&lt;<span class="type">char</span> *&gt;(&amp;bit_of_unit), <span class="keyword">sizeof</span> bit_of_unit);</span><br><span class="line">    file_writer.<span class="built_in">write</span>(<span class="built_in">reinterpret_cast</span>&lt;<span class="type">char</span> *&gt;(&amp;bit_of_move), <span class="keyword">sizeof</span> bit_of_move);</span><br><span class="line">    file_writer.<span class="built_in">write</span>(<span class="built_in">reinterpret_cast</span>&lt;<span class="type">char</span> *&gt;(&amp;fork_of_tree), <span class="keyword">sizeof</span> fork_of_tree);</span><br><span class="line">    file_writer.<span class="built_in">write</span>(<span class="built_in">reinterpret_cast</span>&lt;<span class="type">char</span> *&gt;(&amp;read_complement), <span class="keyword">sizeof</span> read_complement);</span><br><span class="line">    file_writer.<span class="built_in">write</span>(<span class="built_in">reinterpret_cast</span>&lt;<span class="type">char</span> *&gt;(&amp;size), <span class="keyword">sizeof</span> size);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> iter = Huffman_tree.<span class="built_in">begin</span>() + <span class="number">1</span>; iter != Huffman_tree.<span class="built_in">end</span>(); ++iter) &#123;</span><br><span class="line">        file_writer.<span class="built_in">write</span>(<span class="built_in">reinterpret_cast</span>&lt;<span class="type">char</span> *&gt;(&amp;iter-&gt;number), <span class="keyword">sizeof</span> iter-&gt;number);</span><br><span class="line">        file_writer.<span class="built_in">write</span>(<span class="built_in">reinterpret_cast</span>&lt;<span class="type">char</span> *&gt;(&amp;iter-&gt;parent), <span class="keyword">sizeof</span> iter-&gt;parent);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; fork_of_tree; ++j) &#123;</span><br><span class="line">            file_writer.<span class="built_in">write</span>(<span class="built_in">reinterpret_cast</span>&lt;<span class="type">char</span> *&gt;(&amp;iter-&gt;child[j]), <span class="keyword">sizeof</span> iter-&gt;child[j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Compress::write_content</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (; file_reader2.<span class="built_in">peek</span>() != EOF || bit_of_read_buffer &gt; <span class="number">0</span> || bit_of_write_buffer &gt; <span class="number">0</span>;) &#123;</span><br><span class="line">        <span class="keyword">if</span> (file_reader2.<span class="built_in">peek</span>() == EOF &amp;&amp; bit_of_read_buffer == <span class="number">0</span> &amp;&amp; bit_of_write_buffer &lt; <span class="number">8</span>) &#123;</span><br><span class="line">            write_buffer = (write_buffer &lt;&lt; (<span class="number">8</span> - bit_of_write_buffer));</span><br><span class="line">            bit_of_write_buffer = <span class="number">8</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (bit_of_write_buffer &gt;= <span class="number">8</span>) &#123;</span><br><span class="line">            write_buffer_temp = write_buffer &gt;&gt; (bit_of_write_buffer - <span class="number">8</span>);</span><br><span class="line">            bit_of_write_buffer -= <span class="number">8</span>;</span><br><span class="line">            write_buffer &amp;= ((<span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span>)<span class="number">1</span>&lt;&lt; bit_of_write_buffer) - <span class="number">1</span>;</span><br><span class="line">            file_writer.<span class="built_in">write</span>(<span class="built_in">reinterpret_cast</span>&lt;<span class="type">char</span> *&gt;(&amp;write_buffer_temp), <span class="built_in">sizeof</span>(<span class="type">char</span>));</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (bit_of_read_buffer &lt; bit_of_unit) &#123;</span><br><span class="line">            <span class="keyword">if</span> (file_reader2.<span class="built_in">peek</span>() != EOF) &#123;</span><br><span class="line">                file_reader2.<span class="built_in">read</span>(<span class="built_in">reinterpret_cast</span>&lt;<span class="type">char</span> *&gt;(&amp;read_buffer_temp), <span class="built_in">sizeof</span>(<span class="type">char</span>));</span><br><span class="line">                read_buffer = (read_buffer &lt;&lt; <span class="number">8</span>) + read_buffer_temp;</span><br><span class="line">                bit_of_read_buffer += <span class="number">8</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                read_complement = bit_of_unit - bit_of_read_buffer;</span><br><span class="line">                read_buffer = read_buffer &lt;&lt; read_complement;</span><br><span class="line">                bit_of_read_buffer = bit_of_unit;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">auto</span> number = read_buffer &gt;&gt; (bit_of_read_buffer - bit_of_unit);</span><br><span class="line">            bit_of_read_buffer -= bit_of_unit;</span><br><span class="line">            read_buffer &amp;= ((<span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span>) <span class="number">1</span> &lt;&lt; bit_of_read_buffer) - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">auto</span> iter = std::<span class="built_in">find</span>(Huffman_tree.<span class="built_in">begin</span>() + <span class="number">1</span>, Huffman_tree.<span class="built_in">end</span>(), number);</span><br><span class="line">            write_buffer = (write_buffer &lt;&lt; iter-&gt;bit_of_code) + iter-&gt;code;</span><br><span class="line">            bit_of_write_buffer += iter-&gt;bit_of_code;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Compress::close_files</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    file_reader.<span class="built_in">close</span>();</span><br><span class="line">    file_writer.<span class="built_in">close</span>();</span><br><span class="line">    file_reader2.<span class="built_in">close</span>();</span><br><span class="line">    std::cout&lt;&lt;<span class="string">&quot;Compress successfully!\n&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="decompress.h">Decompress.h</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Created by administrator Guo on 23/11/2021 18:30.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">ifndef</span> DSHW2_V1_DECOMPRESS_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DSHW2_V1_DECOMPRESS_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;main.h&quot;</span></span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Decompress</span> &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    std::vector&lt;HTNode&gt; Huffman_tree2;</span><br><span class="line">    std::ifstream file_reader3;</span><br><span class="line">    std::ofstream file_writer2;</span><br><span class="line">    <span class="type">unsigned</span> bit_of_unit2;</span><br><span class="line">    <span class="type">unsigned</span> fork_of_tree2;</span><br><span class="line">    <span class="type">unsigned</span> bit_of_move2;</span><br><span class="line">    <span class="type">unsigned</span> read_complement2;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> size2;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> read_buffer ;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span> read_buffer_temp ;</span><br><span class="line">    <span class="type">unsigned</span> bit_of_read_buffer ;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> write_buffer ;</span><br><span class="line">    <span class="type">unsigned</span> bit_of_write_buffer ;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span> write_buffer_temp ;</span><br><span class="line">    std::string decompress_file_name;</span><br><span class="line">    std::string compress_file_name;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Decompress</span>(<span class="type">const</span> std::string&amp;,<span class="type">const</span> std::string&amp;);</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">open_files</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">read_tree</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">write_content</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">close_files</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span> <span class="comment">//DSHW2_V1_DECOMPRESS_H</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="decompress.cpp">Decompress.cpp</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Created by administrator Guo on 23/11/2021 18:30.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;Decompress.h&quot;</span></span></span><br><span class="line"></span><br><span class="line">Decompress::<span class="built_in">Decompress</span>(<span class="type">const</span> std::string&amp;compress_file_name,<span class="type">const</span> std::string&amp;decompress_file_name) &#123;</span><br><span class="line">    read_buffer=<span class="number">0</span> ;</span><br><span class="line">    read_buffer_temp=<span class="number">0</span> ;</span><br><span class="line">    bit_of_read_buffer=<span class="number">0</span> ;</span><br><span class="line">    read_complement2=<span class="number">0</span> ;</span><br><span class="line">    write_buffer=<span class="number">0</span>;</span><br><span class="line">    write_buffer_temp=<span class="number">0</span>;</span><br><span class="line">    bit_of_write_buffer=<span class="number">0</span>;</span><br><span class="line">    bit_of_unit2=<span class="number">0</span>;</span><br><span class="line">    fork_of_tree2=<span class="number">0</span>;</span><br><span class="line">    bit_of_move2=<span class="number">0</span>;</span><br><span class="line">    size2=<span class="number">0</span>;</span><br><span class="line">    Decompress::compress_file_name=compress_file_name;</span><br><span class="line">    Decompress::decompress_file_name=decompress_file_name;</span><br><span class="line">    <span class="keyword">auto</span> zeroth_HTNode2 = <span class="keyword">new</span> <span class="built_in">HTNode</span>();</span><br><span class="line">    Huffman_tree2.<span class="built_in">push_back</span>(*zeroth_HTNode2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Decompress::close_files</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    file_reader3.<span class="built_in">close</span>();</span><br><span class="line">    file_writer2.<span class="built_in">close</span>();</span><br><span class="line">    std::cout&lt;&lt;<span class="string">&quot;Decompress successfully!\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Decompress::write_content</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> position = Huffman_tree2.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">    <span class="type">bool</span> is_new_number = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span> (; file_reader3.<span class="built_in">peek</span>() != EOF || bit_of_read_buffer &gt; <span class="number">0</span> || bit_of_write_buffer &gt; read_complement2;) &#123;</span><br><span class="line">        <span class="keyword">if</span> (bit_of_write_buffer &gt;= read_complement2 + <span class="number">8</span>) &#123;</span><br><span class="line">            write_buffer_temp = write_buffer &gt;&gt; (bit_of_write_buffer - <span class="number">8</span>);</span><br><span class="line">            bit_of_write_buffer -= <span class="number">8</span>;</span><br><span class="line">            write_buffer &amp;= ((<span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span>)<span class="number">1</span> &lt;&lt; bit_of_write_buffer) - <span class="number">1</span>;</span><br><span class="line">            file_writer2.<span class="built_in">write</span>(<span class="built_in">reinterpret_cast</span>&lt;<span class="type">char</span> *&gt;(&amp;write_buffer_temp), <span class="keyword">sizeof</span> write_buffer_temp);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (bit_of_read_buffer == <span class="number">0</span>) &#123;</span><br><span class="line">            file_reader3.<span class="built_in">read</span>(<span class="built_in">reinterpret_cast</span>&lt;<span class="type">char</span> *&gt;(&amp;read_buffer_temp), <span class="keyword">sizeof</span> read_buffer_temp);</span><br><span class="line">            bit_of_read_buffer += <span class="number">8</span>;</span><br><span class="line">            read_buffer=(read_buffer&lt;&lt;<span class="number">8</span>)+read_buffer_temp;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (is_new_number) &#123;</span><br><span class="line">                <span class="keyword">if</span> (read_buffer &gt;&gt; (bit_of_read_buffer - bit_of_move2) != <span class="number">0</span>) &#123;</span><br><span class="line">                    position = Huffman_tree2.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">                    is_new_number = <span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                bit_of_read_buffer -= bit_of_move2;</span><br><span class="line">                read_buffer &amp;= ((<span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span>) <span class="number">1</span> &lt;&lt; bit_of_read_buffer) - <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="type">int</span> k = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">for</span> (; Huffman_tree2[position].child[k] == <span class="number">0</span> &amp;&amp; k &lt; fork_of_tree2; ++k) &#123;&#125;</span><br><span class="line">                <span class="keyword">if</span> (k == fork_of_tree2) &#123;</span><br><span class="line">                    write_buffer = (write_buffer &lt;&lt; bit_of_unit2) + Huffman_tree2[position].number;</span><br><span class="line">                    bit_of_write_buffer += bit_of_unit2;</span><br><span class="line">                    is_new_number = <span class="literal">true</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    position = Huffman_tree2[position].child[read_buffer &gt;&gt; (bit_of_read_buffer - bit_of_move2)];</span><br><span class="line">                    bit_of_read_buffer -= bit_of_move2;</span><br><span class="line">                    read_buffer &amp;= ((<span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span>) <span class="number">1</span> &lt;&lt; bit_of_read_buffer) - <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Decompress::read_tree</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    file_reader3.<span class="built_in">read</span>(<span class="built_in">reinterpret_cast</span>&lt;<span class="type">char</span> *&gt;(&amp;bit_of_unit2), <span class="keyword">sizeof</span> bit_of_unit2);</span><br><span class="line">    file_reader3.<span class="built_in">read</span>(<span class="built_in">reinterpret_cast</span>&lt;<span class="type">char</span> *&gt;(&amp;bit_of_move2), <span class="keyword">sizeof</span> bit_of_move2);</span><br><span class="line">    file_reader3.<span class="built_in">read</span>(<span class="built_in">reinterpret_cast</span>&lt;<span class="type">char</span> *&gt;(&amp;fork_of_tree2), <span class="keyword">sizeof</span> fork_of_tree2);</span><br><span class="line">    file_reader3.<span class="built_in">read</span>(<span class="built_in">reinterpret_cast</span>&lt;<span class="type">char</span> *&gt;(&amp;read_complement2), <span class="keyword">sizeof</span> read_complement2);</span><br><span class="line">    file_reader3.<span class="built_in">read</span>(<span class="built_in">reinterpret_cast</span>&lt;<span class="type">char</span> *&gt;(&amp;size2), <span class="keyword">sizeof</span> size2);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; size2; ++i) &#123;</span><br><span class="line">        <span class="keyword">auto</span> temp_HTNode = <span class="keyword">new</span> <span class="built_in">HTNode</span>();</span><br><span class="line">        file_reader3.<span class="built_in">read</span>(<span class="built_in">reinterpret_cast</span>&lt;<span class="type">char</span> *&gt;(&amp;temp_HTNode-&gt;number), <span class="keyword">sizeof</span> temp_HTNode-&gt;number);</span><br><span class="line">        file_reader3.<span class="built_in">read</span>(<span class="built_in">reinterpret_cast</span>&lt;<span class="type">char</span> *&gt;(&amp;temp_HTNode-&gt;parent), <span class="keyword">sizeof</span> temp_HTNode-&gt;parent);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; fork_of_tree2; ++j) &#123;</span><br><span class="line">            file_reader3.<span class="built_in">read</span>(<span class="built_in">reinterpret_cast</span>&lt;<span class="type">char</span> *&gt;(&amp;temp_HTNode-&gt;child[j]), <span class="keyword">sizeof</span> temp_HTNode-&gt;child[j]);</span><br><span class="line">        &#125;</span><br><span class="line">        Huffman_tree2.<span class="built_in">push_back</span>(*temp_HTNode);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Decompress::open_files</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    file_reader3=std::ifstream (compress_file_name, std::ios::binary);</span><br><span class="line">    file_writer2=std::<span class="built_in">ofstream</span> (decompress_file_name, std::ios::binary);</span><br><span class="line">    <span class="keyword">if</span>(!file_reader3.<span class="built_in">is_open</span>()||!file_writer2.<span class="built_in">is_open</span>())&#123;</span><br><span class="line">        std::cout&lt;&lt;<span class="string">&quot;Fail in opening files!\n&quot;</span>;</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="main.h">main.h</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Created by administrator Guo on 23/11/2021 15:46.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">ifndef</span> DSHW2_V1_MAIN_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DSHW2_V1_MAIN_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;iostream&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;fstream&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;string&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;vector&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;algorithm&quot;</span></span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">HTNode</span> &#123;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> number;</span><br><span class="line">    <span class="type">unsigned</span> code;</span><br><span class="line">    <span class="type">unsigned</span> bit_of_code;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> weight;</span><br><span class="line">    <span class="type">unsigned</span> child[<span class="number">16</span>];</span><br><span class="line">    <span class="type">unsigned</span> parent;</span><br><span class="line">    <span class="type">bool</span> is_in_tree;</span><br><span class="line"></span><br><span class="line">    <span class="type">bool</span> <span class="keyword">operator</span>==(<span class="type">const</span> <span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> i) <span class="type">const</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> number == i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span> <span class="comment">//DSHW2_V1_MAIN_H</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="main.cpp">main.cpp</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Created by administrator Guo on 23/11/2021 15:46.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;Compress.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;Decompress.h&quot;</span></span></span><br><span class="line"><span class="comment">//It&#x27;s main function, the main part of the programme.</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">unsigned</span> bit_of_unit;</span><br><span class="line">    <span class="type">unsigned</span> fork_of_tree;</span><br><span class="line">    std::string operation;</span><br><span class="line">    std::cout&lt;&lt;<span class="string">&quot;Wait for command:\n&quot;</span>;</span><br><span class="line">    std::cin&gt;&gt;operation;</span><br><span class="line">    std::string source_file_name;</span><br><span class="line">    std::string compress_file_name;</span><br><span class="line">    std::string decompress_file_name;</span><br><span class="line">    <span class="keyword">if</span>(operation==<span class="string">&quot;compress&quot;</span>||operation==<span class="string">&quot;c&quot;</span>)&#123;</span><br><span class="line">        std::cout&lt;&lt;<span class="string">&quot;Bits of unit:\n&quot;</span>;</span><br><span class="line">        std::cin&gt;&gt;bit_of_unit;</span><br><span class="line">        <span class="keyword">if</span>(!(bit_of_unit%<span class="number">2</span>==<span class="number">0</span>&amp;&amp;<span class="number">4</span>&lt;=bit_of_unit&amp;&amp;bit_of_unit&lt;=<span class="number">32</span>))&#123;</span><br><span class="line">            std::cout&lt;&lt;<span class="string">&quot;Unsupported bit of unit!\n&quot;</span>;</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        std::cout&lt;&lt;<span class="string">&quot;Forks of tree:\n&quot;</span>;</span><br><span class="line">        std::cin&gt;&gt;fork_of_tree;</span><br><span class="line">        <span class="keyword">if</span>(!(<span class="number">2</span>&lt;=fork_of_tree&amp;&amp;fork_of_tree&lt;=<span class="number">16</span>))&#123;</span><br><span class="line">            std::cout&lt;&lt;<span class="string">&quot;Unsupported fork of tree!\n&quot;</span>;</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        std::cout&lt;&lt;<span class="string">&quot;Source file name:\n&quot;</span>;</span><br><span class="line">        std::cin&gt;&gt;source_file_name;</span><br><span class="line">        std::cout&lt;&lt;<span class="string">&quot;Compress file name:\n&quot;</span>;</span><br><span class="line">        std::cin&gt;&gt;compress_file_name;</span><br><span class="line">        <span class="function">Compress <span class="title">compress</span><span class="params">(bit_of_unit,fork_of_tree,source_file_name,compress_file_name)</span></span>;</span><br><span class="line">        compress.<span class="built_in">open_files</span>();</span><br><span class="line">        compress.<span class="built_in">get_leaves</span>();</span><br><span class="line">        compress.<span class="built_in">complete_leaves</span>();</span><br><span class="line">        compress.<span class="built_in">struct_tree</span>();</span><br><span class="line">        compress.<span class="built_in">encode_tree</span>();</span><br><span class="line">        compress.<span class="built_in">print_tree</span>();</span><br><span class="line">        compress.<span class="built_in">write_tree</span>();</span><br><span class="line">        compress.<span class="built_in">write_content</span>();</span><br><span class="line">        compress.<span class="built_in">close_files</span>();</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(operation==<span class="string">&quot;decompress&quot;</span>||operation==<span class="string">&quot;d&quot;</span>)&#123;</span><br><span class="line">        std::cout&lt;&lt;<span class="string">&quot;Compress file name:\n&quot;</span>;</span><br><span class="line">        std::cin&gt;&gt;compress_file_name;</span><br><span class="line">        std::cout&lt;&lt;<span class="string">&quot;Decompress file name:\n&quot;</span>;</span><br><span class="line">        std::cin&gt;&gt;decompress_file_name;</span><br><span class="line">        <span class="function">Decompress <span class="title">decompress</span><span class="params">(compress_file_name,decompress_file_name)</span></span>;</span><br><span class="line">        decompress.<span class="built_in">open_files</span>();</span><br><span class="line">        decompress.<span class="built_in">read_tree</span>();</span><br><span class="line">        decompress.<span class="built_in">write_content</span>();</span><br><span class="line">        decompress.<span class="built_in">close_files</span>();</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        std::cout&lt;&lt;<span class="string">&quot;Illegal operation!\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//It&#x27;s a good habit.</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+      
+
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div></div>
+  <button>
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.jpg" alt="GUO Songxiao WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpg" alt="GUO Songxiao Alipay">
+        <span>Alipay</span>
+      </div>
+      <div>
+        <img src="/images/bitcoin.jpg" alt="GUO Songxiao Bitcoin">
+        <span>Bitcoin</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>GUO Songxiao
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="http://gsxgoldenlegendary.github.io/2021/11/30/Data_Structure/Huffman-Compressor-and-Decompressor/" title="Huffman Compressor and Decompressor">http://gsxgoldenlegendary.github.io/2021/11/30/Data_Structure/Huffman-Compressor-and-Decompressor/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://twitter.com/GSongxiao">
+          <span class="icon">
+            <i class="fab fa-twitter"></i>
+          </span>
+
+          <span class="label">Twitter</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/atom.xml">
+          <span class="icon">
+            <i class="fa fa-rss"></i>
+          </span>
+
+          <span class="label">RSS</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://github.com/gsxgoldenlegendary">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+
+          <span class="label">GitHub</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="mailto:gsxgoldenlegendary@gmail.com">
+          <span class="icon">
+            <i class="fa fa-envelope"></i>
+          </span>
+
+          <span class="label">E-Mail</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://www.facebook.com/songxiao.guo">
+          <span class="icon">
+            <i class="fab fa-facebook"></i>
+          </span>
+
+          <span class="label">FB Page</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://blog.csdn.net/weixin_52075219">
+          <span class="icon">
+            <i class="fab fa-cuttlefish"></i>
+          </span>
+
+          <span class="label">CSDN</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://www.zhihu.com/people/jin-se-chuan-shuo-58-72">
+          <span class="icon">
+            <i class="fab fa-zhihu"></i>
+          </span>
+
+          <span class="label">Zhihu</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Data-Structure/" rel="tag"><i class="fa fa-tag"></i> Data Structure</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/11/29/Digital_Circuit/Memory/" rel="prev" title="Memory">
+                  <i class="fa fa-chevron-left"></i> Memory
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/11/30/Computing_System/Lending-Your-Name/" rel="next" title="Lending Your Name">
+                  Lending Your Name <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa-solid fa-chess-king"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GUO Songxiao</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.7/pdfobject.min.js","integrity":"sha256-ph3Dk89VmuTVXG6x/RDzk53SU9LPdAh1tpv0UvnDZ2I="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"gsxgoldenlegendary/gsxgoldenlegendary.github.io","issue_term":"pathname","theme":"github-dark"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>
