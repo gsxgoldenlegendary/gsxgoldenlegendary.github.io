@@ -29,7 +29,7 @@
 <meta property="og:description" content="Summary of Operating Systems Concepts, Tenth Edition.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-06-15T14:30:57.000Z">
-<meta property="article:modified_time" content="2022-06-16T03:42:56.350Z">
+<meta property="article:modified_time" content="2022-06-16T06:59:00.097Z">
 <meta property="article:author" content="GUO Songxiao">
 <meta property="article:tag" content="Operating Systems">
 <meta name="twitter:card" content="summary">
@@ -282,7 +282,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-16 03:42:56" itemprop="dateModified" datetime="2022-06-16T03:42:56Z">2022-06-16</time>
+      <time title="Modified: 2022-06-16 06:59:00" itemprop="dateModified" datetime="2022-06-16T06:59:00Z">2022-06-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -374,30 +374,235 @@
 <li>The Android operating system uses RPC s as a form of interprocess communication using its binder framework.</li>
 </ul>
 <h2 id="threads-concurrency">Threads &amp; Concurrency</h2>
+<ul>
+<li>A thread represents a basic unit of CPU utilization, and threads belonging to the same process share many of the process resources, including code and data.</li>
+<li>There are four primary benefits to multithreaded applications: (1) responsiveness, (2) resource sharing, (3) economy, and (4) scalability.</li>
+<li>Concurrency exists when multiple threads are making progress, whereas parallelism exists when multiple threads are making progress simultaneously. On a system with a single CPU , only concurrency is possible; parallelism requires a multicore system that provides multiple CPU s.</li>
+<li>There are several challenges in designing multithreaded applications. They include dividing and balancing the work, dividing the data between the different threads, and identifying any data dependencies. Finally, multithreaded programs are especially challenging to test and debug.</li>
+<li>Data parallelism distributes subsets of the same data across different computing cores and performs the same operation on each core. Task parallelism distributes not data but tasks across multiple cores. Each task is running a unique operation.</li>
+<li>User applications create user-level threads, which must ultimately be mapped to kernel threads to execute on a CPU . The many-to-one model maps many user-level threads to one kernel thread. Other approaches include the one-to-one and many-to-many models.</li>
+<li>A thread library provides an API for creating and managing threads. Three common thread libraries include Windows, Pthreads, and Java threading. Windows is for the Windows system only, while Pthreads is available for POSIX -compatible systems such as UNIX , Linux, and mac OS . Java threads will run on any system that supports a Java virtual machine.</li>
+<li>Implicit threading involves identifying tasks—not threads—and allowing languages or API frameworks to create and manage threads. There are several approaches to implicit threading, including thread pools, fork-join frameworks, and Grand Central Dispatch. Implicit threading is becoming an increasingly common technique for programmers to use in developing concurrent and parallel applications.</li>
+<li>Threads may be terminated using either asynchronous or deferred cancellation. Asynchronous cancellation stops a thread immediately, even if it is in the middle of performing an update. Deferred cancellation informs a thread that it should terminate but allows the thread to terminate in an orderly fashion. In most circumstances, deferred cancellation is preferred to asynchronous termination.</li>
+<li>Unlike many other operating systems, Linux does not distinguish between processes and threads; instead, it refers to each as a task. The Linux clone() system call can be used to create tasks that behave either more like processes or more like threads.</li>
+</ul>
 <h2 id="cpu-scheduling">CPU Scheduling</h2>
+<ul>
+<li>CPU scheduling is the task of selecting a waiting process from the ready queue and allocating the CPU to it. The CPU is allocated to the selected process by the dispatcher.</li>
+<li>Scheduling algorithms may be either preemptive (where the CPU can be taken away from a process) or nonpreemptive (where a process must voluntarily relinquish control of the CPU ). Almost all modern operating systems are preemptive.</li>
+<li>Scheduling algorithms can be evaluated according to the following five criteria: (1) CPU utilization, (2) throughput, (3) turnaround time, (4) waiting time, and (5) response time.</li>
+<li>First-come, first-served ( FCFS ) scheduling is the simplest scheduling algo- rithm, but it can cause short processes to wait for very long processes.</li>
+<li>Shortest-job-first ( SJF ) scheduling is provably optimal, providing the short- est average waiting time. Implementing SJF scheduling is difficult, however, because predicting the length of the next CPU burst is difficult.</li>
+<li>Round-robin ( RR ) scheduling allocates the CPU to each process for a time quantum. If the process does not relinquish the CPU before its time quantum expires, the process is preempted, and another process is scheduled to run for a time quantum.</li>
+<li>Priority scheduling assigns each process a priority, and the CPU is allocated to the process with the highest priority. Processes with the same priority can be scheduled in FCFS order or using RR scheduling.</li>
+<li>Multilevel queue scheduling partitions processes into several separate queues arranged by priority, and the scheduler executes the processes in the highest-priority queue. Different scheduling algorithms may be used in each queue.</li>
+<li>Multilevel feedback queues are similar to multilevel queues, except that a process may migrate between different queues.</li>
+<li>Multicore processors place one or more CPU s on the same physical chip, and each CPU may have more than one hardware thread. From the perspective of the operating system, each hardware thread appears to be a logical CPU .</li>
+<li>Load balancing on multicore systems equalizes loads between CPU cores, although migrating threads between cores to balance loads may invalidate cache contents and therefore may increase memory access times.</li>
+<li>Soft real-time scheduling gives priority to real-time tasks over non-realtime tasks. Hard real-time scheduling provides timing guarantees for realtime tasks,</li>
+<li>Rate-monotonic real-time scheduling schedules periodic tasks using a static priority policy with preemption.</li>
+<li>Earliest-deadline-first ( EDF ) scheduling assigns priorities according to deadline. The earlier the deadline, the higher the priority; the later the deadline, the lower the priority.</li>
+<li>Proportional share scheduling allocates T shares among all applications. If an application is allocated N shares of time, it is ensured of having N∕T of the total processor time.</li>
+<li>Linux uses the completely fair scheduler ( CFS ), which assigns a proportion of CPU processing time to each task. The proportion is based on the virtual runtime ( vruntime ) value associated with each task.</li>
+<li>Windows scheduling uses a preemptive, 32-level priority scheme to determine the order of thread scheduling.</li>
+<li>Solaris identifies six unique scheduling classes that are mapped to a global priority. CPU -intensive threads are generally assigned lower priorities(and longer time quantums), and I/O -bound threads are usually assigned higher priorities (with shorter time quantums.)</li>
+<li>Modeling and simulations can be used to evaluate a CPU scheduling algorithm.</li>
+</ul>
 <h1 id="process-synchronization">PROCESS SYNCHRONIZATION</h1>
 <h2 id="synchronization-tools">Synchronization Tools</h2>
+<ul>
+<li>A race condition occurs when processes have concurrent access to shared data and the final result depends on the particular order in which concurrent accesses occur. Race conditions can result in corrupted values of shared data.</li>
+<li>A critical section is a section of code where shared data may be manipulated and a possible race condition may occur. The critical-section problem is to design a protocol whereby processes can synchronize their activity to cooperatively share data.</li>
+<li>A solution to the critical-section problem must satisfy the following three requirements: (1) mutual exclusion, (2) progress, and (3) bounded waiting. Mutual exclusion ensures that only one process at a time is active in its critical section. Progress ensures that programs will cooperatively determine what process will next enter its critical section. Bounded waiting limits how much time a program will wait before it can enter its critical section.</li>
+<li>Software solutions to the critical-section problem, such as Peterson’s solution, do not work well on modern computer architectures.</li>
+<li>Hardware support for the critical-section problem includes memory barriers; hardware instructions, such as the compare-and-swap instruction; and atomic variables.</li>
+<li>A mutex lock provides mutual exclusion by requiring that a process acquire a lock before entering a critical section and release the lock on exiting the critical section.</li>
+<li>Semaphores, like mutex locks, can be used to provide mutual exclusion. However, whereas a mutex lock has a binary value that indicates if the lock is available or not, a semaphore has an integer value and can therefore be used to solve a variety of synchronization problems.</li>
+<li>A monitor is an abstract data type that provides a high-level form of process synchronization. A monitor uses condition variables that allow processes to wait for certain conditions to become true and to signal one another when conditions have been set to true.</li>
+<li>Solutions to the critical-section problem may suffer from liveness problems, including deadlock.</li>
+<li>The various tools that can be used to solve the critical-section problem as well as to synchronize the activity of processes can be evaluated under varying levels of contention. Some tools work better under certain contention loads than others.</li>
+</ul>
 <h2 id="synchronization-examples">Synchronization Examples</h2>
+<ul>
+<li>Classic problems of process synchronization include the bounded-buffer, readers–writers, and dining-philosophers problems. Solutions to these problems can be developed using the tools presented in Chapter 6, including mutex locks, semaphores, monitors, and condition variables.</li>
+<li>Windows uses dispatcher objects as well as events to implement process synchronization tools.</li>
+<li>Linux uses a variety of approaches to protect against race conditions, including atomic variables, spinlocks, and mutex locks.</li>
+<li>The POSIX API provides mutex locks, semaphores, and condition variables. POSIX provides two forms of semaphores: named and unnamed. Several unrelated processes can easily access the same named semaphore by simply referring to its name. Unnamed semaphores cannot be shared as easily, and require placing the semaphore in a region of shared memory.</li>
+<li>Java has a rich library and API for synchronization. Available tools include monitors (which are provided at the language level) as well as reentrant locks, semaphores, and condition variables (which are supported by the API ).</li>
+<li>Alternative approaches to solving the critical-section problem include transactional memory, Open MP , and functional languages. Functional languages are particularly intriguing, as they offer a different programming paradigm from procedural languages. Unlike procedural languages, functional languages do not maintain state and therefore are generally immune from race conditions and critical sections.</li>
+</ul>
 <h2 id="deadlocks">Deadlocks</h2>
+<ul>
+<li>Deadlock occurs in a set of processes when every process in the set is waiting for an event that can only be caused by another process in the set.<br />
+</li>
+<li>There are four necessary conditions for deadlock: (1) mutual exclusion, (2) hold and wait, (3) no preemption, and (4) circular wait. Deadlock is only possible when all four conditions are present.</li>
+<li>Deadlocks can be modeled with resource-allocation graphs, where a cycle indicates deadlock.</li>
+<li>Deadlocks can be prevented by ensuring that one of the four necessary conditions for deadlock cannot occur. Of the four necessary conditions, eliminating the circular wait is the only practical approach.</li>
+<li>Deadlock can be avoided by using the banker’s algorithm, which does not grant resources if doing so would lead the system into an unsafe state where deadlock would be possible.</li>
+<li>A deadlock-detection algorithm can evaluate processes and resources on a running system to determine if a set of processes is in a deadlocked state.</li>
+<li>If deadlock does occur, a system can attempt to recover from the deadlock by either aborting one of the processes in the circular wait or preempting resources that have been assigned to a deadlocked process.</li>
+</ul>
 <h1 id="memory-management">MEMORY MANAGEMENT</h1>
 <h2 id="main-memory">Main Memory</h2>
+<ul>
+<li>Memory is central to the operation of a modern computer system and consists of a large array of bytes, each with its own address.</li>
+<li>One way to allocate an address space to each process is through the use of base and limit registers. The base register holds the smallest legal physical memory address, and the limit specifies the size of the range.</li>
+<li>Binding symbolic address references to actual physical addresses may occur during (1) compile, (2) load, or (3) execution time.</li>
+<li>An address generated by the CPU is known as a logical address, which the memory management unit ( MMU ) translates to a physical address in memory.</li>
+<li>One approach to allocating memory is to allocate partitions of contiguous memory of varying sizes. These partitions may be allocated based on three possible strategies: (1) first fit, (2) best fit, and (3) worst fit.</li>
+<li>Modern operating systems use paging to manage memory. In this process, physical memory is divided into fixed-sized blocks called frames and logical memory into blocks of the same size called pages.</li>
+<li>When paging is used, a logical address is divided into two parts: a page number and a page offset. The page number serves as an index into a per-process page table that contains the frame in physical memory that holds the page. The offset is the specific location in the frame being referenced.</li>
+<li>A translation look-aside buffer ( TLB ) is a hardware cache of the page table. Each TLB entry contains a page number and its corresponding frame.</li>
+<li>Using a TLB in address translation for paging systems involves obtaining the page number from the logical address and checking if the frame for the page is in the TLB . If it is, the frame is obtained from the TLB . If the frame is not present in the TLB , it must be retrieved from the page table.</li>
+<li>Hierarchical paging involves dividing a logical address into multiple parts, each referring to different levels of page tables. As addresses expand beyond 32 bits, the number of hierarchical levels may become large. Two strategies that address this problem are hashed page tables and inverted page tables.</li>
+<li>Swapping allows the system to move pages belonging to a process to disk to increase the degree of multiprogramming.</li>
+<li>The Intel 32-bit architecture has two levels of page tables and supports either 4- KB or 4- MB page sizes. This architecture also supports page-address extension, which allows 32-bit processors to access a physical address space larger than 4 GB . The x86-64 and ARM v9 architectures are 64-bit architectures that use hierarchical paging.</li>
+</ul>
 <h2 id="virtual-memory">Virtual Memory</h2>
+<ul>
+<li>Virtual memory abstracts physical memory into an extremely large uniform array of storage.</li>
+<li>The benefits of virtual memory include the following: (1) a program can be larger than physical memory, (2) a program does not need to be entirely in memory, (3) processes can share memory, and (4) processes can be created more efficiently.</li>
+<li>Demand paging is a technique whereby pages are loaded only when they are demanded during program execution. Pages that are never demanded are thus never loaded into memory.</li>
+<li>A page fault occurs when a page that is currently not in memory is accessed. The page must be brought from the backing store into an available page frame in memory.</li>
+<li>Copy-on-write allows a child process to share the same address space as its parent. If either the child or the parent process writes (modifies) a page, a copy of the page is made.</li>
+<li>When available memory runs low, a page-replacement algorithm selects an existing page in memory to replace with a new page. Page-replacement algorithms include FIFO , optimal, and LRU . Pure LRU algorithms are impractical to implement, and most systems instead use LRU -approximation algorithms.</li>
+<li>Global page-replacement algorithms select a page from any process in the system for replacement, while local page-replacement algorithms select a page from the faulting process.</li>
+<li>Thrashing occurs when a system spends more time paging than executing.</li>
+<li>A locality represents a set of pages that are actively used together. As a process executes, it moves from locality to locality. A working set is based on locality and is defined as the set of pages currently in use by a process.</li>
+<li>Memory compression is a memory-management technique that compresses a number of pages into a single page. Compressed memory is an alternative to paging and is used on mobile systems that do not support paging.</li>
+<li>Kernel memory is allocated differently than user-mode processes; it is allocated in contiguous chunks of varying sizes. Two common techniques for allocating kernel memory are (1) the buddy system and (2) slab allocation.</li>
+<li>TLB reach refers to the amount of memory accessible from the TLB and is equal to the number of entries in the TLB multiplied by the page size. One technique for increasing TLB reach is to increase the size of pages.</li>
+<li>Linux, Windows, and Solaris manage virtual memory similarly, using demand paging and copy-on-write, among other features. Each system also uses a variation of LRU approximation known as the clock algorithm.</li>
+</ul>
 <h1 id="storage-management">STORAGE MANAGEMENT</h1>
 <h2 id="mass-storage-structure">Mass-Storage Structure</h2>
+<ul>
+<li>Hard disk drives and nonvolatile memory devices are the major secondary storage I/O units on most computers. Modern secondary storage is structured as large one-dimensional arrays of logical blocks.</li>
+<li>Drives of either type may be attached to a computer system in one of three ways: (1) through the local I/O ports on the host computer, (2) directly connected to motherboards, or (3) through a communications network or storage network connection.</li>
+<li>Requests for secondary storage I/O are generated by the file system and by the virtual memory system. Each request specifies the address on the device to be referenced in the form of a logical block number.</li>
+<li>Disk-scheduling algorithms can improve the effective bandwidth of HDD s, the average response time, and the variance in response time. Algorithms such as SCAN and C-SCAN are designed to make such improvements through strategies for disk-queue ordering. Performance of disk- scheduling algorithms can vary greatly on hard disks. In contrast, because solid-state disks have no moving parts, performance varies little among scheduling algorithms, and quite often a simple FCFS strategy is used.</li>
+<li>Data storage and transmission are complex and frequently result in errors. Error detection attempts to spot such problems to alert the system for corrective action and to avoid error propagation. Error correction can detect and repair problems, depending on the amount of correction data available and the amount of data that was corrupted.</li>
+<li>Storage devices are partitioned into one or more chunks of space. Each partition can hold a volume or be part of a multidevice volume. File systems are created in volumes.</li>
+<li>The operating system manages the storage device’s blocks. New devices typically come pre-formatted. The device is partitioned, file systems are created, and boot blocks are allocated to store the system’s bootstrap program if the device will contain an operating system. Finally, when a block or page is corrupted, the system must have a way to lock out that block or to replace it logically with a spare.</li>
+<li>An efficient swap space is a key to good performance in some systems. Some systems dedicate a raw partition to swap space, and others use a file within the file system instead. Still other systems allow the user or system administrator to make the decision by providing both options.</li>
+<li>Because of the amount of storage required on large systems, and because storage devices fail in various ways, secondary storage devices are frequently made redundant via RAID algorithms. These algorithms allow more than one drive to be used for a given operation and allow continued operation and even automatic recovery in the face of a drive failure. RAID algorithms are organized into different levels; each level provides some combination of reliability and high transfer rates.</li>
+<li>Object storage is used for big data problems such as indexing the Internet and cloud photo storage. Objects are self-defining collections of data, addressed by object ID rather than file name. Typically it uses replication for data protection, computes based on the data on systems where a copy of the data exists, and is horizontally scalable for vast capacity and easy expansion.</li>
+</ul>
 <h2 id="io-systems">I/O Systems</h2>
+<ul>
+<li>The basic hardware elements involved in I/O are buses, device controllers, and the devices themselves.</li>
+<li>The work of moving data between devices and main memory is performed by the CPU as programmed I/O or is offloaded to a DMA controller.</li>
+<li>The kernel module that controls a device is a device driver. The systemcall interface provided to applications is designed to handle several basic categories of hardware, including block devices, character-stream devices, memory-mapped files, network sockets, and programmed interval timers. The system calls usually block the processes that issue them, but nonblocking and asynchronous calls are used by the kernel itself and by applications that must not sleep while waiting for an I/O operation to complete.</li>
+<li>The kernel’s I/O subsystem provides numerous services. Among these are I/O scheduling, buffering, caching, spooling, device reservation, error handling. Another service, name translation, makes the connections between hardware devices and the symbolic file names used by applications. It involves several levels of mapping that translate from character-string names, to specific device drivers and device addresses, and then to physical addresses of I/O ports or bus controllers. This mapping may occur within the file-system name space, as it does in UNIX , or in a separate device name space, as it does in MS-DOS .</li>
+<li>STREAMS is an implementation and methodology that provides a framework for a modular and incremental approach to writing device drivers and network protocols. Through STREAMS , drivers can be stacked, with data passing through them sequentially and bidirectionally for processing.</li>
+<li>I/O system calls are costly in terms of CPU consumption because of the many layers of software between a physical device and an application. These layers imply overhead from several sources: context switching to cross the kernel’s protection boundary, signal and interrupt handling to service the I/O devices, and the load on the CPU and memory system to copy data between kernel buffers and application space.</li>
+</ul>
 <h1 id="file-system">FILE SYSTEM</h1>
 <h2 id="file-system-interface">File-System Interface</h2>
+<ul>
+<li>A file is an abstract data type defined and implemented by the operating system. It is a sequence of logical records. A logical record may be a byte, a line (of fixed or variable length), or a more complex data item. The operating system may specifically support various record types or may leave that support to the application program. A major task for the operating system is to map the logical file concept onto physical storage devices such as hard disk or NVM device. Since the physical record size of the device may not be the same as the logical record size, it may be necessary to order logical records into physical records. Again, this task may be supported by the operating system or left for the application program.</li>
+<li>Within a file system, it is useful to create directories to allow files to be organized. A single-level directory in a multiuser system causes naming problems, since each file must have a unique name. A two-level directory solves this problem by creating a separate directory for each user’s files. The directory lists the files by name and includes the file’s location on the disk, length, type, owner, time of creation, time of last use, and so on.</li>
+<li>The natural generalization of a two-level directory is a tree-structured directory. A tree-structured directory allows a user to create subdirectories to organize files. Acyclic-graph directory structures enable users to share subdirectories and files but complicate searching and deletion. A general graph structure allows complete flexibility in the sharing of files and directories but sometimes requires garbage collection to recover unused disk space.</li>
+<li>Remote file systems present challenges in reliability, performance, and security. Distributed information systems maintain user, host, and access information so that clients and servers can share state information to manage use and access.</li>
+<li>Since files are the main information-storage mechanism in most computer systems, file protection is needed on multiuser systems. Access to files can be controlled separately for each type of access—read, write, execute, append, delete, list directory, and so on. File protection can be provided by access lists, passwords, or other techniques.</li>
+</ul>
 <h2 id="file-system-implementation">File-System Implementation</h2>
+<ul>
+<li>Most file systems reside on secondary storage, which is designed to hold a large amount of data permanently. The most common secondary-storage medium is the disk, but the use of NVM devices is increasing.</li>
+<li>Storage devices are segmented into partitions to control media use and to allow multiple, possibly varying, file systems on a single device. These file systems are mounted onto a logical file system architecture to make them available for use.</li>
+<li>File systems are often implemented in a layered or modular structure. The lower levels deal with the physical properties of storage devices and communicating with them. Upper levels deal with symbolic file names and logical properties of files.</li>
+<li>The various files within a file system can be allocated space on the storage device in three ways: through contiguous, linked, or indexed allocation. Contiguous allocation can suffer from external fragmentation. Direct access is very inefficient with linked allocation. Indexed allocation may require substantial overhead for its index block. These algorithms can be optimized in many ways. Contiguous space can be enlarged through extents to increase flexibility and to decrease external fragmentation. Indexed allocation can be done in clusters of multiple blocks to increase throughput and to reduce the number of index entries needed. Indexing in large clusters is similar to contiguous allocation with extents.</li>
+<li>Free-space allocation methods also influence the efficiency of disk-space use, the performance of the file system, and the reliability of secondary storage. The methods used include bit vectors and linked lists. Optimizations include grouping, counting, and the FAT , which places the linked list in one contiguous area.</li>
+<li>Directory-management routines must consider efficiency, performance, and reliability. A hash table is a commonly used method, as it is fast and efficient. Unfortunately, damage to the table or a system crash can result in inconsistency between the directory information and the disk’s contents.</li>
+<li>A consistency checker can be used to repair damaged file-system structures. Operating-system backup tools allow data to be copied to magnetic tape or other storage devices, enabling the user to recover from data loss or even entire device loss due to hardware failure, operating system bug, or user error.</li>
+<li>Due to the fundamental role that file systems play in system operation, their performance and reliability are crucial. Techniques such as log structures and caching help improve performance, while log structures and RAID improve reliability. The WAFL file system is an example of optimization of performance to match a specific I/O load.</li>
+</ul>
 <h2 id="file-system-internals">File-System Internals</h2>
+<ul>
+<li>General-purpose operating systems provide many file-system types, from special-purpose through general.</li>
+<li>Volumes containing file systems can be mounted into the computer’s filesystem space.</li>
+<li>Depending on the operating system, the file-system space is seamless (mounted file systems integrated into the directory structure) or distinct (each mounted file system having its own designation).</li>
+<li>At least one file system must be bootable for the system to be able to start —that is, it must contain an operating system. The boot loader is run first; it is a simple program that is able to find the kernel in the file system, load it, and start its execution. Systems can contain multiple bootable partitions, letting the administrator choose which to run at boot time.</li>
+<li>Most systems are multi-user and thus must provide a method for file sharing and file protection. Frequently, files and directories include metadata, such as owner, user, and group access permissions.</li>
+<li>Mass storage partitions are used either for raw block I/O or for file systems. Each file system resides in a volume, which can be composed of one partition or multiple partitions working together via a volume manager.</li>
+<li>To simplify implementation of multiple file systems, an operating system can use a layered approach, with a virtual file-system interface making access to possibly dissimilar file systems seamless. • Remote file systems can be implemented simply by using a program such as ftp or the web servers and clients in the World Wide Web, or with more functionality via a client–server model. Mount requests and user ID s must be authenticated to prevent unapproved access.</li>
+<li>Client–server facilities do not natively share information, but a distributedinformation system such as DNS can be used to allow such sharing, providing a unified user name space, password management, and system identification. For example, Microsoft CIFS uses active directory, which employs a version of the Kerberos network authentication protocol to provide a full set of naming and authentication services among the computers in a network. • Once file sharing is possible, a consistency semantics model must be chosen and implemented to moderate multiple concurrent access to the same file. Semantics models include UNIX , session, and immutable-shared-files semantics.</li>
+<li>NFS is an example of a remote file system, providing clients with seamless access to directories, files, and even entire file systems. A full-featured remote file system includes a communication protocol with remote operations and path-name translation.</li>
+</ul>
 <h1 id="security-and-protection">SECURITY AND PROTECTION</h1>
 <h2 id="security">Security</h2>
+<ul>
+<li>Protection is an internal problem. Security, in contrast, must consider both the computer system and the environment—people, buildings, businesses, valuable objects, and threats—within which the system is used.</li>
+<li>The data stored in the computer system must be protected from unauthorized access, malicious destruction or alteration, and accidental introduction of inconsistency. It is easier to protect against accidental loss of data consistency than to protect against malicious access to the data. Absolute protection of the information stored in a computer system from malicious abuse is not possible; but the cost to the perpetrator can be made sufficiently high to deter most, if not all, attempts to access that information without proper authority.</li>
+<li>Several types of attacks can be launched against programs and against individual computers or the masses. Stack- and buffer-overflow techniques allow successful attackers to change their level of system access. Viruses and malware require human interaction, while worms are self-perpetuating, sometimes infecting thousands of computers. Denial-of-service attacks prevent legitimate use of target systems.</li>
+<li>Encryption limits the domain of receivers of data, while authentication limits the domain of senders. Encryption is used to provide confidentiality of data being stored or transferred. Symmetric encryption requires a shared key, while asymmetric encryption provides a public key and a private key. Authentication, when combined with hashing, can prove that data have not been changed.</li>
+<li>User authentication methods are used to identify legitimate users of a system. In addition to standard user-name and password protection, several authentication methods are used. One-time passwords, for example, change from session to session to avoid replay attacks. Two-factor authentication requires two forms of authentication, such as a hardware calculator with an activation PIN , or one that presents a different response based on the time. Multifactor authentication uses three or more forms. These methods greatly decrease the chance of authentication forgery.</li>
+<li>Methods of preventing or detecting security incidents include an up-to-date security policy, intrusion-detection systems, antivirus software, auditing and logging of system events, system-call monitoring, code signing, sandboxing, and firewalls.</li>
+</ul>
 <h2 id="protection">Protection</h2>
+<ul>
+<li>System protection features are guided by the principle of need-to-know and implement mechanisms to enforce the principle of least privilege.</li>
+<li>Computer systems contain objects that must be protected from misuse. Objects may be hardware (such as memory, CPU time, and I/O devices) or software (such as files, programs, and semaphores).</li>
+<li>An access right is permission to perform an operation on an object. A domain is a set of access rights. Processes execute in domains and may use any of the access rights in the domain to access and manipulate objects. During its lifetime, a process may be either bound to a protection domain or allowed to switch from one domain to another.</li>
+<li>A common method of securing objects is to provide a series of protection rings, each with more privileges than the last. ARM , for example, provides four protection levels. The most privileged, TrustZone, is callable only from kernel mode.</li>
+<li>The access matrix is a general model of protection that provides a mechanism for protection without imposing a particular protection policy on the system or its users. The separation of policy and mechanism is an important design property.</li>
+<li>The access matrix is sparse. It is normally implemented either as access lists associated with each object or as capability lists associated with each domain. We can include dynamic protection in the access-matrix model by considering domains and the access matrix itself as objects. Revocation of access rights in a dynamic protection model is typically easier to implement with an access-list scheme than with a capability list.</li>
+<li>Real systems are much more limited than the general model. Older UNIX distributions are representative, providing discretionary access controls of read, write, and execution protection separately for the owner, group, and general public for each file. More modern systems are closer to the general model, or at least provide a variety of protection features to protect the system and its users.</li>
+<li>Solaris 10 and beyond, among other systems, implement the principle of least privilege via role-based access control, a form of access matrix. Another protection extension is mandatory access control, a form of system policy enforcement.</li>
+<li>Capability-based systems offer finer-grained protection than older models, providing specific abilities to processes by “slicing up” the powers of root into distinct areas. Other methods of improving protection include System Integrity Protection, system-call filtering, sandboxing, and code signing.</li>
+<li>Language-based protection provides finer-grained arbitration of requests and privileges than the operating system is able to provide. For example, a single Java JVM can run several threads, each in a different protection class. It enforces the resource requests through sophisticated stack inspection and via the type safety of the language.</li>
+</ul>
 <h1 id="advanced-topics">ADVANCED TOPICS</h1>
 <h2 id="virtual-machines">Virtual Machines</h2>
+<ul>
+<li>Virtualization is a method for providing a guest with a duplicate of a system’s underlying hardware. Multiple guests can run on a given system, each believing that it is the native operating system and is in full control.</li>
+<li>Virtualization started as a method to allow IBM to segregate users and provide them with their own execution environments on IBM mainframes. Since then, thanks to improvements in system and CPU performance and innovative software techniques, virtualization has become a common feature in data centers and even on personal computers. Because of its popularity, CPU designers have added features to support virtualization. This snowball effect is likely to continue, with virtualization and its hardware support increasing over time.</li>
+<li>The virtual machine manager, or hypervisor, creates and runs the virtual machine. Type 0 hypervisors are implemented in the hardware and require modifications to the operating system to ensure proper operation. Some type 0 hypervisors offer an example of paravirtualization, in which the operating system is aware of virtualization and assists in its execution.</li>
+<li>Type 1 hypervisors provide the environment and features needed to create, run, and manage guest virtual machines. Each guest includes all of the software typically associated with a full native system, including the operating system, device drivers, applications, user accounts, and so on.</li>
+<li>Type 2 hypervisors are simply applications that run on other operating systems, which do not know that virtualization is taking place. These hypervisors do not have hardware or host support so must perform all virtualization activities in the context of a process.</li>
+<li>Programming-environment virtualization is part of the design of a programming language. The language specifies a containing application in which programs run, and this application provides services to the programs.</li>
+<li>Emulation is used when a host system has one architecture and the guest was compiled for a different architecture. Every instruction the guest wants to execute must be translated from its instruction set to that of the native hardware. Although this method involves some performance penalty, it is balanced by the usefulness of being able to run old programs on newer, incompatible hardware or run games designed for old consoles on modern hardware.</li>
+<li>Implementing virtualization is challenging, especially when hardware support is minimal. The more features provided by the system, the easier virtualization is to implement and the better the performance of the guests.</li>
+<li>VMM s take advantage of whatever hardware support is available when optimizing CPU scheduling, memory management, and I/O modules to provide guests with optimum resource use while protecting the VMM from the guests and the guests from one another.</li>
+<li>Current research is extending the uses of virtualization. Unikernels aim to increase efficiency and decrease security attack surface by compiling an application, its libraries, and the kernel resources the application needs into one binary with one address space that runs within a virtual machine. Partitioning hypervisors provide secure execution, real-time operation, and other features traditionally only available to applications running on dedicated hardware.</li>
+</ul>
 <h2 id="networks-and-distributed-systems">Networks and Distributed Systems</h2>
+<ul>
+<li>A distributed system is a collection of processors that do not share memory or a clock. Instead, each processor has its own local memory, and the processors communicate with one another through various communication lines, such as high-speed buses and the Internet. The processors in a distributed system vary in size and function.</li>
+<li>A distributed system provides the user with access to all system resources. Access to a shared resource can be provided by data migration, computation migration, or process migration. The access can be specified by the user or implicitly supplied by the operating system and applications. Protocol stacks, as specified by network layering models, add information to a message to ensure that it reaches its destination.</li>
+<li>A naming system (such as DNS ) must be used to translate from a host name to a network address, and another protocol (such as ARP ) may be needed to translate the network number to a network device address (an Ethernet address, for instance).</li>
+<li>If systems are located on separate networks, routers are needed to pass packets from source network to destination network.</li>
+<li>The transport protocols UDP and TCP direct packets to waiting processes through the use of unique system-wide port numbers. In addition, the TCP protocol allows the flow of packets to become a reliable, connectionoriented byte stream.</li>
+<li>There are many challenges to overcome for a distributed system to work correctly. Issues include naming of nodes and processes in the system, fault tolerance, error recovery, and scalability. Scalability issues include handling increased load, being fault tolerant, and using efficient storage schemes, including the possibility of compression and/or deduplication.</li>
+<li>A DFS is a file-service system whose clients, servers, and storage devices are dispersed among the sites of a distributed system. Accordingly, service activity has to be carried out across the network; instead of a single centralized data repository, there are multiple independent storage devices.</li>
+<li>There are two main types of DFS models: the client–server model and the cluster-based model. The client-server model allows transparent file sharing among one or more clients. The cluster-based model distributes the files among one or more data servers and is built for large-scale parallel data processing.</li>
+<li>Ideally, a DFS should look to its clients like a conventional, centralized file system (although it may not conform exactly to traditional file-system interfaces such as POSIX ). The multiplicity and dispersion of its servers and storage devices should be transparent. A transparent DFS facilitates client mobility by bringing the client’s environment to the site where the client logs in.</li>
+<li>There are several approaches to naming schemes in a DFS . In the simplest approach, files are named by some combination of their host name and local name, which guarantees a unique system-wide name. Another approach, popularized by NFS , provides a means to attach remote directories to local directories, thus giving the appearance of a coherent directory tree. • Requests to access a remote file are usually handled by two complementary methods. With remote service, requests for accesses are delivered to the server. The server machine performs the accesses, and the results are forwarded back to the client. With caching, if the data needed to satisfy the access request are not already cached, then a copy of the data is brought from the server to the client. Accesses are performed on the cached copy. The problem of keeping the cached copies consistent with the master file is the cache-consistency problem.</li>
+</ul>
 <h1 id="case-studies">CASE STUDIES</h1>
 <h2 id="the-linux-system">The Linux System</h2>
+<ul>
+<li>Linux is a modern, free operating system based on UNIX standards. It has been designed to run efficiently and reliably on common PC hardware; it also runs on a variety of other platforms, such as mobile phones. It provides a programming interface and user interface compatible with standard UNIX systems and can run a large number of UNIX applications, including an increasing number of commercially supported applications.</li>
+<li>Linux has not evolved in a vacuum. A complete Linux system includes many components that were developed independently of Linux. The core Linux operating-system kernel is entirely original, but it allows much existing free UNIX software to run, resulting in an entire UNIX-compatible operating system free from proprietary code.</li>
+<li>The Linux kernel is implemented as a traditional monolithic kernel for performance reasons, but it is modular enough in design to allow most drivers to be dynamically loaded and unloaded at run time.</li>
+<li>Linux is a multiuser system, providing protection between processes and running multiple processes according to a time-sharing scheduler. Newly created processes can share selective parts of their execution environment with their parent processes, allowing multithreaded programming.</li>
+<li>Interprocess communication is supported by both System V mechanisms—message queues, semaphores, and shared memory—and BSD ’s socket interface. Multiple networking protocols can be accessed simultaneously through the socket interface. The memory-management system uses page sharing and copy-on-write to minimize the duplication of data shared by different processes. Pages are loaded on demand when they are first referenced and are paged back out to backing store according to an LFU algorithm if physical memory needs to be reclaimed.</li>
+<li>To the user, the file system appears as a hierarchical directory tree that obeys UNIX semantics. Internally, Linux uses an abstraction layer to manage multiple file systems. Device-oriented, networked, and virtual file systems are supported. Device-oriented file systems access disk storage through a page cache that is unified with the virtual memory system.</li>
+</ul>
 <h2 id="windows-10">Windows 10</h2>
+<ul>
+<li>Microsoft designed Windows to be an extensible, portable operating system—one able to take advantage of new techniques and hardware.</li>
+<li>Windows supports multiple operating environments and symmetric multiprocessing, including both 32-bit and 64-bit processors and NUMA computers.</li>
+<li>The use of kernel objects to provide basic services, along with support for client–server computing, enables Windows to support a wide variety of application environments.</li>
+<li>Windows provides virtual memory, integrated caching, and preemptive scheduling.</li>
+<li>To protect user data and guarantee program integrity, Windows supports elaborate security mechanisms and exploit mitigations and takes advantage of hardware virtualization.</li>
+<li>Windows runs on a wide variety of computers, so users can choose and upgrade hardware to match their budgets and performance requirements without needing to alter the applications they run.</li>
+<li>By including internationalization features, Windows can run in a variety of countries and many languages.</li>
+<li>Windows has sophisticated scheduling and memory-management algorithms for performance and scalability.</li>
+<li>Recent versions of Windows have added power management and fast sleep and wake features, and decreased resource use in several areas to be more useful on mobile systems such as phones and tablets.</li>
+<li>The Windows volume manager and NTFS file system provide a sophisticated set of features for desktop as well as server systems.</li>
+<li>The Win 32 API programming environment is feature rich and expansive, allowing programmers to use all of Windows’s features in their programs.</li>
+</ul>
 
     </div>
 

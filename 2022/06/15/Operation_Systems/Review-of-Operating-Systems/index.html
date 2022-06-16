@@ -30,8 +30,11 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/osidp-3-3-0.png">
 <meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/osidp-3-6-0.png">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/osidp-4-1-0.png">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/osidp-4-1-1.png">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/osidp-4-1-2.png">
 <meta property="article:published_time" content="2022-06-15T10:55:57.000Z">
-<meta property="article:modified_time" content="2022-06-16T03:52:27.104Z">
+<meta property="article:modified_time" content="2022-06-16T06:32:20.062Z">
 <meta property="article:author" content="GUO Songxiao">
 <meta property="article:tag" content="Operating Systems">
 <meta name="twitter:card" content="summary">
@@ -285,7 +288,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-16 03:52:27" itemprop="dateModified" datetime="2022-06-16T03:52:27Z">2022-06-16</time>
+      <time title="Modified: 2022-06-16 06:32:20" itemprop="dateModified" datetime="2022-06-16T06:32:20Z">2022-06-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -592,7 +595,27 @@
 </ul>
 <h2 id="threads">Threads</h2>
 <p>4.1. Table 3.5 lists typical elements found in a process control block for an unthreaded OS. Of these, which should belong to a thread control block, and which should belong to a process control block for a multithreaded system?</p>
+<p>Table 3.5 Typical Elements of a Process Control Block</p>
+<p><img src="https://gsxgoldenlegendary.github.io/images/osidp-4-1-0.png" /></p>
+<p><img src="https://gsxgoldenlegendary.github.io/images/osidp-4-1-1.png" /></p>
+<p><img src="https://gsxgoldenlegendary.github.io/images/osidp-4-1-2.png" /></p>
+<ol type="1">
+<li><p>Process Identifiers will appear in both thread and process control blocks.</p></li>
+<li><p>Processor State Information should belong to process control block.</p></li>
+<li>Process Control Information:
+<ul>
+<li>Thread control block handle Scheduling and State Information.</li>
+<li>Data Structuring also be handled by thread control block (mostly, except block and terminal) .</li>
+<li>Privileges and Interprocess Communications can probably be divided between the two blocks depending on the system.</li>
+<li>Memory Management and Resource Ownership and Utilization should belong to process control block.</li>
+</ul></li>
+</ol>
 <p>4.2. List reasons why a mode switch between threads may be cheaper than a mode switch between processes.</p>
+<ul>
+<li>Less state information is involved.</li>
+<li>Usually doesn't require a big change in Virtual Memory.</li>
+<li>Usually doesn't need the caches to be flushed.</li>
+</ul>
 <p>4.3. What are the two separate and potentially independent characteristics embodied in the concept of process?</p>
 <ol type="1">
 <li>Resource ownership: A process includes a virtual address space to hold the process image; recall from Chapter 3 that the process image is the collection of program, data, stack, and attributes defined in the process control block. From time to time, a process may be allocated control or ownership of resources, such as main memory, I/O channels, I/O devices, and files. The OS performs a protection function to prevent unwanted interference between processes with respect to resources.</li>
@@ -606,6 +629,12 @@
 <li>Modular program structure: Programs that involve a variety of activities or a variety of sources and destinations of input and output may be easier to design and implement using threads.</li>
 </ol>
 <p>4.5. What resources are typically shared by all of the threads of a process?</p>
+<ol type="1">
+<li>Main memory</li>
+<li>Input Output Devices</li>
+<li>Input Output Channels</li>
+<li>Files</li>
+</ol>
 <p>4.6. List three advantages of ULTs over KLTs.</p>
 <ol type="1">
 <li>Thread switching does not require kernel-mode privileges because all of the thread management data structures are within the user address space of a single process. Therefore, the process does not switch to the kernel mode to do thread management. This saves the overhead of two mode switches (user to kernel; kernel back to user).</li>
@@ -618,20 +647,75 @@
 <li>In a pure ULT strategy, a multithreaded application cannot take advantage of multiprocessing. A kernel assigns one process to only one processor at a time. Therefore, only a single thread within a process can execute at a time. In effect,we have application-level multiprogramming within a single process. While this multiprogramming can result in a significant speedup of the application, there are applications that would benefit from the ability to execute portions of code simultaneously.</li>
 </ol>
 <p>4.8. Define jacketing.</p>
+<p>The purpose of jacketing is to convert a blocking system call into a nonblocking system call.</p>
 <h2 id="concurrency-mutual-exclusion-and-synchronization">Concurrency: Mutual Exclusion and Synchronization</h2>
 <p>5.1. List four design issues for which the concept of concurrency is relevant.</p>
+<ol type="1">
+<li>Communication among processes.</li>
+<li>Sharing of and competing for resources (such as memory, files, and I/O access).</li>
+<li>Synchronization of the activities of multiple processes.</li>
+<li>Allocation of processor time to processes.</li>
+</ol>
 <p>5.2. What are three contexts in which concurrency arises?</p>
+<ol type="1">
+<li><p>Multiple applications: Multiprogramming was invented to allow processing time to be dynamically shared among a number of active applications.</p></li>
+<li>Structured applications: As an extension of the principles of modular design and structured programming, some applications can be effectively programmed as a set of concurrent processes.</li>
+<li><p>Operating system structure: The same structuring advantages apply to systems programs, and we have seen that operating systems are themselves often implemented as a set of processes or threads.</p></li>
+</ol>
 <p>5.3. What is the basic requirement for the execution of concurrent processes?</p>
+<p>The ability to enforce mutual exclusion.</p>
 <p>5.4. List three degrees of awareness between processes and briefly define each.</p>
+<ol type="1">
+<li>Processes unaware of each other: These are independent processes that are not intended to work together. The best example of this situation is the multiprogramming of multiple independent processes. These can either be batch jobs or interactive sessions or a mixture. Although the processes are not working together, the OS needs to be concerned about competition for resources. For example, two independent applications may both want to access the same disk or file or printer. The OS must regulate these accesses.</li>
+<li>Processes indirectly aware of each other: These are processes that are not necessarily aware of each other by their respective process IDs but that share access to some object, such as an I/O buffer. Such processes exhibit cooperation in sharing the common object.</li>
+<li>Processes directly aware of each other: These are processes that are able to communicate with each other by process ID and that are designed to work jointly on some activity. Again, such processes exhibit cooperation.</li>
+</ol>
 <p>5.5. What is the distinction between competing processes and cooperating processes?</p>
+<ul>
+<li>Competing processes: Compete for resources, like access to the same file or I/O device, processor time.</li>
+<li>Cooperating processes: Share resources or communication. May or may not be ware of each other.</li>
+</ul>
 <p>5.6. List the three control problems associated with competing processes, and briefly define each.</p>
+<ul>
+<li><p>Mutual exclusion: A condition in which there is a set of processes, only one of which is able to access a given resource or perform a given function at any time. See critical section.</p></li>
+<li><p>Deadlock: (1) An impasse that occurs when multiple processes are waiting for the availability of a resource that will not become available because it is being held by another process that is in a similar wait state. (2) An impasse that occurs when multiple processes are waiting for an action by or a response from another process that is in a similar wait state.</p></li>
+<li><p>Starvation: A condition in which a process is indefinitely delayed because other processes are always given preference.</p></li>
+</ul>
 <p>5.7. List the requirements for mutual exclusion.</p>
+<ol type="1">
+<li>Mutual exclusion must be enforced: Only one process at a time is allowed into its critical section, among all processes that have critical sections for the same resource or shared object.</li>
+<li>A process that halts in its noncritical section must do so without interfering with other processes.</li>
+<li>It must not be possible for a process requiring access to a critical section to be delayed indefinitely: no deadlock or starvation.</li>
+<li>When no process is in a critical section, any process that requests entry to its critical section must be permitted to enter without delay.</li>
+<li>No assumptions are made about relative process speeds or number of processors.</li>
+<li>A process remains inside its critical section for a finite time only.</li>
+</ol>
 <p>5.8. What operations can be performed on a semaphore?</p>
+<p>Initialize, decrement, and increment.</p>
 <p>5.9. What is the difference between binary and general semaphores?</p>
+<ul>
+<li><p>Binary semaphore: A semaphore that takes on only the values 0 and 1. A binary semaphore allows only one process or thread to have access to a shared critical resource at a time.</p></li>
+<li><p>General semaphore: An integer value used for signaling among processes. Only three operations may be performed on a semaphore, all of which are atomic: initialize, decrement, and increment. Depending on the exact definition of the semaphore, the decrement operation may result in the blocking of a process, and the increment operation may result in the unblocking of a process.</p></li>
+</ul>
 <p>5.10. What is the difference between strong and weak semaphores?</p>
+<ul>
+<li><p>Strong semaphore: A semaphore in which all processes waiting on the same semaphore are queued and will eventually proceed in the same order as they executed the wait (P) operations (FIFO order).</p></li>
+<li><p>Weak semaphore: A semaphore in which all processes waiting on the same semaphore proceed in an unspecified order (i.e., the order is unknown or indeterminate).</p></li>
+</ul>
 <p>5.11. What is a monitor?</p>
+<p>A programming language construct that encapsulates variables, access procedures, and initialization code within an abstract data type. The monitor’s variable may only be accessed via its access procedures and only one process may be actively accessing the monitor at any one time. The access procedures are critical sections. A monitor may have a queue of processes that are waiting to access it.</p>
 <p>5.12. What is the distinction between blocking and nonblocking with respect to messages?</p>
+<ul>
+<li>Blocking send, blocking receive: Both the sender and receiver are blocked until the message is delivered; this is sometimes referred to as a rendezvous. This combination allows for tight synchronization between processes.</li>
+<li>Nonblocking send, blocking receive: Although the sender may continue on, the receiver is blocked until the requested message arrives. This is probably the most useful combination. It allows a process to send one or more messages to a variety of destinations as quickly as possible. A process that must receive a message before it can do useful work needs to be blocked until such a message arrives. An example is a server process that exists to provide a service or resource to other processes.</li>
+<li>Nonblocking send, nonblocking receive: Neither party is required to wait.</li>
+</ul>
 <p>5.13. What conditions are generally associated with the readers/writers problem?</p>
+<ol type="1">
+<li>Any number of readers may simultaneously read the file.</li>
+<li>Only one writer at a time may write to the file.</li>
+<li>If a writer is writing to the file, no reader may read it.</li>
+</ol>
 <h2 id="concurrency-deadlock-and-starvation">Concurrency: Deadlock and Starvation</h2>
 <p>6.1. Give examples of reusable and consumable resources.</p>
 <p>6.2. What are the three conditions that must be present for deadlock to be possible?</p>
