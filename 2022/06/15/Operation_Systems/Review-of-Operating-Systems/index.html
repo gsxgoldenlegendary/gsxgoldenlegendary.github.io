@@ -28,17 +28,17 @@
 <meta property="og:site_name" content="SONGXIAO&#39;S TOPBLOG">
 <meta property="og:description" content="Review Questions of Operating Systems Internals and Design Principles, Ninth Edition.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/osidp-3-3-0.png">
-<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/osidp-3-6-0.png">
-<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/osidp-4-1-0.png">
-<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/osidp-4-1-1.png">
-<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/osidp-4-1-2.png">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/osidp3-3-0.png">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/osidp3-6-0.png">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/osidp4-1-0.png">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/osidp4-1-1.png">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/osidp4-1-2.png">
 <meta property="article:published_time" content="2022-06-15T10:55:57.000Z">
-<meta property="article:modified_time" content="2022-06-16T11:18:50.094Z">
+<meta property="article:modified_time" content="2022-06-16T11:53:55.184Z">
 <meta property="article:author" content="GUO Songxiao">
 <meta property="article:tag" content="Operating Systems">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gsxgoldenlegendary.github.io/images/osidp-3-3-0.png">
+<meta name="twitter:image" content="https://gsxgoldenlegendary.github.io/images/osidp3-3-0.png">
 
 
 <link rel="canonical" href="http://gsxgoldenlegendary.github.io/2022/06/15/Operation_Systems/Review-of-Operating-Systems/">
@@ -288,7 +288,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-16 11:18:50" itemprop="dateModified" datetime="2022-06-16T11:18:50Z">2022-06-16</time>
+      <time title="Modified: 2022-06-16 11:53:55" itemprop="dateModified" datetime="2022-06-16T11:53:55Z">2022-06-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -314,14 +314,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>46k</span>
+      <span>39k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>42 mins.</span>
+      <span>36 mins.</span>
     </span>
 </div>
 
@@ -528,7 +528,7 @@
 </tbody>
 </table>
 <p>3.3. For the processing model of Figure 3.6 , briefly define each state.</p>
-<p><img src="https://gsxgoldenlegendary.github.io/images/osidp-3-3-0.png" /></p>
+<p><img src="https://gsxgoldenlegendary.github.io/images/osidp3-3-0.png" /></p>
 <ol type="1">
 <li>Running: The process that is currently being executed. For this chapter, we will assume a computer with a single processor, so at most, one process at a time can be in this state.</li>
 <li>Ready: A process that is prepared to execute when given the opportunity.</li>
@@ -542,7 +542,7 @@
 <p>A process that interchanges the contents of an area of main storage with the contents of an area in secondary memory.</p>
 <p>Solve the ploblem that is I/O activities are much slower than computation, and therefore the processor in a uniprogramming system is idle most of the time.</p>
 <p>3.6. Why does Figure 3.9b have two blocked states?</p>
-<p><img src="https://gsxgoldenlegendary.github.io/images/osidp-3-6-0.png" /></p>
+<p><img src="https://gsxgoldenlegendary.github.io/images/osidp3-6-0.png" /></p>
 <ul>
 <li><p>Blocked → Blocked/Suspend :If there are no ready processes, then at least one blocked process is swapped out to make room for another process that is not blocked. This transition can be made even if there are ready processes available. In particular, if the OS determines that the currently running process, or a ready process that it would like to dispatch, requires more main memory to maintain adequate performance, a blocked process will be suspended.</p></li>
 <li><p>Blocked/Suspend → Blocked : Inclusion of this transition may seem to be poor design. After all, if a process is not ready to execute and is not already in main memory, what is the point of bringing it in? But consider the following scenario: A process terminates, freeing up some main memory. There is a process in the (Blocked/Suspend) queue with a higher priority than any of the processes in the (Ready/Suspend) queue and the OS has reason to believe that the blocking event for that process will occur soon. Under these circumstances, it would seemreasonable to bring a blocked process into main memory in preference to a ready process.</p></li>
@@ -611,9 +611,9 @@
 <h2 id="threads">Threads</h2>
 <p>4.1. Table 3.5 lists typical elements found in a process control block for an unthreaded OS. Of these, which should belong to a thread control block, and which should belong to a process control block for a multithreaded system?</p>
 <p>Table 3.5 Typical Elements of a Process Control Block</p>
-<p><img src="https://gsxgoldenlegendary.github.io/images/osidp-4-1-0.png" /></p>
-<p><img src="https://gsxgoldenlegendary.github.io/images/osidp-4-1-1.png" /></p>
-<p><img src="https://gsxgoldenlegendary.github.io/images/osidp-4-1-2.png" /></p>
+<p><img src="https://gsxgoldenlegendary.github.io/images/osidp4-1-0.png" /></p>
+<p><img src="https://gsxgoldenlegendary.github.io/images/osidp4-1-1.png" /></p>
+<p><img src="https://gsxgoldenlegendary.github.io/images/osidp4-1-2.png" /></p>
 <ol type="1">
 <li><p>Process Identifiers will appear in both thread and process control blocks.</p></li>
 <li><p>Processor State Information should belong to process control block.</p></li>
@@ -853,9 +853,9 @@
 <h2 id="uniprocessor-scheduling">Uniprocessor Scheduling</h2>
 <p>9.1. Briefly describe the three types of processor scheduling.</p>
 <ul>
-<li><p>The long-term scheduler determines which programs are admitted to the system for processing.</p></li>
-<li>Medium-term scheduling is part of the swapping function.</li>
-<li><p>The short-term scheduler, also known as the dispatcher, executes most frequently and makes the fine-grained decision of which process to execute next.</p></li>
+<li>Long-term scheduling: The decision to add to the pool of processes to be executed.</li>
+<li>Medium-term scheduling: The decision to add to the number of processes that are partially or fully in main memory.</li>
+<li>Short-term scheduling: The decision as to which available process will be executed by the processor.</li>
 </ul>
 <p>9.2. What is usually the critical performance requirement in an interactive operating system?</p>
 <p>9.3. What is the difference between turnaround time and response time?</p>
@@ -1110,14 +1110,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Symbols count total: </span>
-    <span title="Symbols count total">NaNm</span>
+    <span title="Symbols count total">257k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">NaN:aN</span>
+    <span title="Reading time total">3:53</span>
   </span>
 </div>
 <div class="busuanzi-count">
