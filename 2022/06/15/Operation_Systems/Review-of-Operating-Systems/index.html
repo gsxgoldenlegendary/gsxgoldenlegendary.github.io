@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/osidp-4-1-1.png">
 <meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/osidp-4-1-2.png">
 <meta property="article:published_time" content="2022-06-15T10:55:57.000Z">
-<meta property="article:modified_time" content="2022-06-16T09:25:22.492Z">
+<meta property="article:modified_time" content="2022-06-16T10:12:00.366Z">
 <meta property="article:author" content="GUO Songxiao">
 <meta property="article:tag" content="Operating Systems">
 <meta name="twitter:card" content="summary">
@@ -288,7 +288,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-16 09:25:22" itemprop="dateModified" datetime="2022-06-16T09:25:22Z">2022-06-16</time>
+      <time title="Modified: 2022-06-16 10:12:00" itemprop="dateModified" datetime="2022-06-16T10:12:00Z">2022-06-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -807,13 +807,33 @@
 <li>A present (P) bit, which indicates whether the corresponding page is in main memory or not.</li>
 </ul>
 <p>8.5. What is the purpose of a translation lookaside buffer?</p>
+<p>To reduce the memory access time of a virtual memory scheme. It acts as a cache for page table entries that have been most recently used.</p>
 <p>8.6. Briefly define the alternative page fetch policies.</p>
+<ul>
+<li>Demand paging: The transfer of a page from secondary memory to main memory storage at the moment of need.</li>
+<li>Prepaging: The retrieval of pages other than the one demanded by a page fault. The hope is that the additional pages will be needed in the near future, conserving disk I/O. Compare demand paging.</li>
+</ul>
 <p>8.7. What is the difference between resident set management and page replacement policy?</p>
+<ul>
+<li><p>Resident set management: How many page frames are to be allocated to each active process, and whether the set of pages to be considered for replacement should be limited to those of the process that caused the page fault or encompass all the page frames in main memory.</p></li>
+<li><p>Replacement policy: Among the set of pages considered, which particular page should be selected for replacement.</p></li>
+</ul>
 <p>8.8. What is the relationship between FIFO and clock page replacement algorithms?</p>
+<p>Both treat the page frames allocated to a process as a circular buffer, with which a pointer is associated.</p>
 <p>8.9. What is accomplished by page buffering?</p>
+<p>Improving paging performance and allowing the use of a simpler page replacement policy.</p>
 <p>8.10. Why is it not possible to combine a global replacement policy and a fixed allocation policy?</p>
+<p>While it happens that local policies are easier to analyze, there is no convincing evidence that they perform better than global policies, which are attractive because of their simplicity of implementation and minimal overhead. It could be impossible to get a win-win choice.</p>
 <p>8.11. What is the difference between a resident set and a working set?</p>
+<ul>
+<li><p>Resident set: That portion of a process that is actually in main memory at a given time.</p></li>
+<li><p>Working set: The working set with parameter Δ for a process at virtual time t, W(t, Δ) is the set of pages of that process that have been referenced in the last Δ time units.</p></li>
+</ul>
 <p>8.12. What is the difference between demand cleaning and precleaning?</p>
+<ul>
+<li>With demand cleaning, a page is written out to secondary memory only when it has been selected for replacement.</li>
+<li>A precleaning policy writes modified pages before their page frames are needed so pages can be written out in batches.</li>
+</ul>
 <h1 id="scheduling">Scheduling</h1>
 <h2 id="uniprocessor-scheduling">Uniprocessor Scheduling</h2>
 <p>9.1. Briefly describe the three types of processor scheduling.</p>
