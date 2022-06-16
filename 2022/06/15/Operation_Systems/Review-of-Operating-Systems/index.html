@@ -28,11 +28,14 @@
 <meta property="og:site_name" content="SONGXIAO&#39;S TOPBLOG">
 <meta property="og:description" content="Review Questions of Operating Systems Internals and Design Principles, Ninth Edition.">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/osidp-3-3-0.png">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/osidp-3-6-0.png">
 <meta property="article:published_time" content="2022-06-15T10:55:57.000Z">
-<meta property="article:modified_time" content="2022-06-15T06:23:25.482Z">
+<meta property="article:modified_time" content="2022-06-16T03:52:27.104Z">
 <meta property="article:author" content="GUO Songxiao">
 <meta property="article:tag" content="Operating Systems">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gsxgoldenlegendary.github.io/images/osidp-3-3-0.png">
 
 
 <link rel="canonical" href="http://gsxgoldenlegendary.github.io/2022/06/15/Operation_Systems/Review-of-Operating-Systems/">
@@ -274,9 +277,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-06-15 10:55:57 / Modified: 06:23:25" itemprop="dateCreated datePublished" datetime="2022-06-15T10:55:57Z">2022-06-15</time>
+      <time title="Created: 2022-06-15 10:55:57" itemprop="dateCreated datePublished" datetime="2022-06-15T10:55:57Z">2022-06-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-06-16 03:52:27" itemprop="dateModified" datetime="2022-06-16T03:52:27Z">2022-06-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -422,40 +431,192 @@
 <p>Temporal locality is exploited by keeping recently used instructions and data values in the cache memory, and by exploiting cache hierarchy.</p>
 <h2 id="operation-system-overview">Operation System Overview</h2>
 <p>2.1. What are three objectives of an OS design?</p>
+<ul>
+<li>Convenience: An OS makes a computer more convenient to use.</li>
+<li>Efficiency: An OS allows the computer system resources to be used in an efficient manner.</li>
+<li>Ability to evolve: An OS should be constructed in such a way as to permit the effective development, testing, and introduction of new system functions without interfering with service.</li>
+</ul>
 <p>2.2. What is the kernel of an OS?</p>
+<p>A portion of the operating system that includes the most heavily used portions of software. Generally, the kernel is maintained permanently in main memory. The kernel runs in a privileged mode and responds to calls from processes and interrupts from devices.</p>
 <p>2.3. What is multiprogramming?</p>
+<p>A mode of operation that provides for the interleaved execution of two or more computer programs by a single processor. The same as multitasking, using different terminology.</p>
 <p>2.4. What is a process?</p>
+<p>A program in execution. A process is controlled and scheduled by the operating system. Same as task.</p>
 <p>2.5. How is the execution context of a process used by the OS?</p>
+<p>The execution context , or process state , is the internal data by which the OS is able to supervise and control the process. This internal information is separated from the process, because the OS has information not permitted to the process. The context includes all of the information the OS needs to manage the process, and the processor needs to execute the process properly. The context includes the contents of the various processor registers, such as the program counter and data registers. It also includes information of use to the OS, such as the priority of the process and whether the process is waiting for the completion of a particular I/O event.</p>
 <p>2.6. List and briefly explain five storage management responsibilities of a typical OS.</p>
+<ol type="1">
+<li><p>Process isolation: The OS must prevent independent processes from interfering with each other’s memory, both data and instructions.</p></li>
+<li>Automatic allocation and management: Programs should be dynamically allocated across the memory hierarchy as required. Allocation should be transparent to the programmer. Thus, the programmer is relieved of concerns relating to memory limitations, and the OS can achieve efficiency by assigning memory to jobs only as needed.</li>
+<li>Support of modular programming: Programmers should be able to define program modules, and to dynamically create, destroy, and alter the size of modules.</li>
+<li>Protection and access control: Sharing of memory, at any level of the memory hierarchy, creates the potential for one program to address the memory space of another. This is desirable when sharing is needed by particular applications. At other times, it threatens the integrity of programs and even of the OS itself. The OS must allow portions of memory to be accessible in various ways by various users.</li>
+<li><p>Long-term storage: Many application programs require means for storing information for extended periods of time, after the computer has been powered down.</p></li>
+</ol>
 <p>2.7. Explain the distinction between a real address and a virtual address.</p>
+<ul>
+<li><p>real address: A physical address in main memory.</p></li>
+<li><p>virtual address: The address of a storage location in virtual memory.</p></li>
+</ul>
 <p>2.8. Describe the round-robin scheduling technique.</p>
+<p>A scheduling algorithm in which processes are activated in a fixed cyclic order; that is, all processes are in a circular queue. A process that cannot proceed because it is waiting for some event (e.g., termination of a child process or an input/output operation) returns control to the scheduler.</p>
 <p>2.9. Explain the difference between a monolithic kernel and a microkernel.</p>
+<ul>
+<li><p>monolithic kernel: A large kernel containing virtually the complete operating system, including scheduling, file system, device drivers, and memory management. All the functional components of the kernel have access to all of its internal data structures and routines. Typically, a monolithic kernel is implemented as a single process, with all elements sharing the same address space.</p></li>
+<li><p>microkernel: A small, privileged operating system core that provides process scheduling, memory management, and communication services and relies on other processes to perform some of the functions traditionally associated with the operating system kernel.</p></li>
+</ul>
 <p>2.10. What is multithreading?</p>
+<p>Multitasking within a single program. It allows multiple streams of instructions (threads) to execute concurrently within the same program, each stream processing a different transaction or message. Each stream is a “subprocess,” and the operating system typically cooperates with the application to handle the threads.</p>
 <p>2.11. List the key design issues for an SMP operating system.</p>
+<ul>
+<li>Simultanetous concurrent processes or threads: Kernel routines need to be reentrant to allow several processors toexecute the same kernel code simultaneously. With multiple processors executing the same or different parts of the kernel, kernel tables and management structures must be managed properly to avoid data corruption or invalid operations.</li>
+<li>Scheduling: Any processor may perform scheduling, which complicates the task of enforcing a scheduling policy and assuring that corruption of the scheduler data structures is avoided. If kernel-level multithreading is used, then the opportunity exists to schedule multiple threads from the same process simultaneously on multiple processors.</li>
+<li>Synchronization: With multiple active processes having potential access to shared address spaces or shared I/O resources, care must be taken to provide effective synchronization. Synchronization is a facility that enforces mutual exclusion and event ordering. A common synchronization mechanism used in multiprocessor operating systems is locks.</li>
+<li>Memory management: Memory management on a multiprocessor must deal with all of the issues found on uniprocessor computers, and will be discussed in Part Three. In addition, the OS needs to exploit the available hardware parallelism to achieve the best performance. The paging mechanisms on different processors must be coordinated to enforce consistency when several processors share a page or segment and to decide on page replacement. The reuse of physical pages is the biggest problem of concern; that is, it mustbe guaranteed that a physical page can no longer be accessed with its old contents before the page is put to a new use.</li>
+<li>Reliability and fault tolerance: The OS should provide graceful degradation in the face of processor failure. The scheduler and other portions of the OS must recognize the loss of a processor and restructure management tables accordingly.</li>
+</ul>
 <h1 id="processes">Processes</h1>
 <h2 id="process-description-and-control">Process Description and Control</h2>
 <p>3.1. What is an instruction trace?</p>
+<p>A sequence of instructions that are executed when a process is running.</p>
 <p>3.2. What common events lead to the creation of a process?</p>
+<table>
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 63%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Events</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>New batch jobs</td>
+<td>The OS is provided with a batch job control stream, usually on tape or disk. When the OS is prepared to take on new work, it will read the next sequence of job control commands.</td>
+</tr>
+<tr class="even">
+<td>Interactive log-on</td>
+<td>A user at a terminal logs on to the system.</td>
+</tr>
+<tr class="odd">
+<td>Created by OS to provide a service</td>
+<td>The OS can create a process to perform a function on behalf of a user program, without the user having to wait (e.g., a process to control printing).</td>
+</tr>
+<tr class="even">
+<td>Spawned by existing process</td>
+<td>For purposes of modularity or to exploit parallelism, a user program can dictate the creation of a number of processes.</td>
+</tr>
+</tbody>
+</table>
 <p>3.3. For the processing model of Figure 3.6 , briefly define each state.</p>
+<p><img src="https://gsxgoldenlegendary.github.io/images/osidp-3-3-0.png" /></p>
+<ol type="1">
+<li>Running: The process that is currently being executed. For this chapter, we will assume a computer with a single processor, so at most, one process at a time can be in this state.</li>
+<li>Ready: A process that is prepared to execute when given the opportunity.</li>
+<li>Blocked/Waiting: A process that cannot execute until some event occurs, such as the completion of an I/O operation.</li>
+<li>New: A process that has just been created but has not yet been admitted to the pool of executable processes by the OS. Typically, a new process has not yet been loaded into main memory, although its process control block has been created.</li>
+<li>Exit: A process that has been released from the pool of executable processes by the OS, either because it halted or because it aborted for some reason.</li>
+</ol>
 <p>3.4. What does it mean to preempt a process?</p>
+<p>Reclaiming a resource from a process before the process has finished using it.</p>
 <p>3.5. What is swapping and what is its purpose?</p>
+<p>A process that interchanges the contents of an area of main storage with the contents of an area in secondary memory.</p>
+<p>Solve the ploblem that is I/O activities are much slower than computation, and therefore the processor in a uniprogramming system is idle most of the time.</p>
 <p>3.6. Why does Figure 3.9b have two blocked states?</p>
+<p><img src="https://gsxgoldenlegendary.github.io/images/osidp-3-6-0.png" /></p>
+<ul>
+<li><p>Blocked → Blocked/Suspend :If there are no ready processes, then at least one blocked process is swapped out to make room for another process that is not blocked. This transition can be made even if there are ready processes available. In particular, if the OS determines that the currently running process, or a ready process that it would like to dispatch, requires more main memory to maintain adequate performance, a blocked process will be suspended.</p></li>
+<li><p>Blocked/Suspend → Blocked : Inclusion of this transition may seem to be poor design. After all, if a process is not ready to execute and is not already in main memory, what is the point of bringing it in? But consider the following scenario: A process terminates, freeing up some main memory. There is a process in the (Blocked/Suspend) queue with a higher priority than any of the processes in the (Ready/Suspend) queue and the OS has reason to believe that the blocking event for that process will occur soon. Under these circumstances, it would seemreasonable to bring a blocked process into main memory in preference to a ready process.</p></li>
+</ul>
 <p>3.7. List four characteristics of a suspended process.</p>
+<ol type="1">
+<li>The process is not immediately available for execution.</li>
+<li>The process may or may not be waiting on an event. If it is, this blocked condition is independent of the suspend condition, and occurrence of the blocking event does not enable the process to be executed immediately.</li>
+<li>The process was placed in a suspended state by an agent: either itself, a parent process, or the OS, for the purpose of preventing its execution.</li>
+<li>The process may not be removed from this state until the agent explicitly orders the removal.</li>
+</ol>
 <p>3.8. For what types of entities does the OS maintain tables of information for management purposes?</p>
+<p>Memory, I/O, file, and process.</p>
 <p>3.9. List three general categories of information in a process control block.</p>
+<p>Process identification, processor state information, and process control information.</p>
 <p>3.10. Why are two modes (user and kernel) needed?</p>
+<p>It is necessary to protect the OS and key operating system tables, such as process control blocks, from interference by user programs.</p>
 <p>3.11. What are the steps performed by an OS to create a new process?</p>
+<ol type="1">
+<li>Assign a unique process identifier to the new process. At this time, a new entry is added to the primary process table, which contains one entry per process.</li>
+<li>Allocate space for the process. This includes all elements of the process image. Thus, the OS must know how much space is needed for the private user address space (programs and data) and the user stack. These values can be assigned by default based on the type of process, or they can be set based on user request at job creation time. If a process is spawned by another process, the parent process can pass the needed values to the OS as part of the process creation request. If any existing address space is to be shared by this new process, the appropriate linkages must be set up. Finally, space for a process control block must be allocated.</li>
+<li>Initialize the process control block. The process identification portion contains the ID of this process plus other appropriate IDs, such as that of the parent process. Theprocessor state information portion will typically be initialized with most entries zero, except for the program counter (set to the program entry point) and system stack pointers (set to define the process stack boundaries). The process control information portion is initialized based on standard default values plus attributes that have been requested for this process. For example, the process state would typically be initialized to Ready or Ready/Suspend. The priority may be set by default to the lowest priority unless an explicit request is made for a higher priority. Initially, the process may own no resources (I/O devices, files) unless there is an explicit request for these, or unless they are inherited from the parent.</li>
+<li>Set the appropriate linkages. For example, if the OS maintains each scheduling queue as a linked list, then the new process must be put in the Ready or Ready/Suspend list.</li>
+<li>Create or expand other data structures. For example, the OS may maintain an accounting file on each process to be used subsequently for billing and/or performance assessment purposes.</li>
+</ol>
 <p>3.12. What is the difference between an interrupt and a trap?</p>
+<p>interrupt: A suspension of a process, such as the execution of a computer program, caused by an event external to that process and performed in such a way that the process can be resumed.</p>
+<p>trap: An unprogrammed conditional jump to a specified address that is automatically activated by hardware; the location from which the jump was made is recorded.</p>
+<table>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 50%" />
+<col style="width: 41%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mechanism</th>
+<th>Cause</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Interrupt</td>
+<td>External to the execution of the current instruction</td>
+<td>Reaction to an asynchronous external event</td>
+</tr>
+<tr class="even">
+<td>Trap</td>
+<td>Associated with the execution of the current instruction</td>
+<td>Handling of an error or an exception condition</td>
+</tr>
+</tbody>
+</table>
 <p>3.13. Give three examples of an interrupt.</p>
+<ul>
+<li>Clock interrupt: The OS determines whether the currently running process has been executing for the maximum allowable unit of time, referred to as a time slice . That is, a time slice is the maximum amount of time that a process can execute before being interrupted. If so, this process must be switched to a Ready state and another process dispatched.</li>
+<li>I/O interrupt: The OS determines what I/O action has occurred. If the I/O action constitutes an event for which one or more processes are waiting, then the OS moves all of the corresponding blocked processes to the Ready state (and Blocked/Suspend processes to the Ready/Suspend state). The OS must then decide whether to resume execution of the process currently in the Running state, or to preempt that process for a higher-priority Ready process.</li>
+<li>Memory fault: The processor encounters a virtual memory address reference for a word that is not in main memory. The OS must bring in the block (page or segment) of memory containing the reference from secondary memory to main memory. After the I/O request is issued to bring in the block of memory, the process with the memory fault is placed in a blocked state; the OS then performs a process switch to resume execution of another process. After the desired block is brought into memory, that process is placed in the Ready state.</li>
+</ul>
 <p>3.14. What is the difference between a mode switch and a process switch?</p>
+<ul>
+<li><p>mode switch: A hardware operation that occurs that causes the processor to execute in a different mode (kernel or process). When the mode switches from process to kernel, the program counter, processor status word, and other registers are saved. When the mode switches from kernel to process, this information is restored.</p></li>
+<li><p>process switch: An operation that switches the processor from one process to another by saving all the process control block, registers, and other information for the first and replacing them with the process information for the second.</p></li>
+</ul>
 <h2 id="threads">Threads</h2>
 <p>4.1. Table 3.5 lists typical elements found in a process control block for an unthreaded OS. Of these, which should belong to a thread control block, and which should belong to a process control block for a multithreaded system?</p>
 <p>4.2. List reasons why a mode switch between threads may be cheaper than a mode switch between processes.</p>
 <p>4.3. What are the two separate and potentially independent characteristics embodied in the concept of process?</p>
+<ol type="1">
+<li>Resource ownership: A process includes a virtual address space to hold the process image; recall from Chapter 3 that the process image is the collection of program, data, stack, and attributes defined in the process control block. From time to time, a process may be allocated control or ownership of resources, such as main memory, I/O channels, I/O devices, and files. The OS performs a protection function to prevent unwanted interference between processes with respect to resources.</li>
+<li>Scheduling/execution: The execution of a process follows an execution path (trace) through one or more programs (e.g., Figure 1.5 ). This execution may be interleaved with that of other processes. Thus, a process has an execution state (Running, Ready, etc.) and a dispatching priority, and is the entity that is scheduled and dispatched by the OS.</li>
+</ol>
 <p>4.4. Give four general examples of the use of threads in a single-user multiprocessing system.</p>
+<ol type="1">
+<li>Foreground and background work: For example, in a spreadsheet program, one thread could display menus and read user input, while another thread executes user commands and updates the spreadsheet. This arrangement often increases the perceived speed of the application by allowing the program to prompt for the next command before the previous command is complete.</li>
+<li>Asynchronous processing: Asynchronous elements in the program can be implemented as threads. For example, as a protection against power failure, one can design a word processor to write its random access memory (RAM) buffer to disk once every minute. A thread can be created whose sole job is periodic backup and that schedules itself directly with the OS; there is no need for fancy code in the main program to provide for time checks or to coordinate input and output.</li>
+<li>Speed of execution: A multithreaded process can compute one batch of data while reading the next batch from a device. On a multiprocessor system, multiple threads from the same process may be able to execute simultaneously. Thus, even though one thread may be blocked for an I/O operation to read in a batch of data, another thread may be executing.</li>
+<li>Modular program structure: Programs that involve a variety of activities or a variety of sources and destinations of input and output may be easier to design and implement using threads.</li>
+</ol>
 <p>4.5. What resources are typically shared by all of the threads of a process?</p>
 <p>4.6. List three advantages of ULTs over KLTs.</p>
+<ol type="1">
+<li>Thread switching does not require kernel-mode privileges because all of the thread management data structures are within the user address space of a single process. Therefore, the process does not switch to the kernel mode to do thread management. This saves the overhead of two mode switches (user to kernel; kernel back to user).</li>
+<li>Scheduling can be application specific. One application may benefit most from a simple round-robin scheduling algorithm, while another might benefit from a priority-based scheduling algorithm. The scheduling algorithm can be tailored to the application without disturbing the underlying OS scheduler.</li>
+<li>ULTs can run on any OS. No changes are required to the underlying kernel to support ULTs. The threads library is a set of application-level functions shared by all applications.</li>
+</ol>
 <p>4.7. List two disadvantages of ULTs compared to KLTs.</p>
+<ol type="1">
+<li>In a typical OS, many system calls are blocking. As a result, when a ULT executes a system call, not only is that thread blocked, but all of the threads within the process are blocked as well.</li>
+<li>In a pure ULT strategy, a multithreaded application cannot take advantage of multiprocessing. A kernel assigns one process to only one processor at a time. Therefore, only a single thread within a process can execute at a time. In effect,we have application-level multiprogramming within a single process. While this multiprogramming can result in a significant speedup of the application, there are applications that would benefit from the ability to execute portions of code simultaneously.</li>
+</ol>
 <p>4.8. Define jacketing.</p>
 <h2 id="concurrency-mutual-exclusion-and-synchronization">Concurrency: Mutual Exclusion and Synchronization</h2>
 <p>5.1. List four design issues for which the concept of concurrency is relevant.</p>

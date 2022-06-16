@@ -29,7 +29,7 @@
 <meta property="og:description" content="Summary of Operating Systems Concepts, Tenth Edition.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-06-15T14:30:57.000Z">
-<meta property="article:modified_time" content="2022-06-15T06:36:49.422Z">
+<meta property="article:modified_time" content="2022-06-16T03:42:56.350Z">
 <meta property="article:author" content="GUO Songxiao">
 <meta property="article:tag" content="Operating Systems">
 <meta name="twitter:card" content="summary">
@@ -274,9 +274,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-06-15 14:30:57 / Modified: 06:36:49" itemprop="dateCreated datePublished" datetime="2022-06-15T14:30:57Z">2022-06-15</time>
+      <time title="Created: 2022-06-15 14:30:57" itemprop="dateCreated datePublished" datetime="2022-06-15T14:30:57Z">2022-06-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-06-16 03:42:56" itemprop="dateModified" datetime="2022-06-16T03:42:56Z">2022-06-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -332,8 +338,41 @@
 <li>Free and open-source operating systems are available in source-code format. Free software is licensed to allow no-cost use, redistribution, and modification. GNU /Linux, F ree BSD , and Solaris are examples of popular open-source systems.</li>
 </ul>
 <h2 id="operating-system-structures">Operating-System Structures</h2>
+<ul>
+<li>An operating system provides an environment for the execution of programs by providing services to users and programs.</li>
+<li>The three primary approaches for interacting with an operating system are (1) command interpreters, (2) graphical user interfaces, and (3) touchscreen interfaces.</li>
+<li>System calls provide an interface to the services made available by an operating system. Programmers use a system call’s application programming interface ( API ) for accessing system-call services.</li>
+<li>System calls can be divided into six major categories: (1) process control, (2) file management, (3) device management, (4) information maintenance, (5) communications, and (6) protection.</li>
+<li>The standard C library provides the system-call interface for UNIX and Linux systems.</li>
+<li>Operating systems also include a collection of system programs that provide utilities to users.</li>
+<li>A linker combines several relocatable object modules into a single binary executable file. A loader loads the executable file into memory, where it becomes eligible to run on an available CPU .</li>
+<li>There are several reasons why applications are operating-system specific. These include different binary formats for program executables, different instruction sets for different CPU s, and system calls that vary from one operating system to another.</li>
+<li>An operating system is designed with specific goals in mind. These goals ultimately determine the operating system’s policies. An operating system implements these policies through specific mechanisms.</li>
+<li>A monolithic operating system has no structure; all functionality is provided in a single, static binary file that runs in a single address space. Although such systems are difficult to modify, their primary benefit is efficiency.</li>
+<li>A layered operating system is divided into a number of discrete layers, where the bottom layer is the hardware interface and the highest layer is the user interface. Although layered software systems have had some success, this approach is generally not ideal for designing operating systems due to performance problems.</li>
+<li>The microkernel approach for designing operating systems uses a minimal kernel; most services run as user-level applications. Communication takes place via message passing.</li>
+<li>A modular approach for designing operating systems provides operating-system services through modules that can be loaded and removed during run time. Many contemporary operating systems are constructed as hybrid systems using a combination of a monolithic kernel and modules.</li>
+<li>A boot loader loads an operating system into memory, performs initialization, and begins system execution.</li>
+<li>The performance of an operating system can be monitored using either counters or tracing. Counters are a collection of system-wide or per-process statistics, while tracing follows the execution of a program through the operating system.</li>
+</ul>
 <h1 id="process-management">PROCESS MANAGEMENT</h1>
 <h2 id="processes">Processes</h2>
+<ul>
+<li>A process is a program in execution, and the status of the current activity of a process is represented by the program counter, as well as other registers.</li>
+<li>The layout of a process in memory is represented by four different sections: (1) text, (2) data, (3) heap, and (4) stack.</li>
+<li>As a process executes, it changes state. There are four general states of a process: (1) ready, (2) running, (3) waiting, and (4) terminated.</li>
+<li>A process control block ( PCB ) is the kernel data structure that represents a process in an operating system.</li>
+<li>The role of the process scheduler is to select an available process to run on a CPU .</li>
+<li>An operating system performs a context switch when it switches from running one process to running another.</li>
+<li>The fork() and CreateProcess() system calls are used to create processes on UNIX and Windows systems, respectively.</li>
+<li>When shared memory is used for communication between processes, two (or more) processes share the same region of memory. POSIX provides an API for shared memory.</li>
+<li>Two processes may communicate by exchanging messages with one another using message passing. The Mach operating system uses message passing as its primary form of interprocess communication. Windows provides a form of message passing as well.</li>
+<li>A pipe provides a conduit for two processes to communicate. There are two forms of pipes, ordinary and named. Ordinary pipes are designed for communication between processes that have a parent–child relationship. Named pipes are more general and allow several processes to communicate.</li>
+<li>UNIX systems provide ordinary pipes through the pipe() system call. Ordinary pipes have a read end and a write end. A parent process can, for example, send data to the pipe using its write end, and the child process can read it from its read end. Named pipes in UNIX are termed FIFO s.</li>
+<li>Windows systems also provide two forms of pipes—anonymous and named pipes. Anonymous pipes are similar to UNIX ordinary pipes. They are unidirectional and employ parent–child relationships between the communicating processes. Named pipes offer a richer form of interprocess communication than the UNIX counterpart, FIFO s.</li>
+<li>Two common forms of client–server communication are sockets and remote procedure calls ( RPC s). Sockets allow two processes on different machines to communicate over a network. RPC s abstract the concept of function (procedure) calls in such a way that a function can be invoked on another process that may reside on a separate computer.</li>
+<li>The Android operating system uses RPC s as a form of interprocess communication using its binder framework.</li>
+</ul>
 <h2 id="threads-concurrency">Threads &amp; Concurrency</h2>
 <h2 id="cpu-scheduling">CPU Scheduling</h2>
 <h1 id="process-synchronization">PROCESS SYNCHRONIZATION</h1>
