@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/osidp-4-1-1.png">
 <meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/osidp-4-1-2.png">
 <meta property="article:published_time" content="2022-06-15T10:55:57.000Z">
-<meta property="article:modified_time" content="2022-06-16T06:32:20.062Z">
+<meta property="article:modified_time" content="2022-06-16T09:25:22.492Z">
 <meta property="article:author" content="GUO Songxiao">
 <meta property="article:tag" content="Operating Systems">
 <meta name="twitter:card" content="summary">
@@ -288,7 +288,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-16 06:32:20" itemprop="dateModified" datetime="2022-06-16T06:32:20Z">2022-06-16</time>
+      <time title="Modified: 2022-06-16 09:25:22" itemprop="dateModified" datetime="2022-06-16T09:25:22Z">2022-06-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -718,28 +718,94 @@
 </ol>
 <h2 id="concurrency-deadlock-and-starvation">Concurrency: Deadlock and Starvation</h2>
 <p>6.1. Give examples of reusable and consumable resources.</p>
+<ul>
+<li><p>Examples of reusable resources include processors, I/O channels, main and secondary memory, devices, and data structures (such as files, databases, and semaphores).</p></li>
+<li><p>Examples of consumable resources are interrupts, signals, messages, and information in I/O buffers.</p></li>
+</ul>
 <p>6.2. What are the three conditions that must be present for deadlock to be possible?</p>
+<ol type="1">
+<li>Mutual exclusion. Only one process may use a resource at a time. No process may access a resource unit that has been allocated to another process.</li>
+<li>Hold and wait. A process may hold allocated resources while awaiting assignment of other resources.</li>
+<li>No preemption. No resource can be forcibly removed from a process holding it.</li>
+</ol>
 <p>6.3. What are the four conditions that create deadlock?</p>
+<ol type="1">
+<li>Mutual exclusion. Only one process may use a resource at a time. No process may access a resource unit that has been allocated to another process.</li>
+<li>Hold and wait. A process may hold allocated resources while awaiting assignment of other resources.</li>
+<li><p>No preemption. No resource can be forcibly removed from a process holding it.</p></li>
+<li><p>Circular wait. A closed chain of processes exists, such that each process holds at least one resource needed by the next process in the chain .</p></li>
+</ol>
 <p>6.4. How can the hold-and-wait condition be prevented?</p>
+<p>The hold-and-wait condition can be prevented by requiring that a process request all of its required resources at one time and blocking the process until all requests can be granted simultaneously.</p>
 <p>6.5. List two ways in which the no-preemption condition can be prevented.</p>
+<ul>
+<li>First, if a process holding certain resources is denied a further request, that process must release its original resources and, if necessary, request them again together with the additional resource.</li>
+<li>Alternatively, if a process requests a resource that is currently held by another process, the OS may preempt the second process and require it to release its resources.</li>
+<li>This latter scheme would prevent deadlock only if no two processes possessed the same priority.</li>
+</ul>
 <p>6.6. How can the circular wait condition be prevented?</p>
+<p>The circular wait condition can be prevented by defining a linear ordering of resource types.</p>
 <p>6.7. What is the difference among deadlock avoidance, detection, and prevention?</p>
+<ul>
+<li>Deadlock avoidance: A dynamic technique that examines each new resource request for deadlock. If the new request could lead to a deadlock, then the request is denied.</li>
+<li>Deadlock detection: A technique in which requested resources are always granted when available. Periodically, the operating system tests for deadlock.</li>
+<li>Deadlock prevention: A technique that guarantees that a deadlock will not occur. Prevention is achieved by assuring that one of the necessary conditions for deadlock is not met.</li>
+</ul>
 <h1 id="memory">Memory</h1>
 <h2 id="memory-management">Memory Management</h2>
 <p>7.1. What requirements is memory management intended to satisfy?</p>
+<p>Relocation, Protection, Sharing, Logical organization, and Physical organization.</p>
 <p>7.2. Why is the capability to relocate processes desirable?</p>
+<p>Typically, it is not possible for the programmer to know in advance which other programs will be resident in main memory at the time of execution of the program. In addition, we would like to be able to swap active processes in and out of main memory to maximize processor utilization by providing a large pool of ready processes to execute.</p>
 <p>7.3. Why is it not possible to enforce memory protection at compile time?</p>
+<p>Because the location of a program in main memory is unpredictable.</p>
 <p>7.4. What are some reasons to allow two or more processes to all have access to a particular region of memory?</p>
+<ul>
+<li>It is advantageous to allow each process to access the same copy of the program, rather than have its own separate copy.</li>
+<li>Processes that are cooperating on some task may need to share access to the same data structure.</li>
+</ul>
 <p>7.5. In a fixed partitioning scheme, what are the advantages of using unequal-size partitions?</p>
+<ol type="1">
+<li>The number of partitions specified at system generation time limits the number of active (not suspended) processes in the system.</li>
+<li>Because partition sizes are preset at system generation time, small jobs will not utilize partition space efficiently. In an environment where the main storage requirement of all jobs is known beforehand, this may be reasonable, but in most cases, it is an inefficient technique.</li>
+</ol>
 <p>7.6. What is the difference between internal and external fragmentation?</p>
+<ul>
+<li><p>Internal fragmentation: Occurs when memory is divided into fixed-size partitions (e.g., page frames in main memory, physical blocks on disk). If a block of data is assigned to one or more partitions, then there may be wasted space in the last partition. This will occur if the last portion of data is smaller than the last partition.</p></li>
+<li><p>External fragmentation: Occurs when memory is divided into variable-size partitions corresponding to the blocks of data assigned to the memory (e.g., segments in main memory). As segments are moved into and out of the memory, gaps will occur between the occupied portions of memory.</p></li>
+</ul>
 <p>7.7. What are the distinctions among logical, relative, and physical addresses?</p>
+<ul>
+<li>Logical address: A reference to a memory location independent of the current assignment of data to memory. A translation must be made to a physical address before the memory access can be achieved.</li>
+<li>Relative address: An address calculated as a displacement from a base address.</li>
+<li>Physical address: The absolute location of a unit of data in memory (e.g., word or byte in main memory, block on secondary memory).</li>
+</ul>
 <p>7.8. What is the difference between a page and a frame?</p>
+<ul>
+<li><p>Page: In virtual storage, a fixed-length block that has a virtual address and is transferred as a unit between main memory and secondary memory.</p></li>
+<li><p>Frame: In paged virtual storage, a fixed-length block of main memory that is used to hold one page of virtual memory.</p></li>
+</ul>
 <p>7.9. What is the difference between a page and a segment?</p>
+<ul>
+<li>Page: In virtual storage, a fixed-length block that has a virtual address and is transferred as a unit between main memory and secondary memory.</li>
+<li>Segment: In virtual memory, a block that has a virtual address. The blocks of a program may be of unequal length, and may even be of dynamically varying lengths.</li>
+</ul>
 <h2 id="virtual-memory">Virtual Memory</h2>
 <p>8.1. What is the difference between simple paging and virtual memory paging?</p>
+<ul>
+<li><p>Simple paging: All the pages of a process must be in main memory for process to run, unless overlays are used.</p></li>
+<li><p>Virtual memory paging: Not all pages of a process need be in main memory frames for the process to run; pages may be read in as needed.</p></li>
+</ul>
 <p>8.2. Explain thrashing.</p>
+<p>A phenomenon in virtual memory schemes, in which the processor spends most of its time swapping pieces rather than executing instructions.</p>
 <p>8.3. Why is the principle of locality crucial to the use of virtual memory?</p>
+<p>To summarize, the principle of locality states that program and data references within a process tend to cluster. Hence, the assumption that only a few pieces of a process will be needed over a short period of time is valid. Also, it should be possible to make intelligent guesses about which pieces of a process will be needed in the near future, which avoids thrashing.</p>
 <p>8.4. What elements are typically found in a page table entry? Briefly define each element.</p>
+<ul>
+<li>The frame number, which tells the corresponding page in main memory.</li>
+<li>A modify (M) bit, which indicates whether the contents of the corresponding page have been altered since the page was last loaded into main memory.</li>
+<li>A present (P) bit, which indicates whether the corresponding page is in main memory or not.</li>
+</ul>
 <p>8.5. What is the purpose of a translation lookaside buffer?</p>
 <p>8.6. Briefly define the alternative page fetch policies.</p>
 <p>8.7. What is the difference between resident set management and page replacement policy?</p>
@@ -753,14 +819,6 @@
 <p>9.1. Briefly describe the three types of processor scheduling.</p>
 <p>9.2. What is usually the critical performance requirement in an interactive operating system?</p>
 <p>9.3. What is the difference between turnaround time and response time?</p>
-<p>9.4. For process scheduling, does a low-priority value represent a low priority or a high priority?</p>
-<p>9.5. What is the difference between preemptive and nonpreemptive scheduling?</p>
-<p>9.6. Briefly define FCFS scheduling.</p>
-<p>9.7. Briefly define round-robin scheduling.</p>
-<p>9.8. Briefly define shortest-process-next scheduling.</p>
-<p>9.9. Briefly define shortest-remaining-time scheduling.</p>
-<p>9.10. Briefly define highest-response-ratio-next scheduling.</p>
-<p>9.11. Briefly define feedback scheduling.</p>
 <h2 id="multiprocessor-multicore-and-real-time-scheduling">Multiprocessor, Multicore, and Real-Time Scheduling</h2>
 <p>10.1. List and briefly define five different categories of synchronization granularity.</p>
 <p>10.2. List and briefly define four techniques for thread scheduling.</p>
