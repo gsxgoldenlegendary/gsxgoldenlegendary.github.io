@@ -33,8 +33,12 @@
 <meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/osidp4-1-0.png">
 <meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/osidp4-1-1.png">
 <meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/osidp4-1-2.png">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/osidp11-6-0.png">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/osidp11-7-0.png">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/osidp11-7-1.png">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/osidp11-7-2.png">
 <meta property="article:published_time" content="2022-06-15T10:55:57.000Z">
-<meta property="article:modified_time" content="2022-06-16T11:53:55.184Z">
+<meta property="article:modified_time" content="2022-06-16T13:28:27.862Z">
 <meta property="article:author" content="GUO Songxiao">
 <meta property="article:tag" content="Operating Systems">
 <meta name="twitter:card" content="summary">
@@ -288,7 +292,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-16 11:53:55" itemprop="dateModified" datetime="2022-06-16T11:53:55Z">2022-06-16</time>
+      <time title="Modified: 2022-06-16 13:28:27" itemprop="dateModified" datetime="2022-06-16T13:28:27Z">2022-06-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -314,14 +318,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>39k</span>
+      <span>49k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>36 mins.</span>
+      <span>44 mins.</span>
     </span>
 </div>
 
@@ -858,34 +862,155 @@
 <li>Short-term scheduling: The decision as to which available process will be executed by the processor.</li>
 </ul>
 <p>9.2. What is usually the critical performance requirement in an interactive operating system?</p>
+<p>Adequate response time.</p>
 <p>9.3. What is the difference between turnaround time and response time?</p>
+<ul>
+<li>Turnaround time: Total time in system, waiting plus execution.</li>
+<li>Response time: In a data system, the elapsed time between the end of transmission of an enquiry message and the beginning of the receipt of a response message, measured at the enquiry terminal.</li>
+</ul>
 <p>9.4. For process scheduling, does a low-priority value represent a low priority or a high priority?</p>
+<ul>
+<li><p>In UNIX and many other systems, larger-priority values represent lower-priority processes; unless otherwise stated we follow that convention.</p></li>
+<li><p>Some systems, such as Windows, use the opposite convention: a higher number means a higher priority.</p></li>
+</ul>
 <p>9.5. What is the difference between preemptive and nonpreemptive scheduling?</p>
+<ul>
+<li><p>Preemptive: The currently running process may be interrupted and moved to the Ready state by the OS. The decision to preempt may be performed when a new process arrives, when an interrupt occurs that places a blocked process in the Ready state, or periodically, based on a clock interrupt.</p></li>
+<li><p>Nonpreemptive: In this case, once a process is in the Running state, it continues to execute until (a) it terminates or (b) it blocks itself to wait for I/O or to request some OS service.</p></li>
+</ul>
 <p>9.6. Briefly define FCFS scheduling.</p>
+<p>A queueing technique in which the next item to be retrieved is the item that has been in the queue for the longest time.</p>
 <p>9.7. Briefly define round-robin scheduling.</p>
+<p>A clock interrupt is generated at periodic intervals. When the interrupt occurs, the currently running process is placed in the ready queue, and the next ready job is selected on a FCFS basis.</p>
 <p>9.8. Briefly define shortest-process-next scheduling.</p>
+<p>This is a nonpreemptive policy in which the process with the shortest expected processing time is selected next.</p>
 <p>9.9. Briefly define shortest-remaining-time scheduling.</p>
+<p>In this case, the scheduler always chooses the process that has the shortest expected remaining processing time. When a new process joins the ready queue, it may in fact have a shorter remaining time than the currently running process. Accordingly, the scheduler may preempt the current process when a new process becomes ready.</p>
 <p>9.10. Briefly define highest-response-ratio-next scheduling.</p>
+<p>When the current process completes or is blocked, choose the ready process with the greatest value of R. R=(w+s)/s, R = response ratio, w = time spent waiting for the processor, and s = expected service time.</p>
 <p>9.11. Briefly define feedback scheduling.</p>
+<p>The way to do this is as follows. Scheduling is done on a preemptive (at time quantum) basis, and a dynamic priority mechanism is used. When a process first enters the system, it is placed in RQ0. After its first preemption, when it returns to the Ready state, it is placed in RQ1. Each subsequent time that it is preempted, it is demoted to the next lower-priority queue. A short process will complete quickly, without migrating very far down the hierarchy of ready queues. A longer process will gradually drift downward. Thus, newer, shorter processes are favored over older, longer processes. Within each queue, except the lowest-priority queue, a simple FCFS mechanism is used. Once in the lowest-priority queue, a process cannot go lower, but is returned to this queue repeatedly until it completes execution.</p>
 <h2 id="multiprocessor-multicore-and-real-time-scheduling">Multiprocessor, Multicore, and Real-Time Scheduling</h2>
 <p>10.1. List and briefly define five different categories of synchronization granularity.</p>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 54%" />
+<col style="width: 35%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Grain Size</th>
+<th>Description</th>
+<th>Synchronization Interval (Instructions)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Fine</td>
+<td>Parallelism inherent in a single instruction stream</td>
+<td>&lt; 20</td>
+</tr>
+<tr class="even">
+<td>Medium</td>
+<td>Parallel processing or multitasking within a single application</td>
+<td>20–200</td>
+</tr>
+<tr class="odd">
+<td>Coarse</td>
+<td>Multiprocessing of concurrent processes in a multiprogramming environment</td>
+<td>200–2,000</td>
+</tr>
+<tr class="even">
+<td>Very Coarse</td>
+<td>Distributed processing across network nodes to form a single computing environment</td>
+<td>2,000–1M</td>
+</tr>
+<tr class="odd">
+<td>Independent</td>
+<td>Multiple unrelated processes</td>
+<td>Not applicable</td>
+</tr>
+</tbody>
+</table>
 <p>10.2. List and briefly define four techniques for thread scheduling.</p>
+<ol type="1">
+<li>Load sharing: Processes are not assigned to a particular processor. A global queue of ready threads is maintained, and each processor, when idle, selects a thread from the queue.</li>
+<li>Gang scheduling: A set of related threads is scheduled to run on a set of processors at the same time, on a one-to-one basis.</li>
+<li>Dedicated processor assignment: This is the opposite of the load-sharing approach and provides implicit scheduling defined by the assignment of threads to processors. Each program, for the duration of its execution, is allocated a number of processors equal to the number of threads in the program. When the program terminates, the processors return to the general pool for possible allocation to another program.</li>
+<li>Dynamic scheduling: The number of threads in a process can be altered during the course of execution.</li>
+</ol>
 <p>10.3. List and briefly define three versions of load sharing.</p>
+<ol type="1">
+<li>First-come-first-served (FCFS): When a job arrives, each of its threads is placed consecutively at the end of the shared queue. When a processor becomes idle, it picks the next ready thread, which it executes until completion or blocking.</li>
+<li>Smallest number of threads first: The shared ready queue is organized as a priority queue, with highest priority given to threads from jobs with the smallest number of unscheduled threads. Jobs of equal priority are ordered according to which job arrives first. As with FCFS, a scheduled thread is run to completion or blocking.</li>
+<li>Preemptive smallest number of threads first: Highest priority is given to jobs with the smallest number of unscheduled threads. An arriving job with a smaller number of threads than an executing job will preempt threads belonging to the scheduled job.</li>
+</ol>
 <p>10.4. What is the difference between hard and soft real-time tasks?</p>
+<ul>
+<li>A hard real-time task is one that must meet its deadline; otherwise it will cause unacceptabledamage or a fatal error to the system.</li>
+<li>A soft real-time task has an associated deadline that is desirable but not mandatory; it still makes sense to schedule and complete the task even if it has passed its deadline.</li>
+</ul>
 <p>10.5. What is the difference between periodic and aperiodic real-time tasks?</p>
+<ul>
+<li>An aperiodic task has a deadline by which it must finish or start, or it may have a constraint on both start and finish time.</li>
+<li>In the case of a periodic task, the requirement may be stated as “once per period T” or “exactly T units apart.”</li>
+</ul>
 <p>10.6. List and briefly define five general areas of requirements for a real-time operating system.</p>
+<p>Determinism, Responsiveness, User control, Reliability, and Fail-soft operation.</p>
 <p>10.7. List and briefly define four classes of real-time scheduling algorithms.</p>
+<ul>
+<li>Static table-driven approaches: These perform a static analysis of feasible schedules of dispatching. The result of the analysis is a schedule that determines, at run time, when a task must begin execution.</li>
+<li>Static priority-driven preemptive approaches: Again, a static analysis is performed, but no schedule is drawn up. Rather, the analysis is used to assign priorities to tasks, so a traditional priority-driven preemptive scheduler can be used.</li>
+<li>Dynamic planning-based approaches: Feasibility is determined at run time (dynamically) rather than offline prior to the start of execution (statically). An arriving task is accepted for execution only if it is feasible to meet its time constraints. One ofthe results of the feasibility analysis is a schedule or plan that is used to decide when to dispatch this task.</li>
+<li>Dynamic best effort approaches: No feasibility analysis is performed. The system tries to meet all deadlines and aborts any started process whose deadline is missed.</li>
+</ul>
 <p>10.8. What items of information about a task might be useful in real-time scheduling?</p>
+<ul>
+<li>Ready time: Time at which task becomes ready for execution. In the case of a repetitive or periodic task, this is actually a sequence of times that is known in advance. In the case of an aperiodic task, this time may be known in advance, or the operating system may only be aware when the task is actually ready.</li>
+<li>Starting deadline: Time by which a task must begin.</li>
+<li>Completion deadline: Time by which a task must be completed. The typical real-time application will either have starting deadlines or completion deadlines, but not both.</li>
+<li>Processing time: Time required to execute the task to completion. In some cases, this is supplied. In others, the operating system measures an exponential average (as defined in Chapter 9 ). For still other scheduling systems, this information is not used.</li>
+<li>Resource requirements: Set of resources (other than the processor) required by the task while it is executing.</li>
+<li>Priority: Measures relative importance of the task. Hard real-time tasks may have an “absolute” priority, with the system failing if a deadline is missed. If the system is to continue to run no matter what, then both hard and soft real-time tasks may be assigned relative priorities as a guide to the scheduler.</li>
+<li>Subtask structure: A task may be decomposed into a mandatory subtask and an optional subtask. Only the mandatory subtask possesses a hard deadline.</li>
+</ul>
 <h1 id="inputoutput-and-files">Input/Output and Files</h1>
 <h2 id="io-management-and-disk-scheduling">I/O Management and Disk Scheduling</h2>
 <p>11.1. List and briefly define three techniques for performing I/O.</p>
+<ul>
+<li>Programmed I/O: The processor issues an I/O command, on behalf of a process, to an I/O module; that process then busy waits for the operation to be completed before proceeding.</li>
+<li>Interrupt-driven I/O: The processor issues an I/O command on behalf of a process. There are then two possibilities. If the I/O instruction from the process is nonblocking, then the processor continues to execute instructions from the process that issued the I/O command. If the I/O instruction is blocking, then the next instruction that the processor executes is from the OS, which will put the current process in a blocked state and schedule another process.</li>
+<li>Direct memory access (DMA): A DMA module controls the exchange of data between main memory and an I/O module. The processor sends a request for the transfer of a block of data to the DMA module, and is interrupted only after the entire block has been transferred.</li>
+</ul>
 <p>11.2. What is the difference between logical I/O and device I/O?</p>
-<p>11.3. What is the difference between block-oriented devices and stream- oriented devices? Give a few examples of each.</p>
+<ul>
+<li>Logical I/O: The logical I/O module deals with the device as a logical resource and is not concerned with the details of actually controlling the device. The logical I/O module is concerned with managing general I/O functions on behalf of user processes, allowing them to deal with the device in terms of a device identifier and simple commands such as open, close, read, and write.</li>
+<li>Device I/O: The requested operations and data (buffered characters, records, etc.) are converted into appropriatesequences of I/O instructions, channel commands, and controller orders. Buffering techniques may be used to improve utilization.</li>
+</ul>
+<p>11.3. What is the difference between block-oriented devices and stream-oriented devices? Give a few examples of each.</p>
+<ul>
+<li>A block-oriented device stores information in blocks that are usually of fixed size, and transfers are made one block at a time. Generally, it is possible to reference data by its block number. Disks and USB keys are examples of block- oriented devices.</li>
+<li>A stream-oriented device transfers data in and out as a stream of bytes, with no block structure. Terminals, printers, communications ports, mouse and other pointing devices, and most other devices that are not secondary storage are stream-oriented.</li>
+</ul>
 <p>11.4. Why would you expect improved performance using a double buffer rather than a single buffer for I/O?</p>
+<p>Double buffering is a programming technique that uses two buffers to speed up a computer that can overlap input output with processing. Data in one buffer are being processed while the next set of data is read into the other one.</p>
 <p>11.5. What delay elements are involved in a disk read or write?</p>
+<p>Seek Time. Rotational Delay. and Transfer time.</p>
 <p>11.6. Briefly define the disk scheduling policies illustrated in Figure 11.7 .</p>
+<p><img src="https://gsxgoldenlegendary.github.io/images/osidp11-6-0.png" /></p>
+<ul>
+<li><p>First-In-First-Out: The simplest form of scheduling is first-in-first-out (FIFO) scheduling, which processes items from the queue in sequential order. This strategy has the advantage of being fair, because every request is honored, and the requests are honored in the order received.</p></li>
+<li>Shortest-Service-Time-First: The shortest-service-time-first (SSTF) policy is to select the disk I/O request that requires the least movement of the disk arm from its current position.</li>
+<li>SCAN: With SCAN, the arm is required to move in one direction only, satisfying all outstanding requests en route, until it reaches the last track in that direction or until there are no more requests in that direction. This latter refinement is sometimes referred to as the LOOK policy. The service direction is then reversed and the scan proceeds in the opposite direction, again picking up all requests in order.</li>
+<li><p>C-SCAN: The C-SCAN (circular SCAN) policy restricts scanning to one direction only. Thus, when the last track has been visited in one direction, the arm is returned to the opposite end of the disk and the scan begins again.</p></li>
+</ul>
 <p>11.7. Briefly define the seven RAID levels.</p>
+<p><img src="https://gsxgoldenlegendary.github.io/images/osidp11-7-0.png" /></p>
+<p><img src="https://gsxgoldenlegendary.github.io/images/osidp11-7-1.png" /></p>
+<p><img src="https://gsxgoldenlegendary.github.io/images/osidp11-7-2.png" /></p>
 <p>11.8. What is the typical disk sector size?</p>
+<p>512 bytes.</p>
 <h2 id="file-management">File Management</h2>
 <p>12.1. What is the difference between a field and a record?</p>
 <p>12.2. What is the difference between a file and a database?</p>
@@ -1110,14 +1235,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Symbols count total: </span>
-    <span title="Symbols count total">257k</span>
+    <span title="Symbols count total">266k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">3:53</span>
+    <span title="Reading time total">4:02</span>
   </span>
 </div>
 <div class="busuanzi-count">
