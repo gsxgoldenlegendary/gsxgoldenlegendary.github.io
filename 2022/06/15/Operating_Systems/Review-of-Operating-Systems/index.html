@@ -37,8 +37,9 @@
 <meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/Operating_Systems/osidp11-7-0.png">
 <meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/Operating_Systems/osidp11-7-1.png">
 <meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/Operating_Systems/osidp11-7-2.png">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/Operating_Systems/osidp11-7-2.png">
 <meta property="article:published_time" content="2022-06-15T10:55:57.000Z">
-<meta property="article:modified_time" content="2022-06-16T13:32:37.226Z">
+<meta property="article:modified_time" content="2022-06-17T02:41:26.723Z">
 <meta property="article:author" content="GUO Songxiao">
 <meta property="article:tag" content="Operating Systems">
 <meta name="twitter:card" content="summary">
@@ -292,7 +293,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-06-16 13:32:37" itemprop="dateModified" datetime="2022-06-16T13:32:37Z">2022-06-16</time>
+      <time title="Modified: 2022-06-17 02:41:26" itemprop="dateModified" datetime="2022-06-17T02:41:26Z">2022-06-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -318,14 +319,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>49k</span>
+      <span>69k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>44 mins.</span>
+      <span>1:03</span>
     </span>
 </div>
 
@@ -1013,53 +1014,203 @@
 <p>512 bytes.</p>
 <h2 id="file-management">File Management</h2>
 <p>12.1. What is the difference between a field and a record?</p>
+<ul>
+<li><p>Field: (1) Defined logical data that are part of a record. (2) The elementary unit of a record that may contain a data item, a data aggregate, a pointer, or a link.</p></li>
+<li><p>Record: A group of data elements treated as a unit.</p></li>
+</ul>
 <p>12.2. What is the difference between a file and a database?</p>
+<ul>
+<li><p>File: A set of related records treated as a unit.</p></li>
+<li><p>Database: A collection of interrelated data, often with controlled redundancy, organized according to a schema to serve one or more applications; the data are stored so they can be used by different programs without concern for the data structure or organization. A common approach is used to add new data, and to modify and retrieve existing data.</p></li>
+</ul>
 <p>12.3. What is a file management system?</p>
+<p>A set of system software that provides services to users and applications in the use of files, including file access, directory maintenance, and access control.</p>
 <p>12.4. What criteria are important in choosing a file organization?</p>
+<p>Short access time. Ease of update. Economy of storage. Simple maintenance. and Reliability.</p>
 <p>12.5. List and briefly define five file organizations.</p>
+<ol type="1">
+<li>The pile: Data are collected in the order in which they arrive. Each record consists of one burst of data. The purpose of the pile is simply to accumulate the mass of data and save it. The purpose of the pile is simply to accumulate the mass of data and save it. Records may have different fields, or similar fields in different orders. Thus, each field should be self-describing, including a field name as well as a value. The length of each field must be implicitly indicated by delimiters, explicitly included as a subfield, or known as default for that field type.</li>
+<li>The sequential file: In this type of file, a fixed format is used for records. All records are of the same length, consisting of the same number of fixed-length fields in a particular order. Because the length and position of each field are known, only the values of fields need to be stored; the field name and length for each field are attributes of the file structure.</li>
+<li>The indexed sequential file: The indexed sequential file maintains the key characteristic of the sequential file: Records are organized in sequence based on a key field. Two features are added: an index to the file to support random access, and an overflow file. The index provides a lookup capability to reach quickly the vicinity of a desired record. The overflow file is similar to the log file used with a sequential file but is integrated so a record in the overflow file is located by following a pointer from its predecessor record.</li>
+<li>The indexed file: The indexed sequential file retains one limitation of the sequential file: Effective processing is limited to that which is based on a single field of the file. For example, when it is necessary to search for a record on the basis of some other attribute than the key field, both forms of sequential file are inadequate. In some applications, the flexibility of efficiently searching by various attributes is desirable.</li>
+<li>The direct, or hashed, file: The direct, or hashed, file exploits the capability found on disks to access directly any block of a known address. As with sequential and indexed sequential files, a key field is required in each record. However, there is no concept of sequential ordering here.</li>
+</ol>
 <p>12.6. Why is the average search time to find a record in a file less for an indexed sequential file than for a sequential file?</p>
+<p>The index provides a lookup capability to reach quickly the vicinity of a desired record, something the sequential file does not have.</p>
 <p>12.7. What are typical operations that may be performed on a directory?</p>
+<ul>
+<li>Search: When a user or application references a file, the directory must be searched to find the entry corresponding to that file.</li>
+<li>Create file: When a new file is created, an entry must be added to the directory.</li>
+<li>Delete file: When a file is deleted, an entry must be removed from the directory.</li>
+<li>List directory: All or a portion of the directory may be requested. Generally, this request is made by a user and results in a listing of all files owned by that user, plus some of the attributes of each file (e.g., type, access control information, usage information).</li>
+<li>Update directory: Because some file attributes are stored in the directory, a change in one of these attributes requires a change in the corresponding directory entry.</li>
+</ul>
 <p>12.8. What is the relationship between a pathname and a working directory?</p>
+<p>The working directory enables files to be referenced relative to it, so that the entire pathname does not have to be spelled out each time you try to access a particular file.</p>
 <p>12.9. What are typical access rights that may be granted or denied to a particular user for a particular file?</p>
+<ul>
+<li>None: The user may not even learn of the existence of the file, much less access it. To enforce this restriction, the user would not be allowed to read the user directory that includes this file.</li>
+<li>Knowledge: The user can determine that the file exists and who its owner is. The user is then able to petition the owner for additional access rights.</li>
+<li>Execution: The user can load and execute a program but cannot copy it. Proprietary programs are often made accessible with this restriction.</li>
+<li>Reading: The user can read the file for any purpose, including copying and execution. Some systems are able to enforce a distinction between viewing and copying. In the former case, the contents of the file can be displayed to the user, but the user has no means for making a copy.</li>
+<li>Appending: The user can add data to the file, often only at the end, but cannot modify or delete any of the file’s contents. This right is useful in collecting data from a number of sources.Updating: The user can modify, delete, and add to the file’s data. This normally includes writing the file initially, rewriting it completely or in part, and removing all or a portion of the data. Some systems distinguish among different degrees of updating.</li>
+<li>Changing protection: The user can change the access rights granted to other users. Typically, this right is held only by the owner of the file. In some systems, the owner can extend this right to others. To prevent abuse of this mechanism, the file owner will typically be able to specify which rights can be changed by the holder of this right.</li>
+<li>Deletion: The user can delete the file from the file system.</li>
+</ul>
 <p>12.10. List and briefly define three blocking methods.</p>
+<ol type="1">
+<li>Fixed blocking: Fixed-length records are used, and an integral number of records are stored in a block. There may be unused space at the end of each block. This is referred to as internal fragmentation.</li>
+<li>Variable-length spanned blocking: Variable-length records are used and are packed into blocks with no unused space. Thus, some records must span two blocks, with the continuation indicated by a pointer to the successor block.</li>
+<li>Variable-length unspanned blocking: Variable-length records are used, but spanning is not employed. There is wasted space in most blocks because of the inability to use the remainder of a block if the next record is larger than the remaining unused space.</li>
+</ol>
 <p>12.11. List and briefly define three file allocation methods.</p>
+<ol type="1">
+<li>First fit: Choose the first unused contiguous group of blocks of sufficient size from a free block list.</li>
+<li>Best fit: Choose the smallest unused group that is of sufficient size.</li>
+<li>Nearest fit: Choose the unused group of sufficient size that is closest to the previous allocation for the file to increase locality.</li>
+</ol>
 <h1 id="embedded-systems">Embedded Systems</h1>
 <h2 id="embedded-operating-systems">Embedded Operating Systems</h2>
 <p>13.1. What is an embedded system?</p>
+<p>The term embedded system refers to the use of electronics and software within a product that has a specific function or set of functions, as opposed to a general-purpose computer, such as a laptop or desktop system.</p>
 <p>13.2. What are some typical requirements or constraints on embedded systems?</p>
+<ul>
+<li>There may be a variety of interfaces that enable the system to measure, manipulate, and otherwise interact with the external environment. Embedded systems often interact (sense, manipulate, and communicate) with the external world through sensors and actuators, and hence are typically reactive systems; a reactive system is in continual interaction with the environment and executes at a pace determined by that environment.</li>
+<li>The human interface may be as simple as a flashing light or as complicated as real-time robotic vision. In many cases, there is no human interface.</li>
+<li>The diagnostic port may be used for diagnosing the system that is being controlled—not just for diagnosing the computer.</li>
+<li>Special-purpose field programmable (FPGA), application-specific (ASIC), or even nondigital hardware may be used to increase performance or reliability.</li>
+<li>Software often has a fixed function and is specific to the application.</li>
+<li>Efficiency is of paramount importance for embedded systems. These systems are optimized for energy, code size, execution time, weight and dimensions, and cost.</li>
+</ul>
 <p>13.3. What is an embedded OS?</p>
+<p>A special-purpose OS designed for the embedded system environment. It is meant to handle constraints of memory space, power consumption, and real-time requirements for the embedded system environment.</p>
 <p>13.4. What are some of the key characteristics of an embedded OS?</p>
+<ul>
+<li>Real-time operation: In many embedded systems, the correctness of a computation depends, in part, on the time at which it is delivered. Often, real-time constraints are dictated by external I/O and control stability requirements.</li>
+<li>Reactive operation: Embedded software may execute in response to external events. If these events do not occur periodically or at predictable intervals, the embedded software may need to take into account worst-case conditions and set priorities for execution of routines.</li>
+<li>Configurability: Because of the large variety of embedded systems, there is a large variation in the requirements, both qualitative and quantitative, for embedded OS functionality. Thus, an embedded OS intended for use on a variety of embedded systems must lend itself to flexible configuration so only the functionality needed for a specific application and hardware suite is provided.</li>
+<li>I/O device flexibility: There is virtually no device that needs to be supported by all versions of the OS, and the range of I/O devices is large.</li>
+<li>Streamlined protection mechanisms: Embedded systems are typically designed for a limited, well-defined functionality. Untested programs are rarely added to the software. After the software has been configured and tested, it can be assumed to be reliable. Thus, apart from security measures, embedded systems have limited protection mechanisms. For example, I/O instructions need not be privileged instructions that trap to theOS; tasks can directly perform their own I/O. Similarly, memory protection mechanisms can be minimized.</li>
+<li>Direct use of interrupts: General-purpose operating systems typically do not permit any user process to use interrupts directly.</li>
+</ul>
 <p>13.5. Explain the relative advantages and disadvantages of an embedded OS based on an existing commercial OS compared to a purpose-built embedded OS.</p>
+<ul>
+<li><p>Advantages: The embedded OS derived from a commercial general-purpose OS is based on a set of familiar interfaces, which facilitates portability.</p></li>
+<li>Disadvantages:
+<ul>
+<li>Such operating systems are typically slower and less predictable than a special-purpose embedded OS.</li>
+<li>The disadvantage of using a general-purpose OS is that it is not optimized for real-time and embedded applications. Thus, considerable modification may be required to achieve adequate performance. In particular, a typical OS optimizes for the average case rather than the worst case for scheduling, usually assigns resources on demand, and ignores most if not all semantic information about an application.</li>
+</ul></li>
+</ul>
 <p>13.6. What is the target application for TinyOS?</p>
+<p>TinyOS was developed primarily for use with networks of small wireless sensors.</p>
 <p>13.7. What are the design goals for TinyOS?</p>
+<ul>
+<li>Allow high concurrency: In a typical wireless sensor network application, the devices are concurrency intensive. Several different flows of data must be kept moving simultaneously. While sensor data are input in a steady stream, processed results must be transmitted in a steady stream. In addition, external controls from remote sensors or base stations must be managed.</li>
+<li>Operate with limited resources: The target platform for TinyOS will have limited memory and computational resources and run on batteries or solar power. A single platform may offer only kilobytes of program memory and hundreds of bytes of RAM. The software must make efficient use of the available processor and memory resources while enabling low-power communication.</li>
+<li>Adapt to hardware evolution: Most hardware is in constant evolution; applications and most system services must be portable across hardware generations. Thus, it should be possible to upgrade the hardware with little or no software change, if the functionality is the same.</li>
+<li>Support a wide range of applications: Applications exhibit a wide range of requirements in terms of lifetime, communication, sensing, and so on. A modular, general-purpose embedded OS is desired so a standardized approach leads to economies of scale in developing applications and support software.</li>
+<li>Support a diverse set of platforms: As with the preceding point, a general-purpose embedded OS is desirable.</li>
+<li>Be robust: Once deployed, a sensor network must run unattended for months or years. Ideally, there should be redundancy both within a single system and across the network of sensors. However, both types of redundancy require additional resources. One software characteristic that can improve robustness is to use highly modular, standardized software components.</li>
+</ul>
 <p>13.8. What is a TinyOS component?</p>
+<p>An embedded software system built using TinyOS consists of a set of small modules, called components, each of which performs a simple task or set of tasks and which interface with each other and with hardware in limited and well-defined ways.</p>
 <p>13.9. What software comprises the TinyOS operating system?</p>
+<p>Examples of such standardized components include single-hop networking, ad hoc routing, power management, timers, and nonvolatile storage control.</p>
 <p>13.10. What is the default scheduling discipline for TinyOS?</p>
+<p>A simple FIFO (first-in-first-out) queue.</p>
 <h2 id="virtual-machines">Virtual Machines</h2>
 <p>14.1. Briefly describe Type 1 and Type 2 virtualization.</p>
+<ul>
+<li>A type 1 hypervisor (see Figure14.2a ) is loaded as a software layer directly onto a physical server, much like an OS is loaded. The type 1 hypervisor can directly control the physical resources of the host. Once it is installed and configured, the server is then capable of supporting virtual machines as guests. In mature environments, where virtualization hosts are clustered together for increased availability and load balancing, a hypervisor can be staged on a new host. Then, that new host is joined to an existing cluster, and VMs can be moved to the new host without any interruption of service.</li>
+<li>A type 2 hypervisor exploits the resources and functions of a host OS and runs as a software module on top of the OS (see Figure 14.2b ). It relies on the OS to handle all of the hardware interactions on the hypervisor’s behalf.</li>
+</ul>
+<p><img src="https://gsxgoldenlegendary.github.io/images/Operating_Systems/osidp11-7-2.png" /></p>
 <p>14.2. Briefly describe container virtualization.</p>
+<p>In this approach, software, known as a virtualization container, runs on top of the host OS kernel and provides an isolated execution environment for applications. Unlike hypervisor-based VMs, containers do not aim to emulate physical servers. Instead, all containerized applications on a host share a common OS kernel.</p>
 <p>14.3. Explain the concept of ballooning.</p>
+<p>The hypervisor activates a balloon driver that (virtually) inflates and presses the guest operating system to flush pages to disk. Once the pages are cleared, the balloon driver deflates and the hypervisor can use the physical memory for other VMs. This process happens during times of memory contention.</p>
 <p>14.4. Give a brief description of Java VM.</p>
+<p>The JVM is described as being an abstract computing machine, consisting of an instruction set, a pc (program counter) register, a stack to hold variables and results, a heap for runtime data and garbage collection, and a method area for code and constants.</p>
 <h2 id="operating-system-security">Operating System Security</h2>
 <p>15.1. What are typical access rights that may be granted or denied to a particular user for a particular file?</p>
+<ul>
+<li>None: The user may not even learn of the existence of the file, much less access it. To enforce this restriction, the user would not be allowed to read the user directory that includes this file.</li>
+<li>Knowledge: The user can determine that the file exists and who its owner is. The user is then able to petition the owner for additional access rights.</li>
+<li>Execution: The user can load and execute a program but cannot copy it. Proprietary programs are often made accessible with this restriction.</li>
+<li>Reading: The user can read the file for any purpose, including copying and execution. Some systems are able to enforce a distinction between viewing and copying. In the former case, the contents of the file can be displayed to the user, but the user has no means for making a copy.</li>
+<li>Appending: The user can add data to the file, often only at the end, but cannot modify or delete any of the file’s contents. This right is useful in collecting data from a number of sources.Updating: The user can modify, delete, and add to the file’s data. This normally includes writing the file initially, rewriting it completely or in part, and removing all or a portion of the data. Some systems distinguish among different degrees of updating.</li>
+<li>Changing protection: The user can change the access rights granted to other users. Typically, this right is held only by the owner of the file. In some systems, the owner can extend this right to others. To prevent abuse of this mechanism, the file owner will typically be able to specify which rights can be changed by the holder of this right.</li>
+<li>Deletion: The user can delete the file from the file system.</li>
+</ul>
 <p>15.2. List and briefly define three classes of intruders.</p>
+<ul>
+<li>Masquerader: An individual who is not authorized to use the computer and who penetrates a system’s access controls to exploit a legitimate user’s account.</li>
+<li>Misfeasor: A legitimate user who accesses data, programs, or resources for which such access is not authorized, or who is authorized for such access but misuses his or her privileges.</li>
+<li>Clandestine user: An individual who seizes supervisory control of the system and uses this control to evade auditing and access controls or to suppress audit collection.</li>
+</ul>
 <p>15.3. In general terms, what are four means of authenticating a user’s identity?</p>
+<ol type="1">
+<li>Something the individual knows: Examples include a password, a personal identification number (PIN), or answers to a prearranged set of questions.</li>
+<li>Something the individual possesses: Examples include electronic keycards, smart cards, and physical keys. This type of authenticator is referred to as a token.</li>
+<li>Something the individual is (static biometrics): Examples include recognition by fingerprint, retina, and face.</li>
+<li>Something the individual does (dynamic biometrics): Examples include recognition by voice pattern, handwriting characteristics, and typing rhythm.</li>
+</ol>
 <p>15.4. Briefly describe the difference between DAC and RBAC.</p>
+<ul>
+<li><p>Discretionary access control (DAC): Controls access based on the identity of the requestor and on access rules (authorizations) stating what requestors are (or are not) allowed to do. This policy is termed discretionary because an entity might have access rights that permit the entity, by its own volition, to enable another entity to access some resource.</p></li>
+<li><p>Role-based access control (RBAC): Controls access based on the roles that users have within the system, and on rules stating what accesses are allowed to users in given roles</p></li>
+</ul>
 <p>15.5. What types of programming languages are vulnerable to buffer overflows?</p>
+<p>Languages which are not strongly-typed are vulnerable to buffer overflows.</p>
 <p>15.6. What are the two broad categories of defenses against buffer overflows?</p>
+<ol type="1">
+<li>Compile-time defenses, which aim to harden programs to resist attacks</li>
+<li>Runtime defenses, which aim to detect and abort attacks in executing programs programs</li>
+</ol>
 <p>15.7. List and briefly describe some of the defenses against buffer overflows that can be used when compiling new programs.</p>
+<ul>
+<li>Choice of Programming Language: One possibility is to write the program using a modern high-level programming language, one that has a strong notion of variable type and what constitutes permissible operations on them.</li>
+<li>Safe Coding Techniques: In order to harden these systems, the programmer needs to inspect the code and rewrite any unsafe coding constructs in a safe manner.</li>
+<li>Language Extensions and Use of Safe Libraries: Given the problems that can occur in C with unsafe array and pointer references, there have been a number of proposals to augment compilers to automatically insert range checks on such references.</li>
+<li>Stack Protection Mechanisms: An effective method for protecting programs against classic stack overflow attacks is to instrument the function entry and exit code to set up and then check its stack frame for any evidence of corruption. If any modification is found, the program is aborted rather than allowing the attack to proceed.</li>
+</ul>
 <p>15.8. List and briefly describe some of the defenses against buffer overflows that can be implemented when running existing, vulnerable programs.</p>
+<ul>
+<li>Executable Address Space Protection: Many of the buffer overflow attacks involve copying machine code into the targeted buffer then transferring execution to it. A possible defense is to block the execution of code on the stack, on the assumption that executable code should only be found elsewhere in the processes address space.</li>
+<li>Address Space Randomization: Another runtime technique that can be used to thwart attacks involves manipulation of the location of key data structures in the address space of a process.</li>
+<li>Guard Pages: A final runtime technique that can be used places guard pages between critical regions of memory in a processes address space. These gaps, or guard pages, are flagged in the MMU as illegal addresses, and any attempt to access them results in the process being aborted.</li>
+</ul>
 <h2 id="cloud-and-iot-operating-systems">Cloud and IOT Operating Systems</h2>
 <p>16.1 Define cloud computing.</p>
+<p>A model for enabling ubiquitous, convenient, on-demand network access to a shared pool of configurable computing resources (e.g., networks, servers, storage, applications, and services) that can be rapidly provisioned and released with minimal management effort or service provider interaction. This cloud model promotes availability and is composed of five essential characteristics, three service models, and four deployment models.</p>
 <p>16.2 List and briefly define three cloud service models.</p>
+<ol type="1">
+<li>Software as a Service: SaaS provides service to customers in the form of software, specifically application software, running on and accessible in the cloud.</li>
+<li>Platform as a Service: A PaaS cloud provides service to customers in the form of a platform on which the customer’s applications can run.</li>
+<li>Infrastructure as a Service: With IaaS, the customer has access to the resources of the underlying cloud infrastructure. The cloud service user does not manage or control the resources of the underlying cloud infrastructure, but has control over operating systems, deployed applications, and possibly limited control of select networking components (e.g., host firewalls).</li>
+</ol>
 <p>16.3 What is the cloud computing reference architecture?</p>
+<p>The NIST cloud computing reference architecture focuses on the requirements of “what” cloud services provide, not a “how to” design solution and implementation. The reference architecture is intended to facilitate the understanding of the operational intricacies in cloud computing. It does not represent the system architecture of a specific cloud computing system; instead it is a tool for describing, discussing, and developing a system-specific architecture using a common framework of reference.</p>
 <p>16.4 List and briefly define the key components of a cloud operating system.</p>
+<p>Database and Object Storage, Management and Orchestration, Virtual computing, Virtual storage, and Virtual network.</p>
 <p>16.5 What is the relationship between a cloud OS and IaaS?</p>
+<p>A cloud OS must manage and provides CSCs with access to an IaaS environment.</p>
 <p>16.6 What is OpenStack?</p>
+<p>OpenStack is an open-source software project of the OpenStack Foundation that aims to produce an open-source cloud operating system.</p>
 <p>16.7 Define the Internet of Things.</p>
+<p>The Internet of Things (IoT) is a term that refers to the expanding interconnection of smart devices, ranging from appliances to tiny sensors. A dominant theme is the embedding of short-range mobile transceivers into a wide array of gadgets and everyday items, enabling new forms of communication between people and things, and between things themselves.</p>
 <p>16.8 List and briefly define the principal components of an IoT-enabled thing.</p>
+<ul>
+<li>Sensor: A sensor measures some parameter of a physical, chemical, or biological entity and delivers an electronic signal proportional to the observed characteristic, either in the form of an analog voltage level or a digital signal. In both cases, the sensor output is typically input to a microcontroller or other management element.</li>
+<li>Actuator: An actuator receives an electronic signal from a controller and responds by interacting with its environment to produce an effect on some parameter of a physical, chemical, or biological entity.</li>
+<li>Microcontroller: The “smart” in a smart device is provided by a deeply embedded microcontroller. Transceiver: A transceiver contains the electronics needed to transmit and receive data. Most IoT devices contain a wireless transceiver, capable of communication using Wi-Fi, ZigBee, or some other wireless scheme.</li>
+<li>Radio-Frequency Identification (RFID): (RFID) technology, which uses radio waves to identify items, is increasingly becoming an enabling technology for IoT. The main elements of an RFID system are tags and readers. RFID tags are small programmable devices used for object, animal, and humantracking. They come in a variety of shapes, sizes, functionalities, and costs. RFID readers acquire and sometimes rewrite information stored on RFID tags that come within operating range (a few inches up to several feet). Readers are usually connected to a computer system that records and formats the acquired information for further uses.</li>
+</ul>
 <p>16.9 What requirements should an IoT OS satisfy?</p>
+<p>Small memory footprint, Support for heterogeneous hardware, Network connectivity, Energy efficiency, Real-time capabilities, and Security.</p>
 <p>16.10 What is RIOT?</p>
+<p>An open-source OS designed specifically for constrained IoT devices.</p>
 
     </div>
 
@@ -1235,14 +1386,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Symbols count total: </span>
-    <span title="Symbols count total">268k</span>
+    <span title="Symbols count total">288k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">4:03</span>
+    <span title="Reading time total">4:22</span>
   </span>
 </div>
 <div class="busuanzi-count">
