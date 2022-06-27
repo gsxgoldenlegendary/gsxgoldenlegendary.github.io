@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-128x128.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico">
+  <link rel="mask-icon" href="/images/favicon.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"gsxgoldenlegendary.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="USTC-OSH-2022-Runikraft小组Lab4-Ceph部署与测试 在本次实验中，我们选择 Ceph（存储相关）中进行部署、测试、分析、评价等各项工作。（12分）  选定 Ceph 自带测试模块测试任务（1 分）。 拟定一份存储类对应的性能指标列表（读速率、读延迟、写速率、写延迟、空间效率），根据测试任务，从中选择写速率、写延迟进行后续测试，并说明其合理性（1 分）。 完成单机版部署并">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deploy, Test, and Analyze on Ceph">
+<meta property="og:url" content="http://gsxgoldenlegendary.github.io/2022/06/28/Operating_Systems/Deploy-Test-and-Analyze-of-Ceph/index.html">
+<meta property="og:site_name" content="SONGXIAO&#39;S TOPBLOG">
+<meta property="og:description" content="USTC-OSH-2022-Runikraft小组Lab4-Ceph部署与测试 在本次实验中，我们选择 Ceph（存储相关）中进行部署、测试、分析、评价等各项工作。（12分）  选定 Ceph 自带测试模块测试任务（1 分）。 拟定一份存储类对应的性能指标列表（读速率、读延迟、写速率、写延迟、空间效率），根据测试任务，从中选择写速率、写延迟进行后续测试，并说明其合理性（1 分）。 完成单机版部署并">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/Operating_Systems/Osd_Read_Bandwidth.jpg">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/Operating_Systems/Osd_Read_IOPS.jpg">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/Operating_Systems/Osd_Read_Latency.jpg">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/Operating_Systems/Osd_Write_Bandwidth.jpg">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/Operating_Systems/Osd_Write_IOPS.jpg">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/Operating_Systems/Osd_Write_Latency.jpg">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/Operating_Systems/Read_Bandwidth.jpg">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/Operating_Systems/Read_IOPS.jpg">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/Operating_Systems/Read_Latency.jpg">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/Operating_Systems/Write_Bandwidth.jpg">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/Operating_Systems/Write_IOPS.jpg">
+<meta property="og:image" content="https://gsxgoldenlegendary.github.io/images/Operating_Systems/Write_Latency.jpg">
+<meta property="article:published_time" content="2022-06-27T20:55:57.000Z">
+<meta property="article:modified_time" content="2022-06-27T13:11:53.024Z">
+<meta property="article:author" content="GUO Songxiao">
+<meta property="article:tag" content="Operating Systems">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gsxgoldenlegendary.github.io/images/Operating_Systems/Osd_Read_Bandwidth.jpg">
+
+
+<link rel="canonical" href="http://gsxgoldenlegendary.github.io/2022/06/28/Operating_Systems/Deploy-Test-and-Analyze-of-Ceph/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://gsxgoldenlegendary.github.io/2022/06/28/Operating_Systems/Deploy-Test-and-Analyze-of-Ceph/","path":"2022/06/28/Operating_Systems/Deploy-Test-and-Analyze-of-Ceph/","title":"Deploy, Test, and Analyze on Ceph"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Deploy, Test, and Analyze on Ceph | SONGXIAO'S TOPBLOG</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">SONGXIAO'S TOPBLOG</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">VENI VIDI VICI</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-friends"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>friends</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ustc-osh-2022-runikraft%E5%B0%8F%E7%BB%84lab4-ceph%E9%83%A8%E7%BD%B2%E4%B8%8E%E6%B5%8B%E8%AF%95"><span class="nav-number">1.</span> <span class="nav-text">USTC-OSH-2022-Runikraft小组Lab4-Ceph部署与测试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2"><span class="nav-number"></span> <span class="nav-text">部署</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">实验环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-vmware"><span class="nav-number">2.1.</span> <span class="nav-text">安装 VMware</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8-vmware-%E4%B8%8B%E5%AE%89%E8%A3%85-centos"><span class="nav-number">2.2.</span> <span class="nav-text">在 VMware 下安装 CentOS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ssh-%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95"><span class="nav-number">2.3.</span> <span class="nav-text">SSH 免密登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%9C%AC%E5%9C%B0%E4%B8%BB%E6%9C%BA%E5%90%8D%E8%A7%A3%E6%9E%90"><span class="nav-number">2.4.</span> <span class="nav-text">配置本地主机名解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5"><span class="nav-number">2.5.</span> <span class="nav-text">配置安全策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-ntp-%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5"><span class="nav-number">2.6.</span> <span class="nav-text">配置 ntp 时间同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-yum-%E6%BA%90"><span class="nav-number">2.7.</span> <span class="nav-text">配置 yum 源</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="nav-number">3.</span> <span class="nav-text">软件安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ceph-%E7%9B%B8%E5%85%B3%E7%9A%84%E5%8C%85%E7%9A%84%E5%AE%89%E8%A3%85"><span class="nav-number">3.1.</span> <span class="nav-text">ceph 相关的包的安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2-monitor"><span class="nav-number">3.2.</span> <span class="nav-text">部署 monitor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2-mgr"><span class="nav-number">3.3.</span> <span class="nav-text">部署 mgr</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2-osd"><span class="nav-number">3.4.</span> <span class="nav-text">部署 osd</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E5%AD%98%E5%82%A8"><span class="nav-number">4.</span> <span class="nav-text">建立存储</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-systemd-%E7%AE%A1%E7%90%86-ceph-%E6%9C%8D%E5%8A%A1"><span class="nav-number">4.1.</span> <span class="nav-text">使用 systemd 管理 ceph 服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AD%98%E5%82%A8%E6%B1%A0"><span class="nav-number">4.2.</span> <span class="nav-text">创建存储池</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%AD%98%E5%82%A8%E6%B1%A0%E5%B1%9E%E6%80%A7"><span class="nav-number">4.3.</span> <span class="nav-text">查看存储池属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E5%AD%98%E5%82%A8%E6%B1%A0"><span class="nav-number">4.4.</span> <span class="nav-text">删除存储池</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8A%B6%E6%80%81%E6%A3%80%E6%9F%A5"><span class="nav-number">4.5.</span> <span class="nav-text">状态检查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E5%AD%98%E5%82%A8%E6%B1%A0%E6%8C%87%E5%AE%9A-ceph-%E5%BA%94%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="nav-number">4.6.</span> <span class="nav-text">为存储池指定 Ceph 应用类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E6%B1%A0%E9%85%8D%E9%A2%9D%E7%AE%A1%E7%90%86"><span class="nav-number">4.7.</span> <span class="nav-text">存储池配额管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E6%B1%A0%E5%AF%B9%E8%B1%A1%E8%AE%BF%E9%97%AE"><span class="nav-number">4.8.</span> <span class="nav-text">存储池对象访问</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E7%BB%93%E6%9E%9C"><span class="nav-number">5.</span> <span class="nav-text">部署结果</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95"><span class="nav-number"></span> <span class="nav-text">测试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%80%E9%80%89%E6%8C%87%E6%A0%87%E7%9A%84%E5%90%88%E7%90%86%E6%80%A7"><span class="nav-number">1.</span> <span class="nav-text">所选指标的合理性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E6%9C%BA%E7%89%88%E6%B5%8B%E8%AF%95%E4%B8%8E%E4%BC%98%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">单机版测试与优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#osd-write"><span class="nav-number">2.1.</span> <span class="nav-text">1osd-write</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#osd-sequence-read"><span class="nav-number">2.2.</span> <span class="nav-text">1osd-sequence-read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#osd-random-read"><span class="nav-number">2.3.</span> <span class="nav-text">1osd-random-read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#osd-write-1"><span class="nav-number">2.4.</span> <span class="nav-text">2osd-write</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#osd-sequence-read-1"><span class="nav-number">2.5.</span> <span class="nav-text">2osd-sequence-read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#osd-random-read-1"><span class="nav-number">2.6.</span> <span class="nav-text">2osd-random-read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#osd-write-2"><span class="nav-number">2.7.</span> <span class="nav-text">3osd-write</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#osd-sequence-read-2"><span class="nav-number">2.8.</span> <span class="nav-text">3osd-sequence-read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#osd-random-read-2"><span class="nav-number">2.9.</span> <span class="nav-text">3osd-random-read</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E6%B5%8B%E8%AF%95%E4%B8%8E%E4%BC%98%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">分布式测试与优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A9%BA%E9%97%B4%E6%95%88%E7%8E%87"><span class="nav-number">3.1.</span> <span class="nav-text">空间效率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pg-write"><span class="nav-number">3.2.</span> <span class="nav-text">8pg-write</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pg-sequence-read"><span class="nav-number">3.3.</span> <span class="nav-text">8pg-sequence-read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pg-random-read"><span class="nav-number">3.4.</span> <span class="nav-text">8pg-random-read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pg-write-1"><span class="nav-number">3.5.</span> <span class="nav-text">16pg-write</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pg-sequence-read-1"><span class="nav-number">3.6.</span> <span class="nav-text">16pg-sequence-read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pg-random-read-1"><span class="nav-number">3.7.</span> <span class="nav-text">16pg-random-read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pg-write-2"><span class="nav-number">3.8.</span> <span class="nav-text">32pg-write</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pg-sequence-read-2"><span class="nav-number">3.9.</span> <span class="nav-text">32pg-sequence-read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pg-random-read-2"><span class="nav-number">3.10.</span> <span class="nav-text">32pg-random-read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pg-write-3"><span class="nav-number">3.11.</span> <span class="nav-text">64pg-write</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pg-sequence-read-3"><span class="nav-number">3.12.</span> <span class="nav-text">64pg-sequence-read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pg-random-read-3"><span class="nav-number">3.13.</span> <span class="nav-text">64pg-random-read</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number"></span> <span class="nav-text">分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#osd-numbers-%E5%AF%B9%E6%80%A7%E8%83%BD%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="nav-number">1.</span> <span class="nav-text">osd numbers 对性能的影响</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bandwidth"><span class="nav-number">1.1.</span> <span class="nav-text">bandwidth</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#latency"><span class="nav-number">1.2.</span> <span class="nav-text">latency</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pg-numbers-%E5%AF%B9%E6%80%A7%E8%83%BD%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="nav-number">2.</span> <span class="nav-text">pg numbers 对性能的影响</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">3.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="GUO Songxiao"
+      src="/images/header.jpg">
+  <p class="site-author-name" itemprop="name">GUO Songxiao</p>
+  <div class="site-description" itemprop="description">I must search. Even if the endless powdering of stars in the Galaxy makes the quest seem hopeless, and even if I must do it alone.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">114</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/gsxgoldenlegendary" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;gsxgoldenlegendary" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:gsxgoldenlegendary@gmail.com" title="E-Mail → mailto:gsxgoldenlegendary@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/GSongxiao" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;GSongxiao" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/songxiao.guo" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;songxiao.guo" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/weixin_52075219" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_52075219" rel="noopener" target="_blank"><i class="fab fa-cuttlefish fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/jin-se-chuan-shuo-58-72" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;jin-se-chuan-shuo-58-72" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://home.ustc.edu.cn/~logname" title="http:&#x2F;&#x2F;home.ustc.edu.cn&#x2F;~logname" rel="noopener" target="_blank">Homepage</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://gsxgoldenlegendary.github.io/2022/06/28/Operating_Systems/Deploy-Test-and-Analyze-of-Ceph/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="GUO Songxiao">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SONGXIAO'S TOPBLOG">
+      <meta itemprop="description" content="I must search. Even if the endless powdering of stars in the Galaxy makes the quest seem hopeless, and even if I must do it alone.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Deploy, Test, and Analyze on Ceph | SONGXIAO'S TOPBLOG">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Deploy, Test, and Analyze on Ceph
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-06-27 20:55:57 / Modified: 13:11:53" itemprop="dateCreated datePublished" datetime="2022-06-27T20:55:57Z">2022-06-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Computer-Science/" itemprop="url" rel="index"><span itemprop="name">Computer Science</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>29k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>27 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="ustc-osh-2022-runikraft小组lab4-ceph部署与测试">USTC-OSH-2022-Runikraft小组Lab4-Ceph部署与测试</h2>
+<p>在本次实验中，我们选择 Ceph（存储相关）中进行部署、测试、分析、评价等各项工作。（12分）</p>
+<ul>
+<li>选定 Ceph 自带测试模块测试任务（1 分）。</li>
+<li>拟定一份存储类对应的性能指标列表（读速率、读延迟、写速率、写延迟、空间效率），根据测试任务，从中选择写速率、写延迟进行后续测试，并说明其合理性（1 分）。</li>
+<li>完成单机版部署并进行性能测试（5 分）。</li>
+<li>基于已有部署进行分析，进行测试和优化（2 分）。优化以 Ceph 本身的配置参数修改为主，给出了相应分析。提供证据说明单机优化后性能较初始部署提高 20%（1 分）。</li>
+<li>完成分布式部署并进行性能测试（1 分）。</li>
+<li>将撰写的相关报告发布到公开媒体（<a target="_blank" rel="noopener" href="https://osh-2022.github.io/runikraft-lab4">Github博客（仓库主页）</a>）（1 分）。</li>
+</ul>
+<span id="more"></span>
+<h1 id="部署">部署</h1>
+<h2 id="实验环境">实验环境</h2>
+<ul>
+<li>Host-OS：Ubuntu 20.04.4 LTS x86_64</li>
+<li>Host：HP Pavilion Aero Laptop 13-be0152AU</li>
+<li>Kernel：5.13.0-48-generic</li>
+<li>CPU：AMD Ryzen 7 5800U with Radeon Graphics (16) @ 1.900GHz</li>
+<li>GPU：AMD ATI 03:00.0 Device 1638</li>
+<li>VM：VMware Workstation 16.2.3 build-19376536</li>
+<li>VM-OS：CentOS 7</li>
+</ul>
+<h2 id="环境配置">环境配置</h2>
+<h3 id="安装-vmware">安装 VMware</h3>
+<h3 id="在-vmware-下安装-centos">在 VMware 下安装 CentOS</h3>
+<ul>
+<li><p>增加硬盘：在 VMware 的 Devices 栏目中，新建设备，添加 SCSI 与 NVMe 硬盘各一块。</p></li>
+<li><p>配置网卡：打开 Virtual Network Editor，将 vmnet8 的 IP 地址改为 192.168.153.1。在 VMware 的 Devices 栏目中，新建设备，添加一个选择 vmnet8 的网卡。</p></li>
+<li><p>配置网络：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/sysconfig/network-scripts/</span><br><span class="line">sudo vi ifcfg-ens33</span><br></pre></td></tr></table></figure>
+<p>将 <code>ONBOOT=no</code> 修改为 <code>ONBOOT=yes</code>，IPV4 与 DNS 服务器地址改为 192.168.31.10。</p>
+<p>类似地将 <code>ifcfg-ens35</code> 文件中的 <code>ONBOOT=no</code> 修改为 <code>ONBOOT=yes</code> ，IPV4 与 DNS 服务器地址改为 192.168.153.10。</p></li>
+<li><p>重新启动网络服务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart network</span><br></pre></td></tr></table></figure>
+<p>使用 VMware 的 clone 方式创建 3 台与之相同的虚拟机，并将其IP地址最后一段分别改为 11，12，13。</p></li>
+</ul>
+<h3 id="ssh-免密登录">SSH 免密登录</h3>
+<p>client 节点作为 deploy 节点，在 client 节点执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen</span><br><span class="line">ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.153.11</span><br><span class="line">ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.153.12</span><br><span class="line">ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.153.13</span><br></pre></td></tr></table></figure>
+<h3 id="配置本地主机名解析">配置本地主机名解析</h3>
+<p>在client节点执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;192.168.31.10  client client.localdomain&quot;</span> &gt;&gt; /etc/hosts</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;192.168.31.11	 node1 node1.localdomain&quot;</span> &gt;&gt; /etc/hosts</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;192.168.31.12  node2 node2.localdomain&quot;</span> &gt;&gt; /etc/hosts</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;192.168.31.13  node3 node3.localdomain&quot;</span> &gt;&gt; /etc/hosts</span><br><span class="line">scp /etc/hosts node1:/etc/hosts</span><br><span class="line">scp /etc/hosts node2:/etc/hosts</span><br><span class="line">scp /etc/hosts node3:/etc/hosts</span><br></pre></td></tr></table></figure>
+<h3 id="配置安全策略">配置安全策略</h3>
+<ul>
+<li><p>在 client，node1，node2，node3 节点上都关闭 selinux：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/selinux/config</span><br></pre></td></tr></table></figure>
+<p>将 <code>SELINUX</code> 值设置为 <code>disabled</code>。</p></li>
+<li><p>在 client，node1，node2，node3 节点上都关闭防火墙：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld</span><br><span class="line">systemctl <span class="built_in">disable</span> firewalld</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="配置-ntp-时间同步">配置 ntp 时间同步</h3>
+<ul>
+<li><p>client 节点作为 ntp server，在 client、node1、node2、node3 上安装 ntp。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install ntp -y</span><br></pre></td></tr></table></figure></li>
+<li><p>在 node1、node2、node3 上配置 ntp，添加 client 节点作为时间服务器。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/ntp.conf</span><br></pre></td></tr></table></figure>
+<p>写入server client iburst。</p></li>
+<li><p>开启 ntp 服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start ntpd</span><br></pre></td></tr></table></figure></li>
+<li><p>确认 ntp 服务器指向了 client 节点</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ntpq -pn</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="配置-yum-源">配置 yum 源</h3>
+<ul>
+<li><p>添加 CentOS7 的 yum 源</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sed -e <span class="string">&#x27;s|^mirrorlist=|#mirrorlist=|g&#x27;</span> \</span><br><span class="line">        -e <span class="string">&#x27;s|^#baseurl=http://mirror.centos.org/centos|baseurl=https://mirrors.ustc.edu.cn/centos|g&#x27;</span> \</span><br><span class="line">        -i.bak \</span><br><span class="line">        /etc/yum.repos.d/CentOS-Base.repo</span><br></pre></td></tr></table></figure></li>
+<li><p>添加 epel 的 yum 源</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y epel-release</span><br><span class="line">sudo sed -e <span class="string">&#x27;s|^metalink=|#metalink=|g&#x27;</span> \</span><br><span class="line">         -e <span class="string">&#x27;s|^#baseurl=https\?://download.fedoraproject.org/pub/epel/|baseurl=https://mirrors.ustc.edu.cn/epel/|g&#x27;</span> \</span><br><span class="line">         -e <span class="string">&#x27;s|^#baseurl=https\?://download.example/pub/epel/|baseurl=https://mirrors.ustc.edu.cn/epel/|g&#x27;</span> \</span><br><span class="line">         -i.bak \</span><br><span class="line">         /etc/yum.repos.d/epel.repo</span><br></pre></td></tr></table></figure></li>
+<li><p>添加 ceph 的 yum 源</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/yum.repos.d/ceph.repo</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[ceph_noarch]</span><br><span class="line">name=noarch</span><br><span class="line">baseurl=https://mirrors.ustc.edu.cn/ceph/rpm-nautilus/el7/noarch/</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=0</span><br><span class="line">[ceph_x86_64]</span><br><span class="line">name=x86_64</span><br><span class="line">baseurl=https://mirrors.ustc.edu.cn/ceph/rpm-nautilus/el7/x86_64/</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=0</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="软件安装">软件安装</h2>
+<h3 id="ceph-相关的包的安装">ceph 相关的包的安装</h3>
+<ul>
+<li><p>在部署节点（client）安装 ceph 的部署工具</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install python-setuptools -y</span><br><span class="line">yum install ceph-deploy -y</span><br></pre></td></tr></table></figure></li>
+<li><p>确保 ceph-deploy 的版本是 2.0.1</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ceph-deploy --version</span><br></pre></td></tr></table></figure></li>
+<li><p>在 node1、node2、node3 执行下面命令，安装 ceph 相关的包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y ceph ceph-mon ceph-osd ceph-mds ceph-radosgw ceph-mgr</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="部署-monitor">部署 monitor</h3>
+<ul>
+<li><p>node1 作为 monitor 节点，在部署结点（client）创建一个工作目录，后续的命令在该目录下执行，产生的配置文件保存在该目录中。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> ~/my-cluster</span><br><span class="line"><span class="built_in">cd</span> ~/my-cluster</span><br><span class="line">ceph-deploy new --public-network 192.168.31.0/24 --cluster-network 192.168.153.0/24 node1</span><br></pre></td></tr></table></figure></li>
+<li><p>初始化 monitor</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ceph-deploy mon create-initial</span><br></pre></td></tr></table></figure></li>
+<li><p>将配置文件复制到对应的节点</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ceph-deploy admin node1 node2 node3</span><br></pre></td></tr></table></figure></li>
+<li><p>部署高可用 monitor，将 node2、node3 也加入 mon 集群。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ceph-deploy mon add node2</span><br><span class="line">ceph-deploy mon add node3</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="部署-mgr">部署 mgr</h3>
+<ul>
+<li><p>node1 作为 mgr 节点，在部署节点（client）执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> my-cluster</span><br><span class="line">ceph-deploy mgr create node1</span><br></pre></td></tr></table></figure></li>
+<li><p>部署高可用 mgr，将 node2、node3 也添加进来</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ceph-deploy mgr create node2 node3</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="部署-osd">部署 osd</h3>
+<ul>
+<li><p>确认每个节点的硬盘情况</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ceph-deploy disk list node1 node2 node3</span><br></pre></td></tr></table></figure></li>
+<li><p>清理 node1、node2、node3 节点上的硬盘里的现有数据和文件系统</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ceph-deploy disk zap node1 /dev/sdb</span><br><span class="line">ceph-deploy disk zap node2 /dev/sdb</span><br><span class="line">ceph-deploy disk zap node3 /dev/sdb</span><br><span class="line">ceph-deploy disk zap node1 /dev/nvme0n1</span><br><span class="line">ceph-deploy disk zap node2 /dev/nvme0n1</span><br><span class="line">ceph-deploy disk zap node3 /dev/nvme0n1</span><br></pre></td></tr></table></figure></li>
+<li><p>添加 OSD</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ceph-deploy osd create --data /dev/sdb --journal /dev/nvme0n1 --filestore node1</span><br><span class="line">ceph-deploy osd create --data /dev/sdb --journal /dev/nvme0n1 --filestore node2</span><br><span class="line">ceph-deploy osd create --data /dev/sdb --journal /dev/nvme0n1 --filestore node3</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="建立存储">建立存储</h2>
+<h3 id="使用-systemd-管理-ceph-服务">使用 systemd 管理 ceph 服务</h3>
+<ul>
+<li><p>列出所有的 ceph 服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status ceph\*.service ceph\*.target</span><br></pre></td></tr></table></figure></li>
+<li><p>启动所有的服务守护程序</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start ceph.target</span><br></pre></td></tr></table></figure></li>
+<li><p>停止所有服务的守护程序</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop ceph.target</span><br></pre></td></tr></table></figure></li>
+<li><p>按服务类型启动所有守护进程</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl start ceph-osd target</span><br><span class="line">systemctl start ceph-mon target</span><br><span class="line">systemctl start ceph-mds target</span><br></pre></td></tr></table></figure></li>
+<li><p>按服务类型停止所有守护进程</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop ceph-osd target</span><br><span class="line">systemctl stop ceph-mon target</span><br><span class="line">systemctl stop ceph-mds target</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="创建存储池">创建存储池</h3>
+<ul>
+<li><p>列出已经创建的存储池</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ceph osd lspools</span><br><span class="line">ceph osd pool <span class="built_in">ls</span></span><br></pre></td></tr></table></figure></li>
+<li><p>创建存储池</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ceph osd pool create <span class="built_in">test</span> 64 64</span><br></pre></td></tr></table></figure></li>
+<li><p>重命名存储池</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ceph osd pool rename <span class="built_in">test</span> ceph</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="查看存储池属性">查看存储池属性</h3>
+<ul>
+<li><p>查看对象副本数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ceph osd pool get ceph size</span><br></pre></td></tr></table></figure></li>
+<li><p>查看 pg 数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ceph osd pool get ceph pg_num</span><br></pre></td></tr></table></figure></li>
+<li><p>查看 pgp 数，一般小于等于 pg_num</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ceph osd pool get ceph pg_num</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="删除存储池">删除存储池</h3>
+<ul>
+<li><p>在配置文件中写入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[mon]</span><br><span class="line">mon allow_pool_delete = <span class="literal">true</span></span><br></pre></td></tr></table></figure></li>
+<li><p>推送到每个节点</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ceph-deploy --overwrite-conf config push node1 node2 node3 </span><br></pre></td></tr></table></figure></li>
+<li><p>重新启动所有的服务守护程序</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart ceph.target</span><br></pre></td></tr></table></figure></li>
+<li><p>删除存储池</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ceph osd pool <span class="built_in">rm</span> ceph ceph --yes-i-really-really-mean-it</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="状态检查">状态检查</h3>
+<ul>
+<li><p>检查集群的状态</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ceph -s</span><br><span class="line">ceph -w</span><br><span class="line">ceph health</span><br><span class="line">ceph health detail</span><br></pre></td></tr></table></figure></li>
+<li><p>检查 OSD 状态</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ceph osd status</span><br><span class="line">ceph osd tree</span><br></pre></td></tr></table></figure></li>
+<li><p>检查 Mon 状态</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ceph mon <span class="built_in">stat</span></span><br><span class="line">ceph quorum_status</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="为存储池指定-ceph-应用类型">为存储池指定 Ceph 应用类型</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ceph osd pool application <span class="built_in">enable</span> ceph &lt;app&gt;</span><br></pre></td></tr></table></figure>
+<p><code>&lt;app&gt;</code> 可以选择 <code>cephfs</code>，<code>rbd</code>，<code>rgw</code>。</p>
+<h3 id="存储池配额管理">存储池配额管理</h3>
+<ul>
+<li><p>根据对象数设置配额</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ceph osd pool set-quota ceph max_objects 10000</span><br></pre></td></tr></table></figure></li>
+<li><p>根据容量设置配额</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ceph osd pool set-quota ceph max_bytes 1048576</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="存储池对象访问">存储池对象访问</h3>
+<ul>
+<li><p>上传对象到存储池</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;test ceph objectstore&quot;</span> &gt; test.txt</span><br><span class="line">rados -p ceph put <span class="built_in">test</span> ./test.txt</span><br></pre></td></tr></table></figure></li>
+<li><p>列出存储池中的对象</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rados -p ceph <span class="built_in">ls</span></span><br></pre></td></tr></table></figure></li>
+<li><p>从存储池下载对象</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rados -p ceph get <span class="built_in">test</span> ./test.txt.tmp</span><br></pre></td></tr></table></figure></li>
+<li><p>删除存储池的对象</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rados -p ceph <span class="built_in">rm</span> <span class="built_in">test</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="部署结果">部署结果</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[root@client my-cluster]<span class="comment"># ceph -s</span></span><br><span class="line">  cluster:</span><br><span class="line">    <span class="built_in">id</span>:     7c4d332f-e068-4d8c-9d83-a5ed97de575c</span><br><span class="line">    health: HEALTH_WARN</span><br><span class="line">            mons are allowing insecure global_id reclaim</span><br><span class="line">            clock skew detected on mon.node2, mon.node3</span><br><span class="line"> </span><br><span class="line">  services:</span><br><span class="line">    mon: 3 daemons, quorum node1,node2,node3 (age 14m)</span><br><span class="line">    mgr: node2(active, since 14m), standbys: node3, node1</span><br><span class="line">    osd: 3 osds: 3 up (since 14m), 3 <span class="keyword">in</span> (since 9h)</span><br><span class="line"> </span><br><span class="line">  data:</span><br><span class="line">    pools:   1 pools, 64 pgs</span><br><span class="line">    objects: 1.41k objects, 5.5 GiB</span><br><span class="line">    usage:   17 GiB used, 43 GiB / 60 GiB avail</span><br><span class="line">    pgs:     64 active+clean</span><br></pre></td></tr></table></figure>
+<p>这是分布式部署的结果，为完成在单机上的优化任务，我们也进行了单机部署。其过程是分布式部署的子过程，在此不再赘述。</p>
+<h1 id="测试">测试</h1>
+<p>这份文档包括所选指标的合理性、测试数据以及相应分析。</p>
+<h2 id="所选指标的合理性">所选指标的合理性</h2>
+<ul>
+<li><p>读速率、写速率：</p>
+<p>读写速率可以采用 IOPS (Input/Output Per Second) 进行描述。IOPS 可以体现出请求并处理访问存储的速率，使衡量存储性能的重要指标之一。而测试读写速率可以反映出存储系统的处理性能，因此测试并提高读写速率能够提高存储性能。</p></li>
+<li><p>读延迟、写延迟：</p>
+<p>延迟是存储性能的一个重要指标，在等待延迟的过程中，往往会因为占用资源而无法进行其他操作，更低的延迟意味着更少的等待时间，能够提高一组给定计算资源的生产力。所以测试并降低读写延迟不仅能够使存储系统减少负载损耗，也能提高其存储价值。</p></li>
+<li><p>空间效率：</p>
+<p>空间效率指的是数据块在实际存储数据（包括数据块以及校验块）中所占的比值。当一个存储系统有容错纠错的功能时，存储数据时需要额外的空间开销进行冗余备份，而存储空间在一个存储系统中又是尤其珍贵的，因此测试并提高空间效率对存储性能具有重要的意义。</p></li>
+</ul>
+<h2 id="单机版测试与优化">单机版测试与优化</h2>
+<p>这部分主要通过改变部署方式（增加 osd 的数量）进行优化。</p>
+<h3 id="osd-write">1osd-write</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">[root@client _myceph]<span class="comment"># rados bench -p test 10 write -b 1M </span></span><br><span class="line">hints = 1</span><br><span class="line">Maintaining 16 concurrent writes of 1048576 bytes to objects of size 1048576 <span class="keyword">for</span> up to 10 seconds or 0 objects</span><br><span class="line">Object prefix: benchmark_data_client_4643</span><br><span class="line">  sec Cur ops   started  finished  avg MB/s  cur MB/s last lat(s)  avg lat(s)</span><br><span class="line">    0      16        38        22   154.502        -1   0.0527459   0.0733457</span><br><span class="line">    1      16       287       271   236.913       249   0.0184586   0.0627875</span><br><span class="line">    2      16       542       526   245.316       255  0.00384228   0.0636084</span><br><span class="line">    3      16       763       747    237.41       221   0.0489912   0.0661597</span><br><span class="line">    4      16      1012       996   240.127       249    0.110819   0.0661789</span><br><span class="line">    5      16      1254      1238   240.464       242   0.0239741   0.0657598</span><br><span class="line">    6      16      1511      1495   243.113       257    0.129241   0.0654685</span><br><span class="line">    7      16      1742      1726   241.376       231  0.00511005   0.0654549</span><br><span class="line">    8      16      1993      1977    242.55       251   0.0757626   0.0656566</span><br><span class="line">    9      16      2238      2222   242.805       245   0.0388944   0.0653354</span><br><span class="line">Total time run:         10.0239</span><br><span class="line">Total writes made:      2451</span><br><span class="line">Write size:             1048576</span><br><span class="line">Object size:            1048576</span><br><span class="line">Bandwidth (MB/sec):     244.515</span><br><span class="line">Stddev Bandwidth:       11.6738</span><br><span class="line">Max bandwidth (MB/sec): 257</span><br><span class="line">Min bandwidth (MB/sec): 221</span><br><span class="line">Average IOPS:           244</span><br><span class="line">Stddev IOPS:            11.6738</span><br><span class="line">Max IOPS:               257</span><br><span class="line">Min IOPS:               221</span><br><span class="line">Average Latency(s):     0.065428</span><br><span class="line">Stddev Latency(s):      0.0580441</span><br><span class="line">Max latency(s):         0.2819</span><br><span class="line">Min latency(s):         0.00226205</span><br><span class="line">Cleaning up (deleting benchmark objects)</span><br><span class="line">Removed 2451 objects</span><br><span class="line">Clean up completed and total clean up time :3.5162</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="osd-sequence-read">1osd-sequence-read</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">[root@client _myceph]<span class="comment"># rados bench -p test 10 seq </span></span><br><span class="line">hints = 1</span><br><span class="line">  sec Cur ops   started  finished  avg MB/s  cur MB/s last lat(s)  avg lat(s)</span><br><span class="line">    0      16        44        28   443.565        -1   0.0280238   0.0316347</span><br><span class="line">    1      16       331       315   295.994       287   0.0443058   0.0518279</span><br><span class="line">    2      16       625       609   294.963       294   0.0850762   0.0534138</span><br><span class="line">    3      16       883       867   282.765       258   0.0481471   0.0553008</span><br><span class="line">    4      16      1121      1105   271.577       238   0.0454474   0.0568361</span><br><span class="line">    5      15      1311      1296   255.368       191    0.246053    0.061382</span><br><span class="line">    6      16      1511      1495    245.94       199    0.103613    0.064188</span><br><span class="line">    7      16      1679      1663   234.777       168  0.00972049   0.0666632</span><br><span class="line">    8      16      1828      1812   224.089       149    0.333022   0.0700695</span><br><span class="line">    9      16      1990      1974   217.181       162    0.155977   0.0731022</span><br><span class="line">   10      14      2164      2150   213.018       176    0.322118    0.073626</span><br><span class="line">Total time run:       10.1484</span><br><span class="line">Total reads made:     2164</span><br><span class="line">Read size:            1048576</span><br><span class="line">Object size:          1048576</span><br><span class="line">Bandwidth (MB/sec):   213.236</span><br><span class="line">Average IOPS:         213</span><br><span class="line">Stddev IOPS:          53.1785</span><br><span class="line">Max IOPS:             294</span><br><span class="line">Min IOPS:             149</span><br><span class="line">Average Latency(s):   0.0745669</span><br><span class="line">Max latency(s):       0.638654</span><br><span class="line">Min latency(s):       0.00178622</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="osd-random-read">1osd-random-read</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">[root@client _myceph]<span class="comment"># rados bench -p test 10 rand</span></span><br><span class="line">hints = 1</span><br><span class="line">  sec Cur ops   started  finished  avg MB/s  cur MB/s last lat(s)  avg lat(s)</span><br><span class="line">    0      16        37        21   203.939        -1    0.100985   0.0457754</span><br><span class="line">    1      16       191       175   157.964       154    0.180962   0.0906736</span><br><span class="line">    2      16       339       323   153.162       148    0.281999    0.100014</span><br><span class="line">    3      16       475       459   147.523       136    0.104158    0.105954</span><br><span class="line">    4      16       610       594   144.439       135    0.236108      0.1085</span><br><span class="line">    5      16       736       720   140.756       126    0.211529    0.111879</span><br><span class="line">    6      16       862       846   138.313       126    0.119636    0.113773</span><br><span class="line">    7      16      1017      1001   140.607       155    0.148923    0.112982</span><br><span class="line">    8      16      1137      1121   138.009       120   0.0765064    0.114095</span><br><span class="line">    9      16      1221      1205   132.007        84    0.582157     0.11557</span><br><span class="line">   10      16      1255      1239   122.328        34    0.221259    0.124109</span><br><span class="line">Total time run:       10.1876</span><br><span class="line">Total reads made:     1255</span><br><span class="line">Read size:            1048576</span><br><span class="line">Object size:          1048576</span><br><span class="line">Bandwidth (MB/sec):   123.189</span><br><span class="line">Average IOPS:         123</span><br><span class="line">Stddev IOPS:          37.0849</span><br><span class="line">Max IOPS:             155</span><br><span class="line">Min IOPS:             34</span><br><span class="line">Average Latency(s):   0.129683</span><br><span class="line">Max latency(s):       1.29336</span><br><span class="line">Min latency(s):       0.000595477</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="osd-write-1">2osd-write</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">[root@client _myceph]<span class="comment"># rados bench -p test 10 write -b 1M </span></span><br><span class="line">hints = 1</span><br><span class="line">Maintaining 16 concurrent writes of 1048576 bytes to objects of size 1048576 <span class="keyword">for</span> up to 10 seconds or 0 objects</span><br><span class="line">Object prefix: benchmark_data_client_4554</span><br><span class="line">  sec Cur ops   started  finished  avg MB/s  cur MB/s last lat(s)  avg lat(s)</span><br><span class="line">    0      16        44        28   259.605        -1   0.0425564   0.0482161</span><br><span class="line">    1      16       440       424   381.911       396   0.0398951    0.040804</span><br><span class="line">    2      16       855       839   397.347       415  0.00439466   0.0396624</span><br><span class="line">    3      16      1242      1226   393.969       387   0.0522183   0.0402444</span><br><span class="line">    4      16      1656      1640   398.649       414   0.0475978   0.0400131</span><br><span class="line">    5      16      2034      2018   394.582       378  0.00218717   0.0403615</span><br><span class="line">    6      16      2439      2423   396.047       405   0.0596889    0.040216</span><br><span class="line">    7      16      2847      2831   397.656       408    0.070415   0.0401435</span><br><span class="line">    8      16      3237      3221   396.699       390  0.00238422   0.0401707</span><br><span class="line">    9      16      3628      3612   396.017       391   0.0462859   0.0403205</span><br><span class="line">Total time run:         10.0321</span><br><span class="line">Total writes made:      3966</span><br><span class="line">Write size:             1048576</span><br><span class="line">Object size:            1048576</span><br><span class="line">Bandwidth (MB/sec):     395.331</span><br><span class="line">Stddev Bandwidth:       12.9013</span><br><span class="line">Max bandwidth (MB/sec): 415</span><br><span class="line">Min bandwidth (MB/sec): 378</span><br><span class="line">Average IOPS:           395</span><br><span class="line">Stddev IOPS:            12.9013</span><br><span class="line">Max IOPS:               415</span><br><span class="line">Min IOPS:               378</span><br><span class="line">Average Latency(s):     0.0404706</span><br><span class="line">Stddev Latency(s):      0.023359</span><br><span class="line">Max latency(s):         0.117381</span><br><span class="line">Min latency(s):         0.00187149</span><br><span class="line">Cleaning up (deleting benchmark objects)</span><br><span class="line">Removed 3966 objects</span><br><span class="line">Clean up completed and total clean up time :2.4537</span><br></pre></td></tr></table></figure>
+<h3 id="osd-sequence-read-1">2osd-sequence-read</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">[root@client _myceph]<span class="comment"># rados bench -p test 10 seq </span></span><br><span class="line">hints = 1</span><br><span class="line">  sec Cur ops   started  finished  avg MB/s  cur MB/s last lat(s)  avg lat(s)</span><br><span class="line">    0      16        43        27   289.127        -1  0.00765354   0.0328734</span><br><span class="line">    1      16       230       214   192.294       187  0.00213297    0.069222</span><br><span class="line">    2      16       394       378   178.662       164  0.00190267   0.0816718</span><br><span class="line">    3      16       538       522   167.384       144     0.27948   0.0908227</span><br><span class="line">    4      16       679       663   160.935       141  0.00389771   0.0936001</span><br><span class="line">    5      16       831       815   159.111       152  0.00267032   0.0973143</span><br><span class="line">    6      16       949       933   152.352       118    0.492846    0.100584</span><br><span class="line">    7      16      1049      1033   144.988       100  0.00243579    0.105975</span><br><span class="line">    8      16      1167      1151   141.614       118  0.00261998    0.109753</span><br><span class="line">    9      16      1277      1261   138.105       110   0.0382533    0.113708</span><br><span class="line">   10      16      1373      1357   133.917        96  0.00238249    0.113754</span><br><span class="line">Total time run:       10.2674</span><br><span class="line">Total reads made:     1373</span><br><span class="line">Read size:            1048576</span><br><span class="line">Object size:          1048576</span><br><span class="line">Bandwidth (MB/sec):   133.724</span><br><span class="line">Average IOPS:         133</span><br><span class="line">Stddev IOPS:          29.5522</span><br><span class="line">Max IOPS:             187</span><br><span class="line">Min IOPS:             96</span><br><span class="line">Average Latency(s):   0.119154</span><br><span class="line">Max latency(s):       0.877031</span><br><span class="line">Min latency(s):       0.00169028</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="osd-random-read-1">2osd-random-read</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">[root@client _myceph]<span class="comment"># rados bench -p test 10 rand</span></span><br><span class="line">hints = 1</span><br><span class="line">  sec Cur ops   started  finished  avg MB/s  cur MB/s last lat(s)  avg lat(s)</span><br><span class="line">    0      16        20         4   64.2405        -1    0.061695   0.0498666</span><br><span class="line">    1      16       175       159   149.014       155  0.00342335   0.0940069</span><br><span class="line">    2      16       308       292   140.829       133  0.00164816    0.103315</span><br><span class="line">    3      16       459       443   144.071       151    0.139503    0.108262</span><br><span class="line">    4      16       573       557   136.536       114   0.0304965    0.105259</span><br><span class="line">    5      15       690       675   132.636       118    0.165019    0.116493</span><br><span class="line">    6      16       830       814   133.602       139   0.0650048    0.117458</span><br><span class="line">    7      16       952       936   131.935       122    0.120703    0.119645</span><br><span class="line">    8      16      1056      1040   128.463       104    0.410748    0.121086</span><br><span class="line">    9      16      1173      1157    127.03       117    0.120124     0.12476</span><br><span class="line">   10      12      1294      1282   126.789       125    0.179171     0.12416</span><br><span class="line">Total time run:       10.1192</span><br><span class="line">Total reads made:     1294</span><br><span class="line">Read size:            1048576</span><br><span class="line">Object size:          1048576</span><br><span class="line">Bandwidth (MB/sec):   127.876</span><br><span class="line">Average IOPS:         127</span><br><span class="line">Stddev IOPS:          16.4708</span><br><span class="line">Max IOPS:             155</span><br><span class="line">Min IOPS:             104</span><br><span class="line">Average Latency(s):   0.124899</span><br><span class="line">Max latency(s):       1.10246</span><br><span class="line">Min latency(s):       0.000712677</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="osd-write-2">3osd-write</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">[root@client _myceph]<span class="comment"># rados bench -p test 10 write -b 1M --no-cleanup</span></span><br><span class="line">hints = 1</span><br><span class="line">Maintaining 16 concurrent writes of 1048576 bytes to objects of size 1048576 <span class="keyword">for</span> up to 10 seconds or 0 objects</span><br><span class="line">Object prefix: benchmark_data_client_4339</span><br><span class="line">  sec Cur ops   started  finished  avg MB/s  cur MB/s last lat(s)  avg lat(s)</span><br><span class="line">    0      16        48        32   315.836        -1   0.0397934   0.0469811</span><br><span class="line">    1      16       503       487   441.663       455   0.0382358   0.0350493</span><br><span class="line">    2      16       985       969   460.521       482   0.0576467   0.0343215</span><br><span class="line">    3      16      1432      1416   456.142       447   0.0442389   0.0348378</span><br><span class="line">    4      16      1912      1896   461.862       480   0.0455097   0.0344481</span><br><span class="line">    5      16      2422      2406   471.263       510  0.00524424   0.0338161</span><br><span class="line">    6      16      2911      2895   474.081       489   0.0115181   0.0337161</span><br><span class="line">    7      16      3393      3377   475.144       482   0.0455363    0.033607</span><br><span class="line">    8      16      3840      3824   471.616       447   0.0174148   0.0338197</span><br><span class="line">    9      16      4264      4248   466.206       424   0.0534691   0.0342532</span><br><span class="line">Total time run:         10.0295</span><br><span class="line">Total writes made:      4694</span><br><span class="line">Write size:             1048576</span><br><span class="line">Object size:            1048576</span><br><span class="line">Bandwidth (MB/sec):     468.018</span><br><span class="line">Stddev Bandwidth:       26.754</span><br><span class="line">Max bandwidth (MB/sec): 510</span><br><span class="line">Min bandwidth (MB/sec): 424</span><br><span class="line">Average IOPS:           468</span><br><span class="line">Stddev IOPS:            26.754</span><br><span class="line">Max IOPS:               510</span><br><span class="line">Min IOPS:               424</span><br><span class="line">Average Latency(s):     0.0341819</span><br><span class="line">Stddev Latency(s):      0.0179448</span><br><span class="line">Max latency(s):         0.098925</span><br><span class="line">Min latency(s):         0.00198472</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+<h3 id="osd-sequence-read-2">3osd-sequence-read</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">[root@client _myceph]<span class="comment"># rados bench -p test 10 seq </span></span><br><span class="line">hints = 1</span><br><span class="line">  sec Cur ops   started  finished  avg MB/s  cur MB/s last lat(s)  avg lat(s)</span><br><span class="line">    0      16        35        19    180.43        -1   0.0412738   0.0599454</span><br><span class="line">    1      16       163       147   132.963       128  0.00203268    0.107557</span><br><span class="line">    2      16       307       291   138.005       144  0.00298124    0.105361</span><br><span class="line">    3      16       405       389   125.076        98   0.0216575     0.11962</span><br><span class="line">    4      16       476       460   110.991        71    0.255951     0.12562</span><br><span class="line">    5      16       515       499   96.9262        39    0.317209      0.1522</span><br><span class="line">    6      16       542       526   85.1424        27   0.0651152    0.164755</span><br><span class="line">    7      16       544       528   73.5248         2    0.553982     0.16628</span><br><span class="line">    8      16       566       550   67.2237        22   0.0203321    0.199504</span><br><span class="line">    9      16       566       550   59.8988         0           -    0.199504</span><br><span class="line">   10      16       566       550   54.0143         0           -    0.199504</span><br><span class="line">   11      16       566       550   49.1832         0           -    0.199504</span><br><span class="line">Total time run:       11.368</span><br><span class="line">Total reads made:     567</span><br><span class="line">Read size:            1048576</span><br><span class="line">Object size:          1048576</span><br><span class="line">Bandwidth (MB/sec):   49.877</span><br><span class="line">Average IOPS:         49</span><br><span class="line">Stddev IOPS:          53.731</span><br><span class="line">Max IOPS:             144</span><br><span class="line">Min IOPS:             0</span><br><span class="line">Average Latency(s):   0.320493</span><br><span class="line">Max latency(s):       5.65614</span><br><span class="line">Min latency(s):       0.00172768</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="osd-random-read-2">3osd-random-read</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[root@client _myceph]<span class="comment"># rados bench -p test 10 rand</span></span><br><span class="line">hints = 1</span><br><span class="line">  sec Cur ops   started  finished  avg MB/s  cur MB/s last lat(s)  avg lat(s)</span><br><span class="line">    0      16        42        26   288.869        -1   0.0306176   0.0475517</span><br><span class="line">    1      16       254       238   218.236       212   0.0203588   0.0660896</span><br><span class="line">    2      16       449       433   199.357       195    0.312685   0.0756134</span><br><span class="line">    3      16       627       611   191.526       178  0.00200308   0.0792271</span><br><span class="line">    4      16       781       765   182.371       154  0.00645116   0.0845192</span><br><span class="line">    5      16       899       883   169.831       118   0.0202018   0.0910958</span><br><span class="line">    6      16      1066      1050   169.282       167   0.0191228   0.0935629</span><br><span class="line">    7      16      1199      1183   164.164       133    0.520474   0.0944904</span><br><span class="line">    8      16      1344      1328   161.639       145  0.00341728   0.0966671</span><br><span class="line">    9      16      1488      1472    159.66       144   0.0585948   0.0984351</span><br><span class="line">Total time run:       10.2165</span><br><span class="line">Total reads made:     1589</span><br><span class="line">Read size:            1048576</span><br><span class="line">Object size:          1048576</span><br><span class="line">Bandwidth (MB/sec):   155.533</span><br><span class="line">Average IOPS:         155</span><br><span class="line">Stddev IOPS:          30.2242</span><br><span class="line">Max IOPS:             212</span><br><span class="line">Min IOPS:             118</span><br><span class="line">Average Latency(s):   0.102632</span><br><span class="line">Max latency(s):       0.713355</span><br><span class="line">Min latency(s):       0.000702878</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="分布式测试与优化">分布式测试与优化</h2>
+<p>主要通过更改 <code>number of replacement group</code> 进行优化。</p>
+<h3 id="空间效率">空间效率</h3>
+<p>未存文件时，60GB占用329MB，空间效率为</p>
+<p>$1-=99.46%)</p>
+<h3 id="pg-write">8pg-write</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">[root@client my-cluster]<span class="comment">#  rados bench -p test_8 10 write --no-cleanup</span></span><br><span class="line">hints = 1</span><br><span class="line">Maintaining 16 concurrent writes of 4194304 bytes to objects of size 4194304 <span class="keyword">for</span> up to 10 seconds or 0 objects</span><br><span class="line">Object prefix: benchmark_data_client_1757</span><br><span class="line">  sec Cur ops   started  finished  avg MB/s  cur MB/s last lat(s)  avg lat(s)</span><br><span class="line">    0      16        16         0         0         0           -           0</span><br><span class="line">    1      16        31        15   59.6212        60    0.934265    0.579001</span><br><span class="line">    2      16        51        35   69.7241        80    0.256136    0.703134</span><br><span class="line">    3      16        65        49   65.0496        56    0.514656    0.752731</span><br><span class="line">    4      16        83        67   66.7013        72     1.23865    0.824717</span><br><span class="line">    5      16       100        84   66.9522        68    0.484744    0.838411</span><br><span class="line">    6      16       117       101   67.1127        68     1.27354    0.872301</span><br><span class="line">    7      16       129       113   64.3858        48    0.607408     0.87388</span><br><span class="line">    8      16       142       126   62.8222        52    0.433344      0.9273</span><br><span class="line">    9      16       162       146   64.7236        80    0.357334    0.925563</span><br><span class="line">   10      16       181       165   65.8459        76    0.884452    0.924849</span><br><span class="line">Total time run:         10.7852</span><br><span class="line">Total writes made:      182</span><br><span class="line">Write size:             4194304</span><br><span class="line">Object size:            4194304</span><br><span class="line">Bandwidth (MB/sec):     67.5</span><br><span class="line">Stddev Bandwidth:       11.5085</span><br><span class="line">Max bandwidth (MB/sec): 80</span><br><span class="line">Min bandwidth (MB/sec): 48</span><br><span class="line">Average IOPS:           16</span><br><span class="line">Stddev IOPS:            2.87711</span><br><span class="line">Max IOPS:               20</span><br><span class="line">Min IOPS:               12</span><br><span class="line">Average Latency(s):     0.93687</span><br><span class="line">Stddev Latency(s):      0.429341</span><br><span class="line">Max latency(s):         1.87072</span><br><span class="line">Min latency(s):         0.230416</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>用脚本连跑 10 次：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[root@client my-cluster]<span class="comment"># for i in &#123;1..10&#125;; do rados bench -p test_8 10 write | grep Bandwidth; done;</span></span><br><span class="line">Bandwidth (MB/sec):     70.9982</span><br><span class="line">Stddev Bandwidth:       20.8444</span><br><span class="line">Bandwidth (MB/sec):     73.9298</span><br><span class="line">Stddev Bandwidth:       16.9496</span><br><span class="line">Bandwidth (MB/sec):     60.1279</span><br><span class="line">Stddev Bandwidth:       27.4194</span><br><span class="line">Bandwidth (MB/sec):     58.0788</span><br><span class="line">Stddev Bandwidth:       32.4551</span><br><span class="line">Bandwidth (MB/sec):     39.8449</span><br><span class="line">Stddev Bandwidth:       35.2287</span><br><span class="line">Bandwidth (MB/sec):     62.6312</span><br><span class="line">Stddev Bandwidth:       31.6993</span><br><span class="line">Bandwidth (MB/sec):     54.3765</span><br><span class="line">Stddev Bandwidth:       39.911</span><br><span class="line">Bandwidth (MB/sec):     69.395</span><br><span class="line">Stddev Bandwidth:       22.6902</span><br><span class="line">Bandwidth (MB/sec):     71.4959</span><br><span class="line">Stddev Bandwidth:       24.875</span><br><span class="line">Bandwidth (MB/sec):     71.6354</span><br><span class="line">Stddev Bandwidth:       4.32049</span><br></pre></td></tr></table></figure>
+<h3 id="pg-sequence-read">8pg-sequence-read</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">[root@client my-cluster]<span class="comment">#  rados bench -p test_8 10 seq</span></span><br><span class="line">hints = 1</span><br><span class="line">  sec Cur ops   started  finished  avg MB/s  cur MB/s last lat(s)  avg lat(s)</span><br><span class="line">    0      16        16         0         0         0           -           0</span><br><span class="line">    1      16        53        37   147.603       148     0.56629    0.315909</span><br><span class="line">    2      16        92        76   150.957       156    0.550441    0.360593</span><br><span class="line">    3      16       138       122   161.879       184    0.564467    0.360517</span><br><span class="line">    4      16       180       164   163.132       168   0.0508285    0.361427</span><br><span class="line">Total time run:       4.43588</span><br><span class="line">Total reads made:     182</span><br><span class="line">Read size:            4194304</span><br><span class="line">Object size:          4194304</span><br><span class="line">Bandwidth (MB/sec):   164.116</span><br><span class="line">Average IOPS:         41</span><br><span class="line">Stddev IOPS:          3.91578</span><br><span class="line">Max IOPS:             46</span><br><span class="line">Min IOPS:             37</span><br><span class="line">Average Latency(s):   0.387108</span><br><span class="line">Max latency(s):       0.855932</span><br><span class="line">Min latency(s):       0.0373963</span><br></pre></td></tr></table></figure>
+<h3 id="pg-random-read">8pg-random-read</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[root@client my-cluster]<span class="comment">#  rados bench -p test_8 10 rand</span></span><br><span class="line">hints = 1</span><br><span class="line">  sec Cur ops   started  finished  avg MB/s  cur MB/s last lat(s)  avg lat(s)</span><br><span class="line">    0      16        16         0         0         0           -           0</span><br><span class="line">    1      16        57        41   162.225       164    0.394185    0.313881</span><br><span class="line">    2      16       103        87   172.289       184    0.590387    0.318584</span><br><span class="line">    3      16       147       131   173.492       176    0.530192    0.334501</span><br><span class="line">    4      16       193       177   175.626       184    0.539281    0.343829</span><br><span class="line">    5      16       242       226   179.598       196    0.276983     0.34077</span><br><span class="line">    6      16       286       270   178.891       176    0.451878    0.341451</span><br><span class="line">    7      16       325       309   175.438       156     0.53717    0.349327</span><br><span class="line">    8      16       369       353   175.484       176    0.353216    0.353552</span><br><span class="line">    9      16       407       391   172.859       152    0.389605    0.358642</span><br><span class="line">   10      16       449       433   172.361       168    0.241728    0.356825</span><br><span class="line">Total time run:       10.3253</span><br><span class="line">Total reads made:     449</span><br><span class="line">Read size:            4194304</span><br><span class="line">Object size:          4194304</span><br><span class="line">Bandwidth (MB/sec):   173.942</span><br><span class="line">Average IOPS:         43</span><br><span class="line">Stddev IOPS:          3.36815</span><br><span class="line">Max IOPS:             49</span><br><span class="line">Min IOPS:             38</span><br><span class="line">Average Latency(s):   0.36492</span><br><span class="line">Max latency(s):       1.0998</span><br><span class="line">Min latency(s):       0.0496737</span><br></pre></td></tr></table></figure>
+<h3 id="pg-write-1">16pg-write</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">[root@client my-cluster]<span class="comment">#  rados bench -p test_16 10 write --no-cleanup</span></span><br><span class="line">hints = 1</span><br><span class="line">Maintaining 16 concurrent writes of 4194304 bytes to objects of size 4194304 <span class="keyword">for</span> up to 10 seconds or 0 objects</span><br><span class="line">Object prefix: benchmark_data_client_1877</span><br><span class="line">  sec Cur ops   started  finished  avg MB/s  cur MB/s last lat(s)  avg lat(s)</span><br><span class="line">    0      16        16         0         0         0           -           0</span><br><span class="line">    1      16        23         7   27.7846        28    0.643358    0.469496</span><br><span class="line">    2      16        39        23   45.8141        64     1.96394    0.966413</span><br><span class="line">    3      16        59        43   56.9724        80     0.69876    0.885239</span><br><span class="line">    4      16        61        45    44.777         8     1.65763    0.935609</span><br><span class="line">    5      16        77        61   48.5725        64    0.393136     1.17387</span><br><span class="line">    6      16        99        83    55.029        88    0.862093     1.08232</span><br><span class="line">    7      16       119       103   58.4901        80      1.2417     1.04061</span><br><span class="line">    8      16       137       121   60.1607        72    0.570551    0.990636</span><br><span class="line">    9      16       157       141   62.3514        80     1.50023    0.966676</span><br><span class="line">   10      16       172       156   62.0975        60     0.37597    0.958572</span><br><span class="line">Total time run:         10.9187</span><br><span class="line">Total writes made:      172</span><br><span class="line">Write size:             4194304</span><br><span class="line">Object size:            4194304</span><br><span class="line">Bandwidth (MB/sec):     63.0112</span><br><span class="line">Stddev Bandwidth:       25.4524</span><br><span class="line">Max bandwidth (MB/sec): 88</span><br><span class="line">Min bandwidth (MB/sec): 8</span><br><span class="line">Average IOPS:           15</span><br><span class="line">Stddev IOPS:            6.36309</span><br><span class="line">Max IOPS:               22</span><br><span class="line">Min IOPS:               2</span><br><span class="line">Average Latency(s):     1.01233</span><br><span class="line">Stddev Latency(s):      0.608121</span><br><span class="line">Max latency(s):         2.74186</span><br><span class="line">Min latency(s):         0.194607</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>用脚本连跑10次：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[root@client my-cluster]<span class="comment"># for i in &#123;1..10&#125;; do rados bench -p test_16 10 write | grep Bandwidth ; done; </span></span><br><span class="line">Bandwidth (MB/sec):     47.7262</span><br><span class="line">Stddev Bandwidth:       31.1098</span><br><span class="line">Bandwidth (MB/sec):     38.6083</span><br><span class="line">Stddev Bandwidth:       33.9516</span><br><span class="line">Bandwidth (MB/sec):     49.3378</span><br><span class="line">Stddev Bandwidth:       30.0991</span><br><span class="line">Bandwidth (MB/sec):     57.2005</span><br><span class="line">Stddev Bandwidth:       23.4085</span><br><span class="line">Bandwidth (MB/sec):     48.0042</span><br><span class="line">Stddev Bandwidth:       25.0901</span><br><span class="line">Bandwidth (MB/sec):     55.9747</span><br><span class="line">Stddev Bandwidth:       33.1488</span><br><span class="line">Bandwidth (MB/sec):     69.6341</span><br><span class="line">Stddev Bandwidth:       19.7045</span><br><span class="line">Bandwidth (MB/sec):     50.0036</span><br><span class="line">Stddev Bandwidth:       28.3478</span><br><span class="line">Bandwidth (MB/sec):     69.9843</span><br><span class="line">Stddev Bandwidth:       23.8053</span><br><span class="line">Bandwidth (MB/sec):     28.7125</span><br><span class="line">Stddev Bandwidth:       25.3061</span><br></pre></td></tr></table></figure>
+<h3 id="pg-sequence-read-1">16pg-sequence-read</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[root@client my-cluster]<span class="comment">#  rados bench -p test_16 10 seq</span></span><br><span class="line">hints = 1</span><br><span class="line">  sec Cur ops   started  finished  avg MB/s  cur MB/s last lat(s)  avg lat(s)</span><br><span class="line">    0      16        16         0         0         0           -           0</span><br><span class="line">    1      16        56        40   159.348       160    0.326553    0.320181</span><br><span class="line">    2      16       104        88   175.336       192    0.228901    0.331938</span><br><span class="line">    3      16       151       135   179.324       188     0.19516    0.325194</span><br><span class="line">Total time run:       3.79384</span><br><span class="line">Total reads made:     172</span><br><span class="line">Read size:            4194304</span><br><span class="line">Object size:          4194304</span><br><span class="line">Bandwidth (MB/sec):   181.347</span><br><span class="line">Average IOPS:         45</span><br><span class="line">Stddev IOPS:          4.3589</span><br><span class="line">Max IOPS:             48</span><br><span class="line">Min IOPS:             40</span><br><span class="line">Average Latency(s):   0.347133</span><br><span class="line">Max latency(s):       0.915117</span><br><span class="line">Min latency(s):       0.0508127</span><br></pre></td></tr></table></figure>
+<h3 id="pg-random-read-1">16pg-random-read</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[root@client my-cluster]<span class="comment">#  rados bench -p test_16 10 rand</span></span><br><span class="line">hints = 1</span><br><span class="line">  sec Cur ops   started  finished  avg MB/s  cur MB/s last lat(s)  avg lat(s)</span><br><span class="line">    0      16        16         0         0         0           -           0</span><br><span class="line">    1      16        59        43   171.323       172    0.359316    0.305298</span><br><span class="line">    2      16       106        90   179.279       188    0.456037    0.325008</span><br><span class="line">    3      16       151       135   179.319       180    0.261287    0.332835</span><br><span class="line">    4      16       197       181   180.412       184    0.270819    0.334968</span><br><span class="line">    5      16       246       230   183.485       196    0.388057    0.334519</span><br><span class="line">    6      16       295       279   185.379       196     0.16984    0.331741</span><br><span class="line">    7      16       343       327   186.053       192    0.539083    0.331911</span><br><span class="line">    8      16       391       375   186.725       192    0.640498    0.328558</span><br><span class="line">    9      16       438       422   186.795       188    0.519163    0.333108</span><br><span class="line">   10      16       480       464   184.824       168    0.202598    0.332573</span><br><span class="line">Total time run:       10.2999</span><br><span class="line">Total reads made:     480</span><br><span class="line">Read size:            4194304</span><br><span class="line">Object size:          4194304</span><br><span class="line">Bandwidth (MB/sec):   186.41</span><br><span class="line">Average IOPS:         46</span><br><span class="line">Stddev IOPS:          2.41293</span><br><span class="line">Max IOPS:             49</span><br><span class="line">Min IOPS:             42</span><br><span class="line">Average Latency(s):   0.341056</span><br><span class="line">Max latency(s):       1.02721</span><br><span class="line">Min latency(s):       0.0354267</span><br></pre></td></tr></table></figure>
+<h3 id="pg-write-2">32pg-write</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">[root@client my-cluster]<span class="comment">#  rados bench -p test_32 10 write --no-cleanup</span></span><br><span class="line">hints = 1</span><br><span class="line">Maintaining 16 concurrent writes of 4194304 bytes to objects of size 4194304 <span class="keyword">for</span> up to 10 seconds or 0 objects</span><br><span class="line">Object prefix: benchmark_data_client_1975</span><br><span class="line">  sec Cur ops   started  finished  avg MB/s  cur MB/s last lat(s)  avg lat(s)</span><br><span class="line">    0      16        16         0         0         0           -           0</span><br><span class="line">    1      16        26        10   38.1903        40    0.732764    0.471056</span><br><span class="line">    2      16        26        10   19.5317         0           -    0.471056</span><br><span class="line">    3      16        38        22   28.8472        24    0.219095     1.27366</span><br><span class="line">    4      16        44        28   27.6481        24    0.137962     1.51101</span><br><span class="line">    5      16        57        41   32.4233        52      2.2716     1.53511</span><br><span class="line">    6      16        68        52   34.3321        44    0.449053     1.44977</span><br><span class="line">    7      16        79        63      35.7        44    0.302931     1.47592</span><br><span class="line">    8      16        93        77   38.2174        56     2.63677     1.49436</span><br><span class="line">    9      16        93        77   33.9975         0           -     1.49436</span><br><span class="line">   10      16        94        78   31.0143         2     1.96357     1.50037</span><br><span class="line">Total time run:         11.0305</span><br><span class="line">Total writes made:      95</span><br><span class="line">Write size:             4194304</span><br><span class="line">Object size:            4194304</span><br><span class="line">Bandwidth (MB/sec):     34.4498</span><br><span class="line">Stddev Bandwidth:       21.8286</span><br><span class="line">Max bandwidth (MB/sec): 56</span><br><span class="line">Min bandwidth (MB/sec): 0</span><br><span class="line">Average IOPS:           8</span><br><span class="line">Stddev IOPS:            5.5267</span><br><span class="line">Max IOPS:               14</span><br><span class="line">Min IOPS:               0</span><br><span class="line">Average Latency(s):     1.85357</span><br><span class="line">Stddev Latency(s):      1.41313</span><br><span class="line">Max latency(s):         5.45862</span><br><span class="line">Min latency(s):         0.137962</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>用脚本连跑10次：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">[root@client my-cluster]<span class="comment"># for i in &#123;1..10&#125;; do rados bench -p test_32 10 write | grep Bandwidth; done; </span></span><br><span class="line">Bandwidth (MB/sec):     59.9439</span><br><span class="line">Stddev Bandwidth:       33.5095</span><br><span class="line">Bandwidth (MB/sec):     46.625</span><br><span class="line">Stddev Bandwidth:       37.2002</span><br><span class="line">Bandwidth (MB/sec):     55.771</span><br><span class="line">Stddev Bandwidth:       35.115</span><br><span class="line">Bandwidth (MB/sec):     48.577</span><br><span class="line">Stddev Bandwidth:       34.7134</span><br><span class="line">Bandwidth (MB/sec):     58.7724</span><br><span class="line">Stddev Bandwidth:       24.1808</span><br><span class="line">Bandwidth (MB/sec):     69.3474</span><br><span class="line">Stddev Bandwidth:       10.9057</span><br><span class="line">Bandwidth (MB/sec):     60.9558</span><br><span class="line">Stddev Bandwidth:       22.4737</span><br><span class="line">Bandwidth (MB/sec):     33.9022</span><br><span class="line">Stddev Bandwidth:       32.4127</span><br><span class="line">Bandwidth (MB/sec):     56.7089</span><br><span class="line">Stddev Bandwidth:       32.7387</span><br><span class="line">Bandwidth (MB/sec):     44.7909</span><br><span class="line">Stddev Bandwidth:       28.1457</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="pg-sequence-read-2">32pg-sequence-read</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[root@client my-cluster]<span class="comment">#  rados bench -p test_32 10 seq</span></span><br><span class="line">hints = 1</span><br><span class="line">  sec Cur ops   started  finished  avg MB/s  cur MB/s last lat(s)  avg lat(s)</span><br><span class="line">    0      16        16         0         0         0           -           0</span><br><span class="line">    1      16        59        43   171.228       172   0.0385992    0.271958</span><br><span class="line">    2       9        95        86   171.577       172    0.471282    0.309397</span><br><span class="line">Total time run:       2.08768</span><br><span class="line">Total reads made:     95</span><br><span class="line">Read size:            4194304</span><br><span class="line">Object size:          4194304</span><br><span class="line">Bandwidth (MB/sec):   182.02</span><br><span class="line">Average IOPS:         45</span><br><span class="line">Stddev IOPS:          0</span><br><span class="line">Max IOPS:             43</span><br><span class="line">Min IOPS:             43</span><br><span class="line">Average Latency(s):   0.338115</span><br><span class="line">Max latency(s):       0.95363</span><br><span class="line">Min latency(s):       0.0385992</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="pg-random-read-2">32pg-random-read</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">[root@client my-cluster]<span class="comment">#  rados bench -p test_32 10 rand</span></span><br><span class="line">hints = 1</span><br><span class="line">  sec Cur ops   started  finished  avg MB/s  cur MB/s last lat(s)  avg lat(s)</span><br><span class="line">    0      16        16         0         0         0           -           0</span><br><span class="line">    1      16        61        45   179.422       180     0.74929    0.254532</span><br><span class="line">    2      16       104        88   175.204       172    0.850363    0.315815</span><br><span class="line">    3      16       148       132   175.366       176    0.276546    0.331044</span><br><span class="line">    4      16       195       179   178.366       188    0.521309    0.332102</span><br><span class="line">    5      16       242       226   179.855       188    0.314342     0.34131</span><br><span class="line">    6      16       290       274   181.685       192   0.0828243    0.333258</span><br><span class="line">    7      16       340       324   184.193       200    0.384122    0.333196</span><br><span class="line">    8      16       390       374   186.026       200    0.684799    0.332075</span><br><span class="line">    9      16       438       422   186.568       192    0.326386    0.334081</span><br><span class="line">   10      14       484       470   187.099       192    0.147517    0.330817</span><br><span class="line">Total time run:       10.2976</span><br><span class="line">Total reads made:     484</span><br><span class="line">Read size:            4194304</span><br><span class="line">Object size:          4194304</span><br><span class="line">Bandwidth (MB/sec):   188.005</span><br><span class="line">Average IOPS:         47</span><br><span class="line">Stddev IOPS:          2.35702</span><br><span class="line">Max IOPS:             50</span><br><span class="line">Min IOPS:             43</span><br><span class="line">Average Latency(s):   0.33597</span><br><span class="line">Max latency(s):       0.861435</span><br><span class="line">Min latency(s):       0.0396284</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="pg-write-3">64pg-write</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">[root@client my-cluster]<span class="comment">#  rados bench -p test_64 10 write --no-cleanup</span></span><br><span class="line">hints = 1</span><br><span class="line">Maintaining 16 concurrent writes of 4194304 bytes to objects of size 4194304 <span class="keyword">for</span> up to 10 seconds or 0 objects</span><br><span class="line">Object prefix: benchmark_data_client_2044</span><br><span class="line">  sec Cur ops   started  finished  avg MB/s  cur MB/s last lat(s)  avg lat(s)</span><br><span class="line">    0      16        16         0         0         0           -           0</span><br><span class="line">    1      16        28        12   47.7881        48    0.821814    0.530183</span><br><span class="line">    2      16        28        12   23.9426         0           -    0.530183</span><br><span class="line">    3      16        28        12   15.9728         0           -    0.530183</span><br><span class="line">    4      16        28        12   11.9835         0           -    0.530183</span><br><span class="line">    5      16        48        32   25.5699        20    0.332875     2.16307</span><br><span class="line">    6      16        48        32   21.3088         0           -     2.16307</span><br><span class="line">    7      16        48        32   18.2668         0           -     2.16307</span><br><span class="line">    8      16        60        44   21.9664        16     3.52734     2.40358</span><br><span class="line">    9      16        79        63    27.953        76    0.328888     2.13351</span><br><span class="line">   10      16        94        78   31.1512        60     1.56697     1.90626</span><br><span class="line">Total time run:         10.7655</span><br><span class="line">Total writes made:      95</span><br><span class="line">Write size:             4194304</span><br><span class="line">Object size:            4194304</span><br><span class="line">Bandwidth (MB/sec):     35.298</span><br><span class="line">Stddev Bandwidth:       28.8598</span><br><span class="line">Max bandwidth (MB/sec): 76</span><br><span class="line">Min bandwidth (MB/sec): 0</span><br><span class="line">Average IOPS:           8</span><br><span class="line">Stddev IOPS:            7.21495</span><br><span class="line">Max IOPS:               19</span><br><span class="line">Min IOPS:               0</span><br><span class="line">Average Latency(s):     1.79688</span><br><span class="line">Stddev Latency(s):      1.55913</span><br><span class="line">Max latency(s):         6.93613</span><br><span class="line">Min latency(s):         0.217925</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">[root@client my-cluster]<span class="comment"># for i in &#123;1..10&#125;; do rados bench -p test_64 10 write | grep Bandwidth; done; </span></span><br><span class="line">Bandwidth (MB/sec):     56.623</span><br><span class="line">Stddev Bandwidth:       32.4037</span><br><span class="line">Bandwidth (MB/sec):     67.299</span><br><span class="line">Stddev Bandwidth:       32.0011</span><br><span class="line">Bandwidth (MB/sec):     45.9977</span><br><span class="line">Stddev Bandwidth:       37.938</span><br><span class="line">Bandwidth (MB/sec):     48.8507</span><br><span class="line">Stddev Bandwidth:       29.0563</span><br><span class="line">Bandwidth (MB/sec):     65.7182</span><br><span class="line">Stddev Bandwidth:       21.8317</span><br><span class="line">Bandwidth (MB/sec):     46.7364</span><br><span class="line">Stddev Bandwidth:       37.4285</span><br><span class="line">Bandwidth (MB/sec):     34.3725</span><br><span class="line">Stddev Bandwidth:       29.6949</span><br><span class="line">Bandwidth (MB/sec):     64.8197</span><br><span class="line">Stddev Bandwidth:       24.5855</span><br><span class="line">Bandwidth (MB/sec):     32.0614</span><br><span class="line">Stddev Bandwidth:       24.2296</span><br><span class="line">Bandwidth (MB/sec):     71.1713</span><br><span class="line">Stddev Bandwidth:       15.2257</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="pg-sequence-read-3">64pg-sequence-read</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[root@client my-cluster]<span class="comment">#  rados bench -p test_64 10 seq</span></span><br><span class="line">hints = 1</span><br><span class="line">  sec Cur ops   started  finished  avg MB/s  cur MB/s last lat(s)  avg lat(s)</span><br><span class="line">    0      16        16         0         0         0           -           0</span><br><span class="line">    1      16        58        42   167.493       168    0.155289    0.290557</span><br><span class="line">    2      16        95        79   157.631       148   0.0937835    0.315392</span><br><span class="line">Total time run:       2.20564</span><br><span class="line">Total reads made:     95</span><br><span class="line">Read size:            4194304</span><br><span class="line">Object size:          4194304</span><br><span class="line">Bandwidth (MB/sec):   172.285</span><br><span class="line">Average IOPS:         43</span><br><span class="line">Stddev IOPS:          3.53553</span><br><span class="line">Max IOPS:             42</span><br><span class="line">Min IOPS:             37</span><br><span class="line">Average Latency(s):   0.363179</span><br><span class="line">Max latency(s):       0.992993</span><br><span class="line">Min latency(s):       0.0560291</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="pg-random-read-3">64pg-random-read</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[root@client my-cluster]<span class="comment">#  rados bench -p test_64 10 rand</span></span><br><span class="line">hints = 1</span><br><span class="line">  sec Cur ops   started  finished  avg MB/s  cur MB/s last lat(s)  avg lat(s)</span><br><span class="line">    0      16        16         0         0         0           -           0</span><br><span class="line">    1      16        58        42   166.187       168    0.543077    0.280292</span><br><span class="line">    2      16       103        87   173.032       180    0.378284    0.337691</span><br><span class="line">    3      16       149       133   176.212       184    0.567144    0.333579</span><br><span class="line">    4      16       194       178   176.995       180    0.126098    0.339528</span><br><span class="line">    5      16       241       225   179.033       188    0.823036    0.336461</span><br><span class="line">    6      16       288       272   180.343       188    0.186793    0.336102</span><br><span class="line">    7      16       336       320   181.929       192    0.345707    0.335597</span><br><span class="line">    8      16       385       369   183.558       196    0.586144    0.335348</span><br><span class="line">    9      16       433       417   184.242       192    0.205477    0.333466</span><br><span class="line">   10      16       480       464    184.48       188    0.613845    0.337157</span><br><span class="line">Total time run:       10.3019</span><br><span class="line">Total reads made:     480</span><br><span class="line">Read size:            4194304</span><br><span class="line">Object size:          4194304</span><br><span class="line">Bandwidth (MB/sec):   186.374</span><br><span class="line">Average IOPS:         46</span><br><span class="line">Stddev IOPS:          2.01108</span><br><span class="line">Max IOPS:             49</span><br><span class="line">Min IOPS:             42</span><br><span class="line">Average Latency(s):   0.340344</span><br><span class="line">Max latency(s):       0.843696</span><br><span class="line">Min latency(s):       0.0468526</span><br></pre></td></tr></table></figure>
+<h1 id="分析">分析</h1>
+<h2 id="osd-numbers-对性能的影响">osd numbers 对性能的影响</h2>
+<p>注：做完这部分实验后得知此部分不属于性能优化，故我们又做了后面的关于pg数的优化。</p>
+<p><img src="https://gsxgoldenlegendary.github.io/images/Operating_Systems/Osd_Read_Bandwidth.jpg" /></p>
+<figure>
+<img src="https://gsxgoldenlegendary.github.io/images/Operating_Systems/Osd_Read_IOPS.jpg" alt="Osd_Read_IOPS" /><figcaption>Osd_Read_IOPS</figcaption>
+</figure>
+<figure>
+<img src="https://gsxgoldenlegendary.github.io/images/Operating_Systems/Osd_Read_Latency.jpg" alt="Osd_Read_Latency" /><figcaption>Osd_Read_Latency</figcaption>
+</figure>
+<figure>
+<img src="https://gsxgoldenlegendary.github.io/images/Operating_Systems/Osd_Write_Bandwidth.jpg" alt="Osd_Write_Bandwidth" /><figcaption>Osd_Write_Bandwidth</figcaption>
+</figure>
+<figure>
+<img src="https://gsxgoldenlegendary.github.io/images/Operating_Systems/Osd_Write_IOPS.jpg" alt="Osd_Write_IOPS" /><figcaption>Osd_Write_IOPS</figcaption>
+</figure>
+<figure>
+<img src="https://gsxgoldenlegendary.github.io/images/Operating_Systems/Osd_Write_Latency.jpg" alt="Osd_Write_Latency" /><figcaption>Osd_Write_Latency</figcaption>
+</figure>
+<p>我们使用概率论与数理统计的知识进行分析，有力地证明 bandwidth 和 latency 两个指标优化达到了20%。</p>
+<h3 id="bandwidth">bandwidth</h3>
+<blockquote>
+<p><span class="math inline">\(bw_{avg}\)</span>: average bandwidth in 1 second</p>
+</blockquote>
+<p>1osd：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">sec</th>
+<th style="text-align: center;"><span class="math inline">\(bw_{avg}\)</span> (MB/s)</th>
+<th style="text-align: center;"><span class="math inline">\(1.2 \times bw_{avg}\)</span> (MB/s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">154.502</td>
+<td style="text-align: center;">185.4024</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">236.91</td>
+<td style="text-align: center;">284.2956</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">245.316</td>
+<td style="text-align: center;">294.3792</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">237.41</td>
+<td style="text-align: center;">284.892</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">240.127</td>
+<td style="text-align: center;">288.1524</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">240.464</td>
+<td style="text-align: center;">288.5568</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">243.113</td>
+<td style="text-align: center;">291.7356</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">241.376</td>
+<td style="text-align: center;">289.6512</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">242.55</td>
+<td style="text-align: center;">291.06</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">242.805</td>
+<td style="text-align: center;">291.366</td>
+</tr>
+</tbody>
+</table>
+<p>2osd：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">sec</th>
+<th style="text-align: center;"><span class="math inline">\(bw_{avg}\)</span> (MB/s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">259.605</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">381.911</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">397.347</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">393.969</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">398.649</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">394.582</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">396.047</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">397.656</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">396.699</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">396.017</td>
+</tr>
+</tbody>
+</table>
+<p>3osd：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">sec</th>
+<th style="text-align: center;"><span class="math inline">\(bw_{avg}\)</span> (MB/s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">315.836</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">441.663</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">460.521</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">456.142</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">461.862</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">471.263</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">474.081</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">475.144</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">471.616</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">466.206</td>
+</tr>
+</tbody>
+</table>
+<p>在99.5%置信度下，要检验问题：“ 2osd 的<span class="math inline">\(bw_{avg}\)</span>比 1osd 的高20%”，即检验" 2osd 的<span class="math inline">\(bw_{avg}\)</span>大于 1osd 的<span class="math inline">\(1.2\times bw_{avg}\)</span>“[。将其设置为对立假设，假设检验问题为</p>
+<p><span class="math inline">\(H_0:\mu_1\geq\mu_2\leftrightarrow H_1: \mu_1 &lt; \mu_2\)</span></p>
+<p>假设检验量为</p>
+<p><span class="math inline">\(T=\frac{\mu_1-\mu_2}{\sqrt{S_w^2(\frac{1}{m} + \frac{1}{n})}}\)</span></p>
+<p>拒绝域取为<span class="math inline">\(D=\{T &lt; -t_{m+n-2}(\alpha)\}\)</span>。</p>
+<p>做一些计算:</p>
+<p>1osd: <span class="math inline">\(\mu_1=278.949, S_1^2=1089.874, m=10\)</span>，</p>
+<p>2osd: <span class="math inline">\(\mu_2=381.248, S_2^2=1849.349,n=10\)</span>，</p>
+<p><span class="math inline">\(S_w^2=\frac{(m-1)S_1^2+(n-1)S_2^2}{m+n-2}\approx 1469.612\)</span></p>
+<p>代入得<span class="math inline">\(T\approx -5.967 &lt; -t_{18}(0.005)=-2.878\)</span>，因此有足够的证据否定原假设，认为对立假设成立，即可以认为 2osd 的 write bandwidth 比 1osd 的 write bandwidth 性能高20%。</p>
+<p>在99.5%置信度下，要检验问题：“ 3osd 的<span class="math inline">\(bw_{avg}\)</span>比 1osd 的高20%”，即检验" 3osd 的<span class="math inline">\(bw_{avg}\)</span>大于osd1的<span class="math inline">\(1.2\times bw_{avg}\)</span>“。将其设置为对立假设，假设检验问题为</p>
+<p><span class="math inline">\(H_0:\mu_1 \geq \mu_2 \leftrightarrow H_1: \mu_1 &lt; \mu_2\)</span></p>
+<p>假设检验量为</p>
+<p><span class="math inline">\(T=\frac{\mu_1-\mu_2}{\sqrt{S_w^2(\frac{1}{m} + \frac{1}{n})}}\)</span></p>
+<p>拒绝域取为<span class="math inline">\(D=\{T &lt; -t_{m+n-2}(\alpha)\}\)</span>。</p>
+<p>做一些计算:</p>
+<p>1osd: <span class="math inline">\(\mu_1=278.949, S_1^2=1089.874, m=10\)</span>，</p>
+<p>2osd: <span class="math inline">\(\mu_2=449.433, S_2^2=2305.501,n=10\)</span>，</p>
+<p><span class="math inline">\(S_w^2=\frac{(m-1)S_1^2+(n-1)S_2^2}{m+n-2}\approx 1697.688\)</span></p>
+<p>代入得<span class="math inline">\(T\approx -9.252 &lt; -t_{18}(0.005)=-2.878\)</span>，因此有足够的证据否定原假设，认为对立假设成立，即可以认为 3osd 的 write bandwidth 比 1osd 的 write bandwidth 性能高20%。</p>
+<h3 id="latency">latency</h3>
+<blockquote>
+<p><span class="math inline">\(lat_{avg}\)</span>: average latency in 1 second</p>
+</blockquote>
+<p>1osd：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">sec</th>
+<th style="text-align: center;"><span class="math inline">\(lat_{avg}\)</span> (s)</th>
+<th style="text-align: center;"><span class="math inline">\(0.8 \times lat_{avg}\)</span> (s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0.0733457</td>
+<td style="text-align: center;">0.05867656</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.0627875</td>
+<td style="text-align: center;">0.05023</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0.0636084</td>
+<td style="text-align: center;">0.05088672</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0.0661597</td>
+<td style="text-align: center;">0.05292776</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0.0661789</td>
+<td style="text-align: center;">0.05294312</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">0.0657598</td>
+<td style="text-align: center;">0.05260784</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">0.0654685</td>
+<td style="text-align: center;">0.0523748</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">0.0654549</td>
+<td style="text-align: center;">0.05236392</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">0.0656566</td>
+<td style="text-align: center;">0.05252528</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">0.0653354</td>
+<td style="text-align: center;">0.05226832</td>
+</tr>
+</tbody>
+</table>
+<p>2osd：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">sec</th>
+<th style="text-align: center;"><span class="math inline">\(lat_{avg}\)</span> (s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0.0482161</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.040804</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0.0396624</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0.0402444</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0.0400131</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">0.0403615</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">0.040216</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">0.0401435</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">0.0401707</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">0.0403205</td>
+</tr>
+</tbody>
+</table>
+<p>3osd：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">sec</th>
+<th style="text-align: center;"><span class="math inline">\(lat_{avg}\)</span> (s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0.0469811</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.0350493</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0.0343215</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0.0348378</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0.0344481</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">0.0338161</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">0.0337161</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">0.033607</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">0.0338197</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">0.0342532</td>
+</tr>
+</tbody>
+</table>
+<p>在99.5%置信度下，要检验问题：“ 2osd 的<span class="math inline">\(lat_{avg}\)</span>比 1osd 的低20%”，即检验" 2osd 的<span class="math inline">\(lat_{avg}\)</span>小于 1osd 的<span class="math inline">\(0.8\times lat_{avg}\)</span>“。将其设置为对立假设，假设检验问题为</p>
+<p><span class="math inline">\(H_0:\mu_1 \leq \mu_2 \leftrightarrow H_1: \mu_1 &gt; \mu_2\)</span></p>
+<p>假设检验量为</p>
+<p><span class="math inline">\(T=\frac{\mu_1-\mu_2}{\sqrt{S_w^2(\frac{1}{m} + \frac{1}{n})}}\)</span></p>
+<p>拒绝域取为<span class="math inline">\(D=\{T &gt; t_{m+n-2}(\alpha)\}\)</span>。</p>
+<p>做一些计算:</p>
+<p>1osd: <span class="math inline">\(\mu_1=0.05278, S_1^2=5.070\times 10^{-6}, m=10\)</span>，</p>
+<p>2osd: <span class="math inline">\(\mu_2=0.04101, S_2^2=6.492\times10^{-6},n=10\)</span>，</p>
+<p><span class="math inline">\(S_w^2=\frac{(m-1)S_1^2+(n-1)S_2^2}{m+n-2}\approx 5.781\times 10^{-6}\)</span></p>
+<p>代入得<span class="math inline">\(T\approx 10.946 &gt; t_{18}(0.005)=2.878\)</span>，因此有足够的证据否定原假设，认为对立假设成立，即可以认为 2osd 的 write latency 比 1osd 的 write latency 性能高20%。</p>
+<p>在99.5%置信度下，要检验问题：“ 3osd 的<span class="math inline">\(lat_{avg}\)</span>比 1osd 的低20%”，即检验" 3osd 的<span class="math inline">\(lat_{avg}\)</span>小于 1osd 的<span class="math inline">\(0.8\times lat_{avg}\)</span>“。将其设置为对立假设，假设检验问题为</p>
+<p><span class="math inline">\(H_0:\mu_1 \leq \mu_2 \leftrightarrow H_1: \mu_1 &gt; \mu_2\)</span></p>
+<p>假设检验量为</p>
+<p><span class="math inline">\(T=\frac{\mu_1-\mu_2}{\sqrt{S_w^2(\frac{1}{m} + \frac{1}{n})}}\)</span></p>
+<p>拒绝域取为<span class="math inline">\(D=\{T &gt; t_{m+n-2}(\alpha)\}\)</span>。</p>
+<p>做一些计算:</p>
+<p>1osd: <span class="math inline">\(\mu_1=0.05278, S_1^2=5.070\times 10^{-6}, m=10\)</span>，</p>
+<p>3osd: <span class="math inline">\(\mu_2=0.03549, S_2^2=16.541\times10^{-6},n=10\)</span>，</p>
+<p><span class="math inline">\(S_w^2=\frac{(m-1)S_1^2+(n-1)S_2^2}{m+n-2}\approx 10.806\times 10^{-6}\)</span></p>
+<p>代入得<span class="math inline">\(T\approx 11.761 &gt; t_{18}(0.005)=2.878\)</span>，因此有足够的证据否定原假设，认为对立假设成立，即可以认为 3osd 的 write latency 比 1osd 的 write latency 性能高20%。</p>
+<h2 id="pg-numbers-对性能的影响">pg numbers 对性能的影响</h2>
+<figure>
+<img src="https://gsxgoldenlegendary.github.io/images/Operating_Systems/Read_Bandwidth.jpg" alt="Read_Bandwidth" /><figcaption>Read_Bandwidth</figcaption>
+</figure>
+<figure>
+<img src="https://gsxgoldenlegendary.github.io/images/Operating_Systems/Read_IOPS.jpg" alt="Read_IOPS" /><figcaption>Read_IOPS</figcaption>
+</figure>
+<figure>
+<img src="https://gsxgoldenlegendary.github.io/images/Operating_Systems/Read_Latency.jpg" alt="Read_Latency" /><figcaption>Read_Latency</figcaption>
+</figure>
+<p>我们将pg从8调为32后，通过上面3张图可知，随机读带宽、随机读IOPS、随机读延迟、顺序读带宽、顺序读IOPS、顺序读延迟分别优化达到8.08%，9.30%，9.04%，10.91%，10.98%，13.77%。<img src="https://gsxgoldenlegendary.github.io/images/Operating_Systems/Write_Bandwidth.jpg" alt="Write_Bandwidth" /></p>
+<figure>
+<img src="https://gsxgoldenlegendary.github.io/images/Operating_Systems/Write_IOPS.jpg" alt="Write_IOPS" /><figcaption>Write_IOPS</figcaption>
+</figure>
+<figure>
+<img src="https://gsxgoldenlegendary.github.io/images/Operating_Systems/Write_Latency.jpg" alt="Write_Latency" /><figcaption>Write_Latency</figcaption>
+</figure>
+<p>将pg从32调到8后，写带宽、写IOPS、写延迟分别优化达到95.94%，50.00%，50.54%。都达到了20%。其原因在于将每个存储池的 <code>placement of group</code> 适当增加后，在写入时更容易找到一个适合写入的组，但是与此同时，读取时需要的效率会降低。</p>
+<h2 id="参考资料">参考资料</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/OSH-2021/x-KATA-Unikernel/blob/main/lab4/">x-KATA-Unikernel/lab4 at main</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1PZ4y1L7c3?spm_id_from=333.1007.top_right_bar_window_custom_collection.content.click">Ceph部署实践——基于最新版Ceph14以及Centos7（初级课程）</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+      
+
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div></div>
+  <button>
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.jpg" alt="GUO Songxiao WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpg" alt="GUO Songxiao Alipay">
+        <span>Alipay</span>
+      </div>
+      <div>
+        <img src="/images/bitcoin.jpg" alt="GUO Songxiao Bitcoin">
+        <span>Bitcoin</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>GUO Songxiao
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="http://gsxgoldenlegendary.github.io/2022/06/28/Operating_Systems/Deploy-Test-and-Analyze-of-Ceph/" title="Deploy, Test, and Analyze on Ceph">http://gsxgoldenlegendary.github.io/2022/06/28/Operating_Systems/Deploy-Test-and-Analyze-of-Ceph/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://twitter.com/GSongxiao">
+          <span class="icon">
+            <i class="fab fa-twitter"></i>
+          </span>
+
+          <span class="label">Twitter</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/atom.xml">
+          <span class="icon">
+            <i class="fa fa-rss"></i>
+          </span>
+
+          <span class="label">RSS</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://github.com/gsxgoldenlegendary">
+          <span class="icon">
+            <i class="fab fa-github"></i>
+          </span>
+
+          <span class="label">GitHub</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="mailto:gsxgoldenlegendary@gmail.com">
+          <span class="icon">
+            <i class="fa fa-envelope"></i>
+          </span>
+
+          <span class="label">E-Mail</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://www.facebook.com/songxiao.guo">
+          <span class="icon">
+            <i class="fab fa-facebook"></i>
+          </span>
+
+          <span class="label">FB Page</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://blog.csdn.net/weixin_52075219">
+          <span class="icon">
+            <i class="fab fa-cuttlefish"></i>
+          </span>
+
+          <span class="label">CSDN</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://www.zhihu.com/people/jin-se-chuan-shuo-58-72">
+          <span class="icon">
+            <i class="fab fa-zhihu"></i>
+          </span>
+
+          <span class="label">Zhihu</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Operating-Systems/" rel="tag"><i class="fa fa-tag"></i> Operating Systems</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/06/20/Quantum_Physics/Quantum-Physics-Crip/" rel="prev" title="Solutions to Quantum Physics Homework">
+                  <i class="fa fa-chevron-left"></i> Solutions to Quantum Physics Homework
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa-solid fa-chess-king"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GUO Songxiao</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">317k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">4:48</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.7/pdfobject.min.js","integrity":"sha256-ph3Dk89VmuTVXG6x/RDzk53SU9LPdAh1tpv0UvnDZ2I="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"gsxgoldenlegendary/gsxgoldenlegendary.github.io","issue_term":"pathname","theme":"github-dark"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>
